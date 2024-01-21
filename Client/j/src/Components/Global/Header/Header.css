@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap');
+.navbar {
+    height: 10vh;
+    background: #e0dcdc;
+    display: flex;
+    /* position: fixed; */
+    justify-content: center;
+    align-items: center;
+    font-family: 'Barlow', sans-serif;
+  }
+  
+  .navbar-logo {
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 10rem;
+  }
+  
+  .nav-items {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: flex-end;
+    margin-right: 2rem;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: rgb(45, 42, 42);
+    font-size: 15px;
+    margin-right: 2rem;
+    padding: 6px 12px;
+    border-radius: 5px;
+  }
+  
+  header nav .nav-item a:hover {
+    color: #90BC34;
+  }
+  
+
+  header nav li{
+    list-style: none;
+    color: #87B724 ;
+    font-weight: 500;
+  }
+
+  .icons-cover-fa {
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    gap: 20px;
+  }
+
+
+  .icons-cover-fa li span{
+    color: #87B724;
+
+  }
+
+
+  header nav .nav-item a:hover {
+    color: #90BC34 !important;
+}
