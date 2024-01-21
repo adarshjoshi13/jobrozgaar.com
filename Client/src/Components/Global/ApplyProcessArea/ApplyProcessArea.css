@@ -1,0 +1,68 @@
+@media (max-width: 767px) {
+	.apply-process-area {
+		padding-top: 100px;
+		padding-bottom: 100px
+	}
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+	.apply-process-area {
+		padding-top: 100px;
+		padding-bottom: 100px
+	}
+}
+
+.apply-process-area .single-process {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px 5px;
+    align-items: center;
+}
+
+/* @media (max-width: 767px) {
+	.apply-process-area .single-process {
+		padding: 34px 10px
+	}
+} */
+
+.apply-process-area .single-process:hover .process-ion {
+	transform-style: preserve-3d;
+	transform: rotateY(-180deg)
+}
+
+.apply-process-area .single-process .process-ion {
+	transition: transform 650ms ease-in-out, filter 650ms ease-in-out;
+	    background: #c7d2d7;
+    width: 130px;
+    height: 130px;
+	/* margin-left:25%; */
+    border-radius: 50%;
+    box-shadow: -18px 30px 40px 0px;
+}
+
+.apply-process-area .single-process .process-ion span {
+	font-size: 60px;
+	
+	color: #325566;
+	
+	line-height: 125px;
+}
+
+.rojgarh2 {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Barlow';
+    color: #3e6778;
+    margin-bottom: 10px;
+}
+
+.apply-process-area .single-process .process-cap p {
+    color: #505155;
+    margin-top: 23px;
+}
+
+.apply-process-area{
+    padding: 50px 0px;
+}

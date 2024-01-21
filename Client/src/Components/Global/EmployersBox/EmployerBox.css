@@ -1,0 +1,22 @@
+.jobsimg{border-radius: 50%;
+    height: 150px;
+    width: 151px;
+    box-shadow: -7px 6px 20px 6px;
+}
+
+.mb-30{
+    margin-bottom: 30px;
+}
+
+.section-top-border{
+    padding: 50px 0px;
+}
+
+.section-top-border p {
+    font-family: "Muli", sans-serif;
+    color: #506172;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    font-weight: normal;
+  }
