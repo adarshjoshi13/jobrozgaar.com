@@ -20,3 +20,20 @@
     margin-bottom: 15px;
     font-weight: normal;
   }
+
+
+  @media screen and (max-width:700px) {
+    .section-top-border p {
+       text-align: center;
+      }
+
+      .section-top-border img{
+        text-align: center;
+
+      }
+
+      .section-top-border h3{
+        text-align: center;
+        margin: 10px;
+      }
+  }

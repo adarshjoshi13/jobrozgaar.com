@@ -9,10 +9,10 @@ const EmployerBox = ({ imageUrl, title, description }) => {
         <div className="section-top-border">
           <h3 className="mb-30">{title}</h3>
           <div className="row">
-            <div className="col-md-2">
-              <img src={imageUrl} alt="" className="jobsimg" />
+            <div className="col-md-3 text-center">
+              <img className="m-3 jobsimg" src={imageUrl} alt=""  />
             </div>
-            <div className="col-md-10 mt-sm-20">
+            <div className="col-md-9 mt-sm-20">
               <p>{description}</p>
             </div>
           </div>
