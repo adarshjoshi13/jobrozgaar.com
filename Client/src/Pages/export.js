@@ -10,5 +10,6 @@ import JobDetails from "./JobDetails";
 import StaffPlacement from "./StaffPlacement";
 import PayRoll from "./PayRoll";
 import ManPower from "./ManPower";
+import Login from "./Login";
 
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower}
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,Login}

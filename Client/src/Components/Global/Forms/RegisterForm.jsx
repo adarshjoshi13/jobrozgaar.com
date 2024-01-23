@@ -16,7 +16,7 @@ const RegisterForm = () => {
         </div>
         <div className="col-lg-6 col-md-6">
           <h5 className="mb-30 fleft"> Already Register</h5>
-          <span className="iconbutton"><Link >Login</Link></span>
+          <span className="iconbutton"><Link to='/login' >Login</Link></span>
         </div>
       </div>
 

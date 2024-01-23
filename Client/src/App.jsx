@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header,Footer } from './Components/export';
-import {Home,FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower} from './Pages/export'
+import {Home,FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, Login} from './Pages/export'
 import { Routes,Route } from 'react-router-dom';
 
 
@@ -27,6 +27,7 @@ function App() {
       <Route path='/staff-placement' element={<Layout><StaffPlacement/></Layout>}/>
       <Route path='/payroll_outsourcing' element={<Layout><PayRoll/></Layout>}/>
       <Route path='/manpower_outsourcing' element={<Layout><ManPower/></Layout>}/>
+      <Route path='/login' element={<Layout><Login/></Layout>}/>
     </Routes>
   )
 }
