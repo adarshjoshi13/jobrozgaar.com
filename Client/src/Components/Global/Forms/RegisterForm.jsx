@@ -1,6 +1,6 @@
 import React from 'react';
 import "./RegisterForm.css"
-import { FaFacebook, FaGoogle } from 'react-icons/fa';
+import { FaFacebook, FaGoogle ,FaLock,FaGlobe } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const RegisterForm = () => {
@@ -66,7 +66,8 @@ const RegisterForm = () => {
           </div>
 
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div className="mt-20">
+            <div className="input-group-icon mt-20">
+            <div className="icon"><FaGlobe/></div>
               <input
                 type="email"
                 name="EMAIL"
@@ -95,7 +96,7 @@ const RegisterForm = () => {
 
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div className="input-group-icon mt-20">
-              <div className="icon"><i className="fa fa-thumb-tack" aria-hidden="true"></i></div>
+              <div className="icon"><FaLock/></div>
               <input
                 type="password"
                 name="password"

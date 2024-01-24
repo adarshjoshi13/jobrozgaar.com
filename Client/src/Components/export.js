@@ -10,4 +10,5 @@ import EmployerBox from "./Global/EmployersBox/EmployerBox";
 import RegisterForm from "./Global/Forms/RegisterForm";
 import ContactSection from "./ContactForm/ContactSection";
 import JobDescription from "./Global/JobDescripation/JobDescription";
-export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,RegisterForm,ContactSection,JobDescription}
+import NormalForm from "./Global/NormalForm/NormalForm";
+export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,RegisterForm,ContactSection,JobDescription,NormalForm}
