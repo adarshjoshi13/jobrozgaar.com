@@ -1,0 +1,16 @@
+
+
+
+.all-input input{
+    width: 100%;
+    margin: 9px;
+    padding: 15px;
+    border: 1px solid gray;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.all-input img{
+   width: 32px;
+    
+}

@@ -1,0 +1,16 @@
+
+
+.date-input input {
+    margin: 9px;
+    padding: 15px;
+    border: 1px solid gray;
+    height: 40px;
+    border-radius: 5px;
+}
+
+
+
+.date-input img{
+    width: 32px;
+     
+ }

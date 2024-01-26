@@ -1,0 +1,37 @@
+.upper-nav img {
+  width: 233px;
+}
+
+
+.dash-nav {
+  height: auto;
+}
+
+@media screen and (max-width:606px) {
+  .upper-nav img {
+    width: 193px ;
+  }
+}
+
+@media screen and (max-width:606px) {
+  .upper-nav img {
+    width: 181px ;
+  }
+}
+
+
+
+
+
+
+
+
+/* 
+    .personal-hai {
+        width: 150px;
+    }
+    
+    
+    .personal-hai img {
+        width: 100%;
+    } */

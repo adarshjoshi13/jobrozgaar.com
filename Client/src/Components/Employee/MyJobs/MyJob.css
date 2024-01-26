@@ -1,0 +1,19 @@
+.my-job-box img{
+    width: 100%;
+    cursor: pointer;
+    /* height: 30px; */
+}
+
+.side-man{
+    width: 200px;
+}
+
+.sider-man-card button{
+    width: 30%;
+    margin: auto;
+    border-radius: 20px;
+    padding: 12px;
+    color: white;
+    background-color: #447D8E;
+    font-size: 22px;
+}
