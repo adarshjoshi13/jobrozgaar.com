@@ -1,8 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./NormalForm.css"
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaGoogle ,FaLock,FaGlobe } from 'react-icons/fa';
+import GetGoogleUrl from '../../../utlity/GetGoogleUrl';
+import formik from 'formik'
+import Loader from '../loader/Loader';
+import auth from '../../../API/Authentiocaion'
 function NormalForm() {
+    const [Loader,Setloader] = useState(false);
+    const formik = useFormik({
+        initialValues: {
+          username: '',
+          password: '',
+        },
+        onSubmit: async values => {
+          Setloader(true)
+          const result = await auth.login(values)
+          console.log("this is the result",result)
+           
+          if(result === null){
+            Setloader(false)
+            toast.warn("something went wrong please try again")
+          }
+    
+          if(result.status === 200){
+            Setloader(false);
+            navigate('/')
+            toast.success(result.data.message)
+          }
+           
+          else{
+            Setloader(false);
+                    toast.error(result.data.message)
+          }
+        
+         
+        },
+        validate: values => {
+          const errors = {};
+          if (!values.username) {
+            errors.username = 'username is required';
+          }
+          if (!values.password) {
+            errors.password = 'Password is required';
+          }
+          return errors;
+        },
+      });
     return (
         <>
             <div className="container">
@@ -10,8 +54,8 @@ function NormalForm() {
                     <div className="row">
                         <div className="col-lg-6 col-md-6">
                             <h5 className="mb-30 fleft">Register With Us </h5>
-                            <span className="iconbutton"><Link ><FaFacebook /></Link></span>
-                            <span className="iconbutton"><Link ><FaGoogle /></Link></span>
+                           
+                            <span className="iconbutton"><a href={GetGoogleUrl()}><FaGoogle /></a></span>
                         </div>
                         <div className="col-lg-6 col-md-6">
                             <h5 className="mb-30 fleft"> Already Register</h5>
