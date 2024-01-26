@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header,Footer } from './Components/export';
-import {Home,FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, Login} from './Pages/export'
+import {Home,FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, Login, EmployeDashBorad, MyJobs, PersonalProfile, WorkExperince} from './Pages/export'
 import { Routes,Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -17,6 +17,8 @@ const Layout = ({ children }) => (
 function App() {
 
   return (
+   <>
+     <ToastContainer />
     <Routes>
       <Route path='/' element={<Layout><Home/></Layout>}/>
       <Route path='/find-a-talent' element={<Layout><FindATalent/></Layout>}/>
@@ -30,7 +32,12 @@ function App() {
       <Route path='/payroll_outsourcing' element={<Layout><PayRoll/></Layout>}/>
       <Route path='/manpower_outsourcing' element={<Layout><ManPower/></Layout>}/>
       <Route path='/login' element={<Layout><Login/></Layout>}/>
+      <Route path='/employed-dashboard' element={<Layout><EmployeDashBorad/></Layout>}/>
+      <Route path='/my-jobs' element={<Layout><MyJobs/></Layout>}/>
+      <Route path='/Personal-profile' element={<Layout><PersonalProfile/></Layout>}/>
+      <Route path='/work-experience' element={<Layout><WorkExperince/></Layout>}/>
     </Routes>
+   </>
   )
 }
 

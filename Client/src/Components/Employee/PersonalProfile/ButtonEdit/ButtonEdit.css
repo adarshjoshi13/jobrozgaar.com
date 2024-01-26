@@ -1,0 +1,40 @@
+.image-btns {
+  background: #FAF9F9;
+  font-family: inherit;
+  padding: 2px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  border: 3px solid rgb(139, 133, 133);
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+  cursor: pointer;
+}
+
+
+
+@media screen and (max-width:606px) {
+  .image-btns {
+   padding: 2px;
+   font-size: 13px;
+  }
+}
+
+
+
+  
+  .image-btns:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+  }
+  
+  .image-btns:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+  }
+
+  .image-btns img {
+    width: 25px;
+    }

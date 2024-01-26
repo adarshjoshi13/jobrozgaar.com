@@ -1,0 +1,40 @@
+.button-cover-pin button {
+    padding: 12px 37px;
+    border-radius: 10px;
+    border: 0;
+    background-color: rgb(195, 213, 31);
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: rgb(186, 174, 176) 0px 10px 0px 0px;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+
+.button-cover-pin{
+    position: relative;
+    /* margin: 8px; */
+
+}
+
+.button-cover-pin img{
+    position: absolute;
+    left: 10px;
+    width: 32px;
+    bottom: 15px;
+}
+
+  .button-cover-pin button:hover {
+    box-shadow: rgb(186, 174, 176) 0px 7px 0px 0px;
+  }
+  
+  .button-cover-pin button:active {
+    background-color: rgb(219, 255, 56);
+    /*50, 168, 80*/
+    box-shadow: rgb(199, 189, 190) 0px 0px 0px 0px;
+    transform: translateY(5px);
+    transition: 200ms;
+  }
+  
