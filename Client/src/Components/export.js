@@ -11,7 +11,7 @@ import RegisterForm from "./Global/Forms/RegisterForm";
 import ContactSection from "./ContactForm/ContactSection";
 import JobDescription from "./Global/JobDescripation/JobDescription";
 import NormalForm from "./Global/NormalForm/NormalForm";
-// employee dashboard
+import Loader from "./Global/loader/Loader";
 import EmployeDash_Board from "./Employee/Dashboard/EmployeDashboard";
 import MyJob from "./Employee/MyJobs/MyJob";
 import ProfileCard from "./Employee/Global/ProfileCard/ProfileCard";
@@ -25,4 +25,8 @@ import WorkPage from "./Employee/WorkExperince/WorkPage";
 import EducationBox from "./Employee/Education/EducationBox";
 import OfferBox from "./Employee/OfferLetter/OfferBox";
 
+<<<<<<< HEAD
 export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,RegisterForm,ContactSection,JobDescription,NormalForm,EmployeDash_Board,MyJob,ProfileCard,Buttons,EmployeNav,PersonalDetails,PersonalNav,AboutMe,SmallBanner,WorkPage,EducationBox,OfferBox}
+=======
+export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,RegisterForm,ContactSection,JobDescription,NormalForm,EmployeDash_Board,MyJob,ProfileCard,Buttons,EmployeNav,PersonalDetails,PersonalNav,AboutMe,SmallBanner,WorkPage,Loader}
+>>>>>>> b5f6dc181e47423d69502fcdc94a71758bcf50ab
