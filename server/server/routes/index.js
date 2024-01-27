@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/sign-up',SignUP);
-router.get('/sign-in',SignIn);
+router.post('/sign-in',SignIn);
 router.get('/logout',logout);
 router.get('/oauth/google',GoogleAUth);
 router.get('/verify',verifyUser)

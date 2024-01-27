@@ -21,8 +21,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 dotenv.config()
-app.use(cors())
-
+const corsOptions = {
+  origin: process.env.BACKTOHOME, 
+  credentials: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

@@ -1,6 +1,8 @@
 const {GetGoogleAuthToken,fetchGoogleUserInfo,findUserByEmail,Sendemail} = require('../Service/employee.auth');
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 const  employeeIntialdata = require('../Models/Employee.model');
+const { default: mongoose } = require('mongoose');
 async function SignUP(req,res){
    const {firstName,mobile,email,password} = req.body
    console.log(firstName,mobile,email,password)
@@ -39,8 +41,44 @@ async function SignUP(req,res){
    }
 }
 
-function SignIn(req,res){
-    res.send("hello working")
+async function SignIn(req,res){
+  const { email, password } = req.body;
+  const employee = await employeeIntialdata.findOne({ email });
+  console.log(employee, req.body);
+
+  if (!employee) {
+    return res.status(404).json({ message: 'user  not found' });
+  }
+
+  if(!employee.isVerified){
+    return res.status(401).json({ message: 'email not verified please verify your email to login'});
+  }
+
+
+  const validPassword = await bcrypt.compare(password, employee.password);
+  if (!validPassword) {
+    return res.status(401).json({ message: 'wrong password' });
+  }
+
+  const accessToken = jwt.sign({ employeeId: employee._id }, process.env.ACCESS_TOKEN_SECRET);
+  const refershToken = jwt.sign({refershToken:employee._id},process.env.REFRESH_TOKEN_SECRET)
+
+ try {
+  const result = await employee.updateOne({ _id: employee._id }, { $set: { refershToken: refershToken } });
+ } catch (error) {
+    console.log(error)
+   return res.json({message:"internal server error",}).status(500)
+ }
+  
+  res.cookie('token', accessToken, {
+    httpOnly: true,
+  });
+
+  res.cookie('refresh-token',refershToken,{
+    httpOnly:true,
+  })
+
+  return res.json({message:"succesfuly login",token:accessToken,refershToken,}).status(200)
 }
 
 function logout(req,res){
@@ -96,27 +134,37 @@ async function verifyUser(req, res) {
     const id = req.query.id;
 
     if (!id) {
-      res.render('signuperorr', { error: { message: 'Something went wrong! Please Sign Up Again'} });
+     return res.render('signuperorr',  { error: { message: 'Something went wrong! Please Sign Up Again',url:process.env.BACKTOHOME } });
     }
 
     console.log('id', id);
 
+    // check for again validation
+
+    const checkverifaction = await employeeIntialdata.findOne({_id:id});
+    console.log("cehck data",checkverifaction);
+    if(checkverifaction.check === true){
+    return  res.render('signuperorr',  { error: { message: 'user already verfied',url:process.env.BACKTOHOME } });
+    }
+
     const employeeUpdate = await employeeIntialdata.findByIdAndUpdate(
       { _id: id },
-      { isVerified: true },
+      { isVerified: true, check:true },
       { new: true } 
     );
 
     if (!employeeUpdate) {
-      res.render('signuperorr', { error: { message: 'Something went wrong! Please Sign Up Again' } });
+     return res.render('signuperorr', { error: { message: 'Something went wrong! Please Sign Up Again',url:process.env.BACKTOHOME } });
     }
-    0
+    
+    console.log(employeeUpdate)
 
-    res.render('success', {data: employeeUpdate.firstName,url:process.env.loginpageurl})
+
+   return res.render('success', {data: employeeUpdate.firstName,url:process.env.loginpageurl})
 
   } catch (error) {
     console.error(error);
-    res.render('signuperorr', { error: { message: 'Something went wrong! Please Sign Up Again'} });
+   return res.render('signuperorr',  { error: { message: 'Something went wrong! Please Sign Up Again',url:process.env.BACKTOHOME } });
   }
 }
 

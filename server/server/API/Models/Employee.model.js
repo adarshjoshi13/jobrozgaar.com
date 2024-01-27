@@ -38,6 +38,7 @@ const employeeIntialData = new mongoose.Schema({
     required: true,
     enum: ['local', 'google', 'another_oauth_provider']
   },
+  check:Boolean,
   refershToken:String,
 });
 employeeIntialData.pre('save', async function (next) {

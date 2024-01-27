@@ -7,7 +7,7 @@ class Authentication {
 
   async login(data) {
     try {
-      const result = await axios.post(`${this.url}/login`, data, {
+      const result = await axios.post(`${this.url}/sign-in`, data, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json', 
