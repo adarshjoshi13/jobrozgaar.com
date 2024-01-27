@@ -10,3 +10,22 @@
   .image-cover-personal h4 {
     text-align: center;
   }
+
+  @media  screen and (max-width:798px) {
+    .pro-para {
+        font-size: 17px;
+      }
+  }
+
+
+  @media  screen and (max-width:468px) {
+    .pro-para {
+        font-size: 17px;
+      }
+  }
+
+  @media  screen and (max-width:398px) {
+    .pro-para {
+        font-size: 15px;
+      }
+  }

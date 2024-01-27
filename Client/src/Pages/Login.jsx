@@ -1,64 +1,91 @@
 import React from 'react'
- import { Link } from 'react-router-dom';
-import { FaGoogle, FaFacebookF } from 'react-icons/fa';
+import { faEnvelope, faLock, faUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
 import "./Login.css"
 function Login() {
   return (
-   <>
- 
-
-// JSX equivalent
-<div className='login-form-cover'>
-    <div className="container">
-  <div className="row">
-    {/* Left Blank Side */}
-    <div className="col-lg-6"></div>
-
-    {/* Right Side Form */}
-    <div className="col-lg-6 d-flex align-items-center justify-content-center right-side">
-      <div className="form-2-wrapper">
-        <div className="logo text-center">
-          <h2>Logo</h2>
-        </div>
-        <h2 className="text-center mb-4">Sign Into Your Account</h2>
-        <form action="#">
-          <div className="mb-3 form-box">
-            <input type="email" className="form-control" id="email" name="email" placeholder="Enter Your Email" required />
-          </div>
-          <div className="mb-3">
-            <input type="password" className="form-control" id="password" name="password" placeholder="Enter Your Password" required />
-          </div>
-          <div className="mb-3">
-            <div className="form-check">
-              <input type="checkbox" className="form-check-input" id="rememberMe" />
-              <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
-              <Link to="forget-3.html" className="text-decoration-none float-end">Forget Password</Link>
+    <>
+    <div className="login-form-cover">
+       <div className="container">
+        <input type="checkbox" id="flip" />
+        <div className="cover">
+          <div className="front">
+            <img src="https://www.betterup.com/hubfs/Young-team-working-together-in-a-meeting-room.jpg#keepProtocol" alt="" />
+            <div className="text">
+              <span className="text-1">Every new friend is a <br /> new adventure</span>
+              <span className="text-2">Let's get connected</span>
             </div>
           </div>
-          <button type="submit" className="btn btn-outline-secondary login-btn w-100 mb-3">Login</button>
-          <div className="social-login mb-3 type--A">
-            <h5 className="text-center mb-3">Social Login</h5>
-            <button className="btn btn-outline-secondary mb-3"><FaGoogle className="text-danger" /> Sign With Google</button>
-            <button className="btn btn-outline-secondary mb-3"><FaFacebookF className="text-primary" /> Sign With Facebook</button>
+          <div className="back">
+            {/* <img className="backImg" src="images/backImg.jpg" alt="" /> */}
+            <div className="text">
+              <span className="text-1">Complete miles of journey <br /> with one step</span>
+              <span className="text-2">Let's get started</span>
+            </div>
           </div>
-        </form>
-
-        {/* Register Link */}
-        <p className="text-center register-test mt-3">Don't have an account? <Link to="register-3.html" className="text-decoration-none">Register here</Link></p>
+        </div>
+        <div className="forms">
+          <div className="form-content">
+            <div className="login-form">
+              <div className="title">Login</div>
+              <form action="#">
+                <div className="input-boxes">
+                  <div className="input-box">
+                    <i><faEnvelope /></i>
+                    <input type="text" placeholder="Enter your email" required />
+                  </div>
+                  <div className="input-box">
+                    <i><faLock /></i>
+                    <input type="password" placeholder="Enter your password" required />
+                  </div>
+                  <div className="text"><Link to="#">Forgot password?</Link></div>
+                  <div className="button input-box">
+                    <input type="submit" value="Submit" />
+                  </div>
+                  <button style={{ width: '100%' }} type="button" className="login-with-google-btn">
+                    Sign in with Google
+                  </button>
+                  <div className="text sign-up-text">Don't have an account? <label htmlFor="flip"><Link to="#">Sign up now</Link></label></div>
+                </div>
+              </form>
+            </div>
+            <div className="signup-form">
+              <div className="title">Signup</div>
+              <form action="#">
+                <div className="input-boxes">
+                  <div className="input-box">
+                    <i><faUser /></i>
+                    <input type="text" placeholder="Enter your name" required />
+                  </div>
+                  <div className="input-box">
+                    <i><faEnvelope /></i>
+                    <input type="text" placeholder="Enter your email" required />
+                  </div>
+                  <div className="input-box">
+                    <i><faLock /></i>
+                    <input type="password" placeholder="Enter your password" required />
+                  </div>
+                  <div className="button input-box">
+                    <input type="submit" value="Submit" />
+                  </div>
+                  <div className="text sign-up-text">Already have an account? <label htmlFor="flip"><Link to="#">Login now</Link></label></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>;
-</div>
+     
 
 
-  
-   </>
-    
+    </>
+
     // Pills navs
-  
-   
-    
+
+
+
   )
 }
 

@@ -16,5 +16,7 @@ import EmployeDashBorad from "./Employee/EmployeDashBorad";
 import MyJobs from "./Employee/MyJobs";
 import PersonalProfile from "./Employee/PersonalProfile";
 import WorkExperince from "./Employee/WorkExperince";
+import Education from "./Employee/Education";
+import OfferLetter from "./Employee/OfferLetter";
 
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,Login,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince}
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,Login,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,OfferLetter}

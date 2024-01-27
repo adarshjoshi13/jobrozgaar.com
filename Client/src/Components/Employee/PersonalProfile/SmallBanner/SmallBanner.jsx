@@ -4,7 +4,7 @@ import "./SmallBanner.css";
 function SmallBanner({ personalImage, workImage, eduImage }) {
   return (
     <div className="container work-ex p-3">
-      <div className="row">
+      <div className="row w-100">
         <div className="col-md-3">
           <img src={personalImage} alt="Personal Image" />
         </div>

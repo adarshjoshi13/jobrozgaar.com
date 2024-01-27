@@ -20,8 +20,8 @@ function EmployeDash_Board() {
                 <Buttons to='/my-jobs' color={"#3C6271"} title={"My Jobs"} />
                 <Buttons to='/personal-profile' color={"#87b724"} title={"Personal Profile"} />
                 <Buttons to='/work-experience' color={"#3C6271"} title={"Work Experince"} />
-                <Buttons to='eduction' color={"#87b724"} title={"Eduction"} />
-                <Buttons to='offer-letter' color={"#3C6271"} title={"Offer Letter"} />
+                <Buttons to='/education' color={"#87b724"} title={"Education"} />
+                <Buttons to='/offer-letter' color={"#3C6271"} title={"Offer Letter"} />
                 <Buttons to='setting' color={"#87b724"} title={"Setting"} />
                 <Buttons to='tips-support' color={"#3C6271"} title={"Tips & Support"} />
             </div>

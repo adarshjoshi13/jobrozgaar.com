@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header,Footer } from './Components/export';
-import {Home,FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, Login, EmployeDashBorad, MyJobs, PersonalProfile, WorkExperince} from './Pages/export'
+import {Home,FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, Login, EmployeDashBorad, MyJobs, PersonalProfile, WorkExperince, Education, OfferLetter} from './Pages/export'
 import { Routes,Route } from 'react-router-dom';
 
 
@@ -32,6 +32,8 @@ function App() {
       <Route path='/my-jobs' element={<Layout><MyJobs/></Layout>}/>
       <Route path='/Personal-profile' element={<Layout><PersonalProfile/></Layout>}/>
       <Route path='/work-experience' element={<Layout><WorkExperince/></Layout>}/>
+      <Route path='/education' element={<Layout><Education/></Layout>}/>
+      <Route path='/offer-letter' element={<Layout><OfferLetter/></Layout>}/>
     </Routes>
   )
 }

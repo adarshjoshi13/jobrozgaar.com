@@ -22,5 +22,7 @@ import PersonalNav  from "./Employee/PersonalProfile/personalNav/personalNav";
 import AboutMe from "./Employee/PersonalProfile/AboutMe/AboutMe";
 import SmallBanner from "./Employee/PersonalProfile/SmallBanner/SmallBanner";
 import WorkPage from "./Employee/WorkExperince/WorkPage";
+import EducationBox from "./Employee/Education/EducationBox";
+import OfferBox from "./Employee/OfferLetter/OfferBox";
 
-export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,RegisterForm,ContactSection,JobDescription,NormalForm,EmployeDash_Board,MyJob,ProfileCard,Buttons,EmployeNav,PersonalDetails,PersonalNav,AboutMe,SmallBanner,WorkPage}
+export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,RegisterForm,ContactSection,JobDescription,NormalForm,EmployeDash_Board,MyJob,ProfileCard,Buttons,EmployeNav,PersonalDetails,PersonalNav,AboutMe,SmallBanner,WorkPage,EducationBox,OfferBox}

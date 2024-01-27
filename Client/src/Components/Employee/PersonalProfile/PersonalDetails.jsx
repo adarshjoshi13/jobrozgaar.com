@@ -11,7 +11,7 @@ import AboutMe from './AboutMe/AboutMe';
 
 function PersonalDetails() {
     return (
-        <div className="personal-details container ">
+        <div className="personal-details ">
             {/* Navbar */}
             <PersonalNav />
             <div className="conatiner">
@@ -64,7 +64,7 @@ function PersonalDetails() {
                     label2="Current State"
                     placeholder2="Status"
                 />
-                <div className="container m-2 d-flex justify-content-center align-items-center flex-wrap text-center">
+                <div className="container  d-flex justify-content-center align-items-center flex-wrap text-center">
                     <div className="m-1 checkbox-wrapper-31">
                         <input type="checkbox" />
                         <svg viewBox="0 0 35.6 35.6">
