@@ -33,7 +33,6 @@ class Authentication {
   async signup(data) {
     try {
       const result = await axios.post(`${this.url}/sign-up`, data, {
-        withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -44,6 +43,7 @@ class Authentication {
       return result;
     } catch (error) {
         if (error.response) {
+          console.log("data",error.response.data)
           return error.response
           } else if (error.request) {
             console.error('No response received:', error.request);

@@ -3,6 +3,7 @@ import { Header,Footer } from './Components/export';
 import {Home,FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, Login, EmployeDashBorad, MyJobs, PersonalProfile, WorkExperince} from './Pages/export'
 import { Routes,Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 

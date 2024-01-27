@@ -1,52 +1,50 @@
 import React, { useState } from 'react'
 import "./NormalForm.css"
-import { Link } from 'react-router-dom';
-import { FaFacebook, FaGoogle ,FaLock,FaGlobe } from 'react-icons/fa';
+import { Link,useNavigate } from 'react-router-dom';
+import { FaFacebook, FaGoogle ,FaLock,FaGlobe,FaMobile } from 'react-icons/fa';
 import GetGoogleUrl from '../../../utlity/GetGoogleUrl';
-// import formik from 'formik'
+import { Formik, Form, Field, ErrorMessage,useFormik } from 'formik';
 import Loader from '../loader/Loader';
 import auth from '../../../API/Authentiocaion'
+import { ToastContainer, toast } from 'react-toastify';
 function NormalForm() {
-    const [Loader,Setloader] = useState(false);
-    // const formik = useFormik({
-    //     initialValues: {
-    //       username: '',
-    //       password: '',
-    //     },
-    //     onSubmit: async values => {
-    //       Setloader(true)
-    //       const result = await auth.login(values)
-    //       console.log("this is the result",result)
+    const [loader,Setloader] = useState(false);
+    const navigate = useNavigate()
+    const formik = useFormik({
+        initialValues: {
+            firstName:"",
+            mobile:"",
+            email:"",
+            password:"",
+
+        },
+        onSubmit: async values => {
+            console.log(values)
+          Setloader(true)
+          const result = await auth.signup(values)
+          console.log("this is the result",result)
            
-    //       if(result === null){
-    //         Setloader(false)
-    //         toast.warn("something went wrong please try again")
-    //       }
+          if(result === null){
+            Setloader(false)
+            toast.warn("something went wrong please try again")
+          }
     
-    //       if(result.status === 200){
-    //         Setloader(false);
-    //         navigate('/')
-    //         toast.success(result.data.message)
-    //       }
+          if(result.status === 200){
+            Setloader(false);
+            navigate('/')
+            toast.success(result.data.message)
+          }
            
-    //       else{
-    //         Setloader(false);
-    //                 toast.error(result.data.message)
-    //       }
+          else{
+            Setloader(false);
+                    toast.error(result.data.message)
+          }
         
          
-    //     },
-    //     validate: values => {
-    //       const errors = {};
-    //       if (!values.username) {
-    //         errors.username = 'username is required';
-    //       }
-    //       if (!values.password) {
-    //         errors.password = 'Password is required';
-    //       }
-    //       return errors;
-    //     },
-    //   });
+        },
+      
+      });
+      console.log(formik)
     return (
         <>
             <div className="container">
@@ -63,35 +61,22 @@ function NormalForm() {
                         </div>
                     </div>
 
-                    <form action="#">
+                    <form onSubmit={formik.handleSubmit}>
                         <div className="row">
                             {/*  */}  <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div className="mt-20">
                                     <input
                                         type="text"
-                                        name="first_name"
+                                        name="firstName"
                                         placeholder="Full Name"
-                                        onFocus={() => { }}
-                                        onBlur={() => { }}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={formik.values.firstName}
                                         required
                                         className="single-input"
                                     />
                                 </div>
                             </div> 
-                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div className="mt-20">
-                                    <input
-                                        type="text"
-                                        name="last_name"
-                                        placeholder="Mobile"
-                                        onFocus={() => { }}
-                                        onBlur={() => { }}
-                                        required
-                                        className="single-input"
-                                    />
-                                </div>
-                            </div>
-                          
                           
 
                             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -99,10 +84,11 @@ function NormalForm() {
                                 <div className="icon"><FaGlobe/></div>
                                     <input
                                         type="email"
-                                        name="EMAIL"
+                                        name="email"
                                         placeholder="Email address"
-                                        onFocus={() => { }}
-                                        onBlur={() => { }}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={formik.values.email}
                                         required
                                         className="single-input"
                                     />
@@ -116,14 +102,30 @@ function NormalForm() {
                                         type="password"
                                         name="password"
                                         placeholder="Password"
-                                        onFocus={() => { }}
-                                        onBlur={() => { }}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={formik.values.password}
                                         required
                                         className="single-input"
                                     />
                                 </div>
                             </div>
                             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div className="input-group-icon mt-20">
+                                <div className="icon"><FaMobile/></div>
+                                    <input
+                                      type="tel"
+                                        name="mobile"
+                                        placeholder="phone"
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={formik.values.mobile}
+                                        required
+                                        className="single-input"
+                                    />
+                                </div>
+                            </div>
+                            {/* <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div className="input-group-icon mt-20">
                                     <div className="icon"><i className="fa fa-globe" aria-hidden="true"></i></div>
                                     <div className="form-select" id="default-select">
@@ -136,10 +138,10 @@ function NormalForm() {
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
 
-                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            {/* <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div className="input-group-icon mt-20">
                                     <div className="icon"><i className="fa fa-globe" aria-hidden="true"></i></div>
                                     <div className="form-select" id="default-select">
@@ -152,9 +154,9 @@ function NormalForm() {
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
-                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-15">
+                            {/* <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-15">
                                 <div className="switch-wrap d-flex justify-content-between">
                                     <div className="primary-checkbox">
                                         <input type="checkbox" id="default-checkbox" />
@@ -162,10 +164,13 @@ function NormalForm() {
                                     </div>
                                     <p>By Registering with us you agree to our <Link style={{ color: '#2577bd' }}>Terms and Conditions</Link></p>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-15">
-                                <Link className="genric-btn primary circle arrow">Submit<span className="lnr lnr-arrow-right"></span></Link>
+                            <button className="genric-btn primary circle arrow" type="submit" >
+                                   {loader ? <Loader /> : "Submit"}
+                             </button>
+
                             </div>
                         </div>
                     </form>

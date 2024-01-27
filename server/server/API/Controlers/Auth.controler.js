@@ -96,7 +96,7 @@ async function verifyUser(req, res) {
     const id = req.query.id;
 
     if (!id) {
-      return res.status(400).json({ error: 'Missing ID parameter' });
+      res.render('signuperorr', { error: { message: 'Something went wrong! Please Sign Up Again'} });
     }
 
     console.log('id', id);
@@ -112,7 +112,7 @@ async function verifyUser(req, res) {
     }
     0
 
-    res.render('success', {data: employeeUpdate.firstName})
+    res.render('success', {data: employeeUpdate.firstName,url:process.env.loginpageurl})
 
   } catch (error) {
     console.error(error);
