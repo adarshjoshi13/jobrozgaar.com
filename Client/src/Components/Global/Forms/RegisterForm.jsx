@@ -1,9 +1,53 @@
 import React from 'react';
 import "./RegisterForm.css"
 import { FaFacebook, FaGoogle ,FaLock,FaGlobe } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+// import { FaFacebook, FaGoogle ,FaLock,FaGlobe,FaMobile } from 'react-icons/fa';
+import GetGoogleUrl from '../../../utlity/GetGoogleUrl';
+import { Formik, Form, Field, ErrorMessage,useFormik } from 'formik';
+import Loader from '../loader/Loader';
+import { ToastContainer, toast } from 'react-toastify';
+import { useState } from 'react';
+import EmployerAuth from '../../../API/Employer/Employer.auth';
 
 const RegisterForm = () => {
+  const [loader,Setloader] = useState(false);
+  const navigate = useNavigate()
+  const formik = useFormik({
+      initialValues: {
+         CompanyName:"",
+         mobile:"",
+          email:"",
+          password:"",
+
+      },
+      onSubmit: async values => {
+          console.log(values)
+        Setloader(true)
+        const result = await EmployerAuth.signup(values)
+        console.log("this is the result",result)
+         
+        if(result === null){
+          Setloader(false)
+          toast.warn("something went wrong please try again")
+        }
+  
+        if(result.status === 200){
+          Setloader(false);
+          navigate('/')
+          toast.success(result.data.message)
+        }
+         
+        else{
+          Setloader(false);
+                  toast.error(result.data.message)
+        }
+      
+       
+      },
+    
+    });
+    console.log(formik)
   return (
     <>
     <div className="container">
@@ -11,40 +55,27 @@ const RegisterForm = () => {
       <div className="row">
         <div className="col-lg-6 col-md-6">
           <h5 className="mb-30 fleft">Register With Us </h5>
-          <span className="iconbutton"><Link ><FaFacebook/></Link></span>
           <span className="iconbutton"><Link ><FaGoogle/></Link></span>
         </div>
         <div className="col-lg-6 col-md-6">
           <h5 className="mb-30 fleft"> Already Register</h5>
-          <span className="iconbutton"><Link to='/login' >Login</Link></span>
+          <span className="iconbutton"><Link to='/employer-login' >Login</Link></span>
         </div>
       </div>
 
-      <form action="#">
+      <form action="#" onSubmit={formik.handleSubmit}>
         <div className="row">
-          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div className="input-group-icon mt-20">
-              <div className="icon"><i className="fa fa-globe" aria-hidden="true"></i></div>
-              <div className="form-select" id="default-select">
-                <select>
-                  <option value="1">Employer</option>
-                  <option value="1">Banking</option>
-                  <option value="1">Sales</option>
-                  <option value="1">Telemarketer</option>
-                  <option value="1">DTP Operator</option>
-                </select>
-              </div>
-            </div>
-          </div>
+        
 
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div className="mt-20">
               <input
                 type="text"
-                name="first_name"
+                name="CompanyName"
                 placeholder="Enter Your Company Name"
-                onFocus={() => {}}
-                onBlur={() => {}}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                 value={formik.values.CompanyName}
                 required
                 className="single-input"
               />
@@ -55,39 +86,28 @@ const RegisterForm = () => {
             <div className="mt-20">
               <input
                 type="text"
-                name="first_name"
-                placeholder="Contact Person Name"
-                onFocus={() => {}}
-                onBlur={() => {}}
+                name="mobile"
+                placeholder="Mobile"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                 value={formik.values.mobile}
                 required
                 className="single-input"
               />
             </div>
           </div>
+
 
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div className="input-group-icon mt-20">
             <div className="icon"><FaGlobe/></div>
               <input
                 type="email"
-                name="EMAIL"
+                name="email"
                 placeholder="Email address"
-                onFocus={() => {}}
-                onBlur={() => {}}
-                required
-                className="single-input"
-              />
-            </div>
-          </div>
-
-          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div className="mt-20">
-              <input
-                type="text"
-                name="last_name"
-                placeholder="Mobile"
-                onFocus={() => {}}
-                onBlur={() => {}}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                 value={formik.values.email}
                 required
                 className="single-input"
               />
@@ -101,30 +121,16 @@ const RegisterForm = () => {
                 type="password"
                 name="password"
                 placeholder="Password"
-                onFocus={() => {}}
-                onBlur={() => {}}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                 value={formik.values.password}
                 required
                 className="single-input"
               />
             </div>
           </div>
 
-          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div className="input-group-icon mt-20">
-              <div className="icon"><i className="fa fa-globe" aria-hidden="true"></i></div>
-              <div className="form-select" id="default-select">
-                <select>
-                  <option value="1">City</option>
-                  <option value="1">Delhi</option>
-                  <option value="1">Mumbai</option>
-                  <option value="1">Uttrakhand</option>
-                  <option value="1">Punjab</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-15">
+          {/* <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-15">
             <div className="switch-wrap d-flex justify-content-between">
               <div className="primary-checkbox">
                 <input type="checkbox" id="default-checkbox" />
@@ -132,10 +138,10 @@ const RegisterForm = () => {
               </div>
               <p>By Registering with us you agree to our <Link  style={{ color: '#2577bd' }}>Terms and Conditions</Link></p>
             </div>
-          </div>
+          </div> */}
 
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-15">
-            <Link  className="genric-btn primary circle arrow">Submit<span className="lnr lnr-arrow-right"></span></Link>
+           <button className="genric-btn primary circle arrow mt-3" type='submit'> {loader?(<Loader/>):'Submit'}</button>
           </div>
         </div>
       </form>

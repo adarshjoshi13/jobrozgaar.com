@@ -1,7 +1,7 @@
 import React from 'react'
 import "./FormBar.css"
 
-function FormBar({ title, type, placeholder }) {
+function FormBar({ title, type, placeholder,onChange,onblur,value,name }) {
     return (
         <div className="container all-input">
             <div className="row">
@@ -15,7 +15,11 @@ function FormBar({ title, type, placeholder }) {
                             <div>
                                 <img src="/Utility/check.png" alt="" />
                             </div>
-                            <input type={type} placeholder={placeholder} />
+                            <input type={type} placeholder={placeholder}  onChange={onChange}
+                                        onBlur={onblur}
+                                        value={value} 
+                                        name={name}
+                                        />
                         </div>
                     </div>
                 </div>

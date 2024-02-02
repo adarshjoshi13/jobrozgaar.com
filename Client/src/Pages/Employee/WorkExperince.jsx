@@ -1,12 +1,31 @@
 import React from 'react'
-import { PersonalNav, AboutMe ,SmallBanner, WorkPage } from '../../Components/export'
+import { PersonalNav, AboutMe, WorkPage } from '../../Components/export'
+import employee from '../../API/Employee';
 function WorkExperince() {
+    const initialValues = {
+        Position: "",
+        Experience:[ {
+            year: "",
+            month: "",
+            CompanyName: "",
+            Designation: "",
+            StartDate: "",
+            EndDate: ""
+          },],
+        LookingForJobs: {
+          JobTitle: "",
+          JobType: ""
+        },
+        Skills:""
+      };
+      const AddExprince = employee.AddWorkingEXprince
+      console.log(AddExprince)
     return (
         <>
             <PersonalNav />
             <AboutMe />
-            
-                <WorkPage/>
+
+            <WorkPage initialValues={initialValues} senrequest={AddExprince}/>
         </>
 
     )

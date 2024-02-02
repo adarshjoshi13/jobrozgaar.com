@@ -54,7 +54,8 @@ async function fetchGoogleUserInfo(accessToken) {
     }
   }
 
- async  function Sendemail(name,email,user_id){
+ async  function Sendemail(name,email,user_id,route){
+  
     try {
         const transporter = nodemailer.createTransport({
            host:'smtp.gmail.com',
@@ -71,7 +72,7 @@ async function fetchGoogleUserInfo(accessToken) {
             from: process.env.email, 
             to: email,
             subject: 'Subject of the Email',
-            html: `<p> Hello${name} your verification link,please click here to <a href="http://localhost:3000/verify?id=${user_id}> Verify</a> your mail</p>`,
+            html:  `<p>Hello ${name}, your verification link, please click here to <a href="http://localhost:3000/${route}?id=${user_id}">Verify</a> your mail</p>`,
           };
          const result = await  transporter.sendMail(mailOptions)
          console.log("result",result)

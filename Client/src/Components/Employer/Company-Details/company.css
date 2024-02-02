@@ -1,0 +1,14 @@
+.title img{
+    width: 40px;
+}
+.company-details-input{
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid rgb(182, 175, 175);
+    
+}
+
+.for-input input{
+  height: 40px;
+}

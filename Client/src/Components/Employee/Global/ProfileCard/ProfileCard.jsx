@@ -2,8 +2,8 @@ import React,{useState} from 'react'
 import { FaCloudDownloadAlt, FaCamera, FaShareAlt } from "react-icons/fa";
 import "./ProfileCards.css"
 
-function ProfileCard() {
-    const [sliderValue, setSliderValue] = useState(67);
+function ProfileCard({email,proifePic,number,compleateProfile,name,location}) {
+    const [sliderValue, setSliderValue] = useState(10);
 
     const handleSliderChange = (event) => {
         setSliderValue(event.target.value);
@@ -16,28 +16,34 @@ function ProfileCard() {
                 <div className='upper-box-profile'>
                     <div className='profile-dash'>
                         <div className="profile-img-box">
-                            <img src="/Utility/profile.png" alt="profile" />
+                         <div className="profile-image-container">
+                         <img src={proifePic?proifePic:"/Utility/profile.png"} alt="profile" className='img-fluid  ' id='profile-pic-img' />
+                         </div>
                             <div className="buttons-profile">
                                 <button><FaCloudDownloadAlt /></button>
-                                <button><FaCamera /></button>
+                                <button><FaCamera />
+                                   <input
+        type="file"
+        accept="images"
+    
+      />
+                                </button>
                                 <button><FaShareAlt /></button>
                             </div>
-                            <h3>VIPUL</h3>
+                            <h3>{name}L</h3>
+                            <p className='success'>Verified</p>
                         </div>
                     </div>
                 </div>
                 <div className="dash-para flex-column w-100 d-flex justify-content-center align-items-center">
                     <div className="upper-text w-100 d-flex justify-content-between align-items-center">
-                        <p>Email ID: vipulsemwal124@gmail.com</p>
-                        <p>Verify</p>
-                        <p>Edit</p>
+                        <p>Email ID: {email}</p>
                     </div>
                     <div className="upper-text w-100 d-flex justify-content-between align-items-center">
-                        <p>Phone: 8178710398</p>
-                        <p className='success'>Verified</p>
+                        <p>Phone:{number}</p>
                     </div>
                     <div className="upper-text w-100 d-flex justify-content-between align-items-center">
-                        <p>Location: Azadpur, Delhi, India</p>
+                        <p>Location:{Location}</p>
                     </div>
                 </div>
             </div>
@@ -53,15 +59,15 @@ function ProfileCard() {
                         max="100"
                         min="0"
                         type="range"
-                        onChange={handleSliderChange}
+                        
+                        readOnly
                         style={{
                           border:"2px solid black", height:"18px",  background: `linear-gradient(90deg, #F5821F ${sliderValue}%, #ffff ${sliderValue}%)`
                         }}
                     />
                     <h3 style={{ float: "right" }}>{sliderValue}%</h3>
                 </div>
-               <p>Add the missing information to <br/>
-                    complete the profile</p>
+               <p>{compleateProfile === 100?"Profile compleated":"Add the missing information to complete the profile"}</p>
             </div>
             
         </div>
@@ -69,5 +75,9 @@ function ProfileCard() {
 </div>
   )
 }
+
+ProfileCard.defaultProps = {
+    email:"",proifePic:"",number:"",compleateProfile:"",name:"",location:""
+  }
 
 export default ProfileCard

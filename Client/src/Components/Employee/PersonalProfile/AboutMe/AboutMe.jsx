@@ -3,7 +3,7 @@ import "./AboutMe.css"
 function AboutMe() {
     return (
         <div className="p-2 container d-flex">
-            <div className="row">
+            <div className="row w-100">
                 <div className="personal-cover col-md-3 d-flex justify-content-start ">
                     <div className="image-cover-personal d-flex justify-content-center align-items-center flex-wrap">
                         <img src="/Utility/18.png" alt="" />

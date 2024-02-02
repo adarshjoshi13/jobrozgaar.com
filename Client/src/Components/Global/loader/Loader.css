@@ -5,7 +5,7 @@
     height: 50px;
    }
    
-   circle {
+   .circle {
     fill: none;
     stroke: hsl(214, 97%, 59%);
     stroke-width: 2;

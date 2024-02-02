@@ -1,6 +1,6 @@
 import React from 'react';
 import './PersonalDetails.css'; // Assuming you have a corresponding CSS file
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import PersonalNav from './personalNav/personalNav';
 import FormBar from './formbar/FormBar';
 import DateInput from './dateInput/DateInput';
@@ -8,12 +8,105 @@ import ButtonEdit from './ButtonEdit/ButtonEdit';
 import InputButton from './InputButton/InputButton';
 import SmallBanner from './SmallBanner/SmallBanner';
 import AboutMe from './AboutMe/AboutMe';
+import { Formik, Form, Field, ErrorMessage,useFormik,useFormikContext } from 'formik';
+import { Loader } from '../../export';
+import employee from '../../../API/Employee';
+import { ToastContainer, toast } from 'react-toastify';
+import { useState,useEffect } from 'react';
+ import Employeetab from '../Global/Employee-tab/Employee-tab';
 
 function PersonalDetails() {
+    const [Images,SetImages] = useState([]);
+    const [loader,Setloader] = useState(false);
+    const navigate = useNavigate()
+    const [reload,setreload] = useState(false)
+    console.log(Images);
+    // checking for values
+    const [formData, setFormData] = useState({})
+    useEffect(()=>{
+        (async ()=>{
+          const result = await employee.getPersonalProfile();
+          if(result.data.data !== null ){
+            console.log('edit data',result.data.data)
+            setFormData({...result.data.data})
+            navigate('/edit-personal-profile')
+          }
+         else{
+          //  toast.error("erro fetching data")
+          return
+         }
+        })()
+      },[])
+    // const { values, setValues } = useFormikContext();
+    const formik = useFormik({
+        initialValues: {
+            fatherName:"",
+            DOB:"",
+            MaritalStatus:"",
+            Gender:"",
+            religion:"",
+            CurrentAddress:"",
+            CurrentCity:"",
+            CurrentState:"",
+            PermanentAddress:"",
+            MobileNumber:"",
+            AdharNumber:"",
+            PanNumber:"",
+            DrivingLicenceNumber:""
+
+        },
+        onSubmit: async values => {
+            console.log(values)
+          Setloader(true)
+          const result = await employee.PersonalProfile(Images,values)
+          console.log("this is the result",result)
+           
+          if(result === null){
+            Setloader(false)
+            toast.warn("something went wrong please try again")
+          }
+    
+          if(result.status === 200){
+            Setloader(false);
+            toast.success(result.data.message)
+          }
+           
+          else{
+            Setloader(false);
+                    toast.error(result.data.message)
+          }
+        
+         
+        },
+      
+      });
+      const GetImageData = (e)=>{
+
+        const index = Images.findIndex(obj => obj.name === e.target.name);
+   if (index !== -1) {
+    
+    Images.splice(index, 1); 
+  
+  }
+            const imagedat = {
+              name:e.target.name,
+              File:e.target.files[0]
+            }
+            SetImages((prev)=>{
+           return(
+               [...prev,imagedat]
+           )
+            })
+      }
+      console.log(formik);
     return (
-        <div className="personal-details container ">
+      <div className="whole-personal-deatil-wraper">
+        <div className="employee-tab-personal-info">
+          <Employeetab/>
+        </div>
+          <div className="personal-details ">
             {/* Navbar */}
-            <PersonalNav />
+            <PersonalNav link={'/edit-personal-profile'} img={'/Utility/personal.png'}/>
             <div className="conatiner">
               <AboutMe/>
 
@@ -26,10 +119,10 @@ function PersonalDetails() {
 
 
 
-                <FormBar title={"Name"} type={"text"} placeholder={"Enter your name"} />
+                {/* <FormBar title={"Name"} type={"text"} placeholder={"Enter your name"} /> */}
                 <FormBar
-                    title={"Father’s Name /Husband Name"} type={"text"} placeholder={"Enter your name"}
-                />
+                    title={"Father’s Name /Husband Name"} type={"text"} placeholder={"Enter your name"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.fatherName}
+               name={'fatherName'} />
 
 
 
@@ -40,6 +133,12 @@ function PersonalDetails() {
                     type2={"text"}
                     label2="Marital Status"
                     placeholder2="Status"
+                    onchange={formik.handleChange}
+                    onblur={formik.handleBlur}
+                    name2={'MaritalStatus'}
+                    value2={formik.MaritalStatus}
+                    name1={'DOB'}
+                    value1={formik.DOB}
                 />
                 <DateInput
                     label1="Gender"
@@ -48,12 +147,21 @@ function PersonalDetails() {
                     type2={"text"}
                     label2="Religion"
                     placeholder2="Status"
+                    onchange={formik.handleChange}
+                    onblur={formik.handleBlur}
+                    name2={'religion'}
+                    value2={formik.religion}
+                    name1={'Gender'}
+                    value1={formik.Gender}
+                    
                 />
 
                 <FormBar
                     title={"Current Address"}
                     type={"text"}
                     placeholder={"Enter your Address"}
+                    onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.CurrentAddress}
+               name={'CurrentAddress'}
                 />
 
                 <DateInput
@@ -63,10 +171,27 @@ function PersonalDetails() {
                     type2={"text"}
                     label2="Current State"
                     placeholder2="Status"
+                    onchange={formik.handleChange}
+                    onblur={formik.handleBlur}
+                    name2={'CurrentState'}
+                    value2={formik.CurrentCity}
+                    name1={'CurrentCity'}
+                    value1={formik.CurrentCity}
+
                 />
-                <div className="container m-2 d-flex justify-content-center align-items-center flex-wrap text-center">
+                <div className="container  d-flex justify-content-center align-items-center flex-wrap text-center">
                     <div className="m-1 checkbox-wrapper-31">
-                        <input type="checkbox" />
+                        <input type="checkbox" onChange={(e)=>{
+                       if(e.target.checked === true){
+                    formik.setValues((values)=>{
+                       return({ ...values,PermanentAddress:formik.values.CurrentAddress})
+                    })
+                       
+                       }
+                       else{
+                        formik.PermanentAddress = ''
+                       }
+                        }}/>
                         <svg viewBox="0 0 35.6 35.6">
                             <circle className="background" cx="17.8" cy="17.8" r="17.8"></circle>
                             <circle className="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
@@ -80,26 +205,40 @@ function PersonalDetails() {
                     title={"Permanent Address"}
                     type={"text"}
                     placeholder={"Enter your Address"}
-                />
-                <FormBar
-                    title={"Language Number"}
-                    type={"text"}
-                    placeholder={"Enter your Address"}
+                    onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.PermanentAddress}
+                    name={'PermanentAddress'}
                 />
                 <FormBar
                     title={"Mobile Number"}
+                    type={"text"}
+                    placeholder={"enter your mobile number"}
+                    onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.MobileNumber}
+                    name={'MobileNumber'}
+                />
+                {/* <FormBar
+                    title={"Mobile Number"}
                     type={"number"}
                     placeholder={"Enter your Address"}
-                />
+                /> */}
 
-                <InputButton title={"Aadhar Number"} placeholder={"Enter Aadhar Number"} />
-                <InputButton title={"Pan Card Number"} placeholder={"Enter Pan Card Number"} />
-                <InputButton title={"Driving Licence No"} placeholder={"Enter Driving Licence No."} />
+                <InputButton title={"Aadhar Number"} placeholder={"Enter Aadhar Number"} onchange={formik.handleChange}  onblur={formik.handleBlur} value1={formik.AdharNumber}
+                   name1={'AdharNumber'} name2={'Adharcard'} uploadfile={GetImageData} />
+                <InputButton title={"Pan Card Number"} placeholder={"Enter Pan Card Number"} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.PanNumber}
+                    name1={'PanNumber'} name2={'PanCard'} uploadfile={GetImageData} />
+                <InputButton title={"Driving Licence No"} placeholder={"Enter Driving Licence No."}  onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.DrivingLicenceNumber}
+                    name1={'DrivingLicenceNumber'} name2={'DrivingLicence'} uploadfile={GetImageData}  />
             </div>
+          
 
-
+          
+    <div className="col-md-12 candidate-btn-div">
+   <button type='submit' className="mb-5 mt-5" onClick={formik.handleSubmit}>{loader?(<Loader/>):"save"}</button>
+    </div>
+   
 
         </div>
+        
+      </div>
 
     );
 }

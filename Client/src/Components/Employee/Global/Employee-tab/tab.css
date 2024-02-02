@@ -1,0 +1,44 @@
+/* NavbarComponent.css */
+.home-dash-nav {
+    padding: 8px;
+    display: flex;
+    justify-content: start;
+    /* align-items: center; */
+    /* border: 2px solid; */
+  }
+  
+  .home-dash-nav{
+    height: auto;
+    /* padding: 10px; */
+    margin-bottom: 10px;
+    /* border: 2px solid red; */
+    /* margin-left: 20px; */
+    padding-right: 10px;
+    /* border: 2px solid red; */
+    /* margin-right: 40px; */
+    /* display: inline-block; */
+  }
+  
+  /* @media (max-width: 767px) {
+   .home-dash-nav{
+    border: 2px solid red;
+   display: flex;
+   flex-direction: row !important
+   }
+  } */
+  
+
+
+ 
+ 
+
+
+ 
+
+  /* Fill color based on slider value */
+  
+  
+  
+  /* Center the container content */
+
+  

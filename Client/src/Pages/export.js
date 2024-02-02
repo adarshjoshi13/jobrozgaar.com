@@ -10,11 +10,19 @@ import JobDetails from "./JobDetails";
 import StaffPlacement from "./StaffPlacement";
 import PayRoll from "./PayRoll";
 import ManPower from "./ManPower";
-import Login from "./Login";
+// import Login from "./Login";
 // dashboard work start here ok bro 
 import EmployeDashBorad from "./Employee/EmployeDashBorad";
 import MyJobs from "./Employee/MyJobs";
 import PersonalProfile from "./Employee/PersonalProfile";
 import WorkExperince from "./Employee/WorkExperince";
-
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,Login,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince}
+import Education from "./Employee/Education";
+import OfferLetter from "./Employee/OfferLetter";
+import EditPersonalProfile from "./Employee/EditPersonalProfile";
+// employer
+import JobPosting from "./Employer/JobPosting";
+import Candidate from "./Employer/CandidateRequirement/Candidate";
+import CompanyDetails from "./Employer/CompanyDetails/CompanyDetails";
+import EmployeeLogin from "./Employee/Login/EmployeeLogin";
+import EmployerLogin from "./Employer/login/EmployerLogin";
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,OfferLetter,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin}

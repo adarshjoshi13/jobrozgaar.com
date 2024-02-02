@@ -8,6 +8,8 @@ const cors = require('cors')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var Employee = require('./routes/employee.data')
+var EmployerAuth = require('./routes/EmployerAuth')
 
 var app = express();
 
@@ -30,6 +32,8 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/employee',Employee);
+app.use('/employer',EmployerAuth)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

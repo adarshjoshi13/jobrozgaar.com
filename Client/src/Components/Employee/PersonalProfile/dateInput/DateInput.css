@@ -14,3 +14,13 @@
     width: 32px;
      
  }
+
+ @media only screen and (max-width: 540px) {
+    .lable{
+        display: none;
+    }
+ }
+
+ .hide{
+    display: none;
+ }

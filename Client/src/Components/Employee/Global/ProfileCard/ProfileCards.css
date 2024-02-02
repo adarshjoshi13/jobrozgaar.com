@@ -27,8 +27,11 @@ padding: 18px;
     display : flex;
     justify-content : center;
     align-items : center;
+    /* position: relative; */
     flex-direction: column;
   }
+
+  .pr
 
   .profile-dash img{
     width: 80px;
@@ -48,7 +51,20 @@ padding: 18px;
     border-radius: 50%;
   }
 
+  .buttons-profile{
+    position: relative;
+  }
 
+  .buttons-profile input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+ 
   .buttons-profile button:hover{
     background-color: rgb(209, 84, 105);
   }
@@ -92,7 +108,18 @@ padding: 18px;
     background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
     cursor: pointer;
   }
-  
+  .profile-image-container {
+    position: relative;
+    width: 150px; /* Set your desired width */
+    height: 150px; /* Set your desired height */
+    overflow: hidden;
+    border-radius: 50%; /* Create a circular shape */
+}
+  #profile-pic-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   /* Fill color based on slider value */
   
   

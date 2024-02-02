@@ -1,7 +1,12 @@
 .personal-details {
   width: 100%;
   margin-bottom: 60px;
+  /* border: 2px solid red; */
 
+}
+.whole-personal-deatil-wraper{
+  display: flex;
+  /* flex-wrap: wrap; */
 }
 
 .work-ex img {
@@ -9,7 +14,7 @@
 }
 
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:760px) {
   .personal-details h5 {
     font-size: 15px;
 
@@ -17,6 +22,11 @@
 
   .work-ex img {
     width: 173px;
+  }
+
+  .whole-personal-deatil-wraper{
+    display: flex;
+    flex-wrap: wrap;
   }
 
 }
@@ -119,6 +129,17 @@
   stroke-dashoffset: 0;
 }
 
+.person-btn{
+ 
+}
 
+.personal-ifo-update-btn{
+ /* border: 2px solid red; */
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding: 12px 0;
+
+}
 
 /* end check box */

@@ -1,30 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import "./EmployeDashboard.css";
 import { Link } from 'react-router-dom';
 import Buttons from '../Global/Buttons/Buttons';
 
 import ProfileCard from '../Global/ProfileCard/ProfileCard';
 import EmployeNav from '../Global/EmployeNav/EmployeNav';
+import Employeetab from '../Global/Employee-tab/Employee-tab';
+// import { useState,useEffect } from 'react';
+import { Loader } from '../../export';
+import employee from '../../../API/Employee';
+import { ToastContainer, toast } from 'react-toastify';
 
 function EmployeDash_Board() {
-
+    const [loader,Setloader] = useState(false);
+    const [formData, setFormData] = useState({})
+    useEffect(()=>{
+        (async ()=>{
+          const result = await employee.getintialdata();
+          if(result.status === 200){
+            console.log('yel bhai',result.data)
+            setFormData({...result.data})
+            const result2 = await employee.getPersonalProfile()
+            if(result2.status === 200){
+                setFormData((prev)=>{
+                  return  {...prev,Location:result2.data.data?.CurrentAddress || ""
+                    }
+                })
+            }
+          }
+         else{
+           toast.error("erro fetching data")
+         }
+        })()
+      },[])
+      console.log("formdata",formData)
+     
+      if(loader){
+        return(
+          <div className="contaienr">
+            <div className="row">
+                <div className="col-md-12">
+                <Loader/>
+                </div>
+            </div>
+          </div>
+        )
+      }
+      
 
 
     return (
-        <div className='home-dash'>
-            <EmployeNav />
+        <div className='employed-dashbaord'>
+            {/* <EmployeNav /> */}
+            <Employeetab/>
 
-            <ProfileCard />
-
-            <div className="container flex-wrap button-home-dash d-flex justify-content-center align-items-center ">
-                <Buttons to='/my-jobs' color={"#3C6271"} title={"My Jobs"} />
-                <Buttons to='/personal-profile' color={"#87b724"} title={"Personal Profile"} />
-                <Buttons to='/work-experience' color={"#3C6271"} title={"Work Experince"} />
-                <Buttons to='eduction' color={"#87b724"} title={"Eduction"} />
-                <Buttons to='offer-letter' color={"#3C6271"} title={"Offer Letter"} />
-                <Buttons to='setting' color={"#87b724"} title={"Setting"} />
-                <Buttons to='tips-support' color={"#3C6271"} title={"Tips & Support"} />
-            </div>
+            <ProfileCard email={formData.email || ""} proifePic={formData.profilePicture || ""
+} number={formData.mobile || ""} name={formData.firstName
+} />
         </div>
     );
 }

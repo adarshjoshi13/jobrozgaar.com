@@ -1,0 +1,188 @@
+import axios from "axios";
+
+class Employee {
+  constructor(url) {
+    this.url = url;
+  }
+
+  async PersonalProfile(images,data){
+    try {
+
+      const formData = new FormData();
+
+
+Object.entries(data).forEach(([key, value]) => {
+// Conditionally stringify only if the value is an object
+// const serializedValue = typeof value === 'object' ? JSON.stringify(value) : value;
+
+formData.append(key, value);
+});
+
+  // Append images to FormData
+  images.forEach((image) => {
+    formData.append(image.name, image.File);
+  });
+
+
+        const response = await axios.post(`${this.url}/personal-profile`,formData, {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }) 
+        console.log("server response:",response)
+        return response
+    } catch (error) {
+       if(error.response){
+          console.log("server responed:",error.response)
+          return error.response
+
+       }
+       else if(error.request){
+          // console.log("client side error ", error.request);
+          console.log(error)
+          return null
+       }
+      
+    }
+  }
+  async EditPersonalProfile(data){
+    console.log('thise is data',JSON.stringify(data))
+    try {
+
+       const response = await axios.put(`${this.url}/update-personal-profile`,JSON.stringify(data), {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }) 
+        console.log("server response:",response)
+        return response
+    } catch (error) {
+       if(error.response){
+          console.log("server responed:",error.response)
+          return error.response
+
+       }
+       else if(error.request){
+          console.log("client side error ", error.request);
+          console.log(error)
+          return null
+       }
+      
+    }
+  }
+
+  async getPersonalProfile(){
+    try {
+      const data = await axios.get(`${this.url}/get-personal-profile`,{
+        withCredentials:true
+      });
+      console.log("data",data)
+      return data;
+    } catch (error) {
+      if(error.response){
+        console.log("server side error",error.response)
+      }
+      console.log("error while fectching destination",error);
+     return null;
+    }
+  }
+  async getintialdata(){
+    try {
+      const data = await axios.get(`${this.url}/get-intialdata`,{
+        withCredentials:true
+      });
+      console.log("data",data)
+      return data;
+    } catch (error) {
+      if(error.response){
+        console.log("server side error",error.response)
+      }
+      console.log("error while fectching destination",error);
+     return null;
+    }
+  }
+
+  async AddWorkingEXprince(data){
+    console.log('peeche ke values',data)
+    try {
+
+      const formData = new FormData();
+
+
+Object.entries(data).forEach(([key, value]) => {
+// Conditionally stringify only if the value is an object
+// const serializedValue = typeof value === 'object' ? JSON.stringify(value) : value;
+
+formData.append(key, value);
+});
+console.log('formmm',formData)
+        const response = await axios.post(`${this.url}/work-experience`,JSON.stringify(data), {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }) 
+        console.log("server response:",response)
+        return response
+    } catch (error) {
+       if(error.response){
+          console.log("server responed:",error.response)
+          return error.response
+
+       }
+       else if(error.request){
+          // console.log("client side error ", error.request);
+          console.log(error)
+          return null
+       }
+      
+    }
+  }
+  
+  async AddEducationData(data){
+    console.log('peeche ke values',data)
+    try {
+
+      const formData = new FormData();
+
+
+Object.entries(data).forEach(([key, value]) => {
+// Conditionally stringify only if the value is an object
+// const serializedValue = typeof value === 'object' ? JSON.stringify(value) : value;
+
+formData.append(key, value);
+});
+console.log('formmm',formData)
+        const response = await axios.post(`${this.url}/education-details`,JSON.stringify(data), {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }) 
+        console.log("server response:",response)
+        return response
+    } catch (error) {
+       if(error.response){
+          console.log("server responed:",error.response)
+          return error.response
+
+       }
+       else if(error.request){
+          // console.log("client side error ", error.request);
+          console.log(error)
+          return null
+       }
+      
+    }
+  }
+
+
+
+
+}
+
+const employee = new Employee('http://localhost:3000/employee');
+
+export default employee;

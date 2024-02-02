@@ -19,7 +19,7 @@ async function SignUP(req,res){
       password,
       provider:'local'
      })
-   const mail = await Sendemail(firstName,email,NewEmployee._id);
+   const mail = await Sendemail(firstName,email,NewEmployee._id,'verify');
    console.log("mail",mail)
     if(mail === true){
       return res.status(200).json({message:'account created sucessfully please check you mail for vefifaction link',data:NewEmployee})
@@ -34,7 +34,7 @@ async function SignUP(req,res){
       const validationErrors = Object.values(error.errors).map((val) => val.message);
       console.log(validationErrors)
 
-      return res.status(400).json({message:validationErrors[1]})
+      return res.status(400).json({message:validationErrors[0]})
     }
     console.log(error)
     return res.status(500).json({message:"internal server error"});
