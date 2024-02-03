@@ -13,6 +13,7 @@
   .employed-dashbaord{
     /* flex-direction: column; */
     flex-wrap: wrap;
+    border: 1px;
   }
   }
   
