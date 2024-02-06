@@ -4,7 +4,7 @@ function PersonalProfile() {
   return (
     <div className="container d-flex  flex-wrap flex-lg-nowrap flex-md-nowrap">
     <div className="employee-nav-tab">
-    <Employeetab active={'personal-profile'}/>
+    <Employeetab active={'Personal Profile'}/>
     </div>
      <div className="container">
    <PersonalDetails/>

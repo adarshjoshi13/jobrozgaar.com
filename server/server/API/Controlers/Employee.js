@@ -8,7 +8,7 @@ const employeeIntialdata = require('../Models/Employee.model')
 async function AddPersonalProfile(req, res,) {
   console.log()
     const employeeId = GetUserIdFromCookie(req.cookies.token)
-    console.log(employeeId)
+    console.log(req.body)
     if(!employeeId){
        return res.status(401).json({message:'Unauthorized request'})
     }
@@ -66,7 +66,7 @@ async function AddPersonalProfile(req, res,) {
   if(DrivingLicencePic === 'something went wrong'){
     throw new Error("Something Went Wrong")
   }
-  const {fatherName,AboutMe, DOB, MaritalStatus, Gender, religion, CurrentAddress,CurrentCity, CurrentState, PermanentAddress,AdharNumber,PanNumber,DrivingLicenceNumber} = req.body
+  const {fatherName,AboutMe, DOB, MaritalStatus, Gender, religion, CurrentAddress,CurrentCity, CurrentState, PermanentAddress,mobile,AdharNumber,PanNumber,DrivingLicenceNumber} = req.body
 
  try {
     const employePersonalDetails = await PersonalProfile.create({
