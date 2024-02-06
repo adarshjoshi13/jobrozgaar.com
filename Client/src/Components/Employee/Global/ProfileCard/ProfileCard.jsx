@@ -1,13 +1,15 @@
 import React,{useState} from 'react'
-import { FaCloudDownloadAlt, FaCamera, FaShareAlt } from "react-icons/fa";
+import { FaCloudDownloadAlt, FaCamera, FaShareAlt,} from "react-icons/fa";
 import "./ProfileCards.css"
 
-function ProfileCard({email,proifePic,number,compleateProfile,name,location}) {
+function ProfileCard({email,proifePic,number,compleateProfile,name,location,extraData}) {
     const [sliderValue, setSliderValue] = useState(10);
 
     const handleSliderChange = (event) => {
         setSliderValue(event.target.value);
     };
+
+    console.log("yah se calcuation",extraData)
   return (
     <div className="container mt-4 mb-4 p-4 border">
     <div className="row">
@@ -55,19 +57,19 @@ function ProfileCard({email,proifePic,number,compleateProfile,name,location}) {
                     <input
                         id="myRange"
                         className="slider-prog"
-                        value={sliderValue}
+                        value={compleateProfile}
                         max="100"
                         min="0"
                         type="range"
                         
                         readOnly
                         style={{
-                          border:"2px solid black", height:"18px",  background: `linear-gradient(90deg, #F5821F ${sliderValue}%, #ffff ${sliderValue}%)`
+                          border:"2px solid black", height:"18px",  background: `linear-gradient(90deg, #F5821F ${compleateProfile}%, #ffff ${compleateProfile}%)`
                         }}
                     />
-                    <h3 style={{ float: "right" }}>{sliderValue}%</h3>
+                    <h3 style={{ float: "right" }}>{compleateProfile}%</h3>
                 </div>
-               <p>{compleateProfile === 100?"Profile compleated":"Add the missing information to complete the profile"}</p>
+               <p style={{color:`${compleateProfile === 100?"green":"red"}`}}>{compleateProfile === 100?"Profile compleated":"Add the missing information to complete the profile"}</p>
             </div>
             
         </div>

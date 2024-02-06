@@ -5,7 +5,7 @@ import EmployerAuth from '../../../API/Employer/Employer.auth'
 function EmployerLogin() {
     console.log('lalal')
   return (
-   <Login login={EmployerAuth} redircet={'/employer-Job-posting'}/>
+   <Login login={EmployerAuth} redircet={'/employer-Company-Details'}/>
   )
 }
 

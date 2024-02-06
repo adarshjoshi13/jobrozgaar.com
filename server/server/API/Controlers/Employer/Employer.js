@@ -2,6 +2,8 @@ const {GetUserIdFromCookie,GetEmployerIdFromCookie} = require('../../Helper/getU
 const {uploadFileOnCloudinary,deleteFileFromCloudinary} = require('../../Helper/cloudinary');
 const jobDetails = require('../../Models/Employer/JobDetails.model')
 const companyDetails = require('../../Models/Employer/Company.model')
+const EmployerInitalDetails = require('../../Models/Employer/EmployerInital');
+const employerIntialdata = require('../../Models/Employer/EmployerInital');
 
 async function JobDetails(req,res){
     console.log(req.body)
@@ -47,7 +49,7 @@ async function AddcandidateDetails(req,res){
   
    console.log(req.body)
   //  console.log("token agay bhai",req.cookies.token);
-   const employerId = GetEmployerIdFromCookie(req.cookies.token)
+   const employerId = GetEmployerIdFromCookie(req.cookies.token);
    console.log(employerId)
    if(!employerId){
       return res.status(401).json({message:'Unauthorized request'})
@@ -131,7 +133,7 @@ async  function AddCompanyDetails(req,res){
   }
  const { CompanyInformation,InterviewAddress,CompanyVerification} = req.body
   try {
-    const employePersonalDetails = await companyDetails.create({
+    const companydetails = await companyDetails.create({
       user:employerId,
       CompanyInformation:JSON.parse(CompanyInformation),
       InterviewAddress:JSON.parse(InterviewAddress),
@@ -140,6 +142,19 @@ async  function AddCompanyDetails(req,res){
       }
        
       })
+      const updateEployerIntialData = await employerIntialdata.findByIdAndUpdate(
+        employerId,
+        {
+          $set: { "CompanyDetails": companydetails._id },
+          $inc: { ProfileCompleate: 90 },
+        },
+        { new: true }
+      );
+      console.log('hoagya  update',updateEployerIntialData)
+      if(!updateEployerIntialData){
+        companyDetails.findByIdAndDelete(companydetails._id)
+        return res.status(500).json({message:"internal server errro can't update working details"})
+      }
       return res.status(200).json({message:"details added"});
     
  } catch (error) {

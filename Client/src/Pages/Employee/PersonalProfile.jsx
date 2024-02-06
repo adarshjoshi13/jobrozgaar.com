@@ -1,8 +1,15 @@
 import React from 'react'
-import { PersonalDetails } from '../../Components/export'
+import { PersonalDetails,Employeetab } from '../../Components/export'
 function PersonalProfile() {
   return (
+    <div className="container d-flex  flex-wrap flex-lg-nowrap flex-md-nowrap">
+    <div className="employee-nav-tab">
+    <Employeetab active={'personal-profile'}/>
+    </div>
+     <div className="container">
    <PersonalDetails/>
+   </div>
+  </div>
   )
 }
 

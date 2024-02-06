@@ -1,6 +1,28 @@
 import React from 'react'
 import "./AboutMe.css"
+import { Loader } from '../../../export';
+import employee from '../../../../API/Employee';
+import { ToastContainer, toast } from 'react-toastify';
+import { useEffect, useState} from 'react';
 function AboutMe() {
+    const [loader,Setloader] = useState(false);
+    const [formData, setFormData] = useState({})
+    useEffect(()=>{
+        (async ()=>{
+          const result = await employee.getintialdata();
+          if(result.status === 200){
+            console.log('yel bhai',result.data)
+            setFormData({...result.data})
+          }
+         else{
+           toast.error("erro fetching data")
+         }
+        })()
+      },[])
+ const AboutMe = (
+  (formData?.AdditionalUserinfo?.PersonalDetails ?? {}).AboutMe ?? null
+)
+
     return (
         <div className="p-2 container d-flex">
             <div className="row w-100">
@@ -12,8 +34,7 @@ function AboutMe() {
                 </div>
                 <div className="col-md-7">
                     <p className="p-1 pro-para">
-                        I am hardworking and dedicated person. I am an excellent team worker and have
-                        skills such as Textile. I am looking for opportunities in Fashion Designer.
+                      {AboutMe}
                     </p>
                 </div>
             </div>

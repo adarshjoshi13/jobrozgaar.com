@@ -73,7 +73,7 @@ formData.append(key, value);
     }
   }
 
-  async getPersonalProfile(){
+   async getPersonalProfile(){
     try {
       const data = await axios.get(`${this.url}/get-personal-profile`,{
         withCredentials:true
@@ -88,7 +88,7 @@ formData.append(key, value);
      return null;
     }
   }
-  async getintialdata(){
+  async  getintialdata(){
     try {
       const data = await axios.get(`${this.url}/get-intialdata`,{
         withCredentials:true
@@ -104,7 +104,7 @@ formData.append(key, value);
     }
   }
 
-  async AddWorkingEXprince(data){
+  async  AddWorkingEXprince(data){
     console.log('peeche ke values',data)
     try {
 
@@ -178,6 +178,33 @@ console.log('formmm',formData)
     }
   }
 
+
+  async UpdateWorkingExperince(data){
+    console.log('thise is data',JSON.stringify(data))
+    try {
+
+       const response = await axios.put(`${this.url}/work-experience-update`,JSON.stringify(data), {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }) 
+        console.log("server response:",response)
+        return response
+    } catch (error) {
+       if(error.response){
+          console.log("server responed:",error.response)
+          return error.response
+
+       }
+       else if(error.request){
+          console.log("client side error ", error.request);
+          console.log(error)
+          return null
+       }
+      
+    }
+  }
 
 
 

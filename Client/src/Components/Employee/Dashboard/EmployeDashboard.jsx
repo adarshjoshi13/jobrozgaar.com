@@ -16,36 +16,35 @@ function EmployeDash_Board() {
     const [formData, setFormData] = useState({})
     useEffect(()=>{
         (async ()=>{
+          Setloader(true)
           const result = await employee.getintialdata();
           if(result.status === 200){
+            Setloader(false)
             console.log('yel bhai',result.data)
             setFormData({...result.data})
-            const result2 = await employee.getPersonalProfile()
-            if(result2.status === 200){
-                setFormData((prev)=>{
-                  return  {...prev,Location:result2.data.data?.CurrentAddress || ""
-                    }
-                })
-            }
           }
          else{
+          Setloader(false)
            toast.error("erro fetching data")
          }
+         Setloader(false)
         })()
       },[])
-      console.log("formdata",formData)
+ const currentAddress = (
+  (formData?.AdditionalUserinfo?.PersonalDetails ?? {}).CurrentAddress ?? null
+)
+const profileCompleate = formData?.ProfileCompleate
+console.log("formdata",profileCompleate)
+
+// console.log('araha hain',currentAddress)
      
-      if(loader){
-        return(
-          <div className="contaienr">
-            <div className="row">
-                <div className="col-md-12">
-                <Loader/>
-                </div>
-            </div>
-          </div>
-        )
-      }
+if(loader){
+  return <Loader style={{ width: '100vw',
+  height: '60vh', 
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',}}/>
+}
       
 
 
@@ -56,7 +55,7 @@ function EmployeDash_Board() {
 
             <ProfileCard email={formData.email || ""} proifePic={formData.profilePicture || ""
 } number={formData.mobile || ""} name={formData.firstName
-} />
+} location={currentAddress} compleateProfile={profileCompleate} extraData={formData}  />
         </div>
     );
 }

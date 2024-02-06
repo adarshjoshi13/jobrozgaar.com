@@ -18,6 +18,7 @@ import { useState,useEffect } from 'react';
 function PersonalDetails() {
     const [Images,SetImages] = useState([]);
     const [loader,Setloader] = useState(false);
+    const [Saveloader,SetSaveloader] = useState(false)
     const navigate = useNavigate()
     const [reload,setreload] = useState(false)
     console.log(Images);
@@ -25,6 +26,7 @@ function PersonalDetails() {
     const [formData, setFormData] = useState({})
     useEffect(()=>{
         (async ()=>{
+          Setloader(true)
           const result = await employee.getPersonalProfile();
           if(result.data.data !== null ){
             console.log('edit data',result.data.data)
@@ -32,6 +34,7 @@ function PersonalDetails() {
             navigate('/edit-personal-profile')
           }
          else{
+          Setloader(false)
           //  toast.error("erro fetching data")
           return
          }
@@ -41,6 +44,7 @@ function PersonalDetails() {
     const formik = useFormik({
         initialValues: {
             fatherName:"",
+            AboutMe:"",
             DOB:"",
             MaritalStatus:"",
             Gender:"",
@@ -57,22 +61,23 @@ function PersonalDetails() {
         },
         onSubmit: async values => {
             console.log(values)
-          Setloader(true)
+          SetSaveloader(true)
           const result = await employee.PersonalProfile(Images,values)
           console.log("this is the result",result)
            
           if(result === null){
-            Setloader(false)
+            SetSaveloader(false)
             toast.warn("something went wrong please try again")
           }
     
           if(result.status === 200){
-            Setloader(false);
+            SetSaveloader(false);
             toast.success(result.data.message)
+            navigate("/work-experience");
           }
            
           else{
-            Setloader(false);
+            SetSaveloader(false);
                     toast.error(result.data.message)
           }
         
@@ -98,12 +103,33 @@ function PersonalDetails() {
            )
             })
       }
-      console.log(formik);
+      // console.log(formik);
+      const textareaStyle = {
+        width: '100%',
+        maxWidth: '400px',
+        height: '200px',
+        padding: '10px',
+        boxSizing: 'border-box',
+        border: '1px solid #ccc',
+        borderRadius: '5px',
+        resize: 'none',
+        fontSize: '16px',
+        lineHeight: '1.5',
+        wordWrap: 'break-word'
+      };
+
+      if(loader){
+        return <Loader style={{ width: '100vw',
+        height: '60vh', 
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',}}/>
+      }
     return (
       <div className="whole-personal-deatil-wraper">
-        <div className="employee-tab-personal-info">
-          <Employeetab/>
-        </div>
+        {/* <div className="employee-tab-personal-info">
+          <Employeetab  active={'Personal Profile'}/>
+        </div> */}
           <div className="personal-details ">
             {/* Navbar */}
             <PersonalNav link={'/edit-personal-profile'} img={'/Utility/personal.png'}/>
@@ -121,24 +147,21 @@ function PersonalDetails() {
 
                 {/* <FormBar title={"Name"} type={"text"} placeholder={"Enter your name"} /> */}
                 <FormBar
-                    title={"Father’s Name /Husband Name"} type={"text"} placeholder={"Enter your name"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.fatherName}
+                    title={"Father’s Name /Husband Name"} type={"text"} placeholder={"Enter your father/husband name"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.fatherName}
                name={'fatherName'} />
-
-
-
                 <DateInput
                     label1="Date of Birth"
                     placeholder1="Date"
                     type={"date"}
                     type2={"text"}
                     label2="Marital Status"
-                    placeholder2="Status"
+                    placeholder2=" write marital Status"
                     onchange={formik.handleChange}
                     onblur={formik.handleBlur}
                     name2={'MaritalStatus'}
-                    value2={formik.MaritalStatus}
+                    value2={formik.values.MaritalStatus}
                     name1={'DOB'}
-                    value1={formik.DOB}
+                    value1={formik.values.DOB}
                 />
                 <DateInput
                     label1="Gender"
@@ -146,13 +169,13 @@ function PersonalDetails() {
                     type={"text"}
                     type2={"text"}
                     label2="Religion"
-                    placeholder2="Status"
+                    placeholder2="Religion"
                     onchange={formik.handleChange}
                     onblur={formik.handleBlur}
                     name2={'religion'}
-                    value2={formik.religion}
+                    value2={formik.values.religion}
                     name1={'Gender'}
-                    value1={formik.Gender}
+                    value1={formik.values.Gender}
                     
                 />
 
@@ -160,36 +183,34 @@ function PersonalDetails() {
                     title={"Current Address"}
                     type={"text"}
                     placeholder={"Enter your Address"}
-                    onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.CurrentAddress}
+                    onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.CurrentAddress}
                name={'CurrentAddress'}
                 />
 
                 <DateInput
                     label1="Current City"
-                    placeholder1="Gender"
+                    placeholder1="City"
                     type={"text"}
                     type2={"text"}
                     label2="Current State"
-                    placeholder2="Status"
+                    placeholder2="State"
                     onchange={formik.handleChange}
                     onblur={formik.handleBlur}
                     name2={'CurrentState'}
-                    value2={formik.CurrentCity}
+                    value2={formik.values.CurrentState}
                     name1={'CurrentCity'}
-                    value1={formik.CurrentCity}
+                    value1={formik.values.CurrentCity}
 
                 />
                 <div className="container  d-flex justify-content-center align-items-center flex-wrap text-center">
                     <div className="m-1 checkbox-wrapper-31">
                         <input type="checkbox" onChange={(e)=>{
                        if(e.target.checked === true){
-                    formik.setValues((values)=>{
-                       return({ ...values,PermanentAddress:formik.values.CurrentAddress})
-                    })
+                       formik.setFieldValue('PermanentAddress',formik.values.CurrentAddress)
                        
                        }
                        else{
-                        formik.PermanentAddress = ''
+                        formik.setFieldValue('PermanentAddress',"")
                        }
                         }}/>
                         <svg viewBox="0 0 35.6 35.6">
@@ -205,14 +226,14 @@ function PersonalDetails() {
                     title={"Permanent Address"}
                     type={"text"}
                     placeholder={"Enter your Address"}
-                    onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.PermanentAddress}
+                    onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.PermanentAddress}
                     name={'PermanentAddress'}
                 />
                 <FormBar
                     title={"Mobile Number"}
                     type={"text"}
                     placeholder={"enter your mobile number"}
-                    onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.MobileNumber}
+                    onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.MobileNumber}
                     name={'MobileNumber'}
                 />
                 {/* <FormBar
@@ -221,18 +242,37 @@ function PersonalDetails() {
                     placeholder={"Enter your Address"}
                 /> */}
 
-                <InputButton title={"Aadhar Number"} placeholder={"Enter Aadhar Number"} onchange={formik.handleChange}  onblur={formik.handleBlur} value1={formik.AdharNumber}
+                <InputButton title={"Aadhar Number"} placeholder={"Enter Aadhar Number"} onchange={formik.handleChange}  onblur={formik.handleBlur} value1={formik.values.AdharNumber}
                    name1={'AdharNumber'} name2={'Adharcard'} uploadfile={GetImageData} />
-                <InputButton title={"Pan Card Number"} placeholder={"Enter Pan Card Number"} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.PanNumber}
+                <InputButton title={"Pan Card Number"} placeholder={"Enter Pan Card Number"} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.values.PanNumber}
                     name1={'PanNumber'} name2={'PanCard'} uploadfile={GetImageData} />
-                <InputButton title={"Driving Licence No"} placeholder={"Enter Driving Licence No."}  onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.DrivingLicenceNumber}
+                <InputButton title={"Driving Licence No"} placeholder={"Enter Driving Licence No."}  onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.values.DrivingLicenceNumber}
                     name1={'DrivingLicenceNumber'} name2={'DrivingLicence'} uploadfile={GetImageData}  />
-            </div>
           
+            <div className="container all-input">
+            <div className="row">
+                <div className="col-md-2 d-flex align-items-center">
+                    <h5>{"About me"}</h5>
+                </div>
+                <div className="col-md-10">
+                    <div className="row">
+
+                        <div className="col-md-10 d-flex justify-contant-center align-items-center">
+                            <div>
+                                <img src="/Utility/check.png" alt="" />
+                            </div>
+                            <textarea  id="" cols="30" rows="10"  title={"About me"} type={"text-area"} placeholder={"Write something about yourself"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.AboutMe}
+               name={'AboutMe'}  style={textareaStyle}></textarea>
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
           
     <div className="col-md-12 candidate-btn-div">
-   <button type='submit' className="mb-5 mt-5" onClick={formik.handleSubmit}>{loader?(<Loader/>):"save"}</button>
+   <button type='submit' className="mb-5 mt-5" onClick={formik.handleSubmit}>{Saveloader?(<Loader/>):"save"}</button>
     </div>
    
 

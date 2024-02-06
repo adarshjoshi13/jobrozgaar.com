@@ -66,7 +66,7 @@ async function verifyUser(req, res) {
     const checkverifaction = await employerIntialdata.findOne({_id:id});
     console.log("cehck data",checkverifaction);
     if(checkverifaction.check === true){
-    return  res.render('signuperorr',  { error: { message: 'user already verfied',url:process.env.BACKTOHOME } });
+    return  res.render('signuperorr',  { error: { message: 'user already verfied',url:process.env.EMPLOYERSIGNUP } });
     }
 
     const employerUpdate = await employerIntialdata.findByIdAndUpdate(
@@ -76,17 +76,17 @@ async function verifyUser(req, res) {
     );
 
     if (!employerUpdate) {
-     return res.render('signuperorr', { error: { message: 'Something went wrong! Please Sign Up Again',url:process.env.BACKTOHOME } });
+     return res.render('signuperorr', { error: { message: 'Something went wrong! Please Sign Up Again',url:process.env.EMPLOYERSIGNUP } });
     }
     
     console.log(employerUpdate)
 
 
-   return res.render('success', {data: employerUpdate.firstName,url:process.env.loginpageurl})
+   return res.render('success', {data: employerUpdate.firstName,url:process.env.EMPLOYERSIGNIN})
 
   } catch (error) {
     console.error(error);
-   return res.render('signuperorr',  { error: { message: 'Something went wrong! Please Sign Up Again',url:process.env.BACKTOHOME } });
+   return res.render('signuperorr',  { error: { message: 'Something went wrong! Please Sign Up Again',url:process.env.EMPLOYERSIGNUP } });
   }
 }
 

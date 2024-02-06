@@ -58,6 +58,6 @@ const CompanyDetails = new mongooseConnect.Schema({
 
 });
 
-const  companyDetails  = mongooseConnect.model(' CompanyDetails ',  CompanyDetails );
+const  companyDetails  = mongooseConnect.model('CompanyDetails',  CompanyDetails );
 
 module.exports =   companyDetails ;

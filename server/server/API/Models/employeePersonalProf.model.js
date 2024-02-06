@@ -13,6 +13,10 @@ const personalProfileSchema = new mongoose.Schema({
     type: String,
     required: [true, "Father's name can't be empty"]
   },
+  AboutMe:{
+    type: String,
+    required: [true, "About me can't be empty"]
+  },
   DOB: {
     type: String,
     required: [true, "Please fill your date of birth"]
@@ -46,12 +50,6 @@ const personalProfileSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Permanent Address is Required']
   },
-  MobileNumber: {
-    type: Number,
-    unique: true,
-    match: /^[0-9]{10}$/,
-    required: [true, "Mobile number can't be empty"]
-  },
   AdharCardPic:{
    type :String ,
    required:[true,'AdharCard picture Required']
@@ -76,21 +74,32 @@ const personalProfileSchema = new mongoose.Schema({
     type:String,
     required:[true,'DrivingLicenceNumbe is required']
   },
- Education:{
-  MyQualification:String,
-  LanguageKnown :String,
-  Courses:[
-   {
-    Course : String,
-    University: String,
-    YearOfPassing: String,
-    TotalMarks: String,
-    MarkObtain: String,
-    Percentage: String
-   },
-
-  ]
- }
+  update:{
+    type:Boolean,
+    default:true
+  },
+  Education: {
+    MyQualification: String,
+    LanguageKnown: String,
+    Courses: {
+      type: [
+        {
+          Course: String,
+          University: String,
+          YearOfPassing: String,
+          TotalMarks: String,
+          MarkObtain: String,
+          Percentage: String
+        },
+      ],
+      default: function () {
+        if (this.MyQualification || this.LanguageKnown) {
+          return [];
+        }
+        return undefined;
+      },
+    }
+  }
 
 });
 

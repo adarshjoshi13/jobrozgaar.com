@@ -19,17 +19,22 @@ import Employeetab from '../Global/Employee-tab/Employee-tab';
 function EditPersonalprofile() {
     const [Images,SetImages] = useState([]);
     const [loader,Setloader] = useState(false);
+    const [Saveloader,SetSaveloader] = useState(false)
     console.log(Images);
     const [formData, setFormData] = useState({})
     useEffect(()=>{
         (async ()=>{
+          Setloader(true)
           const result = await employee.getPersonalProfile();
           if(result.status === 200){
+            Setloader(false)
             setFormData({...result.data.data})
           }
          else{
+          Setloader(false)
            toast.error("erro fetching data")
          }
+         
         })()
       },[])
       console.log(formData)
@@ -42,17 +47,17 @@ function EditPersonalprofile() {
         },
         onSubmit: async values => {
             console.log(values)
-          Setloader(true)
+          SetSaveloader(true)
           const result = await employee.EditPersonalProfile(values)
           console.log("this is the result",result)
            
           if(result === null){
-            Setloader(false)
+            SetSaveloader(false)
             toast.warn("something went wrong please try again")
           }
     
           if(result.status === 200){
-            Setloader(false);
+            SetSaveloader(false);
             toast.success(result.data.message)
           }
            
@@ -85,23 +90,41 @@ function EditPersonalprofile() {
             })
       }
       console.log("formik",formik);
+      const textareaStyle = {
+        width: '100%',
+        padding: '10px',
+        fontSize: '1rem',
+        maxWidth: '600px',
+        minHeight: '150px',
+        border: '1px solid #ccc',
+        resize: 'vertical',
+        outline: 'none',
+      };
+
+      if(loader){
+        return <Loader style={{ width: '100vw',
+        height: '60vh', 
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',}}/>
+      }
     return (
       <div className='whole-personal-deatil-wraper'>
-        <div className='employee-tab-personal-info'>
-           <Employeetab/>
-        </div>
+        {/* <div className='employee-tab-personal-info'>
+           <Employeetab active={'Personal Profile'}/>
+        </div> */}
   <div className="personal-details ">
             {/* Navbar */}
             {/* <PersonalNav hideOrShow={false} img={'/Utility/personal.png'}/> */}
-         
+           <h3 className='text-center text-secondary mt-5'>Edit Personal Details</h3>
           <div className="conatiner">
               {/* <AboutMe/> */}
 
-                <SmallBanner
+                {/* <SmallBanner
                     personalImage="/Utility/personal.png"
                     workImage="/Utility/work.png"
                     eduImage="/Utility/edu.png"
-                />
+                /> */}
 
 
 
@@ -110,7 +133,6 @@ function EditPersonalprofile() {
                 <FormBar
                     title={"Father’s Name /Husband Name"} type={"text"} placeholder={"Enter your name"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.fatherName}
                name={'fatherName'} />
-
 
 
                 <DateInput
@@ -195,13 +217,33 @@ function EditPersonalprofile() {
                     onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.PermanentAddress}
                     name={'PermanentAddress'}
                 />
-                <FormBar
+                {/* <FormBar
                     title={"Mobile Number"}
                     type={"text"}
                     placeholder={"enter your mobile number"}
                     onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.MobileNumber}
                     name={'MobileNumber'}
-                />
+                /> */}
+                    <div className="container all-input">
+            <div className="row">
+                <div className="col-md-2 d-flex align-items-center">
+                    <h5>{"About me"}</h5>
+                </div>
+                <div className="col-md-10">
+                    <div className="row">
+
+                        <div className="col-md-10 d-flex justify-contant-center align-items-center">
+                            <div>
+                                <img src="/Utility/check.png" alt="" />
+                            </div>
+                            <textarea  id="" cols="30" rows="10"  title={"About me"} type={"text-area"} placeholder={"Write something about yourself"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.AboutMe}
+               name={'AboutMe'}  style={textareaStyle}></textarea>
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
                 {/* <FormBar
                     title={"Mobile Number"}
                     type={"number"}
@@ -217,7 +259,7 @@ function EditPersonalprofile() {
             </div>
         
            <div className="personal-ifo-update-btn">
-           <button className='person-btn' onClick={formik.handleSubmit} type='submit'>{loader?(<Loader/>):"update"}</button>
+           <button className='person-btn' onClick={formik.handleSubmit} type='submit'>{Saveloader?(<Loader/>):"update"}</button>
            </div>
 
 

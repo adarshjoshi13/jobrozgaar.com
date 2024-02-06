@@ -13,3 +13,14 @@
     margin: 0px;
     font-size: 17px;
 }
+
+.DLT-BTN-EDUCAtion{
+    /* border: 2px solid red; */
+    /* margin-top: 10px; */
+    position: absolute;
+    left: 80%;
+    /* padding: 20px; */
+    width: 50px;
+    /* margin-bottom: 10px !important; */
+    /* bottom: 28%; */
+}

@@ -1,8 +1,15 @@
 import React from 'react'
-import { EditPersonalprofile } from '../../Components/export'
+import { EditPersonalprofile,Employeetab } from '../../Components/export'
 function EditPersonalProfile() {
   return (
-    <EditPersonalprofile/>
+  <div className="container d-flex  flex-wrap flex-lg-nowrap flex-md-nowrap">
+    <div className="employee-nav-tab">
+    <Employeetab/>
+    </div>
+     <div className="container">
+     <EditPersonalprofile/>
+   </div>
+  </div>
   )
 }
 

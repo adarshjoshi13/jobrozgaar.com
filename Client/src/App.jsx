@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header,Footer } from './Components/export';
-import {Home,FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, MyJobs, PersonalProfile, WorkExperince, Education, OfferLetter,EditPersonalProfile,JobPosting,Candidate,CompanyDetails, EmployeeLogin,EmployerLogin} from './Pages/export'
+import {Home,FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, MyJobs, PersonalProfile, WorkExperince, Education, OfferLetter,EditPersonalProfile,JobPosting,Candidate,CompanyDetails, EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation} from './Pages/export'
 import { Routes,Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -40,6 +40,8 @@ function App() {
       <Route path='/education' element={<Layout><Education/></Layout>}/>
       <Route path='/offer-letter' element={<Layout><OfferLetter/></Layout>}/>
       <Route path='/edit-personal-profile' element={<Layout><EditPersonalProfile/></Layout>}/>
+      <Route path='/update-working-exprince' element={<Layout><UpdateWorkingExprince/></Layout>}/>
+      <Route path='/update-education' element={<Layout><EditEducation/></Layout>}/>
       {/* employer's route */}
       <Route path='/employer-Job-posting' element={<Layout><JobPosting/></Layout>}/>
       <Route path='/employer-requirement-candidate' element={<Layout><Candidate/></Layout>}/>

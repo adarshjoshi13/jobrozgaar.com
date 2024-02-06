@@ -1,6 +1,14 @@
 import React from 'react'
-import { PersonalNav, AboutMe ,EducationBox} from '../../Components/export'
+import { PersonalNav, AboutMe ,EducationBox,Employeetab} from '../../Components/export'
+import { useEffect,useState } from 'react'
+import employee from '../../API/Employee';
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import {Loader} from '../../Components/export';
+
 function Education() {
+  const [loader,Setloader] = useState(false)
   const IntialValues = {
     MyQualification:"",
     LanguageKnown :" ",
@@ -16,11 +24,49 @@ function Education() {
 
     ]
   }
+  const navigate = useNavigate()
+  useEffect(()=>{
+    (async ()=>{
+      Setloader(true)
+      const result = await employee.getintialdata();
+      if(result.status === 200){
+        console.log("fiseeeeeeee",result?.data?.AdditionalUserinfo?.PersonalDetails?.Education)
+        if (result?.data?.AdditionalUserinfo?.PersonalDetails?.Education) {
+          // console.log('und')
+          navigate('/update-education')
+        } else {
+          Setloader(false)
+         return
+        }
+        
+       
+      }
+     else{
+      Setloader(false)
+      //  toast.error("erro fetching data")
+     }
+    })()
+  },[])
+  if(loader){
+    return <Loader style={{ width: '100vw',
+    height: '60vh', 
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',}}/>
+  }
   return (
-    <>
-        <PersonalNav/>
+    <>  
+    <div className="container d-flex flex-wrap flex-lg-nowrap flex-md-nowrap">
+  <div className="nav-tab-employee">
+    <Employeetab active={'Education'}/>
+  </div>
+  <div className="container" >
+    <PersonalNav/>
     <AboutMe/>
-    <EducationBox initialValues={IntialValues}/>
+    <EducationBox initialValues={IntialValues} redirect={'/employed-dashboard'}/>
+  </div>
+</div>
+
     </>
     
   )

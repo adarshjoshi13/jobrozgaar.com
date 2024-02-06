@@ -25,4 +25,6 @@ import Candidate from "./Employer/CandidateRequirement/Candidate";
 import CompanyDetails from "./Employer/CompanyDetails/CompanyDetails";
 import EmployeeLogin from "./Employee/Login/EmployeeLogin";
 import EmployerLogin from "./Employer/login/EmployerLogin";
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,OfferLetter,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin}
+import UpdateWorkingExprince from "./Employee/UpdateWorkingExprince";
+import EditEducation from "./Employee/EditEducation";
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,OfferLetter,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation}

@@ -160,7 +160,7 @@ async function verifyUser(req, res) {
     console.log(employeeUpdate)
 
 
-   return res.render('success', {data: employeeUpdate.firstName,url:process.env.loginpageurl})
+   return res.render('success', {data: employeeUpdate.firstName,url:process.env.EMPLOYEELOGIN})
 
   } catch (error) {
     console.error(error);

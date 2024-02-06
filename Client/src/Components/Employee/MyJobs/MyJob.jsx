@@ -11,27 +11,24 @@ import { useState,useEffect } from 'react';
 
 function MyJob() {
   const [loader,Setloader] = useState(false);
-  const [formData, setFormData] = useState({})
-  useEffect(()=>{
-      (async ()=>{
-        const result = await employee.getintialdata();
-        if(result.status === 200){
-          console.log('yel bhai',result.data)
-          setFormData({...result.data})
-          const result2 = await employee.getPersonalProfile()
-          if(result2.status === 200){
-              setFormData((prev)=>{
-                return  {...prev,Location:result2.data.data?.CurrentAddress || "",
-                  }
-              })
+    const [formData, setFormData] = useState({})
+    useEffect(()=>{
+        (async ()=>{
+          const result = await employee.getintialdata();
+          if(result.status === 200){
+            // console.log('yel bhai',result.data)
+            setFormData({...result.data})
           }
-        }
-       else{
-         toast.error("erro fetching data")
-       }
-      })()
-    },[])
-    console.log("formdata",formData)
+         else{
+           toast.error("erro fetching data")
+         }
+        })()
+      },[])
+ const currentAddress = (
+  (formData?.AdditionalUserinfo?.PersonalDetails ?? {}).CurrentAddress ?? null
+)
+const profileCompleate = formData?.ProfileCompleate
+console.log("formdata",profileCompleate)
    
     if(loader){
       return(
@@ -46,14 +43,14 @@ function MyJob() {
     }
   return (
     <div className="container my-job-container">
-      <Employeetab />
+      <Employeetab active={'My-Jobs'} />
       <div className="my-job-content">
         {/* <EmployeNav /> */}
         <ProfileCard email={formData.email || ""} proifePic={formData.profilePicture || ""
 } number={formData.mobile || ""} name={formData.firstName
-} location={formData.Location
+} location={currentAddress
 
-|| " "}/>
+|| " "}  compleateProfile={profileCompleate} />
         <div className="my-job-box">
           <h2>My Jobs</h2>
           <div className="row mb-3 justify-content-between job-imgs">

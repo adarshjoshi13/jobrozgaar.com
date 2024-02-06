@@ -38,6 +38,17 @@ const EmployerIntialData = new mongoose.Schema({
     required: true,
     enum: ['local', 'google', 'another_oauth_provider']
   },
+  CompanyDetails:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"CompanyDetails",
+  },
+  Jobs:{
+    type:[ mongoose.Schema.Types.ObjectId]
+  },
+  ProfileCompleate:{
+    type:Number,
+    default:10
+  },
   check:Boolean,
   refershToken:String,
 });

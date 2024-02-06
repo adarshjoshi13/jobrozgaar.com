@@ -4,6 +4,7 @@ const {uploadFileOnCloudinary,deleteFileFromCloudinary} = require('../Helper/clo
 const employePersonalDetails = require('../Models/Employee.model')
 const { json } = require('express')
 const WorkingExprince = require('../Models/Employee.workExprince')
+const employeeIntialdata = require('../Models/Employee.model')
 async function AddPersonalProfile(req, res,) {
   console.log()
     const employeeId = GetUserIdFromCookie(req.cookies.token)
@@ -65,12 +66,13 @@ async function AddPersonalProfile(req, res,) {
   if(DrivingLicencePic === 'something went wrong'){
     throw new Error("Something Went Wrong")
   }
-  const {fatherName, DOB, MaritalStatus, Gender, religion, CurrentAddress,CurrentCity, CurrentState, PermanentAddress,MobileNumber,AdharNumber,PanNumber,DrivingLicenceNumber} = req.body
+  const {fatherName,AboutMe, DOB, MaritalStatus, Gender, religion, CurrentAddress,CurrentCity, CurrentState, PermanentAddress,AdharNumber,PanNumber,DrivingLicenceNumber} = req.body
 
  try {
     const employePersonalDetails = await PersonalProfile.create({
       user:employeeId,
         fatherName,
+        AboutMe,
         DOB,
         MaritalStatus,
         Gender,
@@ -79,7 +81,6 @@ async function AddPersonalProfile(req, res,) {
         CurrentCity,
         CurrentState,
         PermanentAddress,
-        MobileNumber,
         AdharCardPic,
         PanCardPic,
         DrivingLicencePic,
@@ -87,6 +88,21 @@ async function AddPersonalProfile(req, res,) {
         AdharNumber,
         DrivingLicenceNumber
       })
+      const updatingEmployeeInitalData = await employeeIntialdata.findByIdAndUpdate(
+        employeeId,
+        {
+          $set: {
+            'AdditionalUserinfo.PersonalDetails': employePersonalDetails._id,
+          },
+          $inc: { 'ProfileCompleate': 30 },
+        },
+        { new: true }
+      );
+      console.log("dekho bhai",updatingEmployeeInitalData,employePersonalDetails)
+      if (!updatingEmployeeInitalData){
+        PersonalProfile.findByIdAndDelete(employePersonalDetails._id)
+        return res.status(500).json({message:"no updated"})
+      }
       return res.status(200).json({message:"details added"})
     
  } catch (error) {
@@ -129,7 +145,7 @@ async function AddPersonalProfile(req, res,) {
     if(!employeeId){
        return res.status(401).json({message:'Unauthorized request'})
     }
-    const {fatherName, DOB, MaritalStatus, Gender, religion, CurrentAddress,CurrentCity, CurrentState, PermanentAddress,MobileNumber,} = req.body
+    const {fatherName,AboutMe, DOB, MaritalStatus, Gender, religion, CurrentAddress,CurrentCity, CurrentState, PermanentAddress,} = req.body
      console.log(typeof fatherName,DOB)
     try {
       const updatedDocument = await PersonalProfile.findOneAndUpdate(
@@ -143,7 +159,7 @@ async function AddPersonalProfile(req, res,) {
           CurrentCity,
           CurrentState,
           PermanentAddress,
-          MobileNumber, } },
+         } },
         { new: true }
       );
   
@@ -191,7 +207,8 @@ async function AddPersonalProfile(req, res,) {
     }
 
     try {
-      const allData = await employePersonalDetails.findOne({_id:employeeId});
+      const allData = await employePersonalDetails.findOne({_id:employeeId}) .populate('AdditionalUserinfo.PersonalDetails')
+      .populate('AdditionalUserinfo.WorkingExperiences');;
       res.status(200).json(allData);
     } catch (error) {
       console.error('Error fetching data:', error.message);
@@ -277,7 +294,8 @@ async function AddPersonalProfile(req, res,) {
         return res.status(400).json({message:"Experience is required"})
       }
     }
-
+   
+    let id;
     try {
       if(Position === "Experience"){
         const WorkExprince = await WorkingExprince.create({
@@ -287,6 +305,7 @@ async function AddPersonalProfile(req, res,) {
            LookingForJobs,
            Skills,
           })
+          id = WorkExprince._id
       }
      else{
       const WorkExprince = await WorkingExprince.create({
@@ -295,7 +314,18 @@ async function AddPersonalProfile(req, res,) {
          LookingForJobs,
          Skills,
         })
+        id = WorkExprince._id
      }
+     const updatingEmployeeInitalData = await employeeIntialdata.findByIdAndUpdate(
+      employeeId,
+      { $set: { 'AdditionalUserinfo.WorkingExperiences': id },$inc: { 'ProfileCompleate': 30 } },
+      { new: true }
+    )
+    console.log("dekho bhai",updatingEmployeeInitalData,employePersonalDetails)
+    if (!updatingEmployeeInitalData){
+      WorkingExprince.findByIdAndDelete(id)
+      return res.status(500).json({message:"internal server errro can't update working details"})
+    }
     
         return res.status(200).json({message:"details added"})
       
@@ -350,17 +380,40 @@ async function AddPersonalProfile(req, res,) {
     try {
       const updatedDocument = await PersonalProfile.findOneAndUpdate(
         { user: employeeId },
-        { $set: { Education: EducationData } },
+        { $set: {  Education: EducationData,}},
         { new: true }
       );
+
+      console.log("hogaya update",updatedDocument.update === true)
   
       if (updatedDocument) {
-        res.status(200).json({ message: 'Details added successfully', updatedDocument });
+        if(updatedDocument.update === true){
+          const updatingEmployeeInitalData = await employeeIntialdata.findByIdAndUpdate(
+            employeeId,
+            { $inc: { 'ProfileCompleate': 30 } },
+            { new: true }
+          )
+          // console.log("dekho bhai",updatingEmployeeInitalData,employePersonalDetails)
+          if (!updatingEmployeeInitalData){
+            return res.status(500).json({message:"no updated"})
+          }
+          const finalUpdatedDocument = await PersonalProfile.findOneAndUpdate(
+            { user: employeeId },
+            { $set: { update:false} },
+            { new: true }
+          );
+          console.log("finalupdate",typeof finalUpdatedDocument.Education.update)
+          if(!finalUpdatedDocument){
+            return res.status(500).json({message:"not updated"})
+          }
+        }
+       
+      return  res.status(200).json({ message: 'Details added successfully', updatedDocument });
       } else {
-        res.status(404).json({ message: 'something  went wrong' });
+       return res.status(404).json({ message: 'something idk  went wrong' });
       }
     } catch (error) {
-      console.error('Error updating document:', error.message);
+      console.error('Error updating document:', error);
       if(error.name === "ValidationError"){
         const validationErrors = Object.values(error.errors).map((val) => val.message);
         console.log(validationErrors)
@@ -371,5 +424,59 @@ async function AddPersonalProfile(req, res,) {
     }
 }
 
+async function UpdateWorkExprince(req,res){
+  const { Position, Experience, LookingForJobs, Skills } = req.body;
+  const employeeId = GetUserIdFromCookie(req.cookies.token);
 
-   module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails}
+  console.log(req.body)
+  if (!employeeId) {
+    return res.status(401).json({ message: 'Unauthorized request' });
+  }
+
+  const updateData = {
+    Position,
+    Experience,
+    LookingForJobs,
+    Skills,
+  };
+
+
+  if(Position === "Experience"){
+    if(Experience.year === "" &&  Experience.month === "" && Experience.CompanyName === "" &&  Experience.Designation === "" &&  Experience.StartDate === "" &&  Experience.EndDate === ""){
+      return res.status(400).json({message:"past company's experinces is required"})
+    }
+  }
+
+  if(Position === "Experience"){
+    if(Experience.length === 0){
+      return res.status(400).json({message:"past company's experinces is required, Add company"})
+    }
+  }
+  try {
+  
+    // Update the work experience
+    const updatedWorkExperience = await WorkingExprince.findOneAndUpdate({user:employeeId}, updateData, {
+      new: true, 
+      runValidators: true, 
+    });
+
+    if (!updatedWorkExperience) {
+      return res.status(404).json({ message: 'can not use this route' });
+    }
+
+
+    console.log(UpdateWorkExprince)
+    return res.status(200).json({ message: 'Details updated successfully', updatedWorkExperience });
+  } catch (error) {
+    console.error(error);
+
+    if (error.name === 'ValidationError') {
+      const validationErrors = Object.values(error.errors).map((val) => val.message);
+      return res.status(400).json({ message: validationErrors[0] });
+    }
+
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+}
+
+   module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince}

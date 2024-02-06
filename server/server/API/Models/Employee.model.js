@@ -1,8 +1,9 @@
-const mongoose = require('../Config/mongo.config');
+const mongooseConnect = require('../Config/mongo.config');
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // Define the User Schema
-const employeeIntialData = new mongoose.Schema({
+const employeeIntialData = new mongooseConnect.Schema({
   firstName: {
     type: String,
     required:[true, "name cannot be empty"],
@@ -40,6 +41,22 @@ const employeeIntialData = new mongoose.Schema({
   },
   check:Boolean,
   refershToken:String,
+  ProfileCompleate:{
+    type:Number,
+    default:10
+  },
+  AdditionalUserinfo:{
+    PersonalDetails:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"PersonalProfile"
+    },
+    WorkingExperiences:{
+      type: mongoose.Schema.Types.ObjectId,
+      ref:"WorkingExperience"
+      },
+
+
+  }
 });
 employeeIntialData.pre('save', async function (next) {
   const user = this;
