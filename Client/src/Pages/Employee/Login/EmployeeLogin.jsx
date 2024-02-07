@@ -6,7 +6,7 @@ function EmployeeLogin() {
   // console.log(auth.login)
  
   return (
-   <Login login={auth} redircet={'/employed-dashboard'}/>
+   <Login login={auth} redircet={'/employe-profile-compleateness'}/>
   )
 }
 
