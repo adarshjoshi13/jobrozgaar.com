@@ -46,11 +46,6 @@ console.log("formdata",profileCompleate)
       <Employeetab active={'My-Jobs'} />
       <div className="my-job-content">
         {/* <EmployeNav /> */}
-        <ProfileCard email={formData.email || ""} proifePic={formData.profilePicture || ""
-} number={formData.mobile || ""} name={formData.firstName
-} location={currentAddress
-
-|| " "}  compleateProfile={profileCompleate} />
         <div className="my-job-box">
           <h2>My Jobs</h2>
           <div className="row mb-3 justify-content-between job-imgs">

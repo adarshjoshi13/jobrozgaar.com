@@ -3,6 +3,7 @@
 }
 
 
+
 .education-box .img2{
     width: 35px;
     margin-right: 8px;
@@ -18,9 +19,18 @@
     /* border: 2px solid red; */
     /* margin-top: 10px; */
     position: absolute;
-    left: 80%;
+   right: 0;
     /* padding: 20px; */
     width: 50px;
     /* margin-bottom: 10px !important; */
     /* bottom: 28%; */
+    top: 1%;
+    
+}
+
+.edu-box{
+    /* border: 2px solid grey; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 15px 20px;
+    position: relative;
 }

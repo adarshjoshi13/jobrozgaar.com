@@ -29,6 +29,7 @@ const corsOptions = {
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   optionsSuccessStatus: 204,
 };
+
 app.use(cors(corsOptions))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

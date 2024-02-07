@@ -58,10 +58,9 @@ function Education() {
     <>  
     <div className="container d-flex flex-wrap flex-lg-nowrap flex-md-nowrap">
   <div className="nav-tab-employee">
-    <Employeetab active={'Education'}/>
   </div>
   <div className="container" >
-    <PersonalNav/>
+    {/* <PersonalNav/> */}
     <AboutMe/>
     <EducationBox initialValues={IntialValues} redirect={'/employed-dashboard'}/>
   </div>

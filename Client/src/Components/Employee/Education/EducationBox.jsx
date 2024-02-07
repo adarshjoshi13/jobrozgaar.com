@@ -89,8 +89,8 @@ console.log('testing',Formikval)
          {
           formik.values.Courses.map((i,index)=>{
             return(
-              <div className="row mt-5" key={index}>
-                  <div className="DLT-BTN-EDUCAtion mb-9">
+              <div className="row mt-5 edu-box" key={index}>
+                  <div className="DLT-BTN-EDUCAtion">
                          {formik.values.Courses.length>1?(<button className="tooltips" onClick={()=>{
                                     deleateCompany(index)
                          }}>
@@ -101,7 +101,7 @@ console.log('testing',Formikval)
 </button>):null}
    
                          </div>
-               {formik.values.Courses.length === 1?"":( <h5 className='text-center mt-5'>Course {index + 1}</h5>)}
+               {formik.values.Courses.length === 1?"":( <h5 className='text-center'>Course {index + 1}</h5>)}
               <div className="col-md-2 pt-2 ">
               <input type="text" className="form-control" placeholder='Course' name={`Courses[${index}].Course`} onChange={formik.handleChange} value={formik.values.Courses[index].Course}/>
               </div>
