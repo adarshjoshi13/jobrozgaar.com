@@ -29,6 +29,8 @@ import Jobposting from "./Employer/JobDetails/Jobposting";
 import CandidateComponet from "./Employer/Candidate/CandidateComponet";
 import Company from "./Employer/Company-Details/Company";
 import Employeetab from "./Employee/Global/Employee-tab/Employee-tab";
+// globle btn
+import Button from "./Global/Button/Button";
 
 
-export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,RegisterForm,ContactSection,JobDescription,NormalForm,EmployeDash_Board,MyJob,ProfileCard,Buttons,EmployeNav,PersonalDetails,PersonalNav,AboutMe,SmallBanner,WorkPage,Loader,EducationBox,OfferBox,EditPersonalprofile,Jobposting,CandidateComponet,Company,Employeetab}
+export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,RegisterForm,ContactSection,JobDescription,NormalForm,EmployeDash_Board,MyJob,ProfileCard,Buttons,EmployeNav,PersonalDetails,PersonalNav,AboutMe,SmallBanner,WorkPage,Loader,EducationBox,OfferBox,EditPersonalprofile,Jobposting,CandidateComponet,Company,Employeetab,Button}

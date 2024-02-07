@@ -9,7 +9,7 @@
   .file-input input{
     width: 100%;
     margin: 9px;
-    padding: 15px;
+    padding: 9px;
     border: 1px solid gray;
     height: 40px;
     border-radius: 5px;
@@ -22,20 +22,31 @@
   
   .file-input input[type="file"] {
     position: absolute;
-    top: 12px;
+    top: 18px;
     right: 15px;
-    width: 30%;
+    width: 35%;
     /* bottom: 9px; */
     /* left: 254px; */
     margin: 0;
-    font-size: 18px !important;
+    font-size: 11px !important;
     padding: 0;
     font-size: 20px;
     cursor: pointer;
     /* border: 2px solid red; */
 }
 
+
+.file-input input::placeholder{
+  font-size: 12px;
+}
+
 .file-input .check{
    width: 32px;
     
+}
+
+.file-input h5{
+  font-size: 13px;
+  /* width: 32px; */
+   
 }

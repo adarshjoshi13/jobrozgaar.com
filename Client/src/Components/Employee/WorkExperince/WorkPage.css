@@ -14,10 +14,7 @@
   margin-left: 8px;
   /* padding: 0 20px; */
 }
-.DLT-BTN{
- 
-  /* border: 2px solid red; */
-}
+
 @media  screen and (max-width:720px) {
     .title-work h4{
         font-size: 17px;
@@ -30,9 +27,9 @@
 
 
 
-.work-exa img{
+/* .work-exa img{
     width:226px ;
-}
+} */
 
 
 .add-more{
@@ -57,9 +54,7 @@
     width: 0;
    }
    
-   .form-control{
-
-   }
+   
    
    /* Create a custom checkbox */
    .checkmark {
@@ -126,11 +121,7 @@
     justify-content: center;
     padding-bottom: 10px;
   }
-  .workingExprincebtn button{
-    padding: 5px 20px;
-    border-radius: 5px;
-    /* background-color: aqua; */
-  }
+  
 
   .workingExprincebtn button:hover{
     background-color: #ccc;

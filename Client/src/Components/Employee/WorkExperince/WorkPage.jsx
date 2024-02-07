@@ -2,7 +2,7 @@ import React from 'react'
 import "./WorkPage.css"
 import Employeetab from '../Global/Employee-tab/Employee-tab';
 import { Formik, Form, Field, ErrorMessage,useFormik,useFormikContext } from 'formik';
-import { Loader } from '../../export';
+import { Button, Loader } from '../../export';
 import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState,useEffect } from 'react';
@@ -107,7 +107,7 @@ function WorkPage({initialValues,senrequest,redirect,Edit}) {
                 </div>
             </div>
          <div className="container title-work mt-4">
-                <div className="row">
+                <div className="d-flex">
                     <div className="col-md-3 d-flex justify-content-start align-items-center">
                     <div className="container  d-flex justify-content-center align-items-center flex-wrap text-center">
                     <div className="m-1 checkbox-wrapper-31">
@@ -335,7 +335,8 @@ function WorkPage({initialValues,senrequest,redirect,Edit}) {
          </div>
         </div>
            <div className="workingExprincebtn">
-            <button type='submit'onClick={formik.handleSubmit}>{loader?<Loader/>:"Save"}</button>
+           <Button type={"submit"} onClick={formik.handleSubmit} title={loader?(<Loader/>):"save"}/>
+          
            </div>
         </div>
 

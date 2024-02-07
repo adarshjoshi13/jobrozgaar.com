@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Education.css"
 import { Formik, Form, Field, ErrorMessage,useFormik,useFormikContext } from 'formik';
-import { Loader } from '../../export';
+import { Loader ,Button } from '../../export';
 import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState,useEffect } from 'react';
@@ -150,8 +150,8 @@ console.log('testing',Formikval)
         </div>
       </div>
       <div className="row ">
-    <div className="col-md-12 candidate-btn-div">
-   <button type='submit' className="mb-5" onClick={formik.handleSubmit}>{loader?(<Loader/>):"save"}</button>
+    <div className="col-md-12 mb-5 candidate-btn-div">
+   <Button type={"submit"} onClick={formik.handleSubmit} title={loader?(<Loader/>):"save"}/>
     </div>
    </div>
     </div>

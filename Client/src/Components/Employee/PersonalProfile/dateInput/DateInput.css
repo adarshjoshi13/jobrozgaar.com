@@ -2,12 +2,19 @@
 
 .date-input input {
     margin: 9px;
-    padding: 15px;
+    padding: 8px;
     border: 1px solid gray;
     height: 40px;
     border-radius: 5px;
 }
 
+.date-input input::placeholder{
+    font-size: 12px;
+}
+
+.date-input h5{
+    font-size: 16px;
+}
 
 
 .date-input img{

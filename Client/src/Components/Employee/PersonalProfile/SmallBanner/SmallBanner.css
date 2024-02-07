@@ -1,14 +1,39 @@
 @media screen and (max-width:1000px) {
 
-    .work-ex img {
-      width: 145px;
-    }
-  
+  .work-ex img {
+    width: 145px;
   }
 
-  .showneximg img{
-     max-width: 200px;
+}
+
+
+@media screen and (max-width:530px) {
+
+  .work-ex img {
+    width: 117px;
   }
 
+}
 
-  
+
+
+.showneximg img {
+  max-width: 200px;
+}
+
+
+@media screen and (max-width:435px) {
+
+  .small-imgs {
+    width: 90px !important;
+  }
+
+}
+
+@media screen and (max-width:375px) {
+
+  .small-imgs {
+    width: 60px !important;
+  }
+
+}

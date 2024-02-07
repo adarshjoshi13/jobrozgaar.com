@@ -1,9 +1,9 @@
 import React from 'react'
-import '/Button.css'
+import './Button.css'
 
-function Button() {
+function Button({title,onClick,type}) {
   return (
-    <div>Button</div>
+  <button type={type} onClick={onClick} className='submit-btn-main'>{title}</button>
   )
 }
 

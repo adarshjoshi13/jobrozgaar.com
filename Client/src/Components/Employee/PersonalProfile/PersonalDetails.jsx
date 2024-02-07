@@ -109,6 +109,7 @@ function PersonalDetails() {
         maxWidth: '655px',
         height: '200px',
         padding: '10px',
+        margin : "9px",
         boxSizing: 'border-box',
         border: '1px solid #ccc',
         borderRadius: '5px',
