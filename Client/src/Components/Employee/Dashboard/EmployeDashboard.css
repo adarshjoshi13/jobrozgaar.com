@@ -6,8 +6,13 @@
     /* padding: 10px; */
     margin-bottom: 10px;
     display: flex;
+    flex-direction: column;
   }
-  
+  .show-info {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
   @media screen and (max-width:768px) {
   
   .employed-dashbaord{

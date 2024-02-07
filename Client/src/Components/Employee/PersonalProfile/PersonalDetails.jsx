@@ -106,7 +106,7 @@ function PersonalDetails() {
       // console.log(formik);
       const textareaStyle = {
         width: '100%',
-        maxWidth: '400px',
+        maxWidth: '655px',
         height: '200px',
         padding: '10px',
         boxSizing: 'border-box',
@@ -132,7 +132,7 @@ function PersonalDetails() {
         </div> */}
           <div className="personal-details ">
             {/* Navbar */}
-            <PersonalNav link={'/edit-personal-profile'} img={'/Utility/personal.png'}/>
+            {/* <PersonalNav link={'/edit-personal-profile'} img={'/Utility/personal.png'}/> */}
             <div className="conatiner">
               <AboutMe/>
 
@@ -147,7 +147,7 @@ function PersonalDetails() {
 
                 {/* <FormBar title={"Name"} type={"text"} placeholder={"Enter your name"} /> */}
                 <FormBar
-                    title={"Father’s Name /Husband Name"} type={"text"} placeholder={"Enter your father/husband name"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.fatherName}
+                    title={"Father’s /Husband "} type={"text"} placeholder={"Enter your father/husband name"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.fatherName}
                name={'fatherName'} />
                 <DateInput
                     label1="Date of Birth"

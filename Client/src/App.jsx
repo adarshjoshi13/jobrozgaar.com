@@ -33,7 +33,7 @@ function App() {
       <Route path='/payroll_outsourcing' element={<Layout><PayRoll/></Layout>}/>
       <Route path='/manpower_outsourcing' element={<Layout><ManPower/></Layout>}/>
       <Route path='/employee-login' element={<Layout><EmployeeLogin/></Layout>}/>
-      <Route path='/employed-dashboard' element={<Layout><EmployeDashBorad/></Layout>}/>
+      <Route path='/employe-profile-compleateness' element={<Layout><EmployeDashBorad/></Layout>}/>
       <Route path='/my-jobs' element={<Layout><MyJobs/></Layout>}/>
       <Route path='/Personal-profile' element={<Layout><PersonalProfile/></Layout>}/>
       <Route path='/work-experience' element={<Layout><WorkExperince/></Layout>}/>

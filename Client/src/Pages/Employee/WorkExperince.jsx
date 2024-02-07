@@ -58,20 +58,13 @@ function WorkExperince() {
       }
     return (
         <>
-       <div className="container d-flex flex-wrap flex-lg-nowrap flex-md-nowrap  justify-content-around">
-  <div className="nav-tab-employee">
-    <Employeetab active={'work Experience'}/>
+  <div className="container">
+ <div className="row  d-flex justify-content-center align-items-center">
+  <div className="col-md-12 ">
+  <WorkPage initialValues={initialValues} senrequest={AddWorkingEXprince} redirect={'/education'}/>
   </div>
-  <div className="container w-100" >
-    {/* <PersonalNav/> */}
-   
-    <AboutMe/>
-  
-   <div className="work-page w-100 mb-5">
-    <WorkPage initialValues={initialValues} senrequest={AddWorkingEXprince} redirect={'/education'}/></div>
-
+ </div>
   </div>
-</div>
         </>
 
 

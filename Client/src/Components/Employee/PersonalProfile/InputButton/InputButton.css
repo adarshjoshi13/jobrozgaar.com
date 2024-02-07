@@ -13,6 +13,8 @@
     border: 1px solid gray;
     height: 40px;
     border-radius: 5px;
+    /* border: 2px solid red; */
+    
 }
 
 
@@ -30,6 +32,7 @@
     padding: 0;
     font-size: 20px;
     cursor: pointer;
+    /* border: 2px solid red; */
 }
 
 .file-input .check{

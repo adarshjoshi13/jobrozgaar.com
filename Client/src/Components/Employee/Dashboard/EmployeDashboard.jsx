@@ -51,11 +51,19 @@ if(loader){
     return (
         <div className='employed-dashbaord'>
             {/* <EmployeNav /> */}
-            <Employeetab/>
+           
 
             <ProfileCard email={formData.email || ""} proifePic={formData.profilePicture || ""
 } number={formData.mobile || ""} name={formData.firstName
 } location={currentAddress} compleateProfile={profileCompleate} extraData={formData}  />
+ <div className="show-info ">
+  {profileCompleate < 100 ? (
+    <h3><Link to={'/Personal-profile'}>Click to complete profile</Link></h3>
+  ) : (
+    <h3><Link to={'/employee-dashboard/my-jobs'}>Go to My Jobs</Link></h3>
+  )}
+</div>
+
         </div>
     );
 }

@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useState,useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { Link,useNavigate } from 'react-router-dom';
+import SmallBanner from '../PersonalProfile/SmallBanner/SmallBanner';
 function WorkPage({initialValues,senrequest,redirect,Edit}) {
 
         const [isChecked, setIsChecked] = useState(true);
@@ -85,23 +86,24 @@ function WorkPage({initialValues,senrequest,redirect,Edit}) {
         
     return (
         <>
-        <div className="work-wraper">
+        <div className="container">
         <div className="row">
            {/* <div className="col-md-3 ">
            <Employeetab active={"work Experience"}/>
            </div> */}
-        <div className=" col-md-8  lower-job-wraper">
+        <div className=" col-md-12  lower-job-wraper">
         <div className="container work-exa p-3">
                 <div className="row">
-                    <div className="col-md-4">
-                        <img className='exx' src="/Utility/ex.png" alt="Personal Image" />
-                    </div>
-                   {
-                    Edit?(<h3 className='mt-5'>Edit Work  Experience</h3>): <div className="col-md-3 d-flex mt-5  ">
-                    <img src="/Utility/edu.png" alt="Work Image" />
+                    <div className="col-md-12">
+                        
+                        {
+                    Edit?(<h3 className='mt-5'>Edit Work  Experience</h3>): (<SmallBanner personalImage={"/Utility/ex.png"} eduImage={"/Utility/edu.png"} />)
 
-                </div>
+               
                    }
+                       
+                    </div>
+                  
                 </div>
             </div>
          <div className="container title-work mt-4">
@@ -170,9 +172,9 @@ function WorkPage({initialValues,senrequest,redirect,Edit}) {
                     formik.values.Experience.map((i,index)=>{
                         console.log('index',i)
                       return (
-                        <div className="row mt-5" key={index}>
+                        <div className="row mt-5 boxed" key={index}>
                             
-                       <div className="col-md-12 d-flex justify-content-start align-items-center bana-do">
+                       <div className="col-md-12 d-flex justify-content-start align-items-center bana-do mt-5">
                              <img src="/Utility/check.png" alt="" />
                              <h5>Company {index +1}</h5>
                              <div className="DLT-BTN mb-5">
