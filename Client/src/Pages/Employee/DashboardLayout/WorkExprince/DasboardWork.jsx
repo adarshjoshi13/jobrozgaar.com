@@ -1,27 +1,12 @@
+
 import React from 'react'
-import { PersonalNav, AboutMe, WorkPage,Employeetab } from '../../Components/export'
-import employee from '../../API/Employee';
+import {AboutMe, WorkPage,} from '../../../../Components/export'
+import employee from '../../../../API/Employee';
 import { useState,useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
-function UpdateWorkingExprince() {
-    // const initialValues = {
-    //     Position: "",
-    //     Experience:[ {
-    //         year: "",
-    //         month: "",
-    //         CompanyName: "",
-    //         Designation: "",
-    //         StartDate: "",
-    //         EndDate: ""
-    //       },],
-    //     LookingForJobs: {
-    //       JobTitle: "",
-    //       JobType: ""
-    //     },
-    //     Skills:""
-    //   };
-      const [initialValues,SetinitialValues] = useState({
+function DasboardWork() {
+    const [initialValues,SetinitialValues] = useState({
         Position: "",
         Experience:[ {
             year: "",
@@ -55,8 +40,6 @@ function UpdateWorkingExprince() {
            }
           })()
         },[])
-      
-
   return (
     <div className="container d-flex flex-wrap flex-lg-nowrap flex-md-nowrap">
     <div className="nav-tab-employee">
@@ -65,11 +48,10 @@ function UpdateWorkingExprince() {
     <div className="container" >
       {/* <PersonalNav/> */}
       <AboutMe/>
-      <WorkPage initialValues={initialValues} senrequest={AddWorkingEXprince} redirect={'/update-working-exprince'} Edit={true}/>
+      <WorkPage initialValues={initialValues} senrequest={AddWorkingEXprince} redirect={'/Dashboard/work-experience'} Edit={true}/>
     </div>
   </div>
   )
-  
 }
 
-export default UpdateWorkingExprince
+export default DasboardWork

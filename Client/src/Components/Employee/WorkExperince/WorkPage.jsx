@@ -97,7 +97,7 @@ function WorkPage({initialValues,senrequest,redirect,Edit}) {
                     <div className="col-md-12">
                         
                         {
-                    Edit?(<h3 className='mt-5'>Edit Work  Experience</h3>): (<SmallBanner personalImage={"/Utility/ex.png"} eduImage={"/Utility/edu.png"} />)
+                    Edit?(<h3 className='mt-5 text-center'>Work Experience</h3>): (<SmallBanner personalImage={"/Utility/ex.png"} eduImage={"/Utility/edu.png"} />)
 
                
                    }

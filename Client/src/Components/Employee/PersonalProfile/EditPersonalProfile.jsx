@@ -16,7 +16,7 @@ import { useState,useEffect } from 'react';
 import Employeetab from '../Global/Employee-tab/Employee-tab';
 
 
-function EditPersonalprofile() {
+function EditPersonalprofile({isShow}) {
     const [Images,SetImages] = useState([]);
     const [loader,Setloader] = useState(false);
     const [Saveloader,SetSaveloader] = useState(false)
@@ -116,9 +116,11 @@ function EditPersonalprofile() {
   <div className="personal-details ">
             {/* Navbar */}
             {/* <PersonalNav hideOrShow={false} img={'/Utility/personal.png'}/> */}
-           <h3 className='text-center text-secondary mt-5'>Edit Personal Details</h3>
+           <h3 className='text-center text-secondary mt-5'>{isShow?("Edit Personal Details"):null}</h3>
           <div className="conatiner">
-              {/* <AboutMe/> */}
+             <div className="about-me mb-5">
+             <AboutMe/>
+             </div>
 
                 {/* <SmallBanner
                     personalImage="/Utility/personal.png"

@@ -28,4 +28,5 @@ import EmployerLogin from "./Employer/login/EmployerLogin";
 import UpdateWorkingExprince from "./Employee/UpdateWorkingExprince";
 import EditEducation from "./Employee/EditEducation";
 import Dashboard from "./Employee/DashboardLayout/Dashboard";
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,OfferLetter,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard}
+import DasboardWork from "./Employee/DashboardLayout/WorkExprince/DasboardWork";
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,OfferLetter,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork}
