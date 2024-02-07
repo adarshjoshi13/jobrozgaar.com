@@ -1,5 +1,5 @@
 .button-cover-pin button {
-    padding: 12px 37px;
+    padding: 12px 24px;
     border-radius: 10px;
     border: 0;
     background-color: rgb(195, 213, 31);
@@ -24,7 +24,7 @@
     position: absolute;
     left: 10px;
     width: 32px;
-    bottom: 15px;
+    bottom: 34px;
 }
 
   .button-cover-pin button:hover {

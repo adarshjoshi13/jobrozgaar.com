@@ -16,28 +16,30 @@ import { useState, useEffect } from 'react';
 import Employeetab from '../Global/Employee-tab/Employee-tab';
 
 
-function EditPersonalprofile() {
-  const [Images, SetImages] = useState([]);
-  const [loader, Setloader] = useState(false);
-  const [Saveloader, SetSaveloader] = useState(false)
-  console.log(Images);
-  const [formData, setFormData] = useState({})
-  useEffect(() => {
-    (async () => {
-      Setloader(true)
-      const result = await employee.getPersonalProfile();
-      if (result.status === 200) {
-        Setloader(false)
-        setFormData({ ...result.data.data })
-      }
-      else {
-        Setloader(false)
-        toast.error("erro fetching data")
-      }
-
-    })()
-  }, [])
-  console.log(formData)
+function EditPersonalprofile({isShow}) {
+    const [Images,SetImages] = useState([]);
+    const [loader,Setloader] = useState(false);
+    const [Saveloader,SetSaveloader] = useState(false)
+    console.log(Images);
+    const [formData, setFormData] = useState({})
+    useEffect(()=>{
+        (async ()=>{
+          Setloader(true)
+          const result = await employee.getPersonalProfile();
+          if(result.status === 200){
+            Setloader(false)
+            setFormData({...result.data.data})
+          }
+         else{
+          Setloader(false)
+           toast.error("erro fetching data")
+         }
+         
+        })()
+      },[])
+      console.log(formData)
+    // const { values, setValues } = useFormikContext();
+  //  
   // const { values, setValues } = useFormikContext();
   const formik = useFormik({
     enableReinitialize: true,
@@ -116,12 +118,14 @@ function EditPersonalprofile() {
       {/* <div className='employee-tab-personal-info'>
            <Employeetab active={'Personal Profile'}/>
         </div> */}
-      <div className="personal-details ">
-        {/* Navbar */}
-        {/* <PersonalNav hideOrShow={false} img={'/Utility/personal.png'}/> */}
-        <h3 className='text-center text-secondary mt-5'>Edit Personal Details</h3>
-        <div className="conatiner">
-          {/* <AboutMe/> */}
+  <div className="personal-details ">
+            {/* Navbar */}
+            {/* <PersonalNav hideOrShow={false} img={'/Utility/personal.png'}/> */}
+           <h3 className='text-center text-secondary mt-5'>{isShow?("Edit Personal Details"):null}</h3>
+          <div className="conatiner">
+             <div className="about-me mb-5">
+             <AboutMe/>
+             </div>
 
           {/* <SmallBanner
                     personalImage="/Utility/personal.png"

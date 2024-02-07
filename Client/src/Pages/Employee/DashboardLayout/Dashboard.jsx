@@ -6,17 +6,20 @@ import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState,useEffect } from 'react';
 
-function Dashboard({children}) {
+function Dashboard({children,navtag}) {
     const [loader,Setloader] = useState(false);
     const [formData, setFormData] = useState({})
     useEffect(()=>{
         (async ()=>{
+            Setloader(true)
           const result = await employee.getintialdata();
           if(result.status === 200){
             // console.log('yel bhai',result.data)
             setFormData({...result.data})
+            Setloader(false)
           }
          else{
+            Setloader(false)
            toast.error("erro fetching data")
          }
         })()
@@ -38,12 +41,15 @@ console.log("formdata",profileCompleate)
       }
   return (
   <>
-     <ProfileCard email={formData.email || ""} proifePic={formData.profilePicture || ""
+  <div className="container">
+  <ProfileCard email={formData.email || ""} proifePic={formData.profilePicture || ""
 } number={formData.mobile || ""} name={formData.firstName
 } location={currentAddress
 
 || " "}  compleateProfile={profileCompleate} />
-<Employeetab/>
+<Employeetab active={navtag}/>
+{children}
+  </div>
   
   </>
   )

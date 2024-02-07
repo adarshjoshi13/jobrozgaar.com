@@ -49,12 +49,12 @@ const NormalButton = [
   
   {
   title:"Personal Profile",
-  link:'/personal-profile',
+  link:'/Dashboard/personal-profile',
   color:" #808080"
 },
 {
   title:"work Experience",
-  link:'/work-experience',
+  link:'/Dashboard/work-experience',
   color:"#808080"
 },
 {
@@ -82,7 +82,7 @@ const NormalButton = [
 
 if(profileCompleate === 100){
   return (
-    <div className="d-flex flex-md-column flex-lg-column flex-xs-row flex-sm-wrap flex-xs-wrap flex-sm-row flex-wrap button-home-dash home-dash-nav">
+    <div className="d-flex flex-md-row flex-lg-row flex-xs-row flex-sm-wrap flex-xs-wrap flex-sm-row flex-wrap button-home-dash home-dash-nav">
     {NormalButton.map((i, index) => (
       i.title === active
         ? <Buttons to={i.link} color={'green'} title={i.title} key={index} />
