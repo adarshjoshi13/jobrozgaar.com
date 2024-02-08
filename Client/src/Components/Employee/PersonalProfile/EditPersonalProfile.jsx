@@ -9,7 +9,7 @@ import InputButton from './InputButton/InputButton';
 import SmallBanner from './SmallBanner/SmallBanner';
 import AboutMe from './AboutMe/AboutMe';
 import { Formik, Form, Field, ErrorMessage, useFormik, useFormikContext } from 'formik';
-import { Loader } from '../../export';
+import { Button, Loader } from '../../export';
 import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
@@ -98,9 +98,9 @@ function EditPersonalprofile({isShow,redirect}) {
     width: '100%',
     padding: '10px',
     fontSize: '1rem',
-    maxWidth: '600px',
+    borderRadius:"8px",
     margin : "9px",
-    minHeight: '150px',
+    minHeight: '100px',
     border: '1px solid #ccc',
     resize: 'vertical',
     outline: 'none',
@@ -257,7 +257,8 @@ function EditPersonalprofile({isShow,redirect}) {
         </div>
 
         <div className="personal-ifo-update-btn">
-          <button className='person-btn' onClick={formik.handleSubmit} type='submit'>{Saveloader ? (<Loader />) : "update"}</button>
+        <Button title={Saveloader ? (<Loader />) : "update"} type={"type"} onClick={formik.handleSubmit}/>
+          
         </div>
 
 

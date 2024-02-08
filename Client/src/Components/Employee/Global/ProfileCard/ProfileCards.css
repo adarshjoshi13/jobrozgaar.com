@@ -57,13 +57,15 @@ padding: 18px;
 
   .buttons-profile input[type="file"] {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 19px;
+    left: 64px;
+    width: 21px;
+    font-size: 2px;
+    /* width: 55%; */
+    height: 20px;
     opacity: 0;
     cursor: pointer;
-  }
+}
  
   .buttons-profile button:hover{
     background-color: rgb(209, 84, 105);
@@ -110,8 +112,8 @@ padding: 18px;
   }
   .profile-image-container {
     position: relative;
-    width: 150px; /* Set your desired width */
-    height: 150px; /* Set your desired height */
+    width: 82px; /* Set your desired width */
+    height: 82px; /* Set your desired height */
     overflow: hidden;
     border-radius: 50%; /* Create a circular shape */
 }

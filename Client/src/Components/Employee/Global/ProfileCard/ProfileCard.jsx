@@ -11,7 +11,7 @@ function ProfileCard({email,proifePic,number,compleateProfile,name,location,extr
 
     console.log("yah se calcuation",extraData)
   return (
-    <div className="container mt-4 mb-4 p-4 border">
+    <div className="container mt-4 mb-4 border">
     <div className="row">
         <div className="col-md-6">
             <div className="profile-cover-dash d-flex justify-content-center align-items-center flex-column">

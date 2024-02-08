@@ -54,7 +54,7 @@ function App() {
       <Route path='/Dashboard/offer-letter' element={<Layout><Dashboard navtag={'Offer Letter'}><OfferLetter/></Dashboard></Layout>}/>
       <Route path='/Dashboard/setting' element={<Layout><Dashboard navtag={'setting'}><PasswordChange/></Dashboard></Layout>}/>
 
-      <Route path='/Dashboard/my-jobs' element={<Layout><Dashboard navtag={'work Experience'}><MyJobs/></Dashboard></Layout>}/>
+      <Route path='/Dashboard/my-jobs' element={<Layout><Dashboard navtag={'My-Jobs'}><MyJobs/></Dashboard></Layout>}/>
       
 
     </Routes>
