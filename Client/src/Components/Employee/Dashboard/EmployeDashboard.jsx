@@ -60,7 +60,7 @@ if(loader){
   {profileCompleate < 100 ? (
     <h3><Link to={'/Personal-profile'}>Click to complete profile</Link></h3>
   ) : (
-    <h3><Link to={'/employee-dashboard/my-jobs'}>Go to My Jobs</Link></h3>
+    <h3><Link to={'/Dashboard/personal-profile'}>Go to Dashboard</Link></h3>
   )}
 </div>
 

@@ -222,7 +222,7 @@ async function AddPersonalProfile(req, res,) {
 
   async function updateUserProiflePicture(req,res){
     const employeeId = GetUserIdFromCookie(req.cookies.token)
-    console.log(employeeId)
+    console.log("file",req.files)
     if(!employeeId){
        return res.status(401).json({message:'Unauthorized request'})
     }

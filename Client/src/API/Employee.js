@@ -233,6 +233,33 @@ console.log('formmm',formData)
     }
   }
 
+  async ProfilePic(image){
+    try {
+       const formdata = new FormData()
+       formdata.append('ProfilePicture',image)
+       
+       const response = await axios.put(`${this.url}/update-profile-pic`,formdata, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }) 
+      console.log("server response:",response)
+      return response
+    } catch (error) {
+      if(error.response){
+        console.log("server responed:",error.response)
+        return error.response
+
+     }
+     else if(error.request){
+        // console.log("client side error ", error.request);
+        console.log(error)
+        return null
+     }
+    }
+  }
+
 
 }
 

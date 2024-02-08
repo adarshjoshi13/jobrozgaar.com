@@ -1,15 +1,49 @@
 import React,{useState} from 'react'
 import { FaCloudDownloadAlt, FaCamera, FaShareAlt,} from "react-icons/fa";
 import "./ProfileCards.css"
+import employee from '../../../../API/Employee';
+import { ToastContainer, toast } from 'react-toastify';
+import { Loader } from '../../../export';
 
-function ProfileCard({email,proifePic,number,compleateProfile,name,location,extraData}) {
+function ProfileCard({email,proifePic,number,compleateProfile,name,location,extraData,utlityFunction}) {
     const [sliderValue, setSliderValue] = useState(10);
+    const  [loader,setloader] = useState(false)
+    console.log("chut ka marij",utlityFunction)
 
     const handleSliderChange = (event) => {
         setSliderValue(event.target.value);
     };
 
-    console.log("yah se calcuation",extraData)
+  const ChangeImg = async (e)=>{
+    let image = e.target.files[0]
+    console.log('image dekh le bhai',image);
+    
+    setloader(true)
+    const result = await employee.ProfilePic(image)
+    console.log("this is the result", result)
+
+    if (result === null) {
+      setloader(false)
+      toast.warn("something went wrong please try again")
+    }
+
+    if (result.status === 200) {
+      setloader(false);
+      utlityFunction()
+      toast.success(result.data.message)
+    }
+
+    else {
+      setloader(false);
+      toast.error(result.data.message)
+    }
+
+
+  }
+    
+  
+
+    // console.log("yah se calcuation",extraData)
   return (
     <div className="container mt-4 mb-4 border">
     <div className="row">
@@ -19,7 +53,7 @@ function ProfileCard({email,proifePic,number,compleateProfile,name,location,extr
                     <div className='profile-dash'>
                         <div className="profile-img-box">
                          <div className="profile-image-container">
-                         <img src={proifePic?proifePic:"/Utility/profile.png"} alt="profile" className='img-fluid  ' id='profile-pic-img' />
+                        {loader?<Loader/>: <img src={proifePic?proifePic:"/Utility/profile.png"} alt="profile" className='img-fluid  ' id='profile-pic-img' />}
                          </div>
                             <div className="buttons-profile">
                                 <button><FaCloudDownloadAlt /></button>
@@ -27,6 +61,7 @@ function ProfileCard({email,proifePic,number,compleateProfile,name,location,extr
                                    <input
         type="file"
         accept="images"
+        onChange={ChangeImg}
     
       />
                                 </button>
@@ -45,7 +80,7 @@ function ProfileCard({email,proifePic,number,compleateProfile,name,location,extr
                         <p>Phone:{number}</p>
                     </div>
                     <div className="upper-text w-100 d-flex justify-content-between align-items-center">
-                        <p>Location:{Location}</p>
+                        <p>Location:{location}</p>
                     </div>
                 </div>
             </div>

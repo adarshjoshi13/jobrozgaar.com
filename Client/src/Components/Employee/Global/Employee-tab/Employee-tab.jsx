@@ -7,38 +7,38 @@ import employee from '../../../../API/Employee';
 function Employeetab({active}) {
   console.log('active',active)
   // const [profileCompleate,setProfileCompleatd]
-  const [loader,Setloader] = useState(false);
-    const [formData, setFormData] = useState({})
-  useEffect(()=>{
-    (async ()=>{
-      const result = await employee.getintialdata();
-      if(result.status === 200){
-        console.log('yel bhai',result.data)
-        setFormData({...result.data})
-      }
-     else{
-       toast.error("erro fetching data")
-     }
-    })()
-  },[])
-  const profileCompleate = formData?.ProfileCompleate
-  console.log("formdata",profileCompleate)
-  const buttonsIfDetailsNotCompleated = [{
-    title:"Personal Profile",
-    link:'/personal-profile',
-    color:"#808080"
-  },
-  {
-    title:"work Experience",
-    link:'/work-experience',
-    color:" #808080"
-  },
-  {
-    title:"Education",
-    link:'/education',
-    color:" #808080"
-  }
-]
+//   const [loader,Setloader] = useState(false);
+//     const [formData, setFormData] = useState({})
+//   useEffect(()=>{
+//     (async ()=>{
+//       const result = await employee.getintialdata();
+//       if(result.status === 200){
+//         console.log('yel bhai',result.data)
+//         setFormData({...result.data})
+//       }
+//      else{
+//        toast.error("erro fetching data")
+//      }
+//     })()
+//   },[])
+//   const profileCompleate = formData?.ProfileCompleate
+//   console.log("formdata",profileCompleate)
+//   const buttonsIfDetailsNotCompleated = [{
+//     title:"Personal Profile",
+//     link:'/personal-profile',
+//     color:"#808080"
+//   },
+//   {
+//     title:"work Experience",
+//     link:'/work-experience',
+//     color:" #808080"
+//   },
+//   {
+//     title:"Education",
+//     link:'/education',
+//     color:" #808080"
+//   }
+// ]
 // console.log('active',active === buttonsIfDetailsNotCompleated[0].title)
 const NormalButton = [
   {
