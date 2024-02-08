@@ -97,7 +97,8 @@ function EditPersonalprofile({isShow,redirect}) {
   const textareaStyle = {
     width: '100%',
     padding: '10px',
-    fontSize: '1rem',
+
+    fontSize: '13px',
     borderRadius:"8px",
     margin : "9px",
     minHeight: '100px',
@@ -116,7 +117,7 @@ function EditPersonalprofile({isShow,redirect}) {
     }} />
   }
   return (
-    <div className='whole-personal-deatil-wraper'>
+    <div className='whole-personal-deatil-wraper '>
       {/* <div className='employee-tab-personal-info'>
            <Employeetab active={'Personal Profile'}/>
         </div> */}
@@ -124,7 +125,7 @@ function EditPersonalprofile({isShow,redirect}) {
             {/* Navbar */}
             {/* <PersonalNav hideOrShow={false} img={'/Utility/personal.png'}/> */}
            <h3 className='text-center text-secondary mt-5'>{isShow?("Edit Personal Details"):null}</h3>
-          <div className="conatiner">
+          <div className="conatiner  ">
              <div className="about-me mb-5">
              <AboutMe/>
              </div>
@@ -241,7 +242,7 @@ function EditPersonalprofile({isShow,redirect}) {
               <div className="col-md-10">
                 <div className="row">
 
-                  <div className="col-md-10 d-flex justify-contant-center align-items-center">
+                  <div className="col-md-10 p-0 d-flex justify-contant-center align-items-center">
                     <div>
                       <img src="/Utility/check.png" alt="" />
                     </div>

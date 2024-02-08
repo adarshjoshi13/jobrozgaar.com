@@ -84,12 +84,12 @@ function PasswordChange() {
                 </div>
                 <div className="row">
                     <div className="col-md-12 d-flex justify-content-center align-items-center">
-                        <h5 className='text-center'>Get Job notification through <span><img style={{ width: '140px' }} src="/Utility/whatsapp.png" alt="" /> <label className="toggle-switch">
+                        <h5 className='text-center m-0'>Get Job notification through <span><img style={{ width: '140px' }} src="/Utility/whatsapp.png" alt="" /> </span></h5><label className="toggle-switch">
                             <input type="checkbox" />
                             <div className="toggle-switch-background">
                                 <div className="toggle-switch-handle"></div>
                             </div>
-                        </label></span></h5>
+                        </label>
                     </div>
                 </div>
             </div>

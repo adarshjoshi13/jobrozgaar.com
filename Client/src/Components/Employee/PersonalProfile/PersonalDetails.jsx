@@ -134,7 +134,7 @@ function PersonalDetails() {
           <div className="personal-details ">
             {/* Navbar */}
             {/* <PersonalNav link={'/edit-personal-profile'} img={'/Utility/personal.png'}/> */}
-            <div className="conatiner">
+            <div className="conatiner p-0">
               <AboutMe/>
 
                 <SmallBanner

@@ -1,22 +1,18 @@
 .my-job-box img{
     width: 100%;
     cursor: pointer;
+    /* aspect-ratio: 3/2; */
     /* height: 30px; */
 }
 
-.side-man{
-   max-width: 200px;
+.job-imgs img{
+  width:100%;
 }
 
-.sider-man-card button{
-    width: 30%;
-    margin: auto;
-    border-radius: 20px;
-    padding: 12px;
-    color: white;
-    background-color: #447D8E;
-    font-size: 22px;
+.side-man{
+   max-width: 140px;
 }
+
 
 
 /* MyJob.css */
@@ -25,9 +21,14 @@
     display: flex;
     justify-content: space-between;
     overflow: hidden;
- padding: 12px 0 12px;
+ /* padding: 12px 0 12px; */
   }
 
+
+  .job-imgs .col-md-2 img{
+    width: 130px;
+    
+   }
  
 @media (max-width: 767px) {
     /* Your mobile-specific styles go here */
@@ -39,17 +40,37 @@
     flex-wrap: wrap;
    }
    .job-imgs .col-md-2 img{
-    width: 150px;
+    width: 127px;
     
    }
    .side-man{
     width: 100px;
    }
-   #job-btn{
-   height: 50px;
-   width: 100px;
 
-   }
+
+   
+   #job-btn{
+    border-radius: 15px;
+    background-color: #447D8E;
+    color: white;
+    font-size: 10px;
+    padding: 4px 4px;
+  }
+
+   
+  }
+
+
+  @media screen and (max-width:) {
+    
+  }
+
+
+  #job-btn{
+    border-radius: 15px;
+    background-color: #447D8E;
+    color: white;
+    padding: 8px 8px;
   }
 
   

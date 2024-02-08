@@ -11,7 +11,7 @@ function FormBar({ title, type, placeholder,onChange,onblur,value,name,style }) 
                 <div className="col-md-10">
                     <div className="row">
 
-                        <div className="col-md-10 d-flex justify-contant-center align-items-center">
+                        <div className="col-md-10 p-0 d-flex justify-contant-center align-items-center">
                             <div>
                                 <img src="/Utility/check.png" alt="" />
                             </div>
