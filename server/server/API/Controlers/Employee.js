@@ -5,6 +5,9 @@ const employePersonalDetails = require('../Models/Employee.model')
 const { json } = require('express')
 const WorkingExprince = require('../Models/Employee.workExprince')
 const employeeIntialdata = require('../Models/Employee.model')
+const bcrypt = require('bcrypt')
+
+// controlers
 async function AddPersonalProfile(req, res,) {
   console.log()
     const employeeId = GetUserIdFromCookie(req.cookies.token)
@@ -159,6 +162,7 @@ async function AddPersonalProfile(req, res,) {
           CurrentCity,
           CurrentState,
           PermanentAddress,
+          AboutMe
          } },
         { new: true }
       );
@@ -479,4 +483,52 @@ async function UpdateWorkExprince(req,res){
   }
 }
 
-   module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince}
+async function ChangePassword(req,res){
+ try {
+  const employeeId = GetUserIdFromCookie(req.cookies.token);
+  console.log(employeeId)
+
+  console.log(req.body)
+  if (!employeeId) {
+    return res.status(401).json({ message: 'Unauthorized request' });
+  }
+
+  const {oldpassword,newPassword,confirmNewPassword} = req.body;
+  if(newPassword !== confirmNewPassword){
+    return res.status(400).json({ message: 'New password and confirm password should be same' });
+  }
+
+  if(newPassword.length < 8){
+    return res.status(400).json({ message: 'New password should contain more than 8 character' });
+  }
+
+  const employee = await employeeIntialdata.findById(employeeId);
+  if(!employee){
+    return res.status(404).json({ message:"user not found please sign up "});
+  }
+
+  console.log('user',employee)
+
+  const validPassword = await bcrypt.compare(oldpassword, employee.password);
+  if (!validPassword) {
+    return res.status(401).json({ message: 'old password is  wrong' });
+  }
+  else{
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    const updatingEmployeeInitalData = await employeeIntialdata.findOneAndUpdate(
+        {_id:employeeId},
+      { $set: { 'password': hashedPassword } },
+      { new: true }
+    )
+    return res.status(200).json({ message: 'Password changed successfully',data:updatingEmployeeInitalData });
+
+  }
+ } catch (error) {
+  console.log("erro while updating password",error);
+  return res.status(500).json({ message: 'something went wrong, internal server error' });
+ }
+
+
+}
+
+   module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince,ChangePassword}

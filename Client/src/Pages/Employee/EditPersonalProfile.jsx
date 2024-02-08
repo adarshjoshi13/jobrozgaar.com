@@ -7,7 +7,7 @@ function EditPersonalProfile() {
     {/* <Employeetab active={'Personal Profile'}/> */}
     </div>
      <div className="container">
-     <EditPersonalprofile/>
+     <EditPersonalprofile redirect={'/work-experience'}/>
    </div>
   </div>
   )

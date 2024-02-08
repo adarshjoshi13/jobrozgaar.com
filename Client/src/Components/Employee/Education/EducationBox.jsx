@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function EducationBox({initialValues,query,Edit,redirect}) {
+function EducationBox({initialValues,query,Edit,redirect,showArrow}) {
  
   const navigate = useNavigate()
   const [loader,Setloader] = useState(false);
@@ -59,7 +59,7 @@ console.log('testing',Formikval)
     <div className="container education-box">
       <div className="row w-100">
         <div className="col-md-12 mb-3">
-          <img className='img1' src="/Utility/education.png" alt="" />
+         {showArrow?( <img className='img1' src="/Utility/education.png" alt="" />):null}
           {Edit?(<h3 className='text-center mt-5 mb-5'>Edit Education Details</h3>):null}
         </div>
         <div className="col-md-6 m-2">

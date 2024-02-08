@@ -62,7 +62,7 @@ function Education() {
   <div className="container" >
     {/* <PersonalNav/> */}
     <AboutMe/>
-    <EducationBox initialValues={IntialValues} redirect={'/employed-dashboard'}/>
+    <EducationBox initialValues={IntialValues} redirect={'/Dashboard/personal-profile'}/>
   </div>
 </div>
 
