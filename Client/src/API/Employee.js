@@ -210,7 +210,7 @@ console.log('formmm',formData)
     console.log('thise is data',JSON.stringify(data))
     try {
 
-       const response = await axios.put(`${this.url}/work-experience-update`,JSON.stringify(data), {
+       const response = await axios.put(`${this.url}/change-password`,JSON.stringify(data), {
           withCredentials: true,
           headers: {
             'Content-Type': 'application/json',

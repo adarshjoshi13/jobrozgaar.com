@@ -492,7 +492,7 @@ async function ChangePassword(req,res){
   if (!employeeId) {
     return res.status(401).json({ message: 'Unauthorized request' });
   }
-
+  
   const {oldpassword,newPassword,confirmNewPassword} = req.body;
   if(newPassword !== confirmNewPassword){
     return res.status(400).json({ message: 'New password and confirm password should be same' });

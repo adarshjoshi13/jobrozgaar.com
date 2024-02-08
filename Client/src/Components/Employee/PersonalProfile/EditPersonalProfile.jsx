@@ -66,7 +66,7 @@ function EditPersonalprofile({isShow,redirect}) {
       }
 
       else {
-        Setloader(false);
+        SetSaveloader(false);
         toast.error(result.data.message)
       }
 

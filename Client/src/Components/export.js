@@ -31,6 +31,10 @@ import Company from "./Employer/Company-Details/Company";
 import Employeetab from "./Employee/Global/Employee-tab/Employee-tab";
 // globle btn
 import Button from "./Global/Button/Button";
+// Ui input
+import SelectInput from "./Global/UI/Select Input/SelectInput";
+import ArrowNavigate from "./Global/UI/ArrowNavigate/ArrowNavigate";
+import FormBar from "./Employee/PersonalProfile/formbar/FormBar";
 
 
-export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,RegisterForm,ContactSection,JobDescription,NormalForm,EmployeDash_Board,MyJob,ProfileCard,Buttons,EmployeNav,PersonalDetails,PersonalNav,AboutMe,SmallBanner,WorkPage,Loader,EducationBox,OfferBox,EditPersonalprofile,Jobposting,CandidateComponet,Company,Employeetab,Button}
+export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,RegisterForm,ContactSection,JobDescription,NormalForm,EmployeDash_Board,MyJob,ProfileCard,Buttons,EmployeNav,PersonalDetails,PersonalNav,AboutMe,SmallBanner,WorkPage,Loader,EducationBox,OfferBox,EditPersonalprofile,Jobposting,CandidateComponet,Company,Employeetab,Button,SelectInput,ArrowNavigate,FormBar}

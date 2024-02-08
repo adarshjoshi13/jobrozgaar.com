@@ -64,7 +64,7 @@ const NormalButton = [
 },
 {
   title:"Offer Letter",
-  link:'/offer-letter',
+  link:'/Dashboard/offer-letter',
   color:" #808080"
 },
 {
@@ -74,7 +74,7 @@ const NormalButton = [
 },
 {
   title:"setting",
-  link:'/setting',
+  link:'/Dashboard/setting',
   color:" #808080"
 },
 
