@@ -206,6 +206,32 @@ console.log('formmm',formData)
     }
   }
 
+  async ChangePassword(data){
+    console.log('thise is data',JSON.stringify(data))
+    try {
+
+       const response = await axios.put(`${this.url}/change-password`,JSON.stringify(data), {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }) 
+        console.log("server response:",response)
+        return response
+    } catch (error) {
+       if(error.response){
+          console.log("server responed:",error.response)
+          return error.response
+
+       }
+       else if(error.request){
+          console.log("client side error ", error.request);
+          console.log(error)
+          return null
+       }
+      
+    }
+  }
 
 
 }

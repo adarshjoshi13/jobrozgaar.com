@@ -1,9 +1,10 @@
 import React from 'react'
-import { PersonalNav, AboutMe ,EducationBox,Employeetab} from '../../Components/export'
-import employee from '../../API/Employee';
+import { PersonalNav, AboutMe ,EducationBox,Employeetab} from '../../../../Components/export'
+import employee from '../../../../API/Employee';
 import { useState,useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-function EditEducation() {
+
+export default function DashboardEducation() {
     const [initialValues,SetinitialValues] = useState( {
         MyQualification:"",
         LanguageKnown :" ",
@@ -36,21 +37,12 @@ function EditEducation() {
           })()
         },[])
   return (
-    <>  
     <div className="container d-flex flex-wrap flex-lg-nowrap flex-md-nowrap">
-  <div className="nav-tab-employee">
-    {/* <Employeetab active={'Education'}/> */}
+    <div className="container" >
+      {/* <PersonalNav/> */}
+      <AboutMe/>
+      <EducationBox initialValues={initialValues} Edit={true} redirect={'/update-education'}/>
+    </div>
   </div>
-  <div className="container" >
-    {/* <PersonalNav/> */}
-    <AboutMe/>
-    <EducationBox initialValues={initialValues} Edit={true} redirect={'/Dashboard/personal-profile'} showArrow={true}/>
-  </div>
-</div>
-
-    </>
-    
   )
 }
-
-export default EditEducation

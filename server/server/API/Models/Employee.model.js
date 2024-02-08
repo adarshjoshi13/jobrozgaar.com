@@ -66,6 +66,9 @@ employeeIntialData.pre('save', async function (next) {
   }
   next();
 });
+
+
+
 const employeeIntialdata = mongoose.model('employeeIntialData',  employeeIntialData);
 
 

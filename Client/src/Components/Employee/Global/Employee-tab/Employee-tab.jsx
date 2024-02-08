@@ -59,12 +59,12 @@ const NormalButton = [
 },
 {
   title:"Education",
-  link:'/education',
+  link:'/Dashboard/education',
   color:" #808080"
 },
 {
   title:"Offer Letter",
-  link:'/offer-letter',
+  link:'/Dashboard/offer-letter',
   color:" #808080"
 },
 {
@@ -74,36 +74,21 @@ const NormalButton = [
 },
 {
   title:"setting",
-  link:'/setting',
+  link:'/Dashboard/setting',
   color:" #808080"
 },
 
 ]
 
-if(profileCompleate === 100){
-  return (
-    <div className="d-flex flex-md-row flex-lg-row flex-xs-row flex-sm-wrap flex-xs-wrap flex-sm-row flex-wrap button-home-dash home-dash-nav">
-    {NormalButton.map((i, index) => (
-      i.title === active
-        ? <Buttons to={i.link} color={'green'} title={i.title} key={index} />
-        : <Buttons to={i.link} color={i.color} title={i.title} key={index}/>
-    ))}
-  </div>
-  )
-}
- else{ 
-  return (
-  
-    <div className="d-flex flex-md-column flex-lg-column flex-xs-row flex-sm-wrap flex-xs-wrap flex-sm-row flex-wrap button-home-dash home-dash-nav">
-          {buttonsIfDetailsNotCompleated.map((i, index) => (
-      i.title === active
-        ? <Buttons to={i.link} color={'green'} title={i.title} key={index} />
-        : <Buttons to={i.link} color={i.color} title={i.title} key={index} />
-    ))}
-  </div>
-  )
- }
-  
+return (
+  <div className="d-flex flex-md-row flex-lg-row flex-xs-row flex-sm-wrap flex-xs-wrap flex-sm-row flex-wrap button-home-dash home-dash-nav">
+  {NormalButton.map((i, index) => (
+    i.title === active
+      ? <Buttons to={i.link} color={'green'} title={i.title} key={index} />
+      : <Buttons to={i.link} color={i.color} title={i.title} key={index}/>
+  ))}
+</div>
+)
   
   
 }

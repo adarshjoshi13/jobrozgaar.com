@@ -1,10 +1,11 @@
 import React from 'react'
-import { PersonalNav, AboutMe, WorkPage,Employeetab } from '../../Components/export'
+import { PersonalNav, AboutMe, WorkPage,Employeetab,Loader } from '../../Components/export'
 import employee from '../../API/Employee';
 import { useState,useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
 function UpdateWorkingExprince() {
+  const [loader,Setloader] = useState(false)
     // const initialValues = {
     //     Position: "",
     //     Experience:[ {
@@ -44,18 +45,28 @@ function UpdateWorkingExprince() {
       // const [formData, setFormData] =  useState({})
       useEffect(()=>{
           (async ()=>{
+            Setloader(true)
             const result = await employee.getintialdata();
             if(result.status === 200){
             //   console.log('yel bhai',result.data.AdditionalUserinfo.
             //   WorkingExperiences ?? {})
               SetinitialValues({...result.data.AdditionalUserinfo.WorkingExperiences ?? {...initialValues} })
+              Setloader(false)
             }
            else{
              toast.error("erro fetching data")
+             Setloader(false)
            }
           })()
         },[])
       
+        if(loader){
+          return <Loader style={{ width: '100vw',
+          height: '60vh', 
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',}}/>
+        }
 
   return (
     <div className="container d-flex flex-wrap flex-lg-nowrap flex-md-nowrap">
@@ -65,7 +76,7 @@ function UpdateWorkingExprince() {
     <div className="container" >
       {/* <PersonalNav/> */}
       <AboutMe/>
-      <WorkPage initialValues={initialValues} senrequest={AddWorkingEXprince} redirect={'/update-working-exprince'} Edit={true}/>
+      <WorkPage initialValues={initialValues} senrequest={AddWorkingEXprince} redirect={'/education'} Edit={true}/>
     </div>
   </div>
   )

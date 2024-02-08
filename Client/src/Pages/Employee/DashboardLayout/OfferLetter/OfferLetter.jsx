@@ -3,15 +3,14 @@ import './OfferLetter.css';
 import { useFormik } from 'formik';
 import { FaDownload } from "react-icons/fa";
 import { AboutMe, SelectInput ,ArrowNavigate } from '../../../../Components/export';
+import  employee from '../../../../API/Employee'
 
 function OfferLetter() {
     const formik = useFormik({
         initialValues: {
-            LookingForJobs: {
-                JobTitle: 'option1' // Assuming initial value
-            }
+           
         },
-        // Your formik configuration
+       
     });
 
     const jobTitleOptions = [

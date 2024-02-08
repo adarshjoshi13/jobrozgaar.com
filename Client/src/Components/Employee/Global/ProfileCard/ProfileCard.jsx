@@ -32,7 +32,7 @@ function ProfileCard({email,proifePic,number,compleateProfile,name,location,extr
                                 </button>
                                 <button><FaShareAlt /></button>
                             </div>
-                            <h3>{name}L</h3>
+                            <h3>{name}</h3>
                             <p className='success'>Verified</p>
                         </div>
                     </div>

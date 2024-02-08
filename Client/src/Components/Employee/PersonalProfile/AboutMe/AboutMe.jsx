@@ -9,19 +9,30 @@ function AboutMe() {
     const [formData, setFormData] = useState({})
     useEffect(()=>{
         (async ()=>{
+          Setloader(true)
           const result = await employee.getintialdata();
           if(result.status === 200){
             console.log('yel bhai',result.data)
             setFormData({...result.data})
+            Setloader(false)
           }
          else{
            toast.error("erro fetching data")
+           Setloader(false)
          }
         })()
       },[])
  const AboutMe = (
   (formData?.AdditionalUserinfo?.PersonalDetails ?? {}).AboutMe ?? null
 )
+
+if(loader){
+  return <Loader style={{ width: '100vw',
+  height: '60vh', 
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',}}/>
+}
 
     return (
         <div className="p-2 container d-flex">

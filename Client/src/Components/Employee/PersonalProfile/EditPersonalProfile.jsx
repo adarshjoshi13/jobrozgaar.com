@@ -16,10 +16,11 @@ import { useState, useEffect } from 'react';
 import Employeetab from '../Global/Employee-tab/Employee-tab';
 
 
-function EditPersonalprofile({isShow}) {
+function EditPersonalprofile({isShow,redirect}) {
     const [Images,SetImages] = useState([]);
     const [loader,Setloader] = useState(false);
     const [Saveloader,SetSaveloader] = useState(false)
+    let navigate = useNavigate();
     console.log(Images);
     const [formData, setFormData] = useState({})
     useEffect(()=>{
@@ -48,7 +49,7 @@ function EditPersonalprofile({isShow}) {
 
     },
     onSubmit: async values => {
-      console.log(values)
+      console.log("yeeeeeeai",values)
       SetSaveloader(true)
       const result = await employee.EditPersonalProfile(values)
       console.log("this is the result", result)
@@ -61,10 +62,11 @@ function EditPersonalprofile({isShow}) {
       if (result.status === 200) {
         SetSaveloader(false);
         toast.success(result.data.message)
+        navigate(redirect)
       }
 
       else {
-        Setloader(false);
+        SetSaveloader(false);
         toast.error(result.data.message)
       }
 

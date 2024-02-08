@@ -29,7 +29,10 @@ import UpdateWorkingExprince from "./Employee/UpdateWorkingExprince";
 import EditEducation from "./Employee/EditEducation";
 import Dashboard from "./Employee/DashboardLayout/Dashboard";
 import DasboardWork from "./Employee/DashboardLayout/WorkExprince/DasboardWork";
+import DashboardEducation from "./Employee/DashboardLayout/Education/DashboardEducation";
+import DashboardPeronalProfile from "./Employee/DashboardLayout/PersonalProfile/DashboardPeronalProfile"
+
 // offerLetter 👇
 import OfferLetter from "./Employee/DashboardLayout/OfferLetter/OfferLetter";
 import PasswordChange from "./Employee/DashboardLayout/PasswordChange/PasswordChange";
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange}
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile}
