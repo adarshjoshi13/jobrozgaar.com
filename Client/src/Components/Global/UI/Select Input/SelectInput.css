@@ -1,0 +1,12 @@
+.cover-of-select{
+    position: relative;
+}
+
+.arrow-down-icon{
+    float: right;
+    position: absolute;
+    /* z-index: 5; */
+right: 8px;
+bottom: 10px;
+    /* float: right; */
+}

@@ -1,0 +1,48 @@
+
+
+.offerletter .check-png{
+    width: 32px;
+}
+
+@media screen and (max-width:760px) {
+    .letter-head{
+        margin-bottom: 10px;
+    }
+}
+
+.download-red {
+    border: none;
+    display: flex;
+    padding: 9px 10px;
+    background-color: #e71b0c;
+    color: #ffffff;
+    border: 2px solid black;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    user-select: none;
+    gap: 0.75rem;
+    box-shadow: 0 4px 6px -1px #488aec31, 0 2px 4px -1px #488aec17;
+    transition: all 0.6s ease;
+  }
+  
+  .download-red:hover {
+    box-shadow: 0 10px 15px -3px #488aec4f, 0 4px 6px -2px #488aec17;
+  }
+  
+  .download-red:focus,
+  .download-red:active {
+    opacity: 0.85;
+    box-shadow: none;
+  }
+  
+  .download-red svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }

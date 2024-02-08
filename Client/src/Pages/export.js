@@ -17,7 +17,7 @@ import MyJobs from "./Employee/MyJobs";
 import PersonalProfile from "./Employee/PersonalProfile";
 import WorkExperince from "./Employee/WorkExperince";
 import Education from "./Employee/Education";
-import OfferLetter from "./Employee/OfferLetter";
+// import OfferLetter from "./Employee/OfferLetter";
 import EditPersonalProfile from "./Employee/EditPersonalProfile";
 // employer
 import JobPosting from "./Employer/JobPosting";
@@ -29,4 +29,7 @@ import UpdateWorkingExprince from "./Employee/UpdateWorkingExprince";
 import EditEducation from "./Employee/EditEducation";
 import Dashboard from "./Employee/DashboardLayout/Dashboard";
 import DasboardWork from "./Employee/DashboardLayout/WorkExprince/DasboardWork";
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,OfferLetter,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork}
+// offerLetter 👇
+import OfferLetter from "./Employee/DashboardLayout/OfferLetter/OfferLetter";
+import PasswordChange from "./Employee/DashboardLayout/PasswordChange/PasswordChange";
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange}

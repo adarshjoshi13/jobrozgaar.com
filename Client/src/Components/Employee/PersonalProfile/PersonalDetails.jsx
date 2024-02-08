@@ -9,7 +9,7 @@ import InputButton from './InputButton/InputButton';
 import SmallBanner from './SmallBanner/SmallBanner';
 import AboutMe from './AboutMe/AboutMe';
 import { Formik, Form, Field, ErrorMessage,useFormik,useFormikContext } from 'formik';
-import { Loader } from '../../export';
+import { Button, Loader } from '../../export';
 import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState,useEffect } from 'react';
@@ -273,7 +273,8 @@ function PersonalDetails() {
 
           
     <div className="col-md-12 candidate-btn-div">
-   <button type='submit' className="mb-5 mt-5" onClick={formik.handleSubmit}>{Saveloader?(<Loader/>):"save"}</button>
+    <Button type={'submit'} title={Saveloader?(<Loader/>):"save"} onClick={formik.handleSubmit}  />
+  
     </div>
    
 
