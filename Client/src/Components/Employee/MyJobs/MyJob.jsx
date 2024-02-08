@@ -43,12 +43,13 @@ console.log("formdata",profileCompleate)
     }
   return (
     <div className="container my-job-container">
-      <Employeetab active={'My-Jobs'} />
+      {/* <Employeetab active={'My-Jobs'} /> */}
       <div className="my-job-content">
         {/* <EmployeNav /> */}
         <div className="my-job-box">
-          <h2>My Jobs</h2>
-          <div className="row mb-3 justify-content-between job-imgs">
+          <h4>My Jobs</h4>
+          <div className="conatiner col-md-12">
+              <div className="  mb-3 d-flex flex-wrap align-items-center gap-3 justify-content-center job-imgs">
           <div className="col-md-2 ">
             <img src="/Utility/myjob.png" alt="" />
           </div>
@@ -61,14 +62,16 @@ console.log("formdata",profileCompleate)
           <div className="col-md-2">
             <img src="/Utility/myjob3.png" alt="" />
           </div>
-          <div className="col-md-2 mt-5">
+          <div className="col-md-2 ">
             <img src="/Utility/myjob4.png" alt="" />
           </div>
         </div>
+          </div>
+        
           <div className="container-sm sider-man-card">
             <div className="row">
               <div className="col-md-8">
-                <div className="empty-text h-100 w-100 d-flex text-center flex-column justify-content-between">
+                <div className="empty-text  d-flex text-center flex-column justify-content-between">
                   <h2>You have no Recommended Jobs.</h2>
                   <button id='job-btn'>View Jobs</button>
                 </div>

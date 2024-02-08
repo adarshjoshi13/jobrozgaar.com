@@ -34,7 +34,7 @@ function App() {
       <Route path='/manpower_outsourcing' element={<Layout><ManPower/></Layout>}/>
       <Route path='/employee-login' element={<Layout><EmployeeLogin/></Layout>}/>
       <Route path='/employe-profile-compleateness' element={<Layout><EmployeDashBorad/></Layout>}/>
-      <Route path='/my-jobs' element={<Layout><MyJobs/></Layout>}/>
+     
       <Route path='/Personal-profile' element={<Layout><PersonalProfile/></Layout>}/>
       <Route path='/work-experience' element={<Layout><WorkExperince/></Layout>}/>
       <Route path='/education' element={<Layout><Education/></Layout>}/>
@@ -52,6 +52,9 @@ function App() {
       <Route path='/Dashboard/work-experience' element={<Layout><Dashboard navtag={'work Experience'}><DasboardWork/></Dashboard></Layout>}/>
       <Route path='/Dashboard/offer-letter' element={<Layout><Dashboard navtag={'work Experience'}><OfferLetter/></Dashboard></Layout>}/>
       <Route path='/Dashboard/setting' element={<Layout><Dashboard navtag={'work Experience'}><PasswordChange/></Dashboard></Layout>}/>
+
+      <Route path='/Dashboard/my-jobs' element={<Layout><Dashboard navtag={'work Experience'}><MyJobs/></Dashboard></Layout>}/>
+      
 
     </Routes>
    </>
