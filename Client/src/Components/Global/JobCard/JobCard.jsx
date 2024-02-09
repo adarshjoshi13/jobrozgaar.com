@@ -27,7 +27,12 @@ const JobCard = ({ jobTitle, imageUrl, company, location, salary, timeAgo, linkT
         </div>
       </div>
       <div className="items-link f-right">
+      <div className='d-flex'>
+         <Link  className='Full-time-btn' to={linkToDetails}>{timeAgo}</Link>
         <Link  className='Full-time-btn' to={linkToDetails}>{timeAgo}</Link>
+        <Link  className='Full-time-btn' to={linkToDetails}>{timeAgo}</Link>
+      </div>
+       
         <span>{timeAgo} ago</span>
       </div>
     </div>

@@ -13,7 +13,7 @@ import ManPower from "./ManPower";
 // import Login from "./Login";
 // dashboard work start here ok bro 
 import EmployeDashBorad from "./Employee/EmployeDashBorad";
-import MyJobs from "./Employee/MyJobs";
+// import MyJobs from "./Employee/MyJobs";
 import PersonalProfile from "./Employee/PersonalProfile";
 import WorkExperince from "./Employee/WorkExperince";
 import Education from "./Employee/Education";
@@ -35,5 +35,8 @@ import DashboardPeronalProfile from "./Employee/DashboardLayout/PersonalProfile/
 // offerLetter 👇
 import OfferLetter from "./Employee/DashboardLayout/OfferLetter/OfferLetter";
 import PasswordChange from "./Employee/DashboardLayout/PasswordChange/PasswordChange";
+import MyjobsList from "./Employee/DashboardLayout/Myjobs/Joblist/MyjobsList";
 import TipsSupport from "./Employee/DashboardLayout/TipsBox/TipsSupport";
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,TipsSupport}
+import JobDetali from "./Employee/DashboardLayout/Myjobs/JobDetalis/JobDetali";
+
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali}

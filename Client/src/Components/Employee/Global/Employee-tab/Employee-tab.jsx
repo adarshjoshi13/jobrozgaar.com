@@ -43,7 +43,7 @@ function Employeetab({active}) {
 const NormalButton = [
   {
     title:"My-Jobs",
-    link:'/Dashboard/my-jobs',
+    link:'/Dashboard/jobs/my-jobs',
     color:" #808080"
   },
   
@@ -69,7 +69,7 @@ const NormalButton = [
 },
 {
   title:"Tips & Suppor",
-  link:'/tips-support',
+  link:'/Dashboard/tips-support',
   color:" #808080"
 },
 {

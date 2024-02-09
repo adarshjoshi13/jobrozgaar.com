@@ -1,5 +1,5 @@
-.single-job-items {
-	padding: 15px 15px;
+.Job-Box-single {
+	padding: 15px 10px;
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
@@ -12,32 +12,35 @@
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-	.single-job-items {
+	.Job-Box-single {
 		padding: 20px 7px
 	}
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-	.single-job-items {
+	.Job-Box-single {
 		padding: 20px 25px
 	}
 }
 
-.single-job-items .company-img img {
+
+
+
+.Job-Box-single .company-img img {
 	overflow: hidden;
 	float: left;
-	margin-right: 32px;
+	/* margin-right: 32px; */
 	z-index: 999;
 	border: 1px solid #5c8164;
 }
 
 @media (max-width: 767px) {
-	.single-job-items .job-tittle {
+	.Job-Box-single .job-tittle {
 		padding-top: 25px
 	}
 }
 
-.single-job-items .job-tittle a h4 {
+.Job-Box-single .job-tittle a h4 {
 	color: #5c8164;
 	font-size: 18px;
 	-webkit-transition: .4s;
@@ -46,64 +49,71 @@
 	transition: .4s
 }
 
-.single-job-items .job-tittle a h4:hover {
+.Job-Box-single .job-tittle a h4:hover {
 	color: #8b92dd
 }
 
-.single-job-items .job-tittle ul li {
+.Job-Box-single .job-tittle{
+    margin-left: 10px;
+}
+
+
+.Job-Box-single .job-tittle ul li {
 	display: inline-block;
-	margin-right: 48px;
+	margin-right: 24px;
 	font-size: 15px;
 	color: #808080;
 	line-height: 1.8
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-	.single-job-items .job-tittle ul li {
+	.Job-Box-single .job-tittle ul li {
 		margin-right: 18px
 	}
 }
 
 @media (max-width: 767px) {
-	.single-job-items .job-tittle ul li {
-		margin-right: 0px;
-		margin-bottom: 7px
+	.Job-Box-single .job-tittle  {
+		margin-left: 0px
 	}
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-	.single-job-items .job-tittle ul li {
+	.Job-Box-single .job-tittle ul li {
 		margin-right: 8px
 	}
+
+    .Job-Box-single .job-tittle{
+        margin-left: 0px;
+    }
+
 }
 
-.single-job-items .job-tittle ul li:last-child {
-	margin-right: 0px
-}
 
-.single-job-items .job-tittle ul li i {
+
+.Job-Box-single .job-tittle ul li i {
 	font-size: 14px;
 	color: #bbbbbb;
 	margin-right: 10px
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-	.single-job-items .job-tittle2 {
+	.Job-Box-single .job-tittle2 {
 		padding-top: 25px
 	}
 }
 
-.single-job-items:hover {
+.Job-Box-single:hover {
 	box-shadow: 0px 22px 57px 0px rgba(34, 41, 72, 0.05)
 }
 
-.single-job-items .job-items {
+.Job-Box-single .job-items {
 	display: flex;
 	flex-wrap: wrap
 }
 
 
-.Full-time-btn {
+.Appy-Btn {
     font-size: 13px;
     text-align: center;
     line-height: 20px;
@@ -117,7 +127,7 @@
     transition: 0.4s;
 }
 
-.Full-time-btn:hover{
+.Appy-Btn:hover{
    
     color: #ffffff;
     background-color: #74884b;
@@ -130,4 +140,29 @@
     justify-content : center;
     align-items : center;
     flex-direction: column;
+}
+
+
+@media only screen and (max-width: 419px) {
+	
+.Appy-Btn {
+    font-size: 12px;
+    text-align: center;
+    line-height: 14px;
+    letter-spacing: normal;
+    color: #74884b;
+    background-color: #ffffff;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 6px 10px;
+    margin: 3px;
+    transition: 0.4s;
+}
+}
+
+
+@media only screen  and (max-width: 991px)and (min-width:767px) {
+	.Job-Box-single .items-link{
+        margin-top: 10px;
+    }
 }
