@@ -43,7 +43,7 @@ function Employeetab({active}) {
 const NormalButton = [
   {
     title:"My-Jobs",
-    link:'/Dashboard/my-jobs',
+    link:'/Dashboard/jobs/my-jobs',
     color:" #808080"
   },
   

@@ -8,39 +8,41 @@ import { Loader } from '../../export';
 import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState,useEffect } from 'react';
+import { Outlet,Link } from 'react-router-dom';
 
-function MyJob() {
-  const [loader,Setloader] = useState(false);
-    const [formData, setFormData] = useState({})
-    useEffect(()=>{
-        (async ()=>{
-          const result = await employee.getintialdata();
-          if(result.status === 200){
-            // console.log('yel bhai',result.data)
-            setFormData({...result.data})
-          }
-         else{
-           toast.error("erro fetching data")
-         }
-        })()
-      },[])
- const currentAddress = (
-  (formData?.AdditionalUserinfo?.PersonalDetails ?? {}).CurrentAddress ?? null
-)
-const profileCompleate = formData?.ProfileCompleate
-console.log("formdata",profileCompleate)
+function MyJob({children}) {
+  console.log(children)
+//   const [loader,Setloader] = useState(false);
+//     const [formData, setFormData] = useState({})
+//     useEffect(()=>{
+//         (async ()=>{
+//           const result = await employee.getintialdata();
+//           if(result.status === 200){
+//             // console.log('yel bhai',result.data)
+//             setFormData({...result.data})
+//           }
+//          else{
+//            toast.error("erro fetching data")
+//          }
+//         })()
+//       },[])
+//  const currentAddress = (
+//   (formData?.AdditionalUserinfo?.PersonalDetails ?? {}).CurrentAddress ?? null
+// )
+// const profileCompleate = formData?.ProfileCompleate
+// console.log("formdata",profileCompleate)
    
-    if(loader){
-      return(
-        <div className="contaienr">
-          <div className="row">
-              <div className="col-md-12">
-              <Loader/>
-              </div>
-          </div>
-        </div>
-      )
-    }
+//     if(loader){
+//       return(
+//         <div className="contaienr">
+//           <div className="row">
+//               <div className="col-md-12">
+//               <Loader/>
+//               </div>
+//           </div>
+//         </div>
+//       )
+//     }
   return (
     <div className="container my-job-container">
       {/* <Employeetab active={'My-Jobs'} /> */}
@@ -51,7 +53,7 @@ console.log("formdata",profileCompleate)
           <div className="conatiner col-md-12">
               <div className="  mb-3 d-flex flex-wrap align-items-center gap-3 justify-content-center job-imgs">
           <div className="col-md-2 ">
-            <img src="/Utility/myjob.png" alt="" />
+           <Link to={'/Dashboard/jobs/my-jobs'}> <img src="/Utility/myjob.png" alt="" /></Link>
           </div>
           <div className="col-md-2">
             <img src="/Utility/myjob1.png" alt="" />
@@ -68,31 +70,12 @@ console.log("formdata",profileCompleate)
         </div>
           </div>
         
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 d-flex justify-content-center align-items-center">
-              <div className="text-part text-center">
-                <h5>You have no Recommended Jobs.</h5>
-                <button id='job-btn'>View Jobs</button>
-              </div>
-              <img className='side-man' src="/Utility/8.png" alt="" />
-            </div>
-          </div>
-        </div>
+       <div className="container">
+        {children}
+       </div>
+        
 
-          {/* <div className="container-sm sider-man-card">
-            <div className="row">
-              <div className="col-md-8">
-                <div className="empty-text  d-flex text-center flex-column justify-content-between">
-                  <h2>You have no Recommended Jobs.</h2>
-                  <button id='job-btn'>View Jobs</button>
-                </div>
-              </div>
-              <div className="col-md-4 side-man">
-                <img src="/Utility/8.png" alt="" />
-              </div>
-            </div>
-          </div> */}
+      
         </div>
       </div>
     </div>
