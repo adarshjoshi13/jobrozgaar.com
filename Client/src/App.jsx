@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header,Footer } from './Components/export';
-import {Home,FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, MyJobs, PersonalProfile, WorkExperince, Education, OfferLetter,EditPersonalProfile,JobPosting,Candidate,CompanyDetails, EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,DashboardEducation,DashboardPeronalProfile, PasswordChange} from './Pages/export'
+import {Home,FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, MyJobs, PersonalProfile, WorkExperince, Education, OfferLetter,EditPersonalProfile,JobPosting,Candidate,CompanyDetails, EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,DashboardEducation,DashboardPeronalProfile, PasswordChange, TipsSupport} from './Pages/export'
 import { Routes,Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -55,6 +55,7 @@ function App() {
       <Route path='/Dashboard/setting' element={<Layout><Dashboard navtag={'setting'}><PasswordChange/></Dashboard></Layout>}/>
 
       <Route path='/Dashboard/my-jobs' element={<Layout><Dashboard navtag={'My-Jobs'}><MyJobs/></Dashboard></Layout>}/>
+      <Route path='/Dashboard/tips-support' element={<Layout><Dashboard navtag={'tips-support'}><TipsSupport/></Dashboard></Layout>}/>
       
 
     </Routes>

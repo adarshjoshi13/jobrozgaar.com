@@ -35,4 +35,5 @@ import DashboardPeronalProfile from "./Employee/DashboardLayout/PersonalProfile/
 // offerLetter 👇
 import OfferLetter from "./Employee/DashboardLayout/OfferLetter/OfferLetter";
 import PasswordChange from "./Employee/DashboardLayout/PasswordChange/PasswordChange";
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile}
+import TipsSupport from "./Employee/DashboardLayout/TipsBox/TipsSupport";
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,MyJobs,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,TipsSupport}
