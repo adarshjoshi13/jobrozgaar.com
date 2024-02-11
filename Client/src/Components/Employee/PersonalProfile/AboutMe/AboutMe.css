@@ -7,8 +7,9 @@
     width: 60px;
   }
   
-  .image-cover-personal h4 {
+  .image-cover-personal h5 {
     text-align: center;
+    margin: 0;
   }
 
   @media  screen and (max-width:798px) {

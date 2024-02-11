@@ -21,11 +21,12 @@ function OfferLetter() {
 
     return (
         <>
-            <div className="container offerletter">
+            <div className="container p-0 mt-3 offerletter">
+            <ArrowNavigate url={"/Utility/offer.png"}/>
                 <AboutMe />
                 <div className="container">
                     <div className="row ">
-                        <ArrowNavigate url={"/Utility/offer.png"}/>
+                      
                         <div className="col-md-8 ">
                             <div className="row  mb-3">
                                 <div className="col-md-6 letter-head  d-flex justify-content-start align-items-start">

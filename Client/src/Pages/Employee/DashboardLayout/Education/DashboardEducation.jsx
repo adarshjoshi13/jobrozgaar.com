@@ -1,5 +1,5 @@
 import React from 'react'
-import { PersonalNav, AboutMe ,EducationBox,Employeetab} from '../../../../Components/export'
+import { PersonalNav, AboutMe ,EducationBox,Employeetab, ArrowNavigate} from '../../../../Components/export'
 import employee from '../../../../API/Employee';
 import { useState,useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -37,8 +37,9 @@ export default function DashboardEducation() {
           })()
         },[])
   return (
-    <div className="container d-flex flex-wrap flex-lg-nowrap flex-md-nowrap">
-    <div className="container" >
+    <div className="container mt-3 d-flex p-0 flex-wrap flex-lg-nowrap flex-md-nowrap">
+    <div className="container p-0" >
+      <ArrowNavigate url={'/Utility/education.png'}/>
       {/* <PersonalNav/> */}
       <AboutMe/>
       <EducationBox initialValues={initialValues} Edit={true} redirect={'/update-education'}/>

@@ -62,7 +62,7 @@ function PasswordChange() {
     });
     return (
         <>
-            <div className='mb-5'>
+            <div className='mb-5 mt-3 change-pass'>
                 <ArrowNavigate url={"/Utility/setting.png"} />
                 <div className="row">
                     <div className="col-md-12 d-flex justify-content-center align-content-center">

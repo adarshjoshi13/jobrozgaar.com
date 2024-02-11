@@ -60,7 +60,7 @@ console.log('testing',Formikval)
       <div className="row w-100">
         <div className="col-md-12 mb-3">
          {showArrow?( <img className='img1' src="/Utility/education.png" alt="" />):null}
-          {Edit?(<h3 className='text-center mt-5 mb-5'>Edit Education Details</h3>):null}
+          {Edit?(<h4 className='text-center mt-3 mb-3' style={{color:"#8faa46"}}>Edit Education Details</h4>):null}
         </div>
         <div className="col-md-6 m-2">
 

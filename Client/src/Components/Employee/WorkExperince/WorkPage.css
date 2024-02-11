@@ -8,10 +8,12 @@
     margin-left: 8px;
 }
 
-.boxed{
-  border: 2px solid grey;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  margin-left: 8px;
+.boxed {
+  border: 1px solid #8FAA46;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: #8FAA45 0px 0px 3px -1px;
+  /* margin-left: 8px; */
   /* padding: 0 20px; */
 }
 
@@ -105,21 +107,20 @@
     
   }
 
-  .work-wraper{
-    /* display: flex; */
-    overflow: hidden;
-  }
+  
 
-  .lower-job-wraper{
-  /* border: 2px solid red; */
-  overflow: hidden;
-  }
+  
 
   .workingExprincebtn{
     /* border: 2px solid red; */
     display: flex;
     justify-content: center;
     padding-bottom: 10px;
+  }
+
+
+  .lower-job-wraper h5{
+    margin: 0px;
   }
   
 
@@ -132,16 +133,15 @@
     position: absolute;
     /* border: 2px solid red; */
     /* display: inline; */
-    left: 80%;
+    right: 0;
+    margin-right: 10px;
     /* width: 100%; */
     /* display: none; */
-    width: 90px;
-    margin-bottom: 30px !important;
+    /* width: 90px; */
+    /* margin-bottom: 30px !important; */
     /* bottom: 1%; */
   }
-  .bana-do{
-    /* border: 2px solid red; */
-  }
+  
 
   /* .tooltip{
     border: 2px solid red;
@@ -157,6 +157,12 @@
  background-color: rgba(0, 0, 0, 0.08);
  border-radius: 1.25em;
  transition: all 0.2s linear;
+  }
+
+
+
+  .DLT-BTN  svg path {
+   fill: red;
   }
 
   .DLT-BTN button:hover {

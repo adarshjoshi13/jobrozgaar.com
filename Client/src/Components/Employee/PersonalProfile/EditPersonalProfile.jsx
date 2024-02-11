@@ -9,7 +9,8 @@ import InputButton from './InputButton/InputButton';
 import SmallBanner from './SmallBanner/SmallBanner';
 import AboutMe from './AboutMe/AboutMe';
 import { Formik, Form, Field, ErrorMessage, useFormik, useFormikContext } from 'formik';
-import { Button, Loader } from '../../export';
+import { Button, Loader ,ArrowNavigate} from '../../export';
+// import ArrowNavigate from '../../export';
 import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
@@ -124,8 +125,9 @@ function EditPersonalprofile({isShow,redirect}) {
   <div className="personal-details ">
             {/* Navbar */}
             {/* <PersonalNav hideOrShow={false} img={'/Utility/personal.png'}/> */}
-           <h3 className='text-center text-secondary mt-5'>{isShow?("Edit Personal Details"):null}</h3>
+           <h3 className='text-center text-secondary mt-3'>{isShow?("Edit Personal Details"):null}</h3>
           <div className="conatiner  ">
+          <ArrowNavigate url={"/Utility/personal.png"} />
              <div className="about-me mb-5">
              <AboutMe/>
              </div>

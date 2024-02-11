@@ -84,7 +84,7 @@ return (
   <div className=" button-home-dash home-dash-nav ">
   {NormalButton.map((i, index) => (
     i.title === active
-      ? <Buttons to={i.link} color={'green'} title={i.title} key={index} />
+      ? <Buttons to={i.link} color={'#8FAA46'} title={i.title} key={index} />
       : <Buttons to={i.link} color={i.color} title={i.title} key={index}/>
   ))}
 </div>

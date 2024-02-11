@@ -17,7 +17,10 @@ function PostJob({ postedDate, location, vacancy, jobNature, salary, application
         <li>Application date : <span>{applicationDate}</span></li>
       </ul>
       <div className="apply-btn2">
-        <Link to={applyLink} className="btn">Apply Now</Link>
+      <Link to={applyLink} ><button class="button-apply-now ">
+  Apply Now
+</button></Link>
+       
       </div>
     </div>
   );
