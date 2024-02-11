@@ -61,7 +61,11 @@
   }
 
 
-  
+  .myjob-img-btn{
+    display : flex;
+    justify-content : center;
+    align-items : center;
+  }
 
 
   #job-btn{

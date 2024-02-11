@@ -11,6 +11,11 @@
     text-align: center;
 }
 
+
+.tip-box h5{
+    padding: 10px 5px;
+}
+
 .tip-box img{
    width: 100px;
 }

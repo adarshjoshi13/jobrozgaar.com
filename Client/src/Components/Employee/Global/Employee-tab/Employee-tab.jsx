@@ -68,7 +68,7 @@ const NormalButton = [
   color:" #808080"
 },
 {
-  title:"Tips & Suppor",
+  title:"Tips & Support",
   link:'/Dashboard/tips-support',
   color:" #808080"
 },
@@ -81,7 +81,7 @@ const NormalButton = [
 ]
 
 return (
-  <div className="d-flex flex-md-row flex-lg-row flex-xs-row flex-sm-wrap flex-xs-wrap flex-sm-row flex-wrap button-home-dash home-dash-nav justify-content-evenly">
+  <div className=" button-home-dash home-dash-nav ">
   {NormalButton.map((i, index) => (
     i.title === active
       ? <Buttons to={i.link} color={'green'} title={i.title} key={index} />
