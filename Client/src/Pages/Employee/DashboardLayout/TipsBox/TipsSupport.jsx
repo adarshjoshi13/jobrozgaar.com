@@ -7,7 +7,7 @@ function TipsSupport() {
             <div className="container">
                 <ArrowNavigate url={"/Utility/tips.png"} />
                 <div className="row">
-                    <div className="col-md-12 d-flex mb-3 justify-content-evenly align-content-center">
+                    <div className="col-md-12 d-flex flex-wrap mb-3 justify-content-evenly align-content-center">
                         <div className="head-setting  d-flex justify-content-center  align-content-center gap-1 ">
                             <img className='green-check' src="/Utility/check.png" alt="" />
                             <h5 className='m-0 lh-0'><strong>Interview Tips</strong></h5>
@@ -20,14 +20,40 @@ function TipsSupport() {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-12 d-flex  justify-content-start align-content-center">
-                       
+                    <div className="col-md-12 d-flex flex-wrap  justify-content-start align-content-center">
+
                         <div className="head-setting d-flex justify-content-start  align-content-center gap-1 ">
                             <img className='green-check' src="/Utility/check.png" alt="" />
                             <h5 className='m-0 lh-0'><strong>Interview Tips</strong></h5>
-                            
+
                         </div>
-                        
+
+                    </div>
+                    <div class="col-12 d-grid mb-3 tip-box-dad">
+                        <div class="tip-box d-flex align-items-center flex-column text-center">
+                            <h5>See the Video Tips for Job Interview</h5>
+                            <img src="/Utility/23.jpg" alt="" />
+                        </div>
+                        <div class="tip-box text-center">
+                            <h5>See the Video Tips for Job Interview</h5>
+                            <img src="/Utility/24.png" alt="" />
+                        </div>
+                        <div class="tip-box text-center">
+                            <h5>See the Video Tips for Job Interview</h5>
+                            <img src="/Utility/25.jpg" alt="" />
+                        </div>
+                        <div class="tip-box text-center">
+                            <h5>See the Video Tips for Job Interview</h5>
+                            <img src="/Utility/27.png" alt="" />
+                        </div>
+                        <div class="tip-box text-center">
+                            <h5>See the Video Tips for Job Interview</h5>
+                            <img src="/Utility/29.jpg" alt="" />
+                        </div>
+                        <div class="tip-box text-center">
+                            <h5>See the Video Tips for Job Interview</h5>
+                            <img src="/Utility/23.jpg" alt="" />
+                        </div>
                     </div>
                 </div>
             </div>
