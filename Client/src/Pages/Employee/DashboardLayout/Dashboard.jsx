@@ -33,7 +33,7 @@ const profileCompleate = formData?.ProfileCompleate
    
 const fncForReload = ()=>{
   setReload(!reload)
-  console.log('bhen ki chut')
+  // console.log('')
 }
 
     if(loader){

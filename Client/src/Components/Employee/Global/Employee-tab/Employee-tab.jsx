@@ -68,7 +68,7 @@ const NormalButton = [
   color:" #808080"
 },
 {
-  title:"Tips & Suppor",
+  title:"Tips & Support",
   link:'/Dashboard/tips-support',
   color:" #808080"
 },
