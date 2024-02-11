@@ -65,7 +65,7 @@ async function fetchGoogleUserInfo(accessToken) {
 
             auth: {
               user: 'vipulsemwal124@gmail.com', 
-              pass: 'sxyv lrfb lkhs ksoa',
+              pass: 'svsx rhmx txyq pczs',
             },
           });
           const mailOptions = {
