@@ -141,7 +141,7 @@ function EditPersonalprofile({isShow,redirect}) {
 
           {/* <FormBar title={"Name"} type={"text"} placeholder={"Enter your name"} /> */}
           <FormBar
-            title={"Father’s Name /Husband Name"} type={"text"} placeholder={"Enter your name"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.fatherName}
+            title={"Father/Husband Name"} type={"text"} placeholder={"Enter your name"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.fatherName}
             name={'fatherName'} />
 
 

@@ -54,7 +54,7 @@ function App() {
       <Route path='/Dashboard/education' element={<Layout><Dashboard navtag={'Education'}><DashboardEducation/></Dashboard></Layout>}/>
       <Route path='/Dashboard/offer-letter' element={<Layout><Dashboard navtag={'Offer Letter'}><OfferLetter/></Dashboard></Layout>}/>
       <Route path='/Dashboard/setting' element={<Layout><Dashboard navtag={'setting'}><PasswordChange/></Dashboard></Layout>}/>
-      <Route path='/Dashboard/tips-support' element={<Layout><Dashboard navtag={'setting'}><TipsSupport/></Dashboard></Layout>}/>
+      <Route path='/Dashboard/tips-support' element={<Layout><Dashboard navtag={'Tips & Support'}><TipsSupport/></Dashboard></Layout>}/>
       {/* for my jobs */}
       <Route
   path='/Dashboard/jobs/my-jobs'

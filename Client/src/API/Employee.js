@@ -6,6 +6,7 @@ class Employee {
   }
 
   async PersonalProfile(images,data){
+    console.log('check kijye sahab',data)
     try {
 
       const formData = new FormData();

@@ -53,7 +53,7 @@ function PersonalDetails() {
             CurrentCity:"",
             CurrentState:"",
             PermanentAddress:"",
-            MobileNumber:"",
+            // MobileNumber:"",
             AdharNumber:"",
             PanNumber:"",
             DrivingLicenceNumber:""
@@ -81,7 +81,7 @@ function PersonalDetails() {
                     toast.error(result.data.message)
           }
         
-         
+         SetSaveloader(false)
         },
       
       });
@@ -230,13 +230,13 @@ function PersonalDetails() {
                     onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.PermanentAddress}
                     name={'PermanentAddress'}
                 />
-                <FormBar
+                {/* <FormBar
                     title={"Mobile Number"}
                     type={"text"}
                     placeholder={"enter your mobile number"}
                     onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.MobileNumber}
                     name={'MobileNumber'}
-                />
+                /> */}
                 {/* <FormBar
                     title={"Mobile Number"}
                     type={"number"}

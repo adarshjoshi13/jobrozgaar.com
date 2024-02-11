@@ -103,6 +103,6 @@ const personalProfileSchema = new mongoose.Schema({
 
 });
 
-const PersonalProfile = mongooseConnect.model('PersonalProfile', personalProfileSchema);
+const PersonalProfile = mongooseConnect.model('EmployeePersonalDetails', personalProfileSchema);
 
 module.exports = PersonalProfile;

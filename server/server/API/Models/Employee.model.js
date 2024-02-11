@@ -48,7 +48,7 @@ const employeeIntialData = new mongooseConnect.Schema({
   AdditionalUserinfo:{
     PersonalDetails:{
     type: mongoose.Schema.Types.ObjectId,
-    ref:"PersonalProfile"
+    ref:"EmployeePersonalDetails"
     },
     WorkingExperiences:{
       type: mongoose.Schema.Types.ObjectId,
