@@ -31,20 +31,6 @@
   font-size: 18px;
 }
 
-@media (max-width: 768px) {
-  .info-group {
-    width: calc(50% - 20px);
-    /* 2 boxes per row */
-  }
-
-  .title-img-hide {
-    display: none;
-  }
-
-  .hind-small {
-    display: block;
-  }
-}
 
 .job-req-img {
   width: 170px;
@@ -68,11 +54,11 @@
 .checkbox {
   margin-top: 10px;
   appearance: none;
-  width: 35px;
+  width: 29px;
   height: 29px;
   aspect-ratio: 1;
   border-radius: 8px;
-  border: 2px solid black;
+  border: 2px solid #8faa46;
   position: relative;
   transition: all 0.2s ease-in-out;
 }
@@ -171,4 +157,36 @@
 
 .candidate-btn-div button {
   padding: 8px 12px;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .info-group {
+    width: calc(50% - 20px);
+    /* 2 boxes per row */
+  }
+
+  .checkbox {
+    
+    width: 19px;
+    height: 19px;
+    
+    
+  }
+
+  .checkbox::before {
+  font-size: 25px;
+  }
+  
+
+
+  .title-img-hide {
+    display: none;
+  }
+
+  .hind-small {
+    display: block;
+  }
 }

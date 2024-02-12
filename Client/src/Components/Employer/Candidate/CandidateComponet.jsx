@@ -82,7 +82,7 @@ function CandidateComponet({ initialValues }) {
           </div>
           <div className="info-group">
           <div className="job-req-img">
-           <img src='/Utility/dr.jpg' alt="" className='img-fluid' />
+           <img src='/Utility/38.jpg' alt="" className='img-fluid' />
           </div>
           <input className="checkbox " type="checkbox" onChange={Requierment} name='candidateDetails.DrivingLicense'/>
           </div>
