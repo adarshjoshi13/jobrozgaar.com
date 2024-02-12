@@ -112,10 +112,12 @@ padding: 18px;
   }
   .profile-image-container {
     position: relative;
-    width: 82px; /* Set your desired width */
-    height: 82px; /* Set your desired height */
+    width: 82px;
+    height: 82px;
+    box-shadow: #8faa46 0px 0px 6px;
+    border: 2px solid #8faa46;
     overflow: hidden;
-    border-radius: 50%; /* Create a circular shape */
+    border-radius: 50%;
 }
   #profile-pic-img{
     width: 100%;
