@@ -8,6 +8,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 import employeData from '../../../API/Employer/EmployerData'
 import ArrowRed from '../../Global/UI/ArrowImg-with-title/ArrowRed';
+import NavLogoBtn from '../../Global/UI/NavLogoBtn/NavLogoBtn';
+import MultiMenu from '../../Global/UI/MultiMenu/MultiMenu';
 
 function CandidateComponet({ initialValues }) {
   const [loader, Setloader] = useState(false);
@@ -48,16 +50,13 @@ function CandidateComponet({ initialValues }) {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-md-12 small-nav">
-
-        </div>
-      </div>
+    <NavLogoBtn url={'/Utility/30.jpg'}/>
       <ArrowRed url={'/Utility/req.png'} redtitle={'*Your Job details field given please fill carefully'}/>
       <div className="row mb-5 mt-3">
         <div className="col-md-12">
           <FormBar title={"Minimum Qualification"} name={'candidateDetails.MinimumQualification'} onChange={formik.handleChange} value={formik.values.candidateDetails.MinimumQualification} />
           <FormBar title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={formik.handleChange} value={formik.values.candidateDetails.PreferredSkills} />
+          {/* <MultiMenu /> */}
           <FormBar title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} />
         </div>
       </div>

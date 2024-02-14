@@ -1,14 +1,47 @@
 .title img{
-    width: 40px;
+    width: 32px;
 }
 .company-details-input{
     height: 40px;
     border-radius: 5px;
     outline: none;
+    padding: 8px;
+    font-size: 14px;
     border: 2px solid rgb(182, 175, 175);
     
 }
 
 .for-input input{
   height: 40px;
+  padding: 8px;
+}
+
+.for-input{
+  position: relative;
+}
+
+.file-inputs {
+  width: 215px;
+  padding: 6px;
+  font-size: 15px;
+  position: absolute;
+  right: 0px;
+}
+
+
+.campany-page h5{
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.check-title-h{
+  padding: 5px 18px;
+  font-size: 15px;
+}
+
+
+@media screen and (max-width:768px) {
+  .check-title-h{
+    padding: 5px 10px;
+  }
 }

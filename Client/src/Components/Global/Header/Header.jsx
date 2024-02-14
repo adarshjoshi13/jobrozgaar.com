@@ -76,7 +76,7 @@ function Header() {
                 <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div className="offcanvas-body">
-                <ul className="navbar-nav justify-content-center flex-grow-1">
+                <ul className="navbar-nav justify-content-evenly  flex-grow-1">
                   {navLinks.map((link, index) => (
                     <li
                       className="nav-item"

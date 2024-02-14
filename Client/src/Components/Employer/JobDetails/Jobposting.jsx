@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useState,useEffect } from 'react';
 import employeData from '../../../API/Employer/EmployerData'
 import ArrowRed from '../../Global/UI/ArrowImg-with-title/ArrowRed'
+import NavLogoBtn from '../../Global/UI/NavLogoBtn/NavLogoBtn'
 
 function Jobposting({initialValues}) {
   const [loader,Setloader] = useState(false);
@@ -43,11 +44,9 @@ function Jobposting({initialValues}) {
   });
   return (
     <div className='container'>
+      <NavLogoBtn  url={'/Utility/31.png'}/>
       <div className="row">
-
-      </div>
-      <div className="row">
-        <ArrowRed url={'/Utility/detail.png'} redtitle={'*Your Job details field given please fill carefully'}/>
+        <ArrowRed bigSize={"bigSizeImg"} url={'/Utility/detail.png'} redtitle={'*Your Job details field given please fill carefully'}/>
         <div className="col-md-12 mt-3">
          <FormBar title={'want to hire'} placeholder={''} name={'wantToHire'} onChange={formik.handleChange} value={formik.values.wantToHire}/>
          <FormBar title={'No. of Vacancy'} placeholder={''} name={'NoOfVacancy'} onChange={formik.handleChange} value={formik.values.NoOfVacancy}/>
