@@ -69,7 +69,7 @@ function CandidateComponet({initialValues}) {
         <FormBar title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown}/>
         </div>
     </div>
-   {/* <div className="row">
+   <div className="row">
    <div className="col-md-12 test mt-5">
           <div className="top-shape">
           <h5 className='text-center'>Do you have any job specific requirement? If yes, Please select below:</h5>
@@ -126,7 +126,7 @@ function CandidateComponet({initialValues}) {
 
          </div>
         </div>
-   </div> */}
+   </div>
    <div className="row ">
     <div className="col-md-12 candidate-btn-div">
    <button type='submit' className="mb-5" onClick={formik.handleSubmit}>{loader?(<Loader/>):"save"}</button>
