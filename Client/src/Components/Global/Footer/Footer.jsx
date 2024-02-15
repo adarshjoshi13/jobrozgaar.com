@@ -44,7 +44,7 @@ const Footer = () => {
       {/* Footer */}
       <footer className="text-center text-lg-start text-white" style={{ backgroundColor: '#1c2331' }}>
         {/* Section: Social media */}
-        <section className="d-flex justify-content-between p-4" style={{ backgroundColor: '#3c6271' }}>
+        <section className="d-flex justify-content-between p-4" style={{ backgroundColor: '#90aa47' }}>
           {/* Left */}
           <div className="me-5">
             <span>Get connected with us on social networks:</span>
