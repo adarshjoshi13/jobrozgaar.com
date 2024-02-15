@@ -43,9 +43,7 @@ const EmployerIntialData = new mongooseConnect.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref:"CompanyDetails",
   },
-  Jobs:{
-    type:[ mongoose.Schema.Types.ObjectId]
-  },
+  jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'JobDetail' }],
   ProfileCompleate:{
     type:Number,
     default:10

@@ -1,11 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './EmployerDashboard.css'
 import { ProfileCard,Loader, } from '../../../../Components/export'
+import { ToastContainer, toast } from 'react-toastify';
+import employerData from '../../../../API/Employer/EmployerData'
 
 function EmployerDashboard({children}) {
-  const [loader,Setloader] = useState(false)
+  const [loader,Setloader] = useState(false);
 
+  const [formData, setFormData] = useState({})
+  const [reload,setReload] = useState(false)
+  useEffect(()=>{
+      (async ()=>{
+          Setloader(true)
+        const result = await employerData.getEmployerData();
+        if(result.status === 200){
+          console.log('yel bhai',result.data)
+          setFormData({...result.data.data})
+          Setloader(false)
+        }
+       else{
+          Setloader(false)
+         toast.error("erro fetching data")
+       }
+      })()
+    },[reload])
 
+    console.log('bullha ki jana',formData)
 
 
   if(loader){
@@ -17,7 +37,7 @@ function EmployerDashboard({children}) {
   }
   return (
    <div className="container">
-     <ProfileCard/>
+     <ProfileCard email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails.CompanyVerification.Logo}/>
    {/* Tab for employer */}
     {children}
    </div>

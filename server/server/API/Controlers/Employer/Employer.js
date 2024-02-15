@@ -181,5 +181,32 @@ async  function AddCompanyDetails(req,res){
  }
 }
 
+// get all data
+async function GetAllDataOfEmployer(req,res){
+  const employerId = GetEmployerIdFromCookie(req.cookies.token)
+  console.log(employerId)
+  if(!employerId){
+     return res.status(401).json({message:'Unauthorized request'})
+  }
 
-module.exports = {JobDetails,AddcandidateDetails,AddCompanyDetails}
+  try {
+
+    const EmployerAllData = await EmployerInitalDetails.findById({_id:employerId})
+    .populate('CompanyDetails')
+    .populate('jobs')
+    if(!EmployerAllData){
+      res.status(404).json({message:"no document found"})
+    }
+    else{
+      res.status(200).json({data:EmployerAllData});
+
+    }
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({message:"internal server error"});
+  }
+}
+
+
+module.exports = {JobDetails,AddcandidateDetails,AddCompanyDetails,GetAllDataOfEmployer}
