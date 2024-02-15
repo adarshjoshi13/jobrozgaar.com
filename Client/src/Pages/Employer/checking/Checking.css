@@ -1,0 +1,265 @@
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+@import url('swiper/swiper-bundle.min.css');
+.slide-container{
+    max-width: 1120px;
+    width: 100%;
+    padding: 40px 0;
+  }
+  .slide-content{
+    margin: 0 40px;
+    overflow: hidden;
+    border-radius: 25px;
+  }
+  .card{
+    border-radius: 25px;
+    background-color: #FFF;
+  }
+.slider-cards {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  color: #ffffff;
+  text-align: left;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-wrap: wrap;
+  /* max-width: 1000px; */
+padding: 8px;
+  margin: 30px 0px;
+}
+
+.slider-cards img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: -1;
+}
+
+.slider-cards .plan {
+  margin: 0 0.5%;
+  margin: 4px;
+  width: 100%;
+  padding-top: 10px;
+  position: relative;
+
+  /* float: left; */
+  overflow: hidden;
+  background-color: #222f3d;
+  border-radius: 8px;
+}
+
+.slider-cards .plan:hover i,
+.slider-cards .plan.hover i {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.slider-cards * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+.slider-cards header {
+  color: #ffffff;
+}
+
+.slider-cards .plan-title {
+  line-height: 60px;
+  position: relative;
+  margin: 0;
+  padding: 0 20px;
+  font-size: 1.6em;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.slider-cards .plan-title:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 20px;
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+}
+
+.slider-cards .plan-cost {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.slider-cards .plan-price {
+  font-weight: 400;
+  font-size: 2.8em;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+.slider-cards .plan-type {
+  opacity: 0.8;
+  font-size: 0.7em;
+  text-transform: uppercase;
+}
+
+.slider-cards .plan-features {
+  padding: 0 0 20px;
+  margin: 0;
+  list-style: outside none none;
+  font-size: 0.9em;
+}
+
+.slider-cards .plan-features li {
+  padding: 8px 20px;
+}
+
+.slider-cards .plan-features i {
+  margin-right: 8px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.slider-cards .plan-select {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+}
+
+.slider-cards .plan-select a {
+  background-color: #90aa47;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  display: inline-block;
+}
+
+.slider-cards .plan-select a:hover {
+  background-color: #81964a !important;
+}
+
+.slider-cards .plans-head{
+    display : flex;
+    flex-direction: column;
+    /* justify-content : center; */
+    align-items : center;
+}
+
+.slider-cards .plans-head h4{
+    font-weight: 800;
+    font-size: 27px;
+    color: #10507e;
+    text-transform: uppercase;
+}
+
+
+.slider-cards .plans-head p{
+   margin: 5px 0px;
+   color: #90aa47;
+}
+
+/*  */
+
+.slider-cards .plans-head .toggleContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: fit-content;
+    border: 3px solid #343434;
+    border-radius: 20px;
+    background: #343434;
+    font-weight: bold;
+    color: #343434;
+    cursor: pointer;
+  }
+  .slider-cards .plans-head .toggleContainer::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0%;
+    border-radius:20px;
+    background: #90aa47;
+    transition: all 0.3s;
+  }
+  .slider-cards .plans-head .toggleCheckbox:checked + .toggleContainer::before {
+     left: 50%;
+  }
+  .slider-cards .plans-head .toggleContainer div {
+    padding: 6px;
+    text-align: center;
+    z-index: 1;
+  }
+  .slider-cards .plans-head  .toggleCheckbox {
+    display: none;
+  }
+  .slider-cards .plans-head  .toggleCheckbox:checked + .toggleContainer div:first-child{
+    color: white;
+    transition: color 0.3s;
+  }
+  .slider-cards .plans-head  .toggleCheckbox:checked + .toggleContainer div:last-child{
+    color: #f3efef;
+    transition: color 0.3s;
+  }
+  .slider-cards .plans-head  .toggleCheckbox + .toggleContainer div:first-child{
+    color: #f4eeee;
+    transition: color 0.3s;
+  }
+  .slider-cards .plans-head  .toggleCheckbox + .toggleContainer div:last-child{
+    color: white;
+    transition: color 0.3s;
+  }
+
+/*  */
+
+.slider-cards .featured {
+  /* margin-top: -10px; */
+  z-index: 1;
+  border-radius: 8px;
+  border: 2px solid #156dab;
+  background-color: #156dab;
+}
+
+.slider-cards .featured .plan-select {
+  padding: 30px 20px;
+}
+
+.slider-cards .featured .plan-select a {
+  background-color: #10507e;
+}
+
+@media only screen and (max-width: 767px) {
+  .slider-cards .plan {
+    width: 49%;
+    margin: 0.5%;
+  }
+  .slider-cards .plan-title,
+  .slider-cards .plan-select a {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  .slider-cards .plan-select,
+  .slider-cards .featured .plan-select {
+    padding: 20px;
+  }
+  .slider-cards .featured {
+    margin-top: 0;
+  }
+  .slider-cards .featured header {
+    line-height: 70px;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .slider-cards .plan {
+    margin: 0.5% 0;
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,66 @@
+/* Base styles */
+.employerTabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);/* Adjust minmax() as needed */
+    gap: 20px; /* Adjust the gap between items */
+    grid-auto-flow: row; /* Make items wrap when there's not enough space */
+}
+
+.tabItem {
+    border: 1px solid #ADB949;
+    padding: 10px;
+    text-align: center;
+    display : flex;
+    transition: 0.3s;
+    cursor: pointer;
+    justify-content : center;
+    align-items : center;
+}
+
+
+.tabItem:hover {
+   
+    /* box-shadow: #ADB949 0px 8px 24px; */
+    box-shadow: #ADB949 0px 2px 8px 0px;
+}
+
+.tabItem img {
+    max-width: 83%;
+    height: auto;
+}
+
+.bige{
+    width: 63% ;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 990px) {
+    .employerTabs {
+        grid-template-columns: repeat(4, 1fr); /* Two columns */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .employerTabs {
+        grid-template-columns: repeat(4, 1fr);
+         /* Two columns */
+         
+    }
+    /* .tabItem img {
+        max-width: 82%;
+        height: auto;
+    } */
+}
+
+
+@media screen and (max-width: 450px) {
+    .employerTabs {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+    }
+
+
+    .tabItem img {
+        max-width: 96%;
+        height: auto;
+    }
+}

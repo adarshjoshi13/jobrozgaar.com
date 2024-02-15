@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './EmployerDashboard.css'
 import { ProfileCard,Loader, } from '../../../../Components/export'
+import EmployerTabs from '../EmployerTabs/EmployerTabs'
 
 function EmployerDashboard({children}) {
   const [loader,Setloader] = useState(false)
@@ -18,6 +19,7 @@ function EmployerDashboard({children}) {
   return (
    <div className="container">
      <ProfileCard/>
+     <EmployerTabs/>
    {/* Tab for employer */}
     {children}
    </div>

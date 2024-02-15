@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
 
 import './PlanPage.css';
+// import Checking from '../checking/Checking';
+
 
 const PlanPage = () => {
     // State to track selected plan type
@@ -100,6 +102,10 @@ const PlanPage = () => {
                     </div>
                 ))}
             </div>
+
+            {/* <Checking/> */}
+
+            {/* <Checking /> */}
         </div>
     );
 };

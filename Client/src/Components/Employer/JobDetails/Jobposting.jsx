@@ -44,7 +44,7 @@ function Jobposting({initialValues}) {
   });
   return (
     <div className='container'>
-      <NavLogoBtn  url={'/Utility/31.png'}/>
+      <NavLogoBtn  url={'/Utility/job-detail.png'}/>
       <div className="row">
         <ArrowRed bigSize={"bigSizeImg"} url={'/Utility/detail.png'} redtitle={'*Your Job details field given please fill carefully'}/>
         <div className="col-md-12 mt-3">
