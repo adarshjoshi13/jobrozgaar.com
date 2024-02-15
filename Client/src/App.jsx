@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header, Footer } from './Components/export';
-import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali } from './Pages/export'
+import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali,EmployerDashboard } from './Pages/export'
 import { MyJob } from './Components/export';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -49,10 +49,10 @@ function App() {
         <Route path='/employer-requirement-candidate' element={<Layout><Candidate /></Layout>} />
         <Route path='/employer-Company-Details' element={<Layout><CompanyDetails /></Layout>} />
         
-        <Route path='/plans' element={<Layout><PlanPage /></Layout>} />
+        <Route path='/employer-plans' element={<Layout><PlanPage /></Layout>} />
 
         <Route path='/employer-login' element={<Layout><EmployerLogin /></Layout>} />
-        {/* Dashboard layout */}
+        {/* Dashboard layout for employee */}
         <Route path='/Dashboard/personal-profile' element={<Layout><Dashboard navtag={'Personal Profile'}><DashboardPeronalProfile /></Dashboard></Layout>} />
         <Route path='/Dashboard/work-experience' element={<Layout><Dashboard navtag={'work Experience'}><DasboardWork /></Dashboard></Layout>} />
         <Route path='/Dashboard/education' element={<Layout><Dashboard navtag={'Education'}><DashboardEducation /></Dashboard></Layout>} />
@@ -84,6 +84,13 @@ function App() {
             </Layout>
           }
         />
+
+        {/*Dashboard of employer */}
+        <Route path='/employer-starter-Dashboard/view-candidates' element={<Layout>
+          <EmployerDashboard>
+
+          </EmployerDashboard>
+        </Layout>}/>
 
 
 

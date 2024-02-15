@@ -38,5 +38,6 @@ import PasswordChange from "./Employee/DashboardLayout/PasswordChange/PasswordCh
 import MyjobsList from "./Employee/DashboardLayout/Myjobs/Joblist/MyjobsList";
 import TipsSupport from "./Employee/DashboardLayout/TipsBox/TipsSupport";
 import JobDetali from "./Employee/DashboardLayout/Myjobs/JobDetalis/JobDetali";
+import EmployerDashboard from "./Employer/Dashboard/DasboardLayout/EmployerDashboard";
 
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali}
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali,EmployerDashboard}

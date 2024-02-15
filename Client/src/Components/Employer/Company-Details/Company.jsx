@@ -210,7 +210,7 @@ function Company({ initialValues,redirect }) {
       <div className="row ">
         <div className="col-md-12 candidate-btn-div mt-3">
           <Button type={'submit'} onClick={formik.handleSubmit}
-            title={"save"} />
+            title={"save"} loader={loader} />
         </div>
       </div>
     </div>
