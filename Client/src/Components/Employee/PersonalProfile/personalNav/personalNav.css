@@ -1,5 +1,5 @@
 .upper-nav img {
-  width: 233px;
+  width: 200px;
 }
 
 
@@ -9,15 +9,16 @@
 
 @media screen and (max-width:606px) {
   .upper-nav img {
-    width: 193px ;
+    width: 125px ;
   }
 }
 
-@media screen and (max-width:606px) {
-  .upper-nav img {
-    width: 181px ;
-  }
+
+
+.bigSizeImg{
+  width: 140px !important ;
 }
+
 
 
 

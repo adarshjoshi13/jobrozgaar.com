@@ -1,8 +1,9 @@
-const mongoose = require('../../Config/mongo.config');
+const mongooseConnect = require('../../Config/mongo.config');
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose')
 
 // Define the User Schema
-const EmployerIntialData = new mongoose.Schema({
+const EmployerIntialData = new mongooseConnect.Schema({
     CompanyName: {
     type: String,
     required:[true, " Company Name cannot be empty"],

@@ -17,7 +17,10 @@ function CompanyDetails() {
     },
     CompanyVerification: {
       DocumentNo: "",
-      Document: ""
+      CompanyVerfiaction:"",
+      PanNo:'',
+      GstNo:"",
+
     }
   };
   

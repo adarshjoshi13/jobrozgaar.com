@@ -5,7 +5,7 @@ function FormBar({ title, type, placeholder,onChange,onblur,value,name,style }) 
     return (
         <div className="container all-input">
             <div className="row">
-                <div className="col-md-2 d-flex align-items-center">
+                <div className="col-md-2 p-0 d-flex align-items-center">
                     <h5>{title}</h5>
                 </div>
                 <div className="col-md-10">

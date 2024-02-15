@@ -99,7 +99,7 @@ async  function AddCompanyDetails(req,res){
      return res.status(401).json({message:'Unauthorized request'})
   }
   let filesOnCloudinary = []
-  const Documentfile = req.files.find(file => file.fieldname === 'Documentfile')?.path ?? null;
+  const Documentfile = req.files.find(file => file.fieldname === 'Logo')?.path ?? null;
   const uploadimg = async (filepath)=>{
     if(!filepath){
         return null
@@ -124,11 +124,11 @@ async  function AddCompanyDetails(req,res){
       return file.url;
   }
 
-  const  Document = await uploadimg(Documentfile);
-  if(!Document){
-    return res.status(400).json({message:' Document file is required'});
+  const Logo = await uploadimg(Documentfile);
+  if(!Logo){
+    return res.status(400).json({message:'Logo required'});
   }
-  if(Document === 'something went wrong'){
+  if(Logo === 'something went wrong'){
     throw new Error("Something Went Wrong while uploaidng doucment")
   }
  const { CompanyInformation,InterviewAddress,CompanyVerification} = req.body
@@ -138,7 +138,7 @@ async  function AddCompanyDetails(req,res){
       CompanyInformation:JSON.parse(CompanyInformation),
       InterviewAddress:JSON.parse(InterviewAddress),
       CompanyVerification:{
-        ...JSON.parse(CompanyVerification),Document
+        ...JSON.parse(CompanyVerification),Logo
       }
        
       })

@@ -1,0 +1,17 @@
+#top-img{
+    width: 200px;
+}
+
+
+
+.topImg{
+    width: 150px !important;
+}
+@media screen and (max-width:1001px) {
+    #top-img{
+        width: 150px;
+    }
+    .topImg{
+        width: 100px !important;
+    }
+}

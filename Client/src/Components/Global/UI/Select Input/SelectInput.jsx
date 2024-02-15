@@ -5,12 +5,14 @@ const SelectInput = ({ id, name, value, handleChange, options }) => {
   return (
     <> 
     <div className="cover-of-select">
-          <FaAngleDown className='arrow-down-icon' style={{color:"black"}} /> 
+    <FaAngleDown className='arrow-down-icon' style={{color:"black"}} /> 
        <select className="form-control mb-2 select-inputs" id={id} name={name} onChange={handleChange} value={value}>
    
-
+       
       {options.map((option, index) => (
+        
         <option key={index} value={option.value}>
+        
           {option.label}
         </option>
       ))}

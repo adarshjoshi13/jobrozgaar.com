@@ -1,5 +1,5 @@
 import React from 'react'
-import { PersonalNav } from '../../export'
+import { Button, PersonalNav } from '../../export'
 import FormBar from '../../Employee/PersonalProfile/formbar/FormBar'
 import DateInput from '../../Employee/PersonalProfile/dateInput/DateInput'
 import './jobdetails.css'
@@ -8,6 +8,8 @@ import { Loader } from '../../export';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState,useEffect } from 'react';
 import employeData from '../../../API/Employer/EmployerData'
+import ArrowRed from '../../Global/UI/ArrowImg-with-title/ArrowRed'
+import NavLogoBtn from '../../Global/UI/NavLogoBtn/NavLogoBtn'
 
 function Jobposting({initialValues}) {
   const [loader,Setloader] = useState(false);
@@ -42,15 +44,10 @@ function Jobposting({initialValues}) {
   });
   return (
     <div className='container'>
+      <NavLogoBtn  url={'/Utility/31.png'}/>
       <div className="row">
-
-      </div>
-      <div className="row">
-        <div className="col-md-12 mini-nav">
-         <PersonalNav hideOrShow={false} img={'/Utility/personal.png'}/> 
-         <h5 style={{color:'red'}}>*Your Job details field given please fill carefully</h5>
-        </div>
-        <div className="col-md-12">
+        <ArrowRed bigSize={"bigSizeImg"} url={'/Utility/detail.png'} redtitle={'*Your Job details field given please fill carefully'}/>
+        <div className="col-md-12 mt-3">
          <FormBar title={'want to hire'} placeholder={''} name={'wantToHire'} onChange={formik.handleChange} value={formik.values.wantToHire}/>
          <FormBar title={'No. of Vacancy'} placeholder={''} name={'NoOfVacancy'} onChange={formik.handleChange} value={formik.values.NoOfVacancy}/>
          <FormBar title={'Job Title'} placeholder={''} name={'JobTitle'} onChange={formik.handleChange} value={formik.values.JobTitle}/>
@@ -62,7 +59,8 @@ function Jobposting({initialValues}) {
 
         </div>
         <div className="job-post-btn d-flex justify-content-center">
-          <button type='submit' className=' mt-5 mb-3' onClick={formik.handleSubmit}>Save</button>
+        <Button type={'submit'} title={"save"} onClick={formik.handleSubmit}  />
+          
         </div>
       </div>
     </div>

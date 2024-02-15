@@ -50,9 +50,21 @@ const CompanyDetails = new mongooseConnect.Schema({
      type: String,
      required: [true, " Document Number can't be empty"]
    },
-   Document:{
+   Logo:{
      type: String,
-     required: [true, "Document File can't be empty"]
+     required: [true, "Logo is required"]
+   },
+   CompanyVerfiaction:{
+    type: String,
+    required: [true, " Company Verfiaction Number is required"]
+   },
+   PanNo:{
+    type: String,
+    required: [true, "Pan Number is required"]
+   },
+   GstNo:{
+    type: String,
+    required: [true, "Pan Number is required"]
    }
    }
 

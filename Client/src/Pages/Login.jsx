@@ -46,7 +46,9 @@ function Login({login,redircet}) {
         <div className="container">
           <div className="row">
             {/* Left Blank Side */}
-            <div className="col-lg-6"></div>
+            <div className="col-lg-6">
+              <img src="https://uschamber-co.imgix.net/https%3A%2F%2Fs3.us-east-1.amazonaws.com%2Fco-assets%2Fassets%2Fimages%2Frecruiting.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=415&q=88&w=622&s=8ca12f51b57ee9fdd4e27cfdcad1bcf5" alt="" />
+            </div>
 
             {/* Right Side Form */}
             <div className="col-lg-6 d-flex align-items-center justify-content-center right-side">

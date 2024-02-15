@@ -6,6 +6,83 @@
     width: 100%;
   }
 
+  .profile-dash h4{
+    color: #3c6678;
+  }
+
+  
+
+  .three-btn {
+    width: 40px;
+    height: 40px;
+    color: rgb(241, 238, 238);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8FAA46;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 3px;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.13);
+    border: none;
+  }
+  
+  
+  
+  .three-btn  path {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    fill: white;
+  }
+  
+  .three-btn:hover {
+    background-color: #3C6679;
+  }
+  
+  .three-btn:hover path  {
+    animation: bellRing 0.9s both;
+  }
+  
+  /* bell ringing animation keyframes*/
+  @keyframes bellRing {
+    0%,
+    100% {
+      transform-origin: top;
+    }
+  
+    15% {
+      transform: rotateZ(10deg);
+    }
+  
+    30% {
+      transform: rotateZ(-10deg);
+    }
+  
+    45% {
+      transform: rotateZ(5deg);
+    }
+  
+    60% {
+      transform: rotateZ(-5deg);
+    }
+  
+    75% {
+      transform: rotateZ(2deg);
+    }
+  }
+  
+  .three-btn:active {
+    transform: scale(0.8);
+  }
+
+  
+  /*  */
+
+  .progress-bar-dash h4{
+    color: #3c6678;
+  }
+
   .border-hai{
     border-left: 6px solid #ADB949;
 padding: 18px;
@@ -42,38 +119,40 @@ padding: 18px;
   }
 
 
-  .buttons-profile button{
+  /* .buttons-profile button{
     padding: 6px;
     margin: 8px;
 
     color: white;
     background-color: rgb(255, 137, 156);
     border-radius: 50%;
-  }
+  } */
 
   .buttons-profile{
+    display: flex;
     position: relative;
   }
 
   .buttons-profile input[type="file"] {
     position: absolute;
-    top: 19px;
-    left: 64px;
-    width: 21px;
+    top: 16px;
+    left: 3px;
+    width: 33px;
     font-size: 2px;
     /* width: 55%; */
-    height: 20px;
+    height: 16px;
     opacity: 0;
+    /* z-index: 1; */
     cursor: pointer;
 }
  
-  .buttons-profile button:hover{
+  /* .buttons-profile button:hover{
     background-color: rgb(209, 84, 105);
   }
 
   .buttons-profile svg{
     font-size: 19px;
-  }
+  } */
 
   .profile-cover-dash{
     padding: 18px;
@@ -112,10 +191,12 @@ padding: 18px;
   }
   .profile-image-container {
     position: relative;
-    width: 82px; /* Set your desired width */
-    height: 82px; /* Set your desired height */
+    width: 82px;
+    height: 82px;
+    box-shadow: #8faa46 0px 0px 6px;
+    border: 2px solid #8faa46;
     overflow: hidden;
-    border-radius: 50%; /* Create a circular shape */
+    border-radius: 50%;
 }
   #profile-pic-img{
     width: 100%;
