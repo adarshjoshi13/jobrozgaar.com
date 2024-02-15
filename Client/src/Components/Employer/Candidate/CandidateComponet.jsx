@@ -50,8 +50,8 @@ function CandidateComponet({ initialValues }) {
 
   return (
     <div className="container">
-    <NavLogoBtn url={'/Utility/30.jpg'}/>
-      <ArrowRed url={'/Utility/req.png'} redtitle={'*Your Job details field given please fill carefully'}/>
+    <NavLogoBtn url={'/Utility/req.png'}/>
+      <ArrowRed url={'/Utility/req-arrow.png'} redtitle={'*Your Job details field given please fill carefully'}/>
       <div className="row mb-5 mt-3">
         <div className="col-md-12">
           <FormBar title={"Minimum Qualification"} name={'candidateDetails.MinimumQualification'} onChange={formik.handleChange} value={formik.values.candidateDetails.MinimumQualification} />

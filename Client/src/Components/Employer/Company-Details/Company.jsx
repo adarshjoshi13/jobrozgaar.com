@@ -81,7 +81,7 @@ function Company({ initialValues,redirect }) {
   console.log(Images)
   return (
     <div className="container mb-5 campany-page">
-    <NavLogoBtn topImg={'topImg'} url={'/Utility/33.png'}/>
+    <NavLogoBtn topImg={'topImg'} url={'/Utility/company.png'}/>
       <div className="row">
         <div className="col-md-12 small-nav">
 

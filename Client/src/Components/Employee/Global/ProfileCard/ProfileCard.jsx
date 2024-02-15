@@ -41,7 +41,16 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
 
   }
 
-
+  const downloadImage = () => {
+    const link = document.createElement('a');
+    link.href = proifePic; // Assuming profilePic is a URL to the image
+    let ImgDownLink = link.href = proifePic;
+    console.log(ImgDownLink)
+    link.download = `${proifePic}`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   // console.log("yah se calcuation",extraData)
   return (
@@ -56,8 +65,8 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
                     {loader ? <Loader /> : <img src={proifePic ? proifePic : "/Utility/profile.png"} alt="profile" className='img-fluid  ' id='profile-pic-img' />}
                   </div>
                   <div className="buttons-profile mb-2">
-                    <button className="three-btn ">
-                    <FaCloudDownloadAlt />
+                  <button className="three-btn" onClick={downloadImage}>
+                      <FaCloudDownloadAlt />
                     </button>
 
                     <button className="three-btn ">

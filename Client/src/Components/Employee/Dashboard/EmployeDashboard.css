@@ -23,7 +23,47 @@
   }
   
 
+ .continue-button {
+    cursor: pointer;
+    font-weight: 700;
+    font-family: Helvetica,"sans-serif";
+    transition: all .2s;
+    padding: 10px 20px;
+    border-radius: 100px;
+    color: gray;
+    background: #cfef00;
+    border: 1px solid black !important;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    transition: 0.4s;
+    font-size: 15px;
+  }
 
+  .continue-button span{
+    color: rgb(45, 43, 43);
+    margin: 4px;
+  }
+  
+ .continue-button:hover {
+    background: #c4e201;
+  }
+  
+ .continue-button > svg {
+    width: 34px;
+    margin-left: 10px;
+    transition: transform .3s ease-in-out;
+  }
+  
+ .continue-button:hover svg {
+    transform: translateX(5px);
+  }
+  
+ .continue-button:active {
+    transform: scale(0.95);
+  }
+  
+  
  
  
 

@@ -3,6 +3,7 @@ import './EmployerDashboard.css'
 import { ProfileCard,Loader, } from '../../../../Components/export'
 import { ToastContainer, toast } from 'react-toastify';
 import employerData from '../../../../API/Employer/EmployerData'
+import EmployerTabs from '../EmployerTabs/EmployerTabs'
 
 function EmployerDashboard({children}) {
   const [loader,Setloader] = useState(false);
@@ -37,8 +38,8 @@ function EmployerDashboard({children}) {
   }
   return (
    <div className="container">
-     <ProfileCard email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails.CompanyVerification.Logo}/>
-   {/* Tab for employer */}
+     <ProfileCard email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile}/>
+     <EmployerTabs/>
     {children}
    </div>
   )
