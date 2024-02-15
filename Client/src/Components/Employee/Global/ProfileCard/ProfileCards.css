@@ -135,12 +135,13 @@ padding: 18px;
 
   .buttons-profile input[type="file"] {
     position: absolute;
-    top: 16px;
+    top: 4px;
     left: 3px;
     width: 33px;
     font-size: 2px;
     /* width: 55%; */
-    height: 16px;
+    height: 33px;
+    border: 2px solid;
     opacity: 0;
     /* z-index: 1; */
     cursor: pointer;
