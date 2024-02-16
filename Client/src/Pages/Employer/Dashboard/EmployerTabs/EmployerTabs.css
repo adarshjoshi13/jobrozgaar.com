@@ -10,11 +10,12 @@
     border: 1px solid #ADB949;
     padding: 10px;
     text-align: center;
-    display : flex;
+    display: flex;
+    height: 98px;
     transition: 0.3s;
     cursor: pointer;
-    justify-content : center;
-    align-items : center;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -25,12 +26,12 @@
 }
 
 .tabItem img {
-    max-width: 83%;
+    max-width: 67%;
     height: auto;
 }
 
 .bige{
-    width: 63% ;
+    width: 58% ;
 }
 
 /* Media query for smaller screens */
@@ -62,5 +63,14 @@
     .tabItem img {
         max-width: 96%;
         height: auto;
+    }
+
+    .bige {
+        width: 73%;
+    }
+
+    .tabItem  {
+        
+        height: 66px;
     }
 }
