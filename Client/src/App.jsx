@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header, Footer } from './Components/export';
-import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali,EmployerDashboard, WorkersCard,ViewCompanyDetails } from './Pages/export'
+import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali,EmployerDashboard, WorkersCard,ViewCompanyDetails,JOblayout,AddJob } from './Pages/export'
 import { MyJob } from './Components/export';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -104,6 +104,25 @@ function App() {
         <PlanPage/>
           </EmployerDashboard>
         </Layout>}/>
+
+        {/* JOb layout for employer started */}
+        <Route path='/employer-starter-Dashboard/view-job' element={<Layout>
+          <EmployerDashboard>
+        <JOblayout navtag={'View All Job'}>
+        
+        </JOblayout>
+          </EmployerDashboard>
+        </Layout>}/>
+
+        <Route path='/employer-starter-Dashboard/Add-job' element={<Layout>
+          <EmployerDashboard>
+        <JOblayout navtag={"Add job"}>
+         <AddJob/>
+        </JOblayout>
+          </EmployerDashboard>
+        </Layout>}/>
+
+        
 
 
 
