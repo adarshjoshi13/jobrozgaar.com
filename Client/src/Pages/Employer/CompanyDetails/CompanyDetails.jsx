@@ -27,7 +27,7 @@ function CompanyDetails() {
   // console.log(companyDetailsObject);
   
   return (
-    <Company initialValues={companyDetailsObject} redirect={'/employer-plans'}/>
+    <Company initialValues={companyDetailsObject} redirect={'/employer-plans'} Edit={false}/>
   )
 }
 

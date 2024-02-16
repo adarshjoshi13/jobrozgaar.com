@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./NormalForm.css"
 import { Link,useNavigate } from 'react-router-dom';
-import { FaFacebook, FaGoogle ,FaLock,FaGlobe,FaMobile } from 'react-icons/fa';
+import { FaFacebook, FaGoogle ,FaLock,FaGlobe,FaMobile,FaUserFriends } from 'react-icons/fa';
 import GetGoogleUrl from '../../../utlity/GetGoogleUrl';
 import { Formik, Form, Field, ErrorMessage,useFormik } from 'formik';
 import Loader from '../loader/Loader';
@@ -117,6 +117,21 @@ function NormalForm() {
                                       type="tel"
                                         name="mobile"
                                         placeholder="phone"
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={formik.values.mobile}
+                                        required
+                                        className="single-input"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div className="input-group-icon mt-20">
+                                <div className="icon"><FaUserFriends/></div>
+                                    <input
+                                      type="tel"
+                                        name="mobile"
+                                        placeholder="Referral Code"
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         value={formik.values.mobile}

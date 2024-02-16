@@ -69,7 +69,7 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
                       <FaCloudDownloadAlt />
                     </button>
 
-                    <button className="three-btn ">
+                    <button id='different-button' className="three-btn ">
                     <FaCamera /><input
                         type="file"
                         accept="images"

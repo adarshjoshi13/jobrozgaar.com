@@ -1,6 +1,7 @@
 import React from 'react'
 import './company.css'
 import { Button, PersonalNav } from '../../export'
+
 import DateInput from '../../Employee/PersonalProfile/dateInput/DateInput'
 import InputButton from '../../Employee/PersonalProfile/InputButton/InputButton'
 import { Formik, Form, Field, ErrorMessage, useFormik, useFormikContext } from 'formik';
@@ -87,7 +88,8 @@ function Company({ initialValues,redirect,Edit }) {
 
         </div>
       </div>
-      <ArrowRed bigSize={'bigSizeImg'} url={'/Utility/campany.png'} redtitle={'*Your Job details field given please fill carefully'} />
+     {Edit?null:( <ArrowRed bigSize={'bigSizeImg'} url={'/Utility/campany.png'} redtitle={'*Your Job details field given please fill carefully'} />)}
+      {Edit?<PersonalNav hideOrShow={true}/>:null}
       <div className="row">
         <div className="col-md-4 d-flex flex-column">
           <div className="title d-flex align-items-center mt-5">

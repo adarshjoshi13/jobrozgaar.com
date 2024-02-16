@@ -1,8 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Company,PersonalNav } from '../../../../Components/export'
 
-function ViewCompanyDetails() {
+function ViewCompanyDetails({AllData}) {
+  console.log('dekh verree',AllData.CompanyDetails)
+  const companyDetailsObject = {
+    CompanyInformation: {
+      companyName: "",
+      Recruiter: "",
+      HrWhatsAppNo: "",
+      Email: ""
+    },
+    InterviewAddress: {
+      FlatNo: "",
+      city: "",
+      State: "",
+      Landmark: ""
+    },
+    CompanyVerification: {
+      DocumentNo: "",
+      CompanyVerfiaction:"",
+      PanNo:'',
+      GstNo:"",
+
+    }
+  };
+  // const [initialValues,SetinitialValues] = useState(AllData.CompanyDetails || {})
   return (
-    <div>ViewCompanyDetails</div>
+ 
+     <Company initialValues={AllData.CompanyDetails || companyDetailsObject} Edit={true}/>
+ 
   )
 }
 

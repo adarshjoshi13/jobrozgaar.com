@@ -1,5 +1,6 @@
 import React from 'react';
 import './EmployerTabs.css';
+import { Link } from 'react-router-dom';
 
 function EmployerTabs() {
     return (
@@ -8,13 +9,15 @@ function EmployerTabs() {
                 <img src="/Utility/job-detail.png" alt="" />
             </div>
             <div className="tabItem">
-                <img src="/Utility/req.png" alt="" />
+               
+                <Link to={'/employer-starter-Dashboard/view-candidates'}> <img src="/Utility/req.png" alt="" /></Link>
             </div>
             <div className="tabItem">
-                <img className='bige' src="/Utility/company.png" alt="" />
+                <Link to={'/employer-starter-Dashboard/view-company-details'}><img className='bige' src="/Utility/company.png" alt="" /></Link>
             </div>
             <div className="tabItem">
-                <img className='bige' src="/Utility/plan.png" alt="" />
+                <Link to={'/employer-starter-Dashboard/view-plans'}> <img className='bige' src="/Utility/plan.png" alt="" /></Link>
+                
             </div>
         </div>
     );
