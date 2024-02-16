@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './company.css'
 import { Button, PersonalNav } from '../../export'
 
@@ -7,12 +7,13 @@ import InputButton from '../../Employee/PersonalProfile/InputButton/InputButton'
 import { Formik, Form, Field, ErrorMessage, useFormik, useFormikContext } from 'formik';
 import { Loader } from '../../export';
 import { ToastContainer, toast } from 'react-toastify';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import employeData from '../../../API/Employer/EmployerData'
 import ArrowRed from '../../Global/UI/ArrowImg-with-title/ArrowRed'
 import NavLogoBtn from '../../Global/UI/NavLogoBtn/NavLogoBtn'
 import { redirect, useNavigate } from 'react-router-dom'
-function Company({ initialValues,redirect,Edit }) {
+import { PopUpCard } from '../../../Pages/export'
+function Company({ initialValues, redirect, Edit }) {
   const [Images, SetImages] = useState([]);
   const [loader, Setloader] = useState(false);
   const navigate =  useNavigate();
@@ -32,10 +33,10 @@ function Company({ initialValues,redirect,Edit }) {
     // enableReinitialize: true,
     initialValues: { ...initialValues },
     onSubmit: async values => {
-     let verify =  checkCompanyDetailsBeforeSubminting(values)
-     if(verify === false){
-      return;
-     }
+      let verify = checkCompanyDetailsBeforeSubminting(values)
+      if (verify === false) {
+        return;
+      }
       console.log(values)
       Setloader(true)
       const result = await employeData.CompanyVerifaction(Images, values)
@@ -81,16 +82,26 @@ function Company({ initialValues,redirect,Edit }) {
   }
   console.log(formik);
   console.log(Images)
+
+
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false); // State to track PopUpCard open/close
+
+  const handlePopUpToggle = () => {
+    setIsPopUpOpen(!isPopUpOpen); // Toggle the state to open/close PopUpCard
+  };
   return (
     <div className="container mb-5 campany-page">
-    <NavLogoBtn topImg={'topImg'} url={'/Utility/company.png'}/>
+      <NavLogoBtn topImg={'topImg'} url={'/Utility/company.png'} />
       <div className="row">
         <div className="col-md-12 small-nav">
 
         </div>
       </div>
-     {Edit?null:( <ArrowRed bigSize={'bigSizeImg'} url={'/Utility/campany.png'} redtitle={'*Your Job details field given please fill carefully'} />)}
-      {Edit?<PersonalNav hideOrShow={true}/>:null}
+      {Edit ? null : (<ArrowRed bigSize={'bigSizeImg'} url={'/Utility/campany.png'} redtitle={'*Your Job details field given please fill carefully'} />)}
+      {Edit ? <PersonalNav hideOrShow={true} onClick={handlePopUpToggle} /> : null}
+      {/* Render PopUpCard if isPopUpOpen state is true */}
+      {isPopUpOpen && <PopUpCard onClose={handlePopUpToggle} />}
+
       <div className="row">
         <div className="col-md-4 d-flex flex-column">
           <div className="title d-flex align-items-center mt-5">
@@ -111,7 +122,7 @@ function Company({ initialValues,redirect,Edit }) {
         </div>
         <div className="col-md-4 text-center d-flex justify-content-center align-items-end pt-2">
           <div className="container  d-flex justify-content-center align-items-center flex-wrap text-center">
-            <div className="m-1 checkbox-wrapper-31">
+            <div  className="m-1  checkbox-wrapper-31">
               <input type="checkbox" onChange={(e) => {
                 if (e.target.checked === true) {
                   
@@ -133,7 +144,7 @@ function Company({ initialValues,redirect,Edit }) {
                   SetChecked(!checked)
 
                 }
-              }}  readOnly={Edit} checked={checked}/>
+              }}  checked={checked}/>
               <svg viewBox="0 0 35.6 35.6">
                 <circle className="background" cx="17.8" cy="17.8" r="17.8"></circle>
                 <circle className="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
@@ -174,7 +185,7 @@ function Company({ initialValues,redirect,Edit }) {
           <p style={{ color: 'red' }} className='mt-3'>Fill for faster job approval</p>
 
 
-{/* 
+          {/* 
           <div className="form-1 col-md-4">
             <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Document' name='CompanyVerification.DocumentNo' onChange={formik.handleChange} value={formik.values.CompanyVerification.DocumentNo} />
 
@@ -184,52 +195,52 @@ function Company({ initialValues,redirect,Edit }) {
           </div> */}
 
           <div className="form-1 col-md-4">
-            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Enter Document Number*' name='CompanyVerification.DocumentNo' onChange={formik.handleChange} value={formik.values.CompanyVerification.DocumentNo}  readOnly={Edit}/>
+            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Enter Document Number*' name='CompanyVerification.DocumentNo' onChange={formik.handleChange} value={formik.values.CompanyVerification.DocumentNo} readOnly={Edit} />
 
 
 
 
           </div>
-          
+
           <div className="form-1 col-md-4">
-            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Enter company verfiaction *' name='CompanyVerification.CompanyVerfiaction' onChange={formik.handleChange} value={formik.values.CompanyVerification.CompanyVerfiaction}  readOnly={Edit}/>
-
-
-
-
-          </div>
-          <div className="form-1 col-md-4">
-            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Enter company Pan No *' name='CompanyVerification.PanNo' onChange={formik.handleChange} value={formik.values.CompanyVerification.PanNo}  readOnly={Edit}/>
+            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Enter company verfiaction *' name='CompanyVerification.CompanyVerfiaction' onChange={formik.handleChange} value={formik.values.CompanyVerification.CompanyVerfiaction} readOnly={Edit} />
 
 
 
 
           </div>
           <div className="form-1 col-md-4">
-            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Enter company Gst Number *' name='CompanyVerification.GstNo' onChange={formik.handleChange} value={formik.values.CompanyVerification.GstNo}  readOnly={Edit}/>
+            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Enter company Pan No *' name='CompanyVerification.PanNo' onChange={formik.handleChange} value={formik.values.CompanyVerification.PanNo} readOnly={Edit} />
+
+
+
+
+          </div>
+          <div className="form-1 col-md-4">
+            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Enter company Gst Number *' name='CompanyVerification.GstNo' onChange={formik.handleChange} value={formik.values.CompanyVerification.GstNo} readOnly={Edit} />
 
 
 
 
           </div>
 
-          
 
 
 
-            <div className="for-input col-md-4  d-flex justify-contant-center align-items-center ">
 
-              <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Campany Logo' readOnly/>
-              <input className='file-inputs' style={{ border: "none" }} type="file"
-                name='Logo' onChange={GetImageData} />
+          <div className="for-input col-md-4  d-flex justify-contant-center align-items-center ">
 
-            </div>
+            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Campany Logo' readOnly />
+            <input className='file-inputs' style={{ border: "none" }} type="file"
+              name='Logo' onChange={GetImageData} />
+
+          </div>
 
         </div>
       </div>
       <div className="row ">
         <div className="col-md-12 candidate-btn-div mt-3">
-        {Edit?null:(  <Button type={'submit'} onClick={formik.handleSubmit}
+          {Edit ? null : (<Button type={'submit'} onClick={formik.handleSubmit}
             title={"save"} loader={loader} />)}
         </div>
       </div>

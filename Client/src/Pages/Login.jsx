@@ -46,8 +46,8 @@ function Login({login,redircet}) {
         <div className="container">
           <div className="row">
             {/* Left Blank Side */}
-            <div className="col-lg-6">
-              <img src="https://uschamber-co.imgix.net/https%3A%2F%2Fs3.us-east-1.amazonaws.com%2Fco-assets%2Fassets%2Fimages%2Frecruiting.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=415&q=88&w=622&s=8ca12f51b57ee9fdd4e27cfdcad1bcf5" alt="" />
+            <div className="col-lg-6 d-flex">
+              <img width={"100%"} src="https://uschamber-co.imgix.net/https%3A%2F%2Fs3.us-east-1.amazonaws.com%2Fco-assets%2Fassets%2Fimages%2Frecruiting.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=415&q=88&w=622&s=8ca12f51b57ee9fdd4e27cfdcad1bcf5" alt="" />
             </div>
 
             {/* Right Side Form */}
@@ -84,7 +84,7 @@ function Login({login,redircet}) {
                   <button type="submit" className="btn btn-outline-secondary login-btn w-100 mb-3">
                     {loader ? <Loader /> : 'Login'}
                   </button>
-                  <div className="social-login mb-3 type--A">
+                  <div className="social-login mb-3 type--A d-flex algin-item-center justify-content-evenly flex-column">
                     <h5 className="text-center mb-3">Social Login</h5>
                     <button className="btn btn-outline-secondary mb-3">
                       <FaGoogle className="text-danger" /> Sign With Google
@@ -93,7 +93,7 @@ function Login({login,redircet}) {
                 </form>
                 {/* Register Link */}
                 <p className="text-center register-test mt-3">
-                  Dont have an account? <Link to="register-3.html" className="text-decoration-none">Register here</Link>
+                  Dont have an account? <Link to="/" className="text-decoration-none">Register here</Link>
                 </p>
               </div>
             </div>
