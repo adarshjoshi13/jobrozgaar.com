@@ -1,5 +1,6 @@
 import React from 'react';
 import './PopUpCard.css';
+import { Link } from 'react-router-dom';
 
 function PopUpCard({ onClose }) {
   return (
@@ -18,7 +19,7 @@ function PopUpCard({ onClose }) {
             <p className="message">If you want to edit your post then you have to buy our plans first.</p>
           </div>
           <div className="actions">
-            <button className="history" type="button">Buy Now</button>
+            <button className="history" type="button"><Link to={'/employer-starter-Dashboard/view-plans'}>Buy Now</Link></button>
             <button onClick={onClose} className="track" type="button">Go Back</button>
           </div>
         </div>
