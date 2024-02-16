@@ -49,7 +49,7 @@ function CandidateComponet({ initialValues }) {
   console.log('formik', formik.values)
 
   return (
-    <div className="container">
+    <div className="container p-0">
     <NavLogoBtn url={'/Utility/req.png'}/>
       <ArrowRed url={'/Utility/req-arrow.png'} redtitle={'*Your Job details field given please fill carefully'}/>
       <div className="row mb-5 mt-3">
