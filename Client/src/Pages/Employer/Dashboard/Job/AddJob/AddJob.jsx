@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import {JobPosting,Candidate} from '../../../../../Pages/export'
 
 function AddJob() {
-    const [current,Setcurrent] = useState(1)
+    const [current,Setcurrent] = useState(0)
+
   return (
    <div className="container">
     <div className="progresbar">

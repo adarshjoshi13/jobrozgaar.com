@@ -1,28 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Jobposting } from '../../Components/export'
 
 
 function JobPosting() {
   const initialValues = {
-    wantToHire: "Full-time",
+    wantToHire: "",
   NoOfVacancy: "",
-  JobTitle: "Software Developer",
-  JobType: "Full Time",
-  Gender: "Male",
-  religion: "Christian",
+  JobTitle: "",
+  JobType: "",
+  Gender: "",
+  religion: "",
   SalaryRange: {
-    minimum: "50000",
-    maximum: "80000"
+    minimum: "",
+    maximum: ""
   },
-  WorkingShift: "Day",
-  WorkTiming: "9 AM - 5 PM",
+  WorkingShift: "",
+  WorkTiming: "",
   JobLocation: {
-    city: "New York",
-    state: "NY"
+    city: "",
+    state: ""
   }
   };
+
+  const [jobData,SetJobData] = useState({});
+  const [clicked,setclicked] =  useState(false);
+  console.log('jammu',jobData)
+
+  function fillJobData(data){
+    SetJobData(data)
+    setclicked(true)
+  }
   return (
-    <Jobposting initialValues={initialValues}/>
+    <Jobposting initialValues={initialValues} utlityfnc={fillJobData}/>
   )
 }
 

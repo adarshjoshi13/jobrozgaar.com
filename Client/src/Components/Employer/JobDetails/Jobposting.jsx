@@ -11,35 +11,33 @@ import employeData from '../../../API/Employer/EmployerData'
 import ArrowRed from '../../Global/UI/ArrowImg-with-title/ArrowRed'
 import NavLogoBtn from '../../Global/UI/NavLogoBtn/NavLogoBtn'
 
-function Jobposting({initialValues}) {
+function Jobposting({initialValues,utlityfnc}) {
   const [loader,Setloader] = useState(false);
   // console.log(initialValues)
+  const validateForm = (values) => {
+    let missingFields = [];
+    for (let key in values) {
+      if (key !== 'religion' && !values[key]) {
+        missingFields.push(key);
+      }
+    }
+    if (missingFields.length > 0) {
+      toast.error(`please fill: ${missingFields[0]}`);
+      return false;
+    }
+    return true;
+  };
+  
   const formik = useFormik({
     // enableReinitialize: true,
     initialValues:{...initialValues},
-    onSubmit: async values => {
-        console.log(values)
-      Setloader(true)
-      const result = await employeData.JobDetails(values)
-      console.log("this is the result",result)
-       
-      if(result === null){
-        Setloader(false)
-        toast.warn("something went wrong please try again")
-      }
-
-      if(result.status === 200){
-        Setloader(false);
-        toast.success(result.data.message)
-      }
-       
-      else{
-        Setloader(false);
-                toast.error(result.data.message)
-      }
-    
-     
-    },
+    onSubmit:  values => {
+   const validate =  validateForm(values);
+   if(validate === false){
+    return ;
+   }
+      utlityfnc(values)
+    }
   
   });
   return (
