@@ -5,7 +5,7 @@ import employee from '../../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { Loader } from '../../../export';
 
-function ProfileCard({ email, proifePic, number, compleateProfile, name, location, extraData, utlityFunction }) {
+function ProfileCard({ email, proifePic, number, compleateProfile, name, location, extraData, utlityFunction,UploadImg }) {
   const [sliderValue, setSliderValue] = useState(10);
   const [loader, setloader] = useState(false)
   console.log("chut ka marij", utlityFunction)
@@ -19,7 +19,7 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
     console.log('image dekh le bhai', image);
 
     setloader(true)
-    const result = await employee.ProfilePic(image)
+    const result = await UploadImg(image)
     console.log("this is the result", result)
 
     if (result === null) {

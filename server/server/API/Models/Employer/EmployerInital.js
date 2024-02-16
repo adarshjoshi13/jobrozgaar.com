@@ -21,10 +21,6 @@ const EmployerIntialData = new mongooseConnect.Schema({
   mobile:{
   type:Number
   },
-  CompanyLogo:{
-    type:String,
-
-  },
   createdAt: {
     type: Date,
     default: Date.now,

@@ -7,7 +7,8 @@ function CompanyDetails() {
       companyName: "",
       Recruiter: "",
       HrWhatsAppNo: "",
-      Email: ""
+      Email: "",
+      ComapnyAdress:""
     },
     InterviewAddress: {
       FlatNo: "",
@@ -21,7 +22,8 @@ function CompanyDetails() {
       PanNo:'',
       GstNo:"",
 
-    }
+    },
+    companyAndInterviewAdressSame:false
   };
   
   // console.log(companyDetailsObject);

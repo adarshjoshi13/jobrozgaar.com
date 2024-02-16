@@ -28,6 +28,15 @@ function EmployerDashboard({children}) {
 
     console.log('bullha ki jana',formData)
 
+  function UploadImg(img){
+    return employerData.UpdateLogo(img)
+  }
+
+  const fncForReload = ()=>{
+    setReload(!reload)
+    // console.log('')
+  }
+  
 
   if(loader){
     return <Loader style={{ width: '100vw',
@@ -38,7 +47,7 @@ function EmployerDashboard({children}) {
   }
   return (
    <div className="container">
-     <ProfileCard email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails?.CompanyVerification.Logo || ""} />
+     <ProfileCard email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails?.CompanyVerification.Logo || ""} UploadImg={UploadImg} utlityFunction={fncForReload}/>
      <EmployerTabs/>
      {React.cloneElement(children, { AllData:  formData })}
    </div>

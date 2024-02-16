@@ -35,7 +35,9 @@ const fncForReload = ()=>{
   setReload(!reload)
   // console.log('')
 }
-
+ function UploadImg (img){
+  return employee.ProfilePic(img)
+ }
     if(loader){
         return <Loader style={{ width: '100vw',
         height: '60vh', 
@@ -48,7 +50,7 @@ const fncForReload = ()=>{
   <div className="container">
   <ProfileCard email={formData.email || ""} proifePic={formData.profilePicture || ""
 } number={formData.mobile || ""} name={formData.firstName
-} location={currentAddress || ""}  compleateProfile={profileCompleate} utlityFunction={fncForReload}/>
+} location={currentAddress || ""}  compleateProfile={profileCompleate} utlityFunction={fncForReload} UploadImg={UploadImg}/>
 <Employeetab active={navtag}/>
 {children}
   </div>

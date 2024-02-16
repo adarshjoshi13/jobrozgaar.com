@@ -208,5 +208,95 @@ async function GetAllDataOfEmployer(req,res){
   }
 }
 
+async function ChangeLogo(req,res){
+  const employerId = GetEmployerIdFromCookie(req.cookies.token)
+  console.log(employerId)
+  if(!employerId){
+     return res.status(401).json({message:'Unauthorized request'})
+  }
 
-module.exports = {JobDetails,AddcandidateDetails,AddCompanyDetails,GetAllDataOfEmployer}
+   const Profilepic = req.files.find(file => file.fieldname === 'ProfilePicture')?.path ?? null;
+    let filesOnCloudinary = []
+    const uploadimg = async (filepath)=>{
+      if(!filepath){
+          return null
+        }
+        const file = await uploadFileOnCloudinary(filepath)
+        if(!file){
+          for (const i of filesOnCloudinary) {
+              try {
+                const deletionResult = await deleteFileFromCloudinary(i);
+                if (!deletionResult) {
+                  console.log(i, "not deleted");
+                } else {
+                  console.log('File deletion successful.');
+                }
+              } catch (error) {
+                console.error('Error deleting file:', error);
+              }
+            };
+          return 'something went wrong'
+        }
+        filesOnCloudinary.push(file.url);
+        return file.url;
+    }
+    const profilePicture  = await uploadimg(Profilepic);
+    if(!profilePicture){
+      return res.status(400).json({message:'Logo is  missing'});
+    }
+    if(profilePicture === 'something went wrong'){
+      throw new Error("Something Went Wrong")
+    }
+
+    try {
+      const updatedDocument = await companyDetails.findOneAndUpdate(
+        { user: employerId },
+        { $set: {"CompanyVerification.Logo":profilePicture, } },
+        { new: true }
+      );
+  
+      if (updatedDocument) {
+        res.status(200).json({ message: 'logo  updated successfully', updatedDocument });
+      } else {
+        for (const i of filesOnCloudinary) {
+          try {
+            const deletionResult = await deleteFileFromCloudinary(i);
+            if (!deletionResult) {
+              console.log(i, "not deleted");
+            } else {
+              console.log('File deletion successful.');
+            }
+          } catch (error) {
+            console.error('Error deleting file:', error);
+          }
+        };
+        res.status(404).json({ error: 'something  went wrong' });
+      }
+    } catch (error) {
+      console.error('Error updating document:', error.message);
+      for (const i of filesOnCloudinary) {
+        try {
+          const deletionResult = await deleteFileFromCloudinary(i);
+          if (!deletionResult) {
+            console.log(i, "not deleted");
+          } else {
+            console.log('File deletion successful.');
+          }
+        } catch (error) {
+          console.error('Error deleting file:', error);
+        }
+      };
+      if(error.name === "ValidationError"){
+        const validationErrors = Object.values(error.errors).map((val) => val.message);
+        console.log(validationErrors)
+  
+        return res.status(400).json({message:validationErrors[0]})
+      };
+      res.status(500).json({ message: 'Internal server error' });
+    }
+}
+
+
+
+
+module.exports = {JobDetails,AddcandidateDetails,AddCompanyDetails,GetAllDataOfEmployer,ChangeLogo}

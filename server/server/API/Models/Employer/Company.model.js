@@ -25,6 +25,10 @@ const CompanyDetails = new mongooseConnect.Schema({
       Email:{
         type :String,
         required: [true, "HR's Whats's App No can't be empty"]
+      },
+      ComapnyAdress:{
+        type :String,
+        required: [true, "Company Adress can't be empty"]
       }
   },
   InterviewAddress:{
@@ -66,7 +70,12 @@ const CompanyDetails = new mongooseConnect.Schema({
     type: String,
     required: [true, "Pan Number is required"]
    }
+   },
+ companyAndInterviewAdressSame:{
+    type:Boolean,
+    default:false
    }
+
 
 });
 

@@ -269,10 +269,34 @@ async function AddPersonalProfile(req, res,) {
       if (updatedDocument) {
         res.status(200).json({ message: 'profile picture  updated successfully', updatedDocument });
       } else {
+        for (const i of filesOnCloudinary) {
+          try {
+            const deletionResult = await deleteFileFromCloudinary(i);
+            if (!deletionResult) {
+              console.log(i, "not deleted");
+            } else {
+              console.log('File deletion successful.');
+            }
+          } catch (error) {
+            console.error('Error deleting file:', error);
+          }
+        };
         res.status(404).json({ error: 'something  went wrong' });
       }
     } catch (error) {
       console.error('Error updating document:', error.message);
+      for (const i of filesOnCloudinary) {
+        try {
+          const deletionResult = await deleteFileFromCloudinary(i);
+          if (!deletionResult) {
+            console.log(i, "not deleted");
+          } else {
+            console.log('File deletion successful.');
+          }
+        } catch (error) {
+          console.error('Error deleting file:', error);
+        }
+      };
       if(error.name === "ValidationError"){
         const validationErrors = Object.values(error.errors).map((val) => val.message);
         console.log(validationErrors)
