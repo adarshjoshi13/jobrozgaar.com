@@ -44,9 +44,9 @@
         border: 2px solid var(--brand-primary);
         border-radius: 50%;
         color: var(--white);
-    }
+      }
   
-      &:last-child {
+      &.is-last {
         &:after {
           display: none;
         }
@@ -100,7 +100,8 @@
     /* bottom: calc(45% + 9px); */
     width: 100%;
     z-index: 0;
-}
+  }
+  
   .progress-bar--success {
     background-color: var(--brand-primary);
   }
@@ -114,4 +115,3 @@
     top: 0;
     transition: all 500ms ease-out;
   }
-  

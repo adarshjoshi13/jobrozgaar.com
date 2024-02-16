@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { JobPosting, Candidate } from '../../../../../Pages/export';
+import { JobPosting, Candidate } from '../../../../../Pages/export'
 import "./AddJob.css";
 
 function AddJob() {
