@@ -3,7 +3,7 @@ import "./personalNav.css"
 import { Link } from 'react-router-dom'
 import ButtonEdit from '../ButtonEdit/ButtonEdit'
 
-function PersonalNav({link,hideOrShow,img,id,bigSizeImg}) {
+function PersonalNav({link,hideOrShow,img,id,bigSizeImg ,onClick}) {
   return (
     <nav className="dash-nav navbar navbar-expand-lg ">
     <div className="container p-0">
@@ -12,7 +12,7 @@ function PersonalNav({link,hideOrShow,img,id,bigSizeImg}) {
         </Link>
      {
       hideOrShow ? (   <Link className="navbar-brand" to={link}>
-      <ButtonEdit/>
+      <ButtonEdit onClick={onClick}/>
   </Link>):null
      }
     </div>

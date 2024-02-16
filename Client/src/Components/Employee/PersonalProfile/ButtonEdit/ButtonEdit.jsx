@@ -1,9 +1,9 @@
 import React from 'react'
 import "./ButtonEdit.css"
 
-function ButtonEdit() {
+function ButtonEdit({onClick}) {
   return (
-    <button className='image-btns'><strong>Edit Me</strong><img src="/Utility/edit.png" alt="Your Logo" /></button>
+    <button onClick={onClick} className='image-btns'><strong>Edit Me</strong><img src="/Utility/edit.png" alt="Your Logo" /></button>
   )
 }
 

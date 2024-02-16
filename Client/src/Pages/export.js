@@ -41,5 +41,6 @@ import JobDetali from "./Employee/DashboardLayout/Myjobs/JobDetalis/JobDetali";
 import EmployerDashboard from "./Employer/Dashboard/DasboardLayout/EmployerDashboard";
 import WorkersCard from "./Employer/Dashboard/WorkersCard/WorkersCard";
 import ViewCompanyDetails from "./Employer/Dashboard/EditCompanyDetails/ViewCompanyDetails";
+import PopUpCard from "./Employer/Dashboard/PopUpCard/PopUpCard";
 
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali,EmployerDashboard,WorkersCard,ViewCompanyDetails};
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali,EmployerDashboard,WorkersCard,ViewCompanyDetails,PopUpCard};
