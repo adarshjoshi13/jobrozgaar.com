@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt ,FaPhoneAlt  } from 'react-icons/fa';
 import "./JobBoxCard.css";
 
-const JobBoxCard = ({ jobTitle, imageUrl, company, location, salary, btnTitle, linkToDetails,btnTitle1,btnTitle2 ,timeAgo}) => {
+const JobBoxCard = ({ jobTitle, imageUrl, company, location, salary, btnTitle, linkToDetails, btnTitle1, btnTitle2, timeAgo ,mobile }) => {
     return (
         <div className="Job-Box-single">
             <div className="job-items">
@@ -23,6 +23,8 @@ const JobBoxCard = ({ jobTitle, imageUrl, company, location, salary, btnTitle, l
                             {location}
                         </li>
                         <li>{salary}</li>
+                        <li> <FaPhoneAlt/>
+                        {mobile}</li>
                     </ul>
                 </div>
             </div>

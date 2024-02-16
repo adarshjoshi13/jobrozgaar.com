@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header, Footer } from './Components/export';
-import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali,EmployerDashboard } from './Pages/export'
+import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali,EmployerDashboard, WorkersCard } from './Pages/export'
 import { MyJob } from './Components/export';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -88,7 +88,7 @@ function App() {
         {/*Dashboard of employer */}
         <Route path='/employer-starter-Dashboard/view-candidates' element={<Layout>
           <EmployerDashboard>
-
+            <WorkersCard/>
           </EmployerDashboard>
         </Layout>}/>
 
