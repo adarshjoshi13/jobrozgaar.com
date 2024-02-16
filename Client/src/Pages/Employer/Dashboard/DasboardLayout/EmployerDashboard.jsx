@@ -38,9 +38,9 @@ function EmployerDashboard({children}) {
   }
   return (
    <div className="container">
-     <ProfileCard email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile}/>
+     <ProfileCard email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails?.CompanyVerification.Logo || ""} />
      <EmployerTabs/>
-    {children}
+     {React.cloneElement(children, { AllData:  formData })}
    </div>
   )
 }
