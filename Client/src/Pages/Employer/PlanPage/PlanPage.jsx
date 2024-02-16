@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { IoMdRemove } from 'react-icons/io';
 import "./PlanPage.css";
+import { Link } from 'react-router-dom';
 
 function PlanPage() {
     const [isDragging, setIsDragging] = useState(false);
@@ -138,7 +139,7 @@ function PlanPage() {
                                     <li><IoMdRemove/>24/7 Tech Support</li>
                                     <li><IoMdRemove/>Daily Backups</li>
                                 </ul>
-                                <div className="plan-select"><a href="">Select Plan</a></div>
+                                <div className="plan-select"><Link to={'/employer-starter-Dashboard/view-candidates'}>Select Plan</Link></div>
                             </div>
                         </div>
 
