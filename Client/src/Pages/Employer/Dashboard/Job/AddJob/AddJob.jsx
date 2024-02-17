@@ -4,6 +4,10 @@ import './AddJob.css';
 
 function AddJob() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [Jobdetails,SetJobdetails] = useState({});
+  function GetJobDetails(data){
+    SetJobdetails(data)
+  }
 
   const handleNextStep = () => {
     setCurrentStep((prevStep) => prevStep === 1 ? 2 : 1);

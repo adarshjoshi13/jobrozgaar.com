@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Jobposting } from '../../Components/export'
 
 
-function JobPosting() {
+function JobPosting({sendJobdetails}) {
   const initialValues = {
     wantToHire: "",
   NoOfVacancy: "",
@@ -24,7 +24,7 @@ function JobPosting() {
 
   const [jobData,SetJobData] = useState({});
   const [clicked,setclicked] =  useState(false);
-  console.log('jammu',jobData)
+  // console.log('jammu',jobData)
 
   function fillJobData(data){
     SetJobData(data)
