@@ -2,7 +2,7 @@ import React from 'react'
 import "./WorkPage.css"
 import Employeetab from '../Global/Employee-tab/Employee-tab';
 import { Formik, Form, Field, ErrorMessage, useFormik, useFormikContext } from 'formik';
-import { Button, Loader, SelectInput } from '../../export';
+import { Button, Loader } from '../../export';
 import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
@@ -293,16 +293,16 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                                 <div className="col-md-12 mt-3 mb-4">
                                     <div className="row">
                                         <div className="col-md-4 pt-2 ">
-                                            {/* <select className="form-control"           
+                                            <select className="form-control"           
                                              id="exampleDropdown" onChange={formik.handleChange} value={formik.values.LookingForJobs.JobTitle}
                                                 name={'LookingForJobs.JobTitle'}>
                                                 <option value="option1">Job Title </option>
                                                 <option value="option2">Option 2</option>
                                                 <option value="option3">Option 3</option>
 
-                                            </select> */}
+                                            </select>
 
-                                            <SelectInput id={'work1'} name={'Job title'} value={formik.values.LookingForJobs.JobTitle} options={jobTitleOptions} handleChange={formik.handleChange}/>
+                                            {/* <SelectInput id={'work1'} name={'Job title'} value={formik.values.LookingForJobs.JobTitle} options={jobTitleOptions} handleChange={formik.handleChange}/> */}
 
                                         </div>
                                         <div className="col-md-4 pt-2">
