@@ -106,23 +106,23 @@ function PersonalDetails() {
   // console.log(formik);
   const textareaStyle = {
     width: '100%',
-    maxWidth: '655px',
-    height: '200px',
-    padding: '10px',
+   
+    maxHeight: '130px',
+    padding: '8px',
     margin: "9px",
     boxSizing: 'border-box',
     border: '1px solid #ccc',
     borderRadius: '5px',
     resize: 'none',
-    fontSize: '16px',
+    fontSize: '13px',
     lineHeight: '1.5',
     wordWrap: 'break-word'
   };
 
   if (loader) {
     return <Loader style={{
-      width: '100vw',
-      height: '60vh',
+      width: '100%',
+      height: '80vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -157,8 +157,8 @@ function PersonalDetails() {
             placeholder1="Date"
             type={"date"}
             type2={"text"}
-            label2="Marital Status"
-            placeholder2=" write marital Status"
+            label2="Status"
+            placeholder2=" Write marital Status"
             onchange={formik.handleChange}
             onblur={formik.handleBlur}
             name2={'MaritalStatus'}
@@ -195,7 +195,7 @@ function PersonalDetails() {
             placeholder1="City"
             type={"text"}
             type2={"text"}
-            label2="Current State"
+            label2="State"
             placeholder2="State"
             onchange={formik.handleChange}
             onblur={formik.handleBlur}
@@ -205,7 +205,7 @@ function PersonalDetails() {
             value1={formik.values.CurrentCity}
 
           />
-          <div className="container  d-flex justify-content-center align-items-center flex-wrap text-center">
+          <div className="container p-0 d-flex justify-content-center align-items-center flex-wrap text-center">
             <div className="m-1 checkbox-wrapper-31">
               <input type="checkbox" onChange={(e) => {
                 if (e.target.checked === true) {
@@ -223,7 +223,7 @@ function PersonalDetails() {
               </svg>
 
             </div>
-            <h6 style={{ color: "gray" }}>Current Address and Permanent Address as same</h6>
+            <h6 style={{ color: "gray",margin:"0px",fontSize:"15px" }}>Current Address and Permanent Address as same</h6>
           </div>
           <FormBar
             title={"Permanent Address"}
@@ -254,17 +254,17 @@ function PersonalDetails() {
 
           <div className="container all-input">
             <div className="row">
-              <div className="col-md-2 d-flex align-items-center">
-                <h5>{"About me"}</h5>
+              <div className="col-md-2 p-0 d-flex align-items-center">
+                <h5 >{"About me"}</h5>
               </div>
               <div className="col-md-10">
                 <div className="row">
 
-                  <div className="col-md-10 d-flex justify-contant-center align-items-center">
+                  <div className="col-md-10 p-0 d-flex justify-contant-center align-items-center">
                     <div>
                       <img src="/Utility/check.png" alt="" />
                     </div>
-                    <textarea id="" cols="30" rows="10" title={"About me"} type={"text-area"} placeholder={"Write something about yourself"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.AboutMe}
+                    <textarea  cols="30" rows="10" title={"About me"} type={"text-area"} placeholder={"Write something about yourself"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.AboutMe}
                       name={'AboutMe'} style={textareaStyle}></textarea>
                   </div>
                 </div>

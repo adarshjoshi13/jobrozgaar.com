@@ -44,38 +44,38 @@ const NormalButton = [
   {
     title:"My-Jobs",
     link:'/Dashboard/jobs/my-jobs',
-    color:" #808080"
+    color:"#3C6679"
   },
   
   {
   title:"Personal Profile",
   link:'/Dashboard/personal-profile',
-  color:" #808080"
+  color:"#3C6679"
 },
 {
   title:"work Experience",
   link:'/Dashboard/work-experience',
-  color:"#808080"
+  color:"#3C6679"
 },
 {
   title:"Education",
   link:'/Dashboard/education',
-  color:" #808080"
+  color:"#3C6679"
 },
 {
   title:"Offer Letter",
   link:'/Dashboard/offer-letter',
-  color:" #808080"
+  color:"#3C6679"
 },
 {
   title:"Tips & Support",
   link:'/Dashboard/tips-support',
-  color:" #808080"
+  color:"#3C6679"
 },
 {
   title:"setting",
   link:'/Dashboard/setting',
-  color:" #808080"
+  color:"#3C6679"
 },
 
 ]
