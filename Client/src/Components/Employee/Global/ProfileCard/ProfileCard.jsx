@@ -113,7 +113,8 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
 
                 readOnly
                 style={{
-                  border: "2px solid black", height: "18px", background: `linear-gradient(90deg, #F5821F ${compleateProfile}%, #ffff ${compleateProfile}%)`
+                  border: "2px solid black", height: "18px",
+                  background: `linear-gradient(90deg, rgb(193 202 44) ${compleateProfile}%, rgb(255, 255, 255) ${compleateProfile}%)`
                 }}
               />
               <h4 style={{ float: "right" }}>{compleateProfile}%</h4>

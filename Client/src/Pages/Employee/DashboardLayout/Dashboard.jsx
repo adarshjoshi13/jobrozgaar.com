@@ -39,8 +39,8 @@ const fncForReload = ()=>{
   return employee.ProfilePic(img)
  }
     if(loader){
-        return <Loader style={{ width: '100vw',
-        height: '60vh', 
+        return <Loader style={{ width: '100%',
+        height: '80vh', 
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',}}/>

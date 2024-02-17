@@ -44,7 +44,7 @@ if(loader){
                     </div>
                 </div>
                 <div className="col-md-7">
-                    <p className="p-1 pro-para">
+                    <p className="p-1 pro-para m-0">
                       {AboutMe}
                     </p>
                 </div>
