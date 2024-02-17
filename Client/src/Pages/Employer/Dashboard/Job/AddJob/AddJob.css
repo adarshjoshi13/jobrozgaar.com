@@ -119,18 +119,23 @@
 
   .main-forms{
     position: relative;
-    height: 130vh;
+    height: 140vh;
 
   }
 
   .job-posting-cards{
     position: absolute;
+    background-color: #fff;
     /* z-index: 55; */
-    opacity: 0;
+    /* opacity: 0; */
+    height: 100%;
+    z-index: 55;
   }
 
   .candidate-cards-si{
     /* opacity: 0; */
-    z-index: 55;
+    /* z-index: 55; */
+    background-color: #ffff;
+    height: 100%;
     position: absolute;
   }
