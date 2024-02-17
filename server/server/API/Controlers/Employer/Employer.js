@@ -77,7 +77,17 @@ async function AddcandidateDetails(req,res){
         { new: true }
       );
   
-      if (updatedDocument) {
+      if (updatedDocument !== null) {
+        const pushJobInData = await employerIntialdata.findByIdAndUpdate(employerId,{
+          $push:{jobs:updatedDocument._id}
+        },
+        {new:true},
+        
+        )
+        if(pushJobInData === null ){
+          const deleatJob = await jobDetails.findByIdAndDelete(updatedDocument._id)
+          return res.status(500).json({message:"something went wrong"})
+        }
         res.status(200).json({ message: 'Details added successfully', updatedDocument });
       } else {
         res.status(404).json({ message: 'something  went wrong' });

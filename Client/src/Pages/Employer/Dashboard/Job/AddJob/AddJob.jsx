@@ -26,7 +26,10 @@ const [zIndex, setZIndex] = useState(56);
         <div className="container-fluid">
           <br /><br />
           <ul className="list-unstyled multi-steps">
-            <li className={currentStep === 1 ? 'is-active' : ''}>
+            <li className={currentStep === 1 ? 'is-active' : ''} onClick={()=>{
+                 setCurrentStep(1);
+                 setZIndex(56)
+            }}>
               Job Detail
               <div className="progress-bar progress-bar--success">
                 <div className={`progress-bar__bar ${currentStep > 1 ? 'is-complete' : ''}`}></div>

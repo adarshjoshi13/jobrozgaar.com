@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const JobDetails = new mongooseConnect.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'EmployerIntialData',
     required: true,
   },
   
@@ -74,7 +73,6 @@ candidateDetails:{
 }
 
 });
-
 const jobDetails = mongooseConnect.model('JobDetail', JobDetails);
 
 

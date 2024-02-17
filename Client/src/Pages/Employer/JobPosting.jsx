@@ -34,10 +34,10 @@ function JobPosting({sendJobdetails}) {
       sendJobdetails(jobData)
     }
 
-  },[jobData])
+  },[jobData,clicked])
   function fillJobData(data){
     SetJobData(data)
-    setclicked(true)
+    setclicked(!clicked)
   }
   return (
     <Jobposting initialValues={initialValues} utlityfnc={fillJobData}/>
