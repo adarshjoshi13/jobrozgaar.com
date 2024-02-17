@@ -31,7 +31,14 @@ function AddJob() {
         </div>
       </div>
       <div className="main-forms">
-        {currentStep === 1 ? <JobPosting /> : <Candidate />}
+        {/* {currentStep === 1 ? <JobPosting /> : <Candidate />} */}
+        <div className="job-posting-cards">
+          <JobPosting />
+        </div>
+
+        <div className="candidate-cards-si">
+          <Candidate />
+        </div>
       </div>
     </div>
   );

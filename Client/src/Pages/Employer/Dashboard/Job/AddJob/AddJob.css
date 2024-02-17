@@ -115,3 +115,22 @@
     top: 0;
     transition: all 500ms ease-out;
   }
+
+
+  .main-forms{
+    position: relative;
+    height: 130vh;
+
+  }
+
+  .job-posting-cards{
+    position: absolute;
+    /* z-index: 55; */
+    opacity: 0;
+  }
+
+  .candidate-cards-si{
+    /* opacity: 0; */
+    z-index: 55;
+    position: absolute;
+  }
