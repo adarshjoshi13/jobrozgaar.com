@@ -23,7 +23,7 @@ const JobDetails = new mongooseConnect.Schema({
   },
   JobType: {
     type: String,
-    enum: ["Full Time","Part Time","Contract","Freelance","Temporary"],
+    // enum: ["Full Time","Part Time","Contract","Freelance","Temporary"],
     required: [true, "Job type can't be empty"]
   },
   Gender:{
@@ -35,11 +35,11 @@ const JobDetails = new mongooseConnect.Schema({
   SalaryRange: {
     minimum:{
         type: String,
-    required: [true, ' minimum sallery is required']
+    // required: [true, ' minimum sallery is required']
     },
     maximum:{
         type: String,
-        required: [true, ' maximum sallery is required']
+        // required: [true, ' maximum sallery is required']
     },
     
   },
@@ -76,5 +76,6 @@ candidateDetails:{
 });
 
 const jobDetails = mongooseConnect.model('JobDetail', JobDetails);
+
 
 module.exports = jobDetails;

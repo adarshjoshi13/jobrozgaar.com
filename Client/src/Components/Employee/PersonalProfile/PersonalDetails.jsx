@@ -275,7 +275,7 @@ function PersonalDetails() {
 
 
         <div className="col-md-12 candidate-btn-div">
-          <Button type={'submit'} title={Saveloader ? (<Loader />) : "save"} onClick={formik.handleSubmit} />
+          <Button type={'submit'} title={"save"} loader={Saveloader} onClick={formik.handleSubmit} />
 
         </div>
 

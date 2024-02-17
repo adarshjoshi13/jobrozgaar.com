@@ -151,7 +151,7 @@ console.log('testing',Formikval)
       </div>
       <div className="row ">
     <div className="col-md-12 mb-5 candidate-btn-div">
-   <Button type={"submit"} onClick={formik.handleSubmit} title={loader?(<Loader/>):"save"}/>
+   <Button type={"submit"} onClick={formik.handleSubmit} title={"save"} loader={loader}/>
     </div>
    </div>
     </div>

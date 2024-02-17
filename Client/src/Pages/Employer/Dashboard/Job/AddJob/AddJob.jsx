@@ -5,13 +5,20 @@ import './AddJob.css';
 function AddJob() {
   const [currentStep, setCurrentStep] = useState(1);
   const [Jobdetails,SetJobdetails] = useState({});
-  function GetJobDetails(data){
-    SetJobdetails(data)
-  }
+//   console.log('betet',Jobdetails)
+const [zIndex, setZIndex] = useState(56);
+
 
   const handleNextStep = () => {
-    setCurrentStep((prevStep) => prevStep === 1 ? 2 : 1);
+    setCurrentStep(2);
+    setZIndex(54)
   };
+
+  function GetJobDetails(data){
+    SetJobdetails(data)
+    handleNextStep()
+    
+  }
 
   return (
     <div className="container p-0">
@@ -26,22 +33,22 @@ function AddJob() {
               </div>
             </li>
             <li className={currentStep === 2 ? 'is-active' : ''}>
-              Candidate Requriment
+              Requriment
             </li>
           </ul>
           <br />
           <br />
-          <button onClick={handleNextStep}>Next Step</button>
+          {/* <button onClick={handleNextStep}>Next Step</button> */}
         </div>
       </div>
       <div className="main-forms">
         {/* {currentStep === 1 ? <JobPosting /> : <Candidate />} */}
-        <div className="job-posting-cards">
-          <JobPosting />
+        <div className="job-posting-cards" style={{zIndex:zIndex}}>
+          <JobPosting sendJobdetails={GetJobDetails}/>
         </div>
 
         <div className="candidate-cards-si">
-          <Candidate />
+          <Candidate jobdetails={Jobdetails} />
         </div>
       </div>
     </div>

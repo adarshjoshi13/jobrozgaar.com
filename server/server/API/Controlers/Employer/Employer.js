@@ -14,7 +14,8 @@ async function JobDetails(req,res){
        return res.status(401).json({message:'Unauthorized request'})
     }
 
-    const {wantToHire,NoOfVacancy,JobTitle,JobType,Gender,religion,SalaryRange,WorkingShift,WorkTiming,JobLocation} = req.body;
+    const {wantToHire,NoOfVacancy,JobTitle,JobType,Gender,religion,SalaryRange,WorkingShift,WorkTiming,JobLocation} = req.body.Job;
+    const {candidateDetails} = req.body.Candidate
 
     try {
         const JobDetail = await jobDetails.create({
@@ -28,7 +29,8 @@ async function JobDetails(req,res){
           SalaryRange,
           WorkingShift,
           WorkTiming,
-          JobLocation
+          JobLocation,
+          candidateDetails
           })
           return res.status(200).json({message:"details added"})
         

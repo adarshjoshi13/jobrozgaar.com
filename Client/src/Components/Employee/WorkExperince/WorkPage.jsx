@@ -341,7 +341,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                     </div>
                 </div>
                 <div className="workingExprincebtn">
-                    <Button type={"submit"} onClick={formik.handleSubmit} title={loader ? (<Loader />) : "save"} />
+                    <Button type={"submit"} onClick={formik.handleSubmit} title={"save"} loader={loader} />
 
                 </div>
             </div>

@@ -10,17 +10,20 @@ import employeData from '../../../API/Employer/EmployerData'
 import ArrowRed from '../../Global/UI/ArrowImg-with-title/ArrowRed';
 import NavLogoBtn from '../../Global/UI/NavLogoBtn/NavLogoBtn';
 import MultiMenu from '../../Global/UI/MultiMenu/MultiMenu';
+import { useNavigate } from 'react-router-dom';
 
-function CandidateComponet({ initialValues }) {
+function CandidateComponet({ initialValues,jobDetails,Redir }) {
   const [loader, Setloader] = useState(false);
-  // console.log(initialValues)
+  const navigate = useNavigate()
+
+  // console.log(jobDetails)
   const formik = useFormik({
     // enableReinitialize: true,
     initialValues: { ...initialValues },
     onSubmit: async values => {
       console.log(values)
       Setloader(true)
-      const result = await employeData.CandidateDetails(values)
+      const result = await employeData.JobDetails({Job:jobDetails,Candidate:values})
       console.log("this is the result", result)
 
       if (result === null) {
@@ -31,6 +34,7 @@ function CandidateComponet({ initialValues }) {
       if (result.status === 200) {
         Setloader(false);
         toast.success(result.data.message)
+        navigate(Redir)
       }
 
       else {
@@ -121,7 +125,7 @@ function CandidateComponet({ initialValues }) {
    </div>
       <div className="row ">
         <div className="col-md-12 candidate-btn-div">
-          <Button title={"update"} type={"type"} onClick={formik.handleSubmit} />
+          <Button title={"update"} type={"type"} onClick={formik.handleSubmit} loader={loader}/>
 
         </div>
       </div>
