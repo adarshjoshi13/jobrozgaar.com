@@ -16,17 +16,56 @@
 }
 
 .DLT-BTN-EDUCAtion{
+    position: relative;
     /* border: 2px solid red; */
-    /* margin-top: 10px; */
-    position: absolute;
-   right: 0;
-    /* padding: 20px; */
-    width: 50px;
-    /* margin-bottom: 10px !important; */
-    /* bottom: 28%; */
-    top: 1%;
-    
-}
+    /* display: inline; */
+    right: 0;
+    height: 50px;
+    margin-right: 10px;
+    /* width: 100%; */
+    /* display: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 90px; */
+    /* margin-bottom: 30px !important; */
+    /* bottom: 1%; */
+  }
+  
+
+  /* .tooltip{
+    border: 2px solid red;
+    background-color: green !important
+  } */
+  .DLT-BTN-EDUCAtion button {
+    display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ position: absolute;
+ right: 0px;
+
+ padding: 12px;
+ top: -3px;
+ border: 0px solid transparent;
+ background-color: rgba(0, 0, 0, 0.08);
+ border-radius: 1.25em;
+ transition: all 0.2s linear;
+  }
+
+
+
+  .DLT-BTN-EDUCAtion  svg path {
+   fill: red;
+  }
+
+  .DLT-BTN-EDUCAtion button:hover {
+    box-shadow: 3.4px 2.5px 4.9px rgba(0, 0, 0, 0.025),
+     8.6px 6.3px 12.4px rgba(0, 0, 0, 0.035),
+     17.5px 12.8px 25.3px rgba(0, 0, 0, 0.045),
+     36.1px 26.3px 52.2px rgba(0, 0, 0, 0.055),
+     99px 72px 143px rgba(0, 0, 0, 0.08);
+   }
 
 .edu-box{
     /* border: 2px solid grey; */

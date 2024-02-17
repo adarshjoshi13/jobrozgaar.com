@@ -1,6 +1,6 @@
 import React from 'react'
-import { Header, Footer } from './Components/export';
-import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali,EmployerDashboard, WorkersCard,ViewCompanyDetails,JOblayout,AddJob } from './Pages/export'
+import { Header, Footer, FeaturedJobs, ApplyProcessArea } from './Components/export';
+import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali, EmployerDashboard, WorkersCard, ViewCompanyDetails, JOblayout, AddJob } from './Pages/export'
 import { MyJob } from './Components/export';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,6 +15,7 @@ const Layout = ({ children }) => (
   <>
     <Header />
     {children}
+    <ApplyProcessArea/>
     <Footer />
   </>
 );
@@ -49,7 +50,7 @@ function App() {
         <Route path='/employer-Job-posting' element={<Layout><JobPosting /></Layout>} />
         <Route path='/employer-requirement-candidate' element={<Layout><Candidate /></Layout>} />
         <Route path='/employer-Company-Details' element={<Layout><CompanyDetails /></Layout>} />
-        
+
         <Route path='/employer-plans' element={<Layout><PlanPage /></Layout>} />
 
         <Route path='/employer-login' element={<Layout><EmployerLogin /></Layout>} />
@@ -89,41 +90,41 @@ function App() {
         {/*Dashboard of employer */}
         <Route path='/employer-starter-Dashboard/view-candidates' element={<Layout>
           <EmployerDashboard>
-        
-            <WorkersCard/>
+
+            <WorkersCard />
           </EmployerDashboard>
-        </Layout>}/>
+        </Layout>} />
 
         <Route path='/employer-starter-Dashboard/view-company-details' element={<Layout>
           <EmployerDashboard>
-        <ViewCompanyDetails/>
+            <ViewCompanyDetails />
           </EmployerDashboard>
-        </Layout>}/>
+        </Layout>} />
 
         <Route path='/employer-starter-Dashboard/view-plans' element={<Layout>
           <EmployerDashboard>
-        <PlanPage/>
+            <PlanPage />
           </EmployerDashboard>
-        </Layout>}/>
+        </Layout>} />
 
         {/* JOb layout for employer started */}
         <Route path='/employer-starter-Dashboard/view-job' element={<Layout>
           <EmployerDashboard>
-        <JOblayout navtag={'View All Job'}>
-      <ViewJob/>
-        </JOblayout>
+            <JOblayout navtag={'View All Job'}>
+              <ViewJob />
+            </JOblayout>
           </EmployerDashboard>
-        </Layout>}/>
+        </Layout>} />
 
         <Route path='/employer-starter-Dashboard/Add-job' element={<Layout>
           <EmployerDashboard>
-        <JOblayout navtag={"Add job"}>
-         <AddJob/>
-        </JOblayout>
+            <JOblayout navtag={"Add job"}>
+              <AddJob />
+            </JOblayout>
           </EmployerDashboard>
-        </Layout>}/>
+        </Layout>} />
 
-        
+
 
 
 

@@ -18,12 +18,16 @@ function DateInput({ label1, label2, placeholder1, placeholder2 ,type,type2,onch
               <input style={{width:"100%"}} type={type} placeholder={placeholder1} onChange={onchange} onBlur={onblur} value={value1} name={name1} />
             </div>
             <div className={`col-md-6 d-flex p-0 justify-content-start align-items-center input2 ${hidfeild?"hide":""}`}>
-              <h5 style={{ margin: "7px" }} className='lable'>{label2}</h5>
-              <div>
-                <img src="/Utility/check.png" alt="" />
+              <div  className="h5-cover">
+                <h5 style={{ margin: "4px" }} className='lable'>{label2}</h5>
               </div>
               
-              <input  style={{width:"100%"}} type={type2} placeholder={placeholder2} onChange={onchange} onBlur={onblur} value={value2} name={name2} />
+              <div className='d-flex justify-content-center align-items-center w-100'>
+                <img style={{width:"30px",height:"30px"}} src="/Utility/check.png" alt="" />
+                 <input  style={{width:"100%"}} type={type2} placeholder={placeholder2} onChange={onchange} onBlur={onblur} value={value2} name={name2} />
+              </div>
+              
+             
             </div>
           </div>
         </div>

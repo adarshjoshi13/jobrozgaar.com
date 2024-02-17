@@ -23,14 +23,35 @@
      
  }
 
- 
+
+
+ .h5-cover {
+    width: 111px;
+    text-align: center;
+    /* border: 2px solid;    */
+}
+
+
+
+@media screen and (max-width:768px) {
+    
+}
 
  @media only screen and (max-width: 540px) {
     .lable{
         display: none;
     }
+
+    .h5-cover {
+       display: none;
+         
+    }
+    
  }
 
  .hide{
     display: none;
  }
+
+
+

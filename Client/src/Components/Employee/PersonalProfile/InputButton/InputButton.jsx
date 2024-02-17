@@ -5,13 +5,13 @@ function InputButton({title,placeholder,onchange,onblur,value1,value2,name1,name
   return (
     <div className="container file-input ">
                 <div className="row">
-                    <div className="col-md-2 d-flex align-items-center">
+                    <div className="col-md-2 p-0 d-flex align-items-center">
                         <h5>{title}</h5>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-10 p-0">
 
 
-                        <div className="for-input w-100 col-md-10 d-flex justify-contant-center align-items-center">
+                        <div className="for-input  col-md-10 d-flex justify-contant-center align-items-center">
                             <div>
                                 <img className='check' src="/Utility/check.png" alt="" />
                             </div>
@@ -23,9 +23,6 @@ function InputButton({title,placeholder,onchange,onblur,value1,value2,name1,name
 
                     </div>
 
-                    <div className="col-md-2">
-                        {/* <ButtonEdit/> */}
-                    </div>
                 </div>
             </div>
   )
