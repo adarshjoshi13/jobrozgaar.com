@@ -20,7 +20,7 @@ function Candidate({jobdetails}) {
   }
  
   return (
-   <CandidateComponet initialValues={initialValues} jobDetails={jobdetails} Redir={'/'}/>
+   <CandidateComponet initialValues={initialValues} jobDetails={jobdetails} Redir={'/employer-starter-Dashboard/view-job'}/>
   )
 }
 
