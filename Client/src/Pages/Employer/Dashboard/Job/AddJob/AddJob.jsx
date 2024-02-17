@@ -22,7 +22,7 @@ function AddJob() {
               </div>
             </li>
             <li className={currentStep === 2 ? 'is-active' : ''}>
-              Candidate Requriment
+              Requriment
             </li>
           </ul>
           <br />

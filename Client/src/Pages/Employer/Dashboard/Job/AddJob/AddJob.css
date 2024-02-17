@@ -129,13 +129,32 @@
     /* z-index: 55; */
     /* opacity: 0; */
     height: 100%;
-    z-index: 55;
+    /* z-index: 55; */
   }
 
   .candidate-cards-si{
     /* opacity: 0; */
-    /* z-index: 55; */
+    z-index: 55;
     background-color: #ffff;
     height: 100%;
     position: absolute;
+  }
+
+
+
+  @media screen and (max-width:768px) {
+    .main-forms{
+        
+        height: 190vh;
+    
+      }
+  }
+
+
+  @media screen and (max-width:338px) {
+    .main-forms{
+        
+        height: 170vh;
+    
+      }
   }
