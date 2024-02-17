@@ -73,7 +73,7 @@
   }
   
   .is-complete {
-    background: linear-gradient(to right, var(--brand-primary) 50%, var(--grey-light) 50%);
+    background: linear-gradient(to right, var(--brand-primary) 100%, var(--grey-light) 100%);
     background-size: 200% 100%;
     background-position: right bottom;
     transition: all .5s ease-out;

@@ -16,13 +16,13 @@ function AddJob() {
           <br /><br />
           <ul className="list-unstyled multi-steps">
             <li className={currentStep === 1 ? 'is-active' : ''}>
-              Start
+              Job Detail
               <div className="progress-bar progress-bar--success">
                 <div className={`progress-bar__bar ${currentStep > 1 ? 'is-complete' : ''}`}></div>
               </div>
             </li>
             <li className={currentStep === 2 ? 'is-active' : ''}>
-              Finish
+              Candidate Requriment
             </li>
           </ul>
           <br />
