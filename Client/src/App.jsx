@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PlanPage from './Pages/Employer/PlanPage/PlanPage';
+import ViewJob from './Pages/Employer/Dashboard/Job/ViewJob/ViewJob';
 
 
 
@@ -109,7 +110,7 @@ function App() {
         <Route path='/employer-starter-Dashboard/view-job' element={<Layout>
           <EmployerDashboard>
         <JOblayout navtag={'View All Job'}>
-        
+      <ViewJob/>
         </JOblayout>
           </EmployerDashboard>
         </Layout>}/>
