@@ -70,7 +70,11 @@ candidateDetails:{
   Laptop:Boolean,
   Bike:Boolean,
   Car:Boolean
-}
+},
+createdAt: {
+  type: Date,
+  default: Date.now
+},
 
 });
 const jobDetails = mongooseConnect.model('JobDetail', JobDetails);

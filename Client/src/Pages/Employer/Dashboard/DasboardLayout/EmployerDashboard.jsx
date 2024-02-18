@@ -24,7 +24,7 @@ function EmployerDashboard({children}) {
          toast.error("erro fetching data")
        }
       })()
-    },[reload])
+    },[reload,children])
 
     console.log('bullha ki jana',formData)
 
