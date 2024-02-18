@@ -26,10 +26,10 @@ const CompanyDetails = new mongooseConnect.Schema({
         type :String,
         required: [true, "HR's Whats's App No can't be empty"]
       },
-      ComapnyAdress:{
-        type :String,
-        required: [true, "Company Adress can't be empty"]
-      }
+      // ComapnyAdress:{
+      //   type :String,
+      //   required: [true, "Company Adress can't be empty"]
+      // }
   },
   InterviewAddress:{
     FlatNo:{
@@ -74,7 +74,26 @@ const CompanyDetails = new mongooseConnect.Schema({
  companyAndInterviewAdressSame:{
     type:Boolean,
     default:false
-   }
+   },
+   CompanyAddress:{
+    FlatNo:{
+        type: String,
+        required: [true, " Company's Bulding No/flat no  adress can't be empty"]
+      },
+      city:{
+        type: String,
+        required: [true, "Company's City Name can't be empty"]
+      },
+      State:{
+        type: String,
+        required: [true, "Company's State Name can't be empty"]
+      },
+      Landmark:{
+        type: String,
+        required: [true, "Company's Land Mark can't be empty"]
+      },
+  },
+  
 
 
 });

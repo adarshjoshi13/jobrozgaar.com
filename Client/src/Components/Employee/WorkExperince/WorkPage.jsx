@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import SmallBanner from '../PersonalProfile/SmallBanner/SmallBanner';
+import {SelectInput} from '../../export';
 function WorkPage({ initialValues, senrequest, redirect, Edit }) {
 
     const [isChecked, setIsChecked] = useState(true);
@@ -87,6 +88,12 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
 
     const jobTitleOptions = [
         { value: 'option1', label: 'Job Title' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3' }
+    ];
+
+    const jobTypeOptions = [
+        { value: 'option1', label: 'Job Type' },
         { value: 'option2', label: 'Option 2' },
         { value: 'option3', label: 'Option 3' }
     ];
@@ -293,26 +300,29 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                                 <div className="col-md-12 mt-3 mb-4">
                                     <div className="row">
                                         <div className="col-md-4 pt-2 ">
-                                            <select className="form-control"
+                                            {/* <select className="form-control"
                                                 id="exampleDropdown" onChange={formik.handleChange} value={formik.values.LookingForJobs.JobTitle}
                                                 name={'LookingForJobs.JobTitle'}>
                                                 <option value="option1">Job Title </option>
                                                 <option value="option2">Option 2</option>
                                                 <option value="option3">Option 3</option>
 
-                                            </select>
+                                            </select> */}
 
-                                            {/* <SelectInput id={'work1'} name={'Job title'} value={formik.values.LookingForJobs.JobTitle} options={jobTitleOptions} handleChange={formik.handleChange}/> */}
+
+
+                                            <SelectInput  name={'LookingForJobs.JobTitle'} value={formik.values.LookingForJobs.JobTitle} options={jobTitleOptions} handleChange={formik.handleChange}/>
 
                                         </div>
                                         <div className="col-md-4 pt-2">
-                                            <select className="form-control" id="exampleDropdown" onChange={formik.handleChange} value={formik.values.LookingForJobs.JobType}
+                                            {/* <select className="form-control" id="exampleDropdown" onChange={formik.handleChange} value={formik.values.LookingForJobs.JobType}
                                                 name={'LookingForJobs.JobType'}>
                                                 <option value="option1">Job Types</option>
                                                 <option value="option2">Option 2</option>
                                                 <option value="option3">Option 3</option>
 
-                                            </select>
+                                            </select> */}
+                                            <SelectInput  name={'LookingForJobs.JobType'} value={formik.values.LookingForJobs.JobType} options={jobTypeOptions} handleChange={formik.handleChange}/>
                                         </div>
 
                                         <div className="col-md-4 pt-2">

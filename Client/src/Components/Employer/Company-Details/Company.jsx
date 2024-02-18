@@ -116,10 +116,10 @@ function Company({ initialValues, redirect, Edit }) {
             <h5 className=''>Company Addres</h5>
           </div>
           <div className="form-1">
-            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Flat No./Plot No./Building Name*' name='InterviewAddress.FlatNo' onChange={formik.handleChange} value={formik.values.InterviewAddress.FlatNo} readOnly={Edit} />
-            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder="City*" name='InterviewAddress.city' onChange={formik.handleChange} value={formik.values.InterviewAddress.city} readOnly={Edit} />
-            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='State*' name='InterviewAddress.State' onChange={formik.handleChange} value={formik.values.InterviewAddress.State} readOnly={Edit} />
-            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Landmark*' name='InterviewAddress.Landmark' onChange={formik.handleChange} value={formik.values.InterviewAddress.Landmark} readOnly={Edit} />
+            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Flat No./Plot No./Building Name*' name='CompanyAddress.FlatNo' onChange={formik.handleChange} value={formik.values.CompanyAddress.FlatNo} readOnly={Edit} />
+            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder="City*" name='CompanyAddress.city' onChange={formik.handleChange} value={formik.values.CompanyAddress.city} readOnly={Edit} />
+            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='State*' name='CompanyAddress.State' onChange={formik.handleChange} value={formik.values.CompanyAddress.State} readOnly={Edit} />
+            <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Landmark*' name='CompanyAddress.Landmark' onChange={formik.handleChange} value={formik.values.CompanyAddress.Landmark} readOnly={Edit} />
           </div>
 
         </div>
@@ -137,10 +137,10 @@ function Company({ initialValues, redirect, Edit }) {
                 if (e.target.checked === true) {
 
                   formik.setFieldValue('companyAndInterviewAdressSame', true)
-                  formik.setFieldValue('InterviewAddress.FlatNo', formik.values.CompanyInformation.ComapnyAdress)
-                  formik.setFieldValue('InterviewAddress.city', formik.values.CompanyInformation.ComapnyAdress)
-                  formik.setFieldValue('InterviewAddress.State', formik.values.CompanyInformation.ComapnyAdress)
-                  formik.setFieldValue('InterviewAddress.Landmark', formik.values.CompanyInformation.ComapnyAdress)
+                  formik.setFieldValue('InterviewAddress.FlatNo', formik.values.CompanyAddress.FlatNo)
+                  formik.setFieldValue('InterviewAddress.city', formik.values.CompanyAddress.city)
+                  formik.setFieldValue('InterviewAddress.State', formik.values.CompanyAddress.State)
+                  formik.setFieldValue('InterviewAddress.Landmark', formik.values.CompanyAddress.Landmark)
 
                   SetChecked(!checked)
 
@@ -154,7 +154,7 @@ function Company({ initialValues, redirect, Edit }) {
                   SetChecked(!checked)
 
                 }
-              }} checked={checked} />
+              }} checked={checked} disabled={Edit}/>
               <svg viewBox="0 0 35.6 35.6">
                 <circle className="background" cx="17.8" cy="17.8" r="17.8"></circle>
                 <circle className="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
@@ -172,7 +172,7 @@ function Company({ initialValues, redirect, Edit }) {
 
         {/* campany address */}
 
-        {checked?null:(<div className="col-md-4 d-flex flex-column">
+        <div className="col-md-4 d-flex flex-column">
           <div className="title d-flex align-items-center mt-5">
             <div>
               <img src="/Utility/check.png" alt="" className='img-fluid' />
@@ -186,7 +186,7 @@ function Company({ initialValues, redirect, Edit }) {
             <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Landmark*' name='InterviewAddress.Landmark' onChange={formik.handleChange} value={formik.values.InterviewAddress.Landmark} readOnly={Edit} />
           </div>
 
-        </div>)}
+        </div>
 
         {/* campany address end */}
 
@@ -305,8 +305,8 @@ function Company({ initialValues, redirect, Edit }) {
 
             <input style={{ width: "100%" }} type='text' className='company-details-input mt-3' placeholder='Campany Logo' readOnly />
             <input className='file-inputs' style={{ border: "none" }} type="file"
-              name='Logo' onChange={GetImageData} />
-
+              name='Logo' onChange={GetImageData} disabled={Edit}/>
+  
           </div>
 
         </div>

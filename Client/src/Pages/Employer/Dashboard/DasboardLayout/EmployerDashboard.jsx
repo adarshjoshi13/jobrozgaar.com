@@ -47,7 +47,7 @@ function EmployerDashboard({children}) {
   }
   return (
    <div className="container">
-     <ProfileCard email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails?.CompanyVerification.Logo || ""} UploadImg={UploadImg} utlityFunction={fncForReload}/>
+     <ProfileCard name={formData?.CompanyDetails?.CompanyInformation?.companyName || "" } email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails?.CompanyVerification.Logo || ""} UploadImg={UploadImg} utlityFunction={fncForReload}/>
      <EmployerTabs/>
      {React.cloneElement(children, { AllData:  formData })}
    </div>

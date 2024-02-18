@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './OfferLetter.css';
 import { useFormik } from 'formik';
 import { FaDownload } from "react-icons/fa";
@@ -6,19 +6,15 @@ import { AboutMe, SelectInput ,ArrowNavigate } from '../../../../Components/expo
 import  employee from '../../../../API/Employee'
 
 function OfferLetter() {
-    const formik = useFormik({
-        initialValues: {
-           
-        },
-       
-    });
+   
+   
 
     const jobTitleOptions = [
         { value: 'option1', label: 'Job Title' },
         { value: 'option2', label: 'Option 2' },
         { value: 'option3', label: 'Option 3' }
     ];
-
+    const [select,SetSelect] = useState(jobTitleOptions[0].value)
     return (
         <>
             <div className="container p-0 mt-3 offerletter">
@@ -50,7 +46,10 @@ function OfferLetter() {
 
                                                 id="exampleDropdown"
                                                 name="LookingForJobs.JobTitle"
-                                                value={""}
+                                                value={select}
+                                                handleChange={(e)=>{
+                                                 SetSelect(e.target.value);
+                                                }}
                                                
                                                 options={jobTitleOptions}
 

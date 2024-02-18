@@ -22,6 +22,14 @@ function ViewCompanyDetails({AllData}) {
       PanNo:'',
       GstNo:"",
 
+    },
+    companyAndInterviewAdressSame:false,
+
+    CompanyAddress:{
+      FlatNo: "",
+      city: "",
+      State: "",
+      Landmark: ""
     }
   };
   // const [initialValues,SetinitialValues] = useState(AllData.CompanyDetails || {})

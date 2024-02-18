@@ -143,7 +143,7 @@ async  function AddCompanyDetails(req,res){
   if(Logo === 'something went wrong'){
     throw new Error("Something Went Wrong while uploaidng doucment")
   }
- const { CompanyInformation,InterviewAddress,CompanyVerification} = req.body
+ const { CompanyInformation,InterviewAddress,CompanyVerification,companyAndInterviewAdressSame,CompanyAddress} = req.body
   try {
     const companydetails = await companyDetails.create({
       user:employerId,
@@ -151,7 +151,9 @@ async  function AddCompanyDetails(req,res){
       InterviewAddress:JSON.parse(InterviewAddress),
       CompanyVerification:{
         ...JSON.parse(CompanyVerification),Logo
-      }
+      },
+      CompanyAddress:JSON.parse(CompanyAddress),
+      companyAndInterviewAdressSame:companyAndInterviewAdressSame
        
       })
       const updateEployerIntialData = await employerIntialdata.findByIdAndUpdate(
