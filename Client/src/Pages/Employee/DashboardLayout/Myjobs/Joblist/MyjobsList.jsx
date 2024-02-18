@@ -14,6 +14,7 @@ function MyjobsList() {
       btnTitle1: 'Save',
       btnTitle2: 'Apply',
       timeAgo: "part time",
+      mobile:"*********3469",
       linkToDetails: '/Dashboard/jobs/job-details',
     },
     {
@@ -26,6 +27,7 @@ function MyjobsList() {
       btnTitle1: 'Save',
       btnTitle2: 'Apply',
       timeAgo: "part time",
+      mobile:"*********3469",
       linkToDetails: '/Dashboard/jobs/job-details',
     },
     {
@@ -38,6 +40,8 @@ function MyjobsList() {
       btnTitle1: 'Save',
       btnTitle2: 'Apply',
       timeAgo: "part time",
+      mobile:"*********3469",
+
       linkToDetails: '/Dashboard/jobs/job-details',
     },
     {
@@ -50,6 +54,7 @@ function MyjobsList() {
       btnTitle1: 'Save',
       btnTitle2: 'Apply',
       timeAgo: "part time",
+      mobile:"*********3469",
       linkToDetails: '/Dashboard/jobs/job-details',
     },
   ];

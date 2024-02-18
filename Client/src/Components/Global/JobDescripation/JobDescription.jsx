@@ -76,7 +76,7 @@ function JobDescription() {
                             <ul>
                                 <li>Name: <span>Colorlib </span></li>
                                 <li>Web : <span>colorlib.com</span></li>
-                                <li>Email: <span><Link to="" className="__cf_email__" data-cfemail="7f1c1e0d0d161a0d511c1013100d13161d3f18121e1613511c1012">[email&#160;protected]</Link></span></li>
+                                <li>Email: <span><Link to="" className="" >Vipulsemwal124@gmail.com</Link></span></li>
                             </ul>
                         </div>
                     </div>

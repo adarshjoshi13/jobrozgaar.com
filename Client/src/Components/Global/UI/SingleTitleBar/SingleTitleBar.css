@@ -1,7 +1,7 @@
 
 
 
-.all-input input {
+.SingleTitleBar input {
     width: 100%;
     margin: 9px;
     padding: 15px;
@@ -10,20 +10,20 @@
     border-radius: 5px;
 }
 
-.all-input img{
+.SingleTitleBar img{
    width: 32px;
     
 }
 
-.all-input input::placeholder{
+.SingleTitleBar input::placeholder{
     font-size: 12px;
 }
 
-.all-input input{
+.SingleTitleBar input{
     font-size: 12px;
     padding: 8px;
 }
 
-.all-input h5{
+.SingleTitleBar h5{
     font-size: 16px;
 }

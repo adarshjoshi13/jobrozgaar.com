@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Company,PersonalNav } from '../../../../Components/export'
+import { Company} from '../../../../Components/export'
 
 function ViewCompanyDetails({AllData}) {
   console.log('dekh verree',AllData.CompanyDetails)

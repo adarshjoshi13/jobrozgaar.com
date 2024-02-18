@@ -10,6 +10,7 @@ import SmallBanner from './SmallBanner/SmallBanner';
 import AboutMe from './AboutMe/AboutMe';
 import { Formik, Form, Field, ErrorMessage, useFormik, useFormikContext } from 'formik';
 import { Button, Loader } from '../../export';
+import SelectTwo from '../../Global/UI/SelectTwo/SelectTwo';
 import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
@@ -106,7 +107,7 @@ function PersonalDetails() {
   // console.log(formik);
   const textareaStyle = {
     width: '100%',
-   
+
     maxHeight: '130px',
     padding: '8px',
     margin: "9px",
@@ -128,6 +129,69 @@ function PersonalDetails() {
       justifyContent: 'center',
     }} />
   }
+
+
+  const gender = [
+    { value: 'option1', label: 'Gender' },
+    { value: 'male', label: 'Male' },
+    { value: 'female', label: 'Female' },
+    { value: 'other', label: 'Other' }
+  ];
+
+
+  const religion = [
+    { value: 'option1', label: 'Religion' },
+    { value: 'Hindu', label: 'Hindu' },
+    { value: 'Muslim', label: 'Muslim' },
+
+  ];
+
+  const city = [
+    { value: 'Mumbai', label: 'Mumbai' },
+    { value: 'Delhi', label: 'Delhi' },
+    { value: 'Bangalore', label: 'Bangalore' },
+    { value: 'Kolkata', label: 'Kolkata' },
+    { value: 'Chennai', label: 'Chennai' },
+    // Add more cities as needed
+  ];
+
+  const states = [
+    { value: 'Andhra Pradesh', label: 'Andhra Pradesh' },
+    { value: 'Arunachal Pradesh', label: 'Arunachal Pradesh' },
+    { value: 'Assam', label: 'Assam' },
+    { value: 'Bihar', label: 'Bihar' },
+    { value: 'Chhattisgarh', label: 'Chhattisgarh' },
+    { value: 'Goa', label: 'Goa' },
+    { value: 'Gujarat', label: 'Gujarat' },
+    { value: 'Haryana', label: 'Haryana' },
+    { value: 'Himachal Pradesh', label: 'Himachal Pradesh' },
+    { value: 'Jharkhand', label: 'Jharkhand' },
+    { value: 'Karnataka', label: 'Karnataka' },
+    { value: 'Kerala', label: 'Kerala' },
+    { value: 'Madhya Pradesh', label: 'Madhya Pradesh' },
+    { value: 'Maharashtra', label: 'Maharashtra' },
+    { value: 'Manipur', label: 'Manipur' },
+    { value: 'Meghalaya', label: 'Meghalaya' },
+    { value: 'Mizoram', label: 'Mizoram' },
+    { value: 'Nagaland', label: 'Nagaland' },
+    { value: 'Odisha', label: 'Odisha' },
+    { value: 'Punjab', label: 'Punjab' },
+    { value: 'Rajasthan', label: 'Rajasthan' },
+    { value: 'Sikkim', label: 'Sikkim' },
+    { value: 'Tamil Nadu', label: 'Tamil Nadu' },
+    { value: 'Telangana', label: 'Telangana' },
+    { value: 'Tripura', label: 'Tripura' },
+    { value: 'Uttar Pradesh', label: 'Uttar Pradesh' },
+    { value: 'Uttarakhand', label: 'Uttarakhand' },
+    { value: 'West Bengal', label: 'West Bengal' },
+    { value: 'Andaman Nicobar', label: 'Andaman Nicobar' },
+    { value: 'Chandigarh', label: 'Chandigarh' },
+    { value: 'Nagar Haveli', label: 'Nagar Haveli ' },
+    { value: 'Lakshadweep', label: 'Lakshadweep' },
+    { value: 'Delhi', label: 'Delhi' },
+    { value: 'Puducherry', label: 'Puducherry' }
+    // Add more states as needed
+  ];
   return (
     <div className="whole-personal-deatil-wraper">
       {/* <div className="employee-tab-personal-info">
@@ -166,7 +230,23 @@ function PersonalDetails() {
             name1={'DOB'}
             value1={formik.values.DOB}
           />
-          <DateInput
+
+          <SelectTwo label1="Gender"
+            type={"text"}
+            type2={"text"}
+            label2="Religion"
+            selectinput={"selectinput1"}
+            selectinput1={"selectinput2"}
+            onchange={formik.handleChange}
+
+            name2={'religion'}
+            value2={formik.values.religion}
+            name1={'Gender'}
+            options1={gender}
+            options2={religion}
+            value1={formik.values.Gender} />
+
+          {/* <DateInput
             label1="Gender"
             placeholder1="Gender"
             type={"text"}
@@ -180,7 +260,7 @@ function PersonalDetails() {
             name1={'Gender'}
             value1={formik.values.Gender}
 
-          />
+          /> */}
 
           <FormBar
             title={"Current Address"}
@@ -190,7 +270,8 @@ function PersonalDetails() {
             name={'CurrentAddress'}
           />
 
-          <DateInput
+
+          {/* <DateInput
             label1="Current City"
             placeholder1="City"
             type={"text"}
@@ -204,7 +285,22 @@ function PersonalDetails() {
             name1={'CurrentCity'}
             value1={formik.values.CurrentCity}
 
-          />
+          /> */}
+          <SelectTwo  
+             label1="Current City"
+              label2="State"
+              onchange={formik.handleChange}
+             
+              name2={'CurrentState'}
+              value2={formik.values.CurrentState}
+              name1={'CurrentCity'}
+              options1={city}
+              options2={states}
+              value1={formik.values.CurrentCity}/>
+
+
+
+
           <div className="container p-0 d-flex justify-content-center align-items-center flex-wrap text-center">
             <div className="m-1 checkbox-wrapper-31">
               <input type="checkbox" onChange={(e) => {
@@ -223,7 +319,7 @@ function PersonalDetails() {
               </svg>
 
             </div>
-            <h6 style={{ color: "gray",margin:"0px",fontSize:"15px" }}>Current Address and Permanent Address as same</h6>
+            <h6 style={{ color: "gray", margin: "0px", fontSize: "15px" }}>Current Address and Permanent Address as same</h6>
           </div>
           <FormBar
             title={"Permanent Address"}
@@ -264,7 +360,7 @@ function PersonalDetails() {
                     <div>
                       <img src="/Utility/check.png" alt="" />
                     </div>
-                    <textarea  cols="30" rows="10" title={"About me"} type={"text-area"} placeholder={"Write something about yourself"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.AboutMe}
+                    <textarea cols="30" rows="10" title={"About me"} type={"text-area"} placeholder={"Write something about yourself"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.AboutMe}
                       name={'AboutMe'} style={textareaStyle}></textarea>
                   </div>
                 </div>

@@ -25,7 +25,7 @@ const [zIndex, setZIndex] = useState(56);
       <div className="progresbar">
         <div className="container-fluid">
           <br /><br />
-          <ul className="list-unstyled multi-steps">
+          <ul className="list-unstyled multi-steps m-0">
             <li className={currentStep === 1 ? 'is-active' : ''} onClick={()=>{
                  setCurrentStep(1);
                  setZIndex(56)
@@ -39,8 +39,7 @@ const [zIndex, setZIndex] = useState(56);
               Requriment
             </li>
           </ul>
-          <br />
-          <br />
+         
           {/* <button onClick={handleNextStep}>Next Step</button> */}
         </div>
       </div>

@@ -6,6 +6,7 @@ function TipsSupport() {
         <>
             <div className="container mt-3 p-0">
                 <ArrowNavigate url={"/Utility/tips.png"} />
+               
                 <div className="row">
                     <div className="col-md-12 d-flex flex-wrap mb-3 justify-content-evenly align-content-center">
                         <div className="head-setting  d-flex justify-content-center  align-content-center gap-1 ">

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './OfferLetter.css';
 import { useFormik } from 'formik';
 import { FaDownload } from "react-icons/fa";
-import { AboutMe, SelectInput ,ArrowNavigate } from '../../../../Components/export';
+import { AboutMe, SelectInput ,ArrowNavigate, Button } from '../../../../Components/export';
 import  employee from '../../../../API/Employee'
 
 function OfferLetter() {
@@ -20,6 +20,7 @@ function OfferLetter() {
             <div className="container p-0 mt-3 offerletter">
             <ArrowNavigate url={"/Utility/offer.png"}/>
                 <AboutMe />
+                <div class="col-md-12"><h4 className="mt-0 text-center mb-4" style={{color: "rgb(143, 170, 70)"}}>Offer Letter</h4></div>
                 <div className="container">
                     <div className="row ">
                       
@@ -56,10 +57,7 @@ function OfferLetter() {
                                             />
                                         </div>
                                         <div className="col-md-12 d-flex justify-content-end">
-                                            <button className='download-red'>
-                                                <FaDownload /> {/* Using the Bookmark icon */}
-                                                Download Now
-                                            </button>
+                                           <Button title={"Download Now"} />
 
                                         </div>
                                     </div>

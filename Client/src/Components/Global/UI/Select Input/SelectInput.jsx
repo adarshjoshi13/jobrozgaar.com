@@ -1,17 +1,17 @@
 import React from 'react';
 import "./SelectInput.css"
 import { FaAngleDown } from "react-icons/fa";   
-const SelectInput = ({ id, name, value, handleChange, options }) => {
+const SelectInput = ({margin, selectinput, name, value, handleChange, options }) => {
   return (
     <> 
-    <div className="cover-of-select">
+    <div className="cover-of-select" style={margin} >
     <FaAngleDown className='arrow-down-icon' style={{color:"black"}} /> 
-       <select className="form-control mb-2 select-inputs" id={id} name={name} onChange={handleChange} value={value}>
+       <select className={`form-control raja `} style={selectinput} name={name}   onChange={handleChange} value={value}>
    
        
       {options.map((option, index) => (
         
-        <option key={index} value={option.value}>
+        <option  key={index} value={option.value}>
         
           {option.label}
         </option>

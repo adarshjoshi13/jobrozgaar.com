@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Education.css"
 import { Formik, Form, Field, ErrorMessage, useFormik, useFormikContext } from 'formik';
-import { Loader, Button } from '../../export';
+import { Loader, Button, SelectInput } from '../../export';
 import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
@@ -55,6 +55,35 @@ function EducationBox({ initialValues, query, Edit, redirect, showArrow }) {
   // fo re direct
 
   console.log(formik)
+
+
+
+  const Courses = [
+    { value: 'engineering', label: 'Engineering' },
+    { value: 'medicine', label: 'Medicine' },
+    { value: 'management', label: 'Management' },
+    { value: 'computer_science', label: 'Computer Science' },
+    { value: 'finance', label: 'Finance' },
+    { value: 'arts', label: 'Arts' },
+    { value: 'law', label: 'Law' },
+    { value: 'design', label: 'Design' },
+    // Add more courses as needed
+];
+
+const Colleges = [
+  { value: 'iit', label: 'Indian Institutes of Technology (IITs)' },
+  { value: 'iim', label: 'Indian Institutes of Management (IIMs)' },
+  { value: 'aiims', label: 'All India Institutes of Medical Sciences (AIIMS)' },
+  { value: 'nit', label: 'National Institutes of Technology (NITs)' },
+  { value: 'bits', label: 'Birla Institute of Technology and Science (BITS Pilani)' },
+  { value: 'du', label: 'University of Delhi (DU)' },
+  { value: 'iisc', label: 'Indian Institute of Science (IISc)' },
+  { value: 'aiu', label: 'Association of Indian Universities (AIU)' },
+  { value: 'iiser', label: 'Indian Institutes of Science Education and Research (IISERs)' },
+  { value: 'jnu', label: 'Jawaharlal Nehru University (JNU)' },
+  // Add more colleges as needed
+];
+
   return (
     <div className="container education-box">
       <div className="row w-100">
@@ -103,11 +132,19 @@ function EducationBox({ initialValues, query, Edit, redirect, showArrow }) {
 
                   </div>
 
+
+
+
+                      {/* DropDowns */}
+
+
                   <div className="col-md-2 pt-2 ">
-                    <input type="text" className="form-control" placeholder='Course' name={`Courses[${index}].Course`} onChange={formik.handleChange} value={formik.values.Courses[index].Course} />
+                  <SelectInput handleChange={formik.handleChange} name={`Courses[${index}].Course`} value={formik.values.Courses[index].Course} options={Courses} />
+                    {/* <input type="text" className="form-control" placeholder='Course' name={`Courses[${index}].Course`} onChange={formik.handleChange} value={formik.values.Courses[index].Course} /> */}
                   </div>
                   <div className="col-md-2 pt-2">
-                    <input type="text" className="form-control" placeholder='Board/University' name={`Courses[${index}].University`} onChange={formik.handleChange} value={formik.values.Courses[index].University} />
+                  <SelectInput handleChange={formik.handleChange} value={formik.values.Courses[index].University} name={`Courses[${index}].University`} options={Colleges}/>
+                    {/* <input type="text" className="form-control" placeholder='Board/University' name={`Courses[${index}].University`} onChange={formik.handleChange} value={formik.values.Courses[index].University} /> */}
                   </div>
                   <div className="col-md-2 pt-2">
                     <input type="text" className="form-control" placeholder='Year of passing' name={`Courses[${index}].YearOfPassing`} onChange={formik.handleChange} value={formik.values.Courses[index].YearOfPassing} />

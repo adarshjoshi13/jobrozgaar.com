@@ -1,0 +1,57 @@
+
+
+.two-inputs input {
+    margin: 9px;
+    padding: 8px;
+    border: 1px solid gray;
+    height: 40px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+.two-inputs input::placeholder{
+    font-size: 12px;
+}
+
+.two-inputs h5{
+    font-size: 16px;
+}
+
+
+.two-inputs img{
+    width: 32px;
+     
+ }
+
+
+
+ .two-inputs .h5-cover {
+    width: 111px;
+    text-align: center;
+    /* border: 2px solid;    */
+}
+
+
+
+@media screen and (max-width:768px) {
+    
+}
+
+ @media only screen and (max-width: 540px) {
+    .two-inputs .lable{
+        display: none;
+    }
+
+    .two-inputs  .h5-cover {
+       display: none;
+         
+    }
+    
+ }
+
+ .two-inputs .hide{
+    display: none;
+ }
+
+
+

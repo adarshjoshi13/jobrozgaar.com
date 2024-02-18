@@ -88,14 +88,30 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
 
     const jobTitleOptions = [
         { value: 'option1', label: 'Job Title' },
-        { value: 'option2', label: 'Option 2' },
-        { value: 'option3', label: 'Option 3' }
+        { value: 'software_engineer', label: 'Software Engineer' },
+        { value: 'data_analyst', label: 'Data Analyst' },
+        { value: 'graphic_designer', label: 'Graphic Designer' },
+        { value: 'marketing_manager', label: 'Marketing Manager' },
+        { value: 'sales_associate', label: 'Sales Associate' },
     ];
 
     const jobTypeOptions = [
-        { value: 'option1', label: 'Job Type' },
-        { value: 'option2', label: 'Option 2' },
-        { value: 'option3', label: 'Option 3' }
+        { value: 'full_time', label: 'Full Time' },
+        { value: 'part_time', label: 'Part Time' },
+        { value: 'contract', label: 'Contract' },
+        { value: 'freelance', label: 'Freelance' },
+        { value: 'internship', label: 'Internship' },
+        // Add more job types as needed
+    ];
+
+    const  City = [
+        { value: 'option1', label: 'City' },
+        { value: 'Mumbai', label: 'Mumbai' },
+        { value: 'Delhi', label: 'Delhi' },
+        { value: 'Bangalore', label: 'Bangalore' },
+        { value: 'Kolkata', label: 'Kolkata' },
+        { value: 'Chennai', label: 'Chennai' },
+        // Add more cities as needed
     ];
 
     return (
@@ -222,17 +238,26 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                                                         </div>
                                                         <div className="col-md-12 mt-3">
                                                             <div className="row">
-                                                                <div className="col-md-3 pt-2">
+                                                                <div className="col-md-3 pt-2 d-flex align-items-end">
                                                                     <input type="text" className="form-control mt-2" id="exampleDropdown" placeholder='Company Name' onChange={(e) => {
                                                                         TakeCompanyName(index, e.target.value, 'CompanyName')
                                                                     }} value={formik.values.Experience[index].CompanyName}
                                                                         name={`Experience[${index}].CompanyName`} />
                                                                 </div>
-                                                                <div className="col-md-3 pt-2">
-                                                                    <input type="text" className="form-control mt-2" id="exampleDropdown" placeholder='Designation' onChange={(e) => {
+
+                                                                <div className="col-md-3 pt-2 d-flex align-items-end">
+
+                                                                    <SelectInput handleChange={(e) => {
+                                                                        TakeCompanyName(index, e.target.value, 'Designation')
+                                                                    }} value={formik.values.Experience[index].Designation} name={`Experience[${index}].Designation`}
+                                                                    options={City}/>
+
+
+
+                                                                    {/* <input type="text" className="form-control mt-2" id="exampleDropdown" placeholder='Designation' onChange={(e) => {
                                                                         TakeCompanyName(index, e.target.value, 'Designation')
                                                                     }} value={formik.values.Experience[index].Designation}
-                                                                        name={`Experience[${index}].Designation`} />
+                                                                        name={`Experience[${index}].Designation`} /> */}
                                                                 </div>
                                                                 <div className="col-md-3 pt-2">
                                                                     <label htmlFor="startDate">Start date</label>
