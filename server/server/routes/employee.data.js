@@ -15,4 +15,5 @@ router.post('/education-details',AddEducationDetails)
 router.put('/work-experience-update',UpdateWorkExprince);
 router.put('/change-password',ChangePassword);
 
+
 module.exports = router;

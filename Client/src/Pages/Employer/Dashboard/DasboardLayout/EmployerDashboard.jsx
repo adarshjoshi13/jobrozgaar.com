@@ -26,7 +26,7 @@ function EmployerDashboard({children}) {
          toast.error("erro fetching data")
        }
       })()
-    },[reload,children])
+    },[reload])
 
     console.log('bullha ki jana',formData)
 
@@ -51,7 +51,7 @@ function EmployerDashboard({children}) {
    <div className="container">
      <ProfileCard name={formData?.CompanyDetails?.CompanyInformation?.companyName || "" } email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails?.CompanyVerification.Logo || ""} UploadImg={UploadImg} utlityFunction={fncForReload} />
      <EmployerTabs/>
-     {React.cloneElement(children, { AllData:  formData })}
+     {React.cloneElement(children, { AllData:  formData,Reload:fncForReload })}
    </div>
   )
 }

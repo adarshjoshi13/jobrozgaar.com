@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { JobPosting, Candidate } from '../../../../../Pages/export';
 import './AddJob.css';
 
-function AddJob() {
+function AddJob({Alldata,Reload}) {
   const [currentStep, setCurrentStep] = useState(1);
   const [Jobdetails,SetJobdetails] = useState({});
 //   console.log('betet',Jobdetails)
@@ -50,7 +50,7 @@ const [zIndex, setZIndex] = useState(56);
         </div>
 
         <div className="candidate-cards-si">
-          <Candidate jobdetails={Jobdetails} />
+          <Candidate jobdetails={Jobdetails} Reload={Reload}/>
         </div>
       </div>
     </div>
