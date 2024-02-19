@@ -46,14 +46,14 @@ function Jobposting({ initialValues, utlityfnc }) {
 
   const Jobs = [
     { value: 'option1', label: 'Want to Hire' },
-    { value: 'software_engineer', label: 'Software Engineer' },
-    { value: 'doctor', label: 'Doctor' },
-    { value: 'manager', label: 'Manager' },
-    { value: 'data_scientist', label: 'Data Scientist' },
-    { value: 'financial_analyst', label: 'Financial Analyst' },
-    { value: 'graphic_designer', label: 'Graphic Designer' },
-    { value: 'lawyer', label: 'Lawyer' },
-    { value: 'architect', label: 'Architect' },
+    { value: 'Software Engineer', label: 'Software Engineer' },
+    { value: 'Doctor', label: 'Doctor' },
+    { value: 'Manager', label: 'Manager' },
+    { value: 'Data Scientist', label: 'Data Scientist' },
+    { value: 'Financial Analyst', label: 'Financial Analyst' },
+    { value: 'Graphic Designer', label: 'Graphic Designer' },
+    { value: 'Lawyer', label: 'Lawyer' },
+    { value: 'Architect', label: 'Architect' },
     // Add more job categories as needed
   ];
 
@@ -81,10 +81,10 @@ function Jobposting({ initialValues, utlityfnc }) {
 
   const minSalary = [
     { value: 'option1', label: 'Minium Salary Per Month' },
-    { value: '15k-20k', label: '15k-20k' },
-    { value: '20k-25k', label: '20k-25k' },
-    { value: '30k-40k', label: '30k-40k' },
-    { value: '60k-65k', label: '60k-65k' },
+    { value: '15k-20k ', label: '15k-20k' },
+    { value: '20k-25k ', label: '20k-25k' },
+    { value: '30k-40k ', label: '30k-40k' },
+    { value: '60k-65k ', label: '60k-65k' },
 
   ];
 

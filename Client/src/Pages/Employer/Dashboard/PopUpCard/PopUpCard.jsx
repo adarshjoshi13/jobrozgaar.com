@@ -2,7 +2,7 @@ import React from 'react';
 import './PopUpCard.css';
 import { Link } from 'react-router-dom';
 
-function PopUpCard({ onClose,url,Where ,title,btn1 }) {
+function PopUpCard({ onClose,url,Where ,title,btn1 ,Para }) {
   return (
     <>
     <div className="edit-pop-cover">
@@ -16,7 +16,7 @@ function PopUpCard({ onClose,url,Where ,title,btn1 }) {
           </div>
           <div className="content">
             <span className="title">{title}</span>
-            <p className="message">If you want these access then you have to buy our plans first then you can do what ever your want.</p>
+            <p className="message">{Para}</p>
           </div>
           <div className="actions">
             <button className="history" type="button"><Link to={Where}>{btn1}</Link></button>

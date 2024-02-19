@@ -46,5 +46,7 @@ import JOblayout from "./Employer/Dashboard/Job/JOBlayout/JOblayout";
 import AddJob from "./Employer/Dashboard/Job/AddJob/AddJob";
 import JobBoxCard from "./Employee/DashboardLayout/Myjobs/JobBoxCard/JobBoxCard";
 import SignUp from "./SignUp/SignUp";
+import ViewJob from "./Employer/Dashboard/Job/ViewJob/ViewJob";
 
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali,EmployerDashboard,WorkersCard,ViewCompanyDetails,PopUpCard,JOblayout,AddJob,JobBoxCard,SignUp};
+
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali,EmployerDashboard,WorkersCard,ViewCompanyDetails,PopUpCard,JOblayout,AddJob,JobBoxCard,SignUp,ViewJob };
