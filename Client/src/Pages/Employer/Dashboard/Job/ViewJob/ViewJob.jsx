@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { JobBoxCard } from '../../../../export'
+import { JobBoxCard, PopUpCard } from '../../../../export'
 import {isEmptyObject,getTimeDifferenceString} from '../../../../../utlity/utlityfnc'
 function ViewJob({AllData}) {
   const [Edit,setEdit] =useState(false)
@@ -66,17 +66,19 @@ function ViewJob({AllData}) {
     )
   }
 
-
+function handlePopUpToggle(){
+  setEdit(!Edit)
+}
   
   return (
     <div className="job-card-post pt-3">
           {
       Jobs.map((i,n)=>{
-       return <JobBoxCard key={n} jobTitle={i.JobTitle} imageUrl={AllData.CompanyDetails?.CompanyVerification.Logo || ""} company={AllData?.CompanyDetails?.CompanyInformation?.companyName || ""} location={i.JobLocation.city + "," + i.JobLocation.state     } salary={i.SalaryRange.minimum + "-" + i.SalaryRange.maximum } btnTitle={'View'} btnTitle1={'Delete'}  btnTitle2={'Edit'} timeAgo={getTimeDifferenceString(new Date(i.createdAt))} mobile={AllData.mobile}/>
+       return <JobBoxCard onClick={handlePopUpToggle} key={n} jobTitle={i.JobTitle} imageUrl={AllData.CompanyDetails?.CompanyVerification.Logo || ""} company={AllData?.CompanyDetails?.CompanyInformation?.companyName || ""} location={i.JobLocation.city + "," + i.JobLocation.state     } salary={i.SalaryRange.minimum + "-" + i.SalaryRange.maximum } btnTitle={'View'} btnTitle1={'Delete'}  btnTitle2={'Edit'} timeAgo={getTimeDifferenceString(new Date(i.createdAt))} mobile={AllData.mobile}/>
       })
     }
 
-    {Edit && <PopUpCard title={"Are you really want to Delete !"} btn1={"Delete Now"} url={"/Utility/no1.gif"} Where={"#"} onClose={handlePopUpToggle} />}
+    {Edit && <PopUpCard  title={"Are you really want to Delete !"} btn1={"Delete Now"} url={"/Utility/no1.gif"} Where={"#"} onClose={handlePopUpToggle} />}
     </div>
    
 
