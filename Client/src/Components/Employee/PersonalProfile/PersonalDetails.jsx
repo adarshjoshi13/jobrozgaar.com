@@ -147,6 +147,7 @@ function PersonalDetails() {
   ];
 
   const city = [
+    { value: 'option1', label: 'City' },
     { value: 'Mumbai', label: 'Mumbai' },
     { value: 'Delhi', label: 'Delhi' },
     { value: 'Bangalore', label: 'Bangalore' },
@@ -156,6 +157,7 @@ function PersonalDetails() {
   ];
 
   const states = [
+    { value: 'option1', label: 'Current State' },
     { value: 'Andhra Pradesh', label: 'Andhra Pradesh' },
     { value: 'Arunachal Pradesh', label: 'Arunachal Pradesh' },
     { value: 'Assam', label: 'Assam' },
@@ -218,11 +220,11 @@ function PersonalDetails() {
             name={'fatherName'} />
           <DateInput
             label1="Date of Birth"
-            placeholder1="Date"
+          
             type={"date"}
-            type2={"text"}
+           
             label2="Status"
-            placeholder2=" Write marital Status"
+           
             onchange={formik.handleChange}
             onblur={formik.handleBlur}
             name2={'MaritalStatus'}
@@ -341,11 +343,11 @@ function PersonalDetails() {
                     placeholder={"Enter your Address"}
                 /> */}
 
-          <InputButton title={"Aadhar Number"} placeholder={"Enter Aadhar Number"} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.values.AdharNumber}
+          <InputButton title={"Aadhar Number"} placeholder={"Aadhar Number"} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.values.AdharNumber}
             name1={'AdharNumber'} name2={'Adharcard'} uploadfile={GetImageData} />
-          <InputButton title={"Pan Card Number"} placeholder={"Enter Pan Card Number"} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.values.PanNumber}
+          <InputButton title={"Pan Card Number"} placeholder={"Pan Card Number"} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.values.PanNumber}
             name1={'PanNumber'} name2={'PanCard'} uploadfile={GetImageData} />
-          <InputButton title={"Driving Licence No"} placeholder={"Enter Driving Licence No."} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.values.DrivingLicenceNumber}
+          <InputButton title={"Driving Licence No"} placeholder={"Driving Licence No."} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.values.DrivingLicenceNumber}
             name1={'DrivingLicenceNumber'} name2={'DrivingLicence'} uploadfile={GetImageData} />
 
           <div className="container all-input">

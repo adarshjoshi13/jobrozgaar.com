@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {FaLongArrowRight, FaLongArrowRight } from "react-icons"
+// import { FaLongArrowRight, FaFacebook, FaTwitter } from "react-icons/fa";
+
 import './SignUp.css'; // You need to create a CSS file for styling
 
 function SignUp() {
@@ -47,8 +48,8 @@ function SignUp() {
                     </div>
 
                     <div>
-                        <Link to="#" className="btn-face"><FaFacebook /> Facebook</Link>
-                        <Link to="#" className="btn-twitter"><FaTwitter /> Twitter</Link>
+                        <Link to="#" className="btn-face"> Facebook</Link>
+                        <Link to="#" className="btn-twitter"> Twitter</Link>
                     </div>
 
                     <div className="or"><span>OR</span></div>
@@ -60,8 +61,8 @@ function SignUp() {
                         <label htmlFor="remember">Keep me sign in</label>
                         <Link to="#" className="btn-signin">Sign In</Link>
 
-                        <Link to="#" className="btn-reset btn-fade">Recover your password <FaLongArrowRight /></Link>
-                        <Link to="#" className="btn-member btn-fade">Not a member yet? <FaLongArrowRight /></Link>
+                        <Link to="#" className="btn-reset btn-fade">Recover your password </Link>
+                        <Link to="#" className="btn-member btn-fade">Not a member yet? </Link>
                     </form>
               
                 </div>

@@ -2,7 +2,25 @@ import React from 'react';
 import "./DateInput.css";
 import { SelectInput } from '../../../export';
 
-function DateInput({ label1, label2, placeholder1, placeholder2 ,type,type2,onchange,onblur,value1,name1,name2,value2,hideLable,hidfeild }) {
+function DateInput({ label1, label2, placeholder1,type,onchange,onblur,value1,name1,name2,value2,hideLable,hidfeild }) {
+  const States = [
+    { value: 'option1', label: 'Marital Status' },
+    { value: 'Married', label: 'Married' },
+    { value: 'Single', label: 'Single' },
+    
+    // Add more languages as needed
+];
+
+
+const margin ={
+  margin:"9px"
+}
+
+
+const selectinput ={
+  fontSize:"13px",
+  padding:"8px"
+}
   return (
     <div className="container date-input">
       <div className="row">
@@ -24,7 +42,9 @@ function DateInput({ label1, label2, placeholder1, placeholder2 ,type,type2,onch
               
               <div className='d-flex justify-content-center align-items-center w-100'>
                 <img style={{width:"30px",height:"30px"}} src="/Utility/check.png" alt="" />
-                 <input  style={{width:"100%"}} type={type2} placeholder={placeholder2} onChange={onchange} onBlur={onblur} value={value2} name={name2} />
+                 {/* <input  style={{width:"100%"}} type={type2} placeholder={placeholder2} onChange={onchange} onBlur={onblur} value={value2} name={name2} /> */}
+                 <SelectInput  handleChange={onchange} onBlur={onblur} value={value2} name={name2}
+                 options={States} margin={margin} selectinput={selectinput}/>
               </div>
               
              

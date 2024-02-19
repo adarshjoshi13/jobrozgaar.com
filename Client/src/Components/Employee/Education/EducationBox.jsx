@@ -6,6 +6,7 @@ import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SingleTitleBar from '../../Global/UI/SingleTitleBar/SingleTitleBar';
 
 function EducationBox({ initialValues, query, Edit, redirect, showArrow }) {
 
@@ -59,6 +60,7 @@ function EducationBox({ initialValues, query, Edit, redirect, showArrow }) {
 
 
   const Courses = [
+    { value: 'option1', label: 'Course' },
     { value: 'engineering', label: 'Engineering' },
     { value: 'medicine', label: 'Medicine' },
     { value: 'management', label: 'Management' },
@@ -71,6 +73,7 @@ function EducationBox({ initialValues, query, Edit, redirect, showArrow }) {
 ];
 
 const Colleges = [
+  { value: 'option1', label: 'Collage' },
   { value: 'iit', label: 'Indian Institutes of Technology (IITs)' },
   { value: 'iim', label: 'Indian Institutes of Management (IIMs)' },
   { value: 'aiims', label: 'All India Institutes of Medical Sciences (AIIMS)' },
@@ -82,6 +85,16 @@ const Colleges = [
   { value: 'iiser', label: 'Indian Institutes of Science Education and Research (IISERs)' },
   { value: 'jnu', label: 'Jawaharlal Nehru University (JNU)' },
   // Add more colleges as needed
+];
+
+const languages = [
+  { value: 'Options', label: 'Languages' },
+  { value: 'English', label: 'English' },
+  { value: 'Spanish', label: 'Spanish' },
+  { value: 'French', label: 'French' },
+  { value: 'German', label: 'German' },
+  { value: 'Mandarin', label: 'Mandarin' },
+  // Add more languages as needed
 ];
 
   return (
@@ -99,7 +112,8 @@ const Colleges = [
               <h5>My Qualifacation</h5>
             </div>
             <div className="col-md-6">
-              <input type="text" className="form-control" name='MyQualification' onChange={formik.handleChange} value={formik.values.MyQualification} />
+              {/* <input type="text" className="form-control" name='MyQualification' onChange={formik.handleChange} value={formik.values.MyQualification} /> */}
+              <SelectInput name='MyQualification' handleChange={formik.handleChange} value={formik.values.MyQualification} options={Courses}/>
             </div>
           </div>
         </div>
@@ -110,7 +124,9 @@ const Colleges = [
               <h5>Language Known</h5>
             </div>
             <div className="col-md-6">
-              <input type="text" className="form-control" name='LanguageKnown' onChange={formik.handleChange} value={formik.values.LanguageKnown} />
+              {/* <input type="text" className="form-control" name='LanguageKnown' onChange={formik.handleChange} value={formik.values.LanguageKnown} /> */}
+              
+              <SelectInput name='LanguageKnown' handleChange={formik.handleChange} value={formik.values.LanguageKnown} options={languages}/>
             </div>
           </div>
         </div>

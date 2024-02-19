@@ -54,6 +54,19 @@ function Education() {
     alignItems: 'center',
     justifyContent: 'center',}}/>
   }
+
+
+  const Courses = [
+    { value: 'engineering', label: 'Engineering' },
+    { value: 'medicine', label: 'Medicine' },
+    { value: 'management', label: 'Management' },
+    { value: 'computer_science', label: 'Computer Science' },
+    { value: 'finance', label: 'Finance' },
+    { value: 'arts', label: 'Arts' },
+    { value: 'law', label: 'Law' },
+    { value: 'design', label: 'Design' },
+    // Add more courses as needed
+];
   return (
     <>  
     <div className="container d-flex flex-wrap flex-lg-nowrap flex-md-nowrap">

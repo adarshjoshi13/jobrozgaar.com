@@ -8,7 +8,7 @@ function SmallBanner({ personalImage, workImage, eduImage }) {
         <div className="col-md-2">
           <img src={personalImage} alt="cureent page img" className='img-fluid arrow-img-ex' />
         </div>
-        <div className="col-md-10 d-flex justify-content-start align-items-center showneximg">
+        <div className="col-md-10 d-flex gap-5 justify-content-start align-items-center showneximg">
         
            <img  src={workImage} alt=""  className='small-imgs img-fluid' />
        
