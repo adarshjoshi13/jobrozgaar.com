@@ -71,7 +71,7 @@ function WorkersCard() {
             }
 
             {
-                Edit && <PopUpCard url={"/Utility/no1.gif"} Where={"/employer-starter-Dashboard/view-plans"} onClose={handleChange} />
+                Edit && <PopUpCard btn1={"Buy Now"} title={"You Can't Hire Buddy"} url={"/Utility/no1.gif"} Where={"/employer-starter-Dashboard/view-plans"} onClose={handleChange} />
             }
 
 

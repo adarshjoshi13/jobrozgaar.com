@@ -78,7 +78,7 @@ function handlePopUpToggle(){
       })
     }
 
-    {Edit && <PopUpCard  title={"Are you really want to Delete !"} btn1={"Delete Now"} url={"/Utility/no1.gif"} Where={"#"} onClose={handlePopUpToggle} />}
+    {Edit && <PopUpCard   title={"Are you really want to Delete !"} btn1={"Delete Now"} url={"/Utility/del.gif"} Where={"#"} onClose={handlePopUpToggle} />}
     </div>
    
 
