@@ -1,19 +1,22 @@
 
 .sign-wrapper {
-    width: 1%;
-    height: 100vh;
-    background: #ededed;
-    display: table-cell;
+    width: 100%;
+    height: auto;
+    background: #8faa46;
+    display : flex;
+    justify-content : center;
+    align-items : center;
     vertical-align: middle;
     font-family: 'Dosis', sans-serif;
 }
-
 .sign-wrapper .sign-panels {
-    width: 650px;
+    width: 364px;
     background: #fff;
-    padding: 40px 80px;
+    padding: 40px 31px;
     margin: 40px auto;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
     border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     text-align: center;
 }
 .sign-wrapper .login,.signup {
@@ -27,21 +30,31 @@
 
 .sign-wrapper .title span {
     display: block;
-    font-size: 46px;
+    font-size: 29px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
 .sign-wrapper .title p {
-    font-size: 20px;
+    font-size: 13px;
     font-weight: 500;
 }
 
-.sign-wrapper .btn-face,.btn-twitter {
+
+
+
+.sign-wrapper .title img {
+    width: 160px;
+}
+.sign-wrapper .btn-face, .btn-twitter {
     color: #fff;
-    display: inline-block;
-    width: 200px;
-    font-size: 20px;
-    height: 50px;
+    display: flex;
+    width: 93%;
+    justify-content: center;
+    gap: 9px;
+    font-size: 18px;
+    align-items: center;
+    height: 42px;
     border-radius: 50px;
     text-decoration: none;
     padding: 11px 0;
@@ -49,20 +62,20 @@
 }
 
 .sign-wrapper .btn-face .fa,.btn-twitter .fa {
-    margin-right: 5px;
+    /* margin-right: 5px; */
 }
 
 .sign-wrapper .btn-face {
     background: #5397d7;
-    margin-right: 25px;
+    /* margin-right: 25px; */
 }
 
 .sign-wrapper .btn-twitter {
-    background: #40b9e0;
+    background: #3d6779;
 }
 
 .sign-wrapper .or {
-    margin: 35px 0;
+    margin: 18px 0;
     font-weight: 600;
     color: #9f9f9f;
 }
@@ -91,7 +104,7 @@
     width: 100%;
     display: block;
     margin-bottom: 15px;
-    height: 50px;
+    height: 43px;
     border-radius: 50px;
     border: none;
     background: #ededed;
@@ -114,11 +127,12 @@
     display: block;
     width: 50%;
     text-align: left;
-    padding-left: 60px;
+    padding-left: 34px;
     cursor: pointer;
     color: #828282;
     font-weight: 500;
     margin-top: 10px;
+    font-size: 13px;
     float: left;
     height: 50px;
     padding-top: 15px;
@@ -131,7 +145,7 @@
     height: 15px;
     background: #dbdbdb;
     position: absolute;
-    left: 30px;
+    left: 9px;
     border-radius: 50%;
     border: 2px solid white;
     box-shadow: 0 0 0 5px #ededed;
@@ -147,13 +161,13 @@
 
 .sign-wrapper .btn-signin {
     display: inline-block;
-    width: 50%;
+    width: 47%;
     margin-top: 10px;
-    height: 50px;
-    background: #ec581e;
+    height: 41px;
+    background: #91b841;
     border-radius: 50px;
-    padding: 11px;
-    font-size: 20px;
+    padding: 9px;
+    font-size: 17px;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
@@ -162,26 +176,25 @@
     cursor: pointer;
 }
 
-.sign-wrapper .btn-reset,.btn-member,.btn-fade {
-    font-size: 19px;
+.sign-wrapper .btn-reset, .btn-member, .btn-fade {
+    font-size: 16px;
     font-weight: 500;
     color: #9f9f9f;
     display: block;
-    /*width: 210px;*/
-    margin: 30px auto 0;
+    /* width: 210px; */
+    margin: 12px auto 0;
     text-decoration: none;
-
 }
+
 .sign-wrapper .btn-member {
-    margin-top: 15px;
+    margin-top: 6px;
 }
-
 .sign-wrapper .btn-reset .fa,.btn-member .fa {
     margin-left: 6px;
 }
 
 .sign-wrapper .notification p {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
     color: #9f9f9f;
 }
@@ -200,14 +213,16 @@
 
 @media screen and (max-width: 768px) {
     .sign-wrapper .sign-panels {
-        width: 90%;
+        /* width: 90%; */
         padding: 40px;
+
     }
 }
 
 @media screen and (max-width: 570px) {
     .sign-wrapper .sign-panels {
         padding: 40px 20px;
+        margin: 12px;
     }
 
     .sign-wrapper .btn-face, .btn-twitter {
@@ -215,7 +230,7 @@
     }
     .sign-wrapper .btn-face {
         margin-right: 0;
-        margin-bottom: 25px;
+        /* margin-bottom: 25px; */
     }
 }
 

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaGoogle } from "react-icons/fa";
 // import { FaLongArrowRight, FaFacebook, FaTwitter } from "react-icons/fa";
 
 import './SignUp.css'; // You need to create a CSS file for styling
@@ -43,13 +45,13 @@ function SignUp() {
             <div className="sign-panels">
                 <div className={showLogin ? "login" : "login hide"}>
                     <div className="title">
-                        <span>Sign In</span>
-                        <p>Welcome back, please login to your account. You can login with Facebook, Twitter, or by your regular user login.</p>
+                        <span onClick={handleShowLogin}><img src="/Utility/logo.png" alt="" /></span>
+                        <p>Welcome back, please login to your account. You can login with Google or by your regular user login.</p>
                     </div>
 
-                    <div>
-                        <Link to="#" className="btn-face"> Facebook</Link>
-                        <Link to="#" className="btn-twitter"> Twitter</Link>
+                    <div className='d-flex justify-content-center align-items-center gap-1'>
+                       
+                        <Link to="#" className="btn-twitter"><FaGoogle/> Google</Link>
                     </div>
 
                     <div className="or"><span>OR</span></div>
@@ -57,30 +59,67 @@ function SignUp() {
                     <form action="">
                         <input type="text" placeholder="Username" />
                         <input type="password" placeholder="Password" />
-                        <input type="checkbox" id="remember" />
-                        <label htmlFor="remember">Keep me sign in</label>
-                        <Link to="#" className="btn-signin">Sign In</Link>
+                        <div className='d-flex align-items-center justify-content-center flex-wrap'>
+                            <input type="checkbox" id="remember" />
+                            <label htmlFor="remember">Keep me sign in</label>
+                            <Link to="#" className="btn-signin">Sign In</Link>
+                        </div>
 
-                        <Link to="#" className="btn-reset btn-fade">Recover your password </Link>
-                        <Link to="#" className="btn-member btn-fade">Not a member yet? </Link>
+
+                        <Link to="#" onClick={handleShowRecoverPassword} className="btn-reset btn-fade">Recover your password </Link>
+                        <Link to="#" onClick={handleShowSignUp} className="btn-member btn-fade">Not a member yet? </Link>
                     </form>
-              
+
                 </div>
 
                 <div className={showSignUp ? "signup" : "signup hide"}>
-                    {/* Sign Up Content */}
+                    <div className="title">
+                        <span><img src="/Utility/logo.png" alt="" /></span>
+                        <p>Create a new account. You can sign up with your Google account. Or your regular user login.</p>
+                    </div>
+
+                    <div className='d-flex justify-content-center'>
+                      
+                        <Link to="#" className="btn-twitter"><FaGoogle/> Google</Link>
+                    </div>
+
+                    <div className="or"><span>OR</span></div>
+
+                    <form action="">
+                        <input type="text" placeholder="Username" />
+                        <input type="text" placeholder="Email Address" />
+                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Repeat Password" />
+
+                        <Link to="#" className="btn-signin">Sign Up</Link>
+                        <Link to="#" onClick={handleShowLogin} className="btn-login btn-fade">Already have an account, Sign In </Link>
+                    </form>
                 </div>
 
                 <div className={showRecoverPassword ? "recover-password" : "recover-password hide"}>
-                    {/* Recover Password Content */}
+                    <div className="title">
+                        <span>Recover Password</span>
+                        <p>Enter in the username or email associated with your account</p>
+                    </div>
+
+                    <form action="">
+                        <input type="email" placeholder="Username/Email Address" id="resetPassword" required />
+                        <span className="error" onClick={handleShowRecoverPassword}></span>
+                        <Link to="#" className="btn-signin btn-password">Submit Reset</Link>
+                        <Link to="#" onClick={handleShowLogin} className="btn-login btn-fade"> Cancel and go back to Login page </Link>
+                    </form>
+
+                    <div className="notification">
+                        <p>Good job. An email containing information on how to reset your password was sent to <span className="reset-mail"></span>. Please follow the instructions in that email to reset your password. Thanks!</p>
+                    </div>
                 </div>
             </div>
 
-            <div className="buttons">
+            {/* <div className="buttons">
                 <button onClick={handleShowLogin}>Sign In</button>
                 <button onClick={handleShowSignUp}>Sign Up</button>
                 <button onClick={handleShowRecoverPassword}>Recover Password</button>
-            </div>
+            </div> */}
 
             <div className="notification">
                 {/* Notification Content */}
