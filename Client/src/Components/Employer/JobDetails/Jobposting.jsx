@@ -181,7 +181,7 @@ function Jobposting({ initialValues, utlityfnc }) {
     // Add more job types as needed
 ];
   return (
-    <div className='container'>
+    <div className='container p-0'>
       <NavLogoBtn url={'/Utility/job-detail.png'} />
       <div className="row">
         <ArrowRed bigSize={"bigSizeImg"} url={'/Utility/detail.png'} redtitle={'*Your Job details field given please fill carefully'} />

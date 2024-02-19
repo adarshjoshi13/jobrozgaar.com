@@ -11,6 +11,7 @@ import ArrowRed from '../../Global/UI/ArrowImg-with-title/ArrowRed';
 import NavLogoBtn from '../../Global/UI/NavLogoBtn/NavLogoBtn';
 import MultiMenu from '../../Global/UI/MultiMenu/MultiMenu';
 import { useNavigate } from 'react-router-dom';
+import SingleTitleBar from '../../Global/UI/SingleTitleBar/SingleTitleBar';
 
 function CandidateComponet({ initialValues, jobDetails, Redir }) {
   const [loader, Setloader] = useState(false);
@@ -52,13 +53,30 @@ function CandidateComponet({ initialValues, jobDetails, Redir }) {
   }
   console.log('formik', formik.values)
 
+  const qualification = [
+    { value: 'option1', label: 'Qualification' },
+    { value: '10th', label: '10th' },
+    { value: '12th', label: '12th' },
+    { value: 'Diploma', label: 'Diploma' },
+    { value: 'Bachelor', label: 'Bachelor' },
+    { value: 'Master', label: 'Master' },
+    { value: 'PhD', label: 'PhD' },
+    // Add more qualification levels as needed
+];
+
   return (
     <div className="container p-0">
       <NavLogoBtn url={'/Utility/req.png'} />
       <ArrowRed url={'/Utility/req-arrow.png'} redtitle={'*Your Job details field given please fill carefully'} />
       <div className="row mb-5 mt-3">
         <div className="col-md-12">
-          <FormBar title={"Minimum Qualification"} name={'candidateDetails.MinimumQualification'} onChange={formik.handleChange} value={formik.values.candidateDetails.MinimumQualification} />
+          {/* <FormBar title={"Minimum Qualification"} name={'candidateDetails.MinimumQualification'} onChange={formik.handleChange} value={formik.values.candidateDetails.MinimumQualification} /> */}
+
+          <SingleTitleBar title={"Minimum Qualification"} name={'candidateDetails.MinimumQualification'} 
+          onChange={formik.handleChange} value={formik.values.candidateDetails.MinimumQualification} options={qualification}/>
+
+
+
           <FormBar title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={formik.handleChange} value={formik.values.candidateDetails.PreferredSkills} />
           {/* <MultiMenu /> */}
           <FormBar title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} />

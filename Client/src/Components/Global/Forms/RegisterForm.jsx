@@ -63,7 +63,7 @@ const RegisterForm = () => {
         </div>
       </div>
 
-      <form action="#" onSubmit={formik.handleSubmit}>
+      <form  onSubmit={formik.handleSubmit}>
         <div className="row">
         
 
@@ -83,7 +83,7 @@ const RegisterForm = () => {
           </div>
 
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div className="mt-20">
+            <div className=" mt-20">
               <input
                 type="text"
                 name="mobile"

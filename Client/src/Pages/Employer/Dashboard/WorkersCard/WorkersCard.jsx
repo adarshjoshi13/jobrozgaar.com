@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./WorkersCard.css"
 import { Link } from 'react-router-dom';
 import JobBoxCard from '../../../Employee/DashboardLayout/Myjobs/JobBoxCard/JobBoxCard';
+import PopUpCard from '../PopUpCard/PopUpCard';
 function WorkersCard() {
+    const [Edit,setEdit] = useState(false);
+    function handleChange(){
+        setEdit(!Edit)
+    }
     const WorkerData = [
         {
             jobTitle: 'Software engineer',
@@ -10,7 +15,7 @@ function WorkersCard() {
             company: 'Mohan Joshi',
             location: 'New Delhi',
             salary: '$3500 - $4000',
-            mobile : "8178710398",
+            mobile : "*******398",
             btnTitle: 'View Profile',
             btnTitle1: 'Hire',
             btnTitle2: 'Save',
@@ -23,7 +28,7 @@ function WorkersCard() {
             company: 'Rajesh Kumar',
             location: 'New Delhi',
             salary: '$3500 - $4000',
-            mobile : "8178710398",
+            mobile : "*******693",
             btnTitle: 'View Profile',
             btnTitle1: 'Hire',
             btnTitle2: 'Save',
@@ -36,7 +41,7 @@ function WorkersCard() {
             company: 'Dilkush Chadha',
             location: 'Punjab',
             salary: '$3500 - $4000',
-            mobile : "8178710398",
+            mobile : "*******268",
             btnTitle: 'View Profile',
             btnTitle1: 'Hire',
             btnTitle2: 'Save',
@@ -49,7 +54,7 @@ function WorkersCard() {
             company: 'Rupra Kumari',
             location: 'New Delhi',
             salary: '$3500 - $4000',
-            mobile : "8178710398",
+            mobile : "*******094",
             btnTitle: 'View Profile',
             btnTitle1: 'Hire',
             btnTitle2: 'Save',
@@ -61,8 +66,12 @@ function WorkersCard() {
         <>
             {
                 WorkerData.map((i, n) => {
-                    return <JobBoxCard key={n} {...i} />
+                    return <JobBoxCard onClick={handleChange} key={n} {...i} />
                 })
+            }
+
+            {
+                Edit && <PopUpCard url={"/Utility/no1.gif"} Where={"/employer-starter-Dashboard/view-plans"} onClose={handleChange} />
             }
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./NormalForm.css"
 import { Link,useNavigate } from 'react-router-dom';
-import { FaFacebook, FaGoogle ,FaLock,FaGlobe,FaMobile,FaUserFriends } from 'react-icons/fa';
+import { FaFacebook, FaGoogle ,FaLock,FaGlobe,FaMobile,FaUserFriends ,FaUser } from 'react-icons/fa';
 import GetGoogleUrl from '../../../utlity/GetGoogleUrl';
 import { Formik, Form, Field, ErrorMessage,useFormik } from 'formik';
 import Loader from '../loader/Loader';
@@ -64,7 +64,8 @@ function NormalForm() {
                     <form onSubmit={formik.handleSubmit}>
                         <div className="row">
                             {/*  */}  <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <div className="mt-20">
+                                <div className="input-group-icon  mt-20">
+                                <div className="icon"><FaUser/></div>
                                     <input
                                         type="text"
                                         name="firstName"

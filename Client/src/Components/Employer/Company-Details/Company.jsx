@@ -161,7 +161,7 @@ function Company({ initialValues, redirect, Edit }) {
       {Edit ? null : (<ArrowRed bigSize={'bigSizeImg'} url={'/Utility/campany.png'} redtitle={'*Your Job details field given please fill carefully'} />)}
       {Edit ? <PersonalNav hideOrShow={true} onClick={handlePopUpToggle} /> : null}
       {/* Render PopUpCard if isPopUpOpen state is true */}
-      {isPopUpOpen && <PopUpCard onClose={handlePopUpToggle} />}
+      {isPopUpOpen && <PopUpCard url={"/Utility/no1.gif"} Where={"/employer-starter-Dashboard/view-plans"} onClose={handlePopUpToggle} />}
 
 
  
