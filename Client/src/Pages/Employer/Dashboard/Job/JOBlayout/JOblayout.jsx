@@ -8,13 +8,13 @@ function JOblayout({ children, navtag,AllData,Reload }) {
     {
       title: "Add job",
       link: '/employer-starter-Dashboard/Add-job',
-      color: " #808080"
+      color: " #447d8e"
     }
     ,
     {
       title: "View All Job",
       link: '/employer-starter-Dashboard/view-job',
-      color: " #808080"
+      color: " #447d8e"
     }
   ]
   return (

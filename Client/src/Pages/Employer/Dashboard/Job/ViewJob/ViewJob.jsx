@@ -117,7 +117,7 @@ function ViewJob({AllData,Reload}) {
       Jobs.map((i,n)=>{
        return <JobBoxCard onClick1={handleEditPopupToggle} id={i._id} onClick={(e)=>{
         handleDeletePopupToggle(e)
-       }} key={n} jobTitle={i.JobTitle} imageUrl={AllData.CompanyDetails?.CompanyVerification.Logo || ""} company={AllData?.CompanyDetails?.CompanyInformation?.companyName || ""} location={i.JobLocation.city + "," + i.JobLocation.state     } salary={i.SalaryRange.minimum + "-" + i.SalaryRange.maximum } btnTitle={'View'} btnTitle1={'Delete'}  btnTitle2={'Edit'} timeAgo={getTimeDifferenceString(new Date(i.createdAt))} mobile={AllData.mobile}/>
+       }} linkToDetails1={"/employer-starter-Dashboard/view-job/post"} key={n} jobTitle={i.JobTitle} imageUrl={AllData.CompanyDetails?.CompanyVerification.Logo || ""} company={AllData?.CompanyDetails?.CompanyInformation?.companyName || ""} location={i.JobLocation.city + "," + i.JobLocation.state     } salary={i.SalaryRange.minimum + "-" + i.SalaryRange.maximum } btnTitle={'View'} btnTitle1={'Delete'}  btnTitle2={'Edit'} timeAgo={getTimeDifferenceString(new Date(i.createdAt))} mobile={AllData.mobile}/>
       })
     }
 

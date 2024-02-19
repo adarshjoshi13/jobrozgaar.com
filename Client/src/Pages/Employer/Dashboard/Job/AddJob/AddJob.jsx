@@ -4,9 +4,9 @@ import './AddJob.css';
 
 function AddJob({Alldata,Reload}) {
   const [currentStep, setCurrentStep] = useState(1);
-  const [Jobdetails,SetJobdetails] = useState({});
-//   console.log('betet',Jobdetails)
-const [zIndex, setZIndex] = useState(56);
+  const [Jobdetails, SetJobdetails] = useState({});
+  //   console.log('betet',Jobdetails)
+  const [zIndex, setZIndex] = useState(56);
 
 
   const handleNextStep = () => {
@@ -14,10 +14,10 @@ const [zIndex, setZIndex] = useState(56);
     setZIndex(54)
   };
 
-  function GetJobDetails(data){
+  function GetJobDetails(data) {
     SetJobdetails(data)
     handleNextStep()
-    
+
   }
 
   return (
@@ -26,9 +26,9 @@ const [zIndex, setZIndex] = useState(56);
         <div className="container-fluid">
           <br /><br />
           <ul className="list-unstyled multi-steps m-0">
-            <li className={currentStep === 1 ? 'is-active' : ''} onClick={()=>{
-                 setCurrentStep(1);
-                 setZIndex(56)
+            <li className={currentStep === 1 ? 'is-active' : ''} onClick={() => {
+              setCurrentStep(1);
+              setZIndex(56)
             }}>
               Job Detail
               <div className="progress-bar progress-bar--success">
@@ -39,14 +39,14 @@ const [zIndex, setZIndex] = useState(56);
               Requriment
             </li>
           </ul>
-         
+
           {/* <button onClick={handleNextStep}>Next Step</button> */}
         </div>
       </div>
       <div className="main-forms">
         {/* {currentStep === 1 ? <JobPosting /> : <Candidate />} */}
-        <div className="job-posting-cards" style={{zIndex:zIndex}}>
-          <JobPosting sendJobdetails={GetJobDetails}/>
+        <div className="job-posting-cards" style={{ zIndex: zIndex }}>
+          <JobPosting sendJobdetails={GetJobDetails} />
         </div>
 
         <div className="candidate-cards-si">
