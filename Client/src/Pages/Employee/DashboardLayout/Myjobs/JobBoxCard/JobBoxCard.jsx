@@ -35,7 +35,7 @@ const JobBoxCard = ({ onClick,jobTitle, imageUrl, company, location, salary, btn
                     <Link className='Appy-Btn' to={linkToDetails}>{btnTitle2}</Link>
                 </div>
 
-                <span>{timeAgo} ago</span>
+                <span>{timeAgo}</span>
             </div>
         </div>
     );
