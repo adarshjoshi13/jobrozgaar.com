@@ -9,6 +9,7 @@ function EmployerDashboard({children}) {
   const [loader,Setloader] = useState(false);
 
   const [formData, setFormData] = useState({})
+  const [location,Setlocation] = useState('')
   const [reload,setReload] = useState(false)
   useEffect(()=>{
       (async ()=>{
@@ -17,6 +18,7 @@ function EmployerDashboard({children}) {
         if(result.status === 200){
           console.log('yel bhai',result.data)
           setFormData({...result.data.data})
+          Setlocation(result.data.data.CompanyDetails.CompanyAddress.FlatNo + "," + result.data.data.CompanyDetails.CompanyAddress.FlatNo)
           Setloader(false)
         }
        else{
@@ -47,7 +49,7 @@ function EmployerDashboard({children}) {
   }
   return (
    <div className="container">
-     <ProfileCard name={formData?.CompanyDetails?.CompanyInformation?.companyName || "" } email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails?.CompanyVerification.Logo || ""} UploadImg={UploadImg} utlityFunction={fncForReload}/>
+     <ProfileCard name={formData?.CompanyDetails?.CompanyInformation?.companyName || "" } email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails?.CompanyVerification.Logo || ""} UploadImg={UploadImg} utlityFunction={fncForReload} />
      <EmployerTabs/>
      {React.cloneElement(children, { AllData:  formData })}
    </div>
