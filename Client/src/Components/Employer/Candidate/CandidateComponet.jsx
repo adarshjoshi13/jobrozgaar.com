@@ -64,6 +64,32 @@ function CandidateComponet({ initialValues, jobDetails, Redir }) {
     // Add more qualification levels as needed
 ];
 
+const margin ={
+  margin: "9px"
+}
+
+
+const preferredSkills = [
+  { value: 'option1', label: 'Field of Skill' },
+  { value: 'Communication Skills', label: 'Communication Skills' },
+  { value: 'Teamwork', label: 'Teamwork' },
+  { value: 'Problem Solving', label: 'Problem Solving' },
+  { value: 'Adaptability', label: 'Adaptability' },
+  { value: 'Leadership', label: 'Leadership' },
+  { value: 'Time Management', label: 'Time Management' },
+  { value: 'Creativity', label: 'Creativity' },
+  // Add more preferred skills as needed
+];
+
+const languages = [
+  { value: 'Options', label: 'Languages' },
+  { value: 'English', label: 'English' },
+  { value: 'Spanish', label: 'Spanish' },
+  { value: 'French', label: 'French' },
+  { value: 'German', label: 'German' },
+  { value: 'Mandarin', label: 'Mandarin' },
+  // Add more languages as needed
+];
   return (
     <div className="container p-0">
       <NavLogoBtn url={'/Utility/req.png'} />
@@ -72,14 +98,19 @@ function CandidateComponet({ initialValues, jobDetails, Redir }) {
         <div className="col-md-12">
           {/* <FormBar title={"Minimum Qualification"} name={'candidateDetails.MinimumQualification'} onChange={formik.handleChange} value={formik.values.candidateDetails.MinimumQualification} /> */}
 
-          <SingleTitleBar title={"Minimum Qualification"} name={'candidateDetails.MinimumQualification'} 
-          onChange={formik.handleChange} value={formik.values.candidateDetails.MinimumQualification} options={qualification}/>
+          <SingleTitleBar margin={margin} title={"Minimum Qualification"} name={'candidateDetails.MinimumQualification'} onChange={formik.handleChange} value={formik.values.candidateDetails.MinimumQualification} options={qualification}/>
 
 
 
-          <FormBar title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={formik.handleChange} value={formik.values.candidateDetails.PreferredSkills} />
-          {/* <MultiMenu /> */}
-          <FormBar title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} />
+          {/* <FormBar title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={formik.handleChange} value={formik.values.candidateDetails.PreferredSkills} /> */}
+
+          <SingleTitleBar  title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={formik.handleChange} value={formik.values.candidateDetails.PreferredSkills} options={preferredSkills} margin={margin}/>
+
+          {/* <FormBar title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} /> */}
+
+          <SingleTitleBar title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} options={languages} margin={margin}/>
+
+
         </div>
       </div>
       <div className="row">

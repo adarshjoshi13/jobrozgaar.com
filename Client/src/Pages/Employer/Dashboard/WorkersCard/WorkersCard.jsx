@@ -66,12 +66,12 @@ function WorkersCard() {
         <>
             {
                 WorkerData.map((i, n) => {
-                    return <JobBoxCard onClick={handleChange} key={n} {...i} />
+                    return <JobBoxCard  onClick={handleChange} key={n} {...i} />
                 })
             }
 
             {
-                Edit && <PopUpCard btn1={"Buy Now"} title={"You Can't Hire Buddy"} url={"/Utility/no1.gif"} Where={"/employer-starter-Dashboard/view-plans"} onClose={handleChange} />
+                Edit && <PopUpCard Para={"If you want these access then you have to buy our plans first then you can do what ever your want."} btn1={"Buy Now"} title={"You Can't Hire Buddy"} url={"/Utility/no1.gif"} Where={"/employer-starter-Dashboard/view-plans"} onClose={handleChange} />
             }
 
 
