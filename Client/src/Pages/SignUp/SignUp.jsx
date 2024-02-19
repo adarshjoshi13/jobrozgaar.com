@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {FaLongArrowRight, FaLongArrowRight } from "react-icons"
 import './SignUp.css'; // You need to create a CSS file for styling
 
 function SignUp() {
@@ -40,7 +41,29 @@ function SignUp() {
         <div className="sign-wrapper">
             <div className="sign-panels">
                 <div className={showLogin ? "login" : "login hide"}>
-                    {/* Login Content */}
+                    <div className="title">
+                        <span>Sign In</span>
+                        <p>Welcome back, please login to your account. You can login with Facebook, Twitter, or by your regular user login.</p>
+                    </div>
+
+                    <div>
+                        <Link to="#" className="btn-face"><FaFacebook /> Facebook</Link>
+                        <Link to="#" className="btn-twitter"><FaTwitter /> Twitter</Link>
+                    </div>
+
+                    <div className="or"><span>OR</span></div>
+
+                    <form action="">
+                        <input type="text" placeholder="Username" />
+                        <input type="password" placeholder="Password" />
+                        <input type="checkbox" id="remember" />
+                        <label htmlFor="remember">Keep me sign in</label>
+                        <Link to="#" className="btn-signin">Sign In</Link>
+
+                        <Link to="#" className="btn-reset btn-fade">Recover your password <FaLongArrowRight /></Link>
+                        <Link to="#" className="btn-member btn-fade">Not a member yet? <FaLongArrowRight /></Link>
+                    </form>
+              
                 </div>
 
                 <div className={showSignUp ? "signup" : "signup hide"}>

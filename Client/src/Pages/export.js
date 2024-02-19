@@ -50,4 +50,5 @@ import ViewJob from "./Employer/Dashboard/Job/ViewJob/ViewJob";
 import EmployerViewPost from "./Employer/Dashboard/Job/EmployerViewPost/EmployerViewPost";
 
 
+
 export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali,EmployerDashboard,WorkersCard,ViewCompanyDetails,PopUpCard,JOblayout,AddJob,JobBoxCard,SignUp,ViewJob ,EmployerViewPost};

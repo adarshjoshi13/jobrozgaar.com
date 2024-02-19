@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header, Footer, FeaturedJobs, ApplyProcessArea } from './Components/export';
-import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali, EmployerDashboard, WorkersCard, ViewCompanyDetails, JOblayout, AddJob ,ViewJob, EmployerViewPost } from './Pages/export'
+import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali, EmployerDashboard, WorkersCard, ViewCompanyDetails, JOblayout, AddJob ,ViewJob, EmployerViewPost, SignUp } from './Pages/export'
 import { MyJob } from './Components/export';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -26,6 +26,7 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path='/' element={<Layout><Home /></Layout>} />
+        {/* <Route path='/sign-up' element={<Layout><SignUp /></Layout>} /> */}
         <Route path='/find-a-talent' element={<Layout><FindATalent /></Layout>} />
         <Route path='/find-a-job' element={<Layout><FindAJob /></Layout>} />
         <Route path='/about' element={<Layout><About /></Layout>} />
