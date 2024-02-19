@@ -120,7 +120,7 @@ function App() {
 
         <Route path='/employer-starter-Dashboard/view-job/post' element={<Layout>
           <EmployerDashboard>
-            <JOblayout navtag={'View All Job'}>
+            <JOblayout navtag={''}>
               <EmployerViewPost/>
             </JOblayout>
           </EmployerDashboard>

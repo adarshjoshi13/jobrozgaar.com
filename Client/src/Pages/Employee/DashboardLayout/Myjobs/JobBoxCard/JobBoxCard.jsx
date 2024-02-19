@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaMapMarkerAlt ,FaPhoneAlt  } from 'react-icons/fa';
 import "./JobBoxCard.css";
 
-const JobBoxCard = ({ onClick1, onClick,jobTitle, imageUrl, company, location, salary, btnTitle, linkToDetails ,linkToDetails1, btnTitle1, btnTitle2, timeAgo ,mobile }) => {
+const JobBoxCard = ({ onClick1, onClick,jobTitle, imageUrl, company, location, salary, btnTitle, linkToDetails ,linkToDetails1, btnTitle1, btnTitle2, timeAgo ,mobile,id }) => {
     return (
         <div className="Job-Box-single">
             <div className="job-items">
@@ -30,8 +30,8 @@ const JobBoxCard = ({ onClick1, onClick,jobTitle, imageUrl, company, location, s
             </div>
             <div className="items-link f-right">
                 <div className='d-flex flex-wrap'>
-                    <Link onClick={onClick} className='Appy-Btn' to={linkToDetails}>{btnTitle1}</Link>
-                    <Link  className='Appy-Btn' to={linkToDetails1}>{btnTitle}</Link>
+                    <Link onClick={onClick} className='Appy-Btn' to={linkToDetails} id={id}>{btnTitle1}</Link>
+                    <Link className='Appy-Btn' to={linkToDetails1}>{btnTitle}</Link>
                     <Link onClick={onClick1} className='Appy-Btn' to={linkToDetails}>{btnTitle2}</Link>
                 </div>
 

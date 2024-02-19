@@ -1,8 +1,8 @@
 import React from 'react'
 import { Buttons } from '../../../../../Components/export'
 
-function JOblayout({ children, navtag,AllData }) {
-  console.log('propsDrilling',AllData)
+function JOblayout({ children, navtag,AllData,Reload }) {
+  // console.log('propsDrilling',AllData)
   const btns = [
 
     {
@@ -24,7 +24,7 @@ function JOblayout({ children, navtag,AllData }) {
           return (i.title === navtag ? <Buttons to={i.link} title={i.title} color={'#8FAA46'} key={index} /> : <Buttons to={i.link} title={i.title} color={i.color} key={index} />)
         })}
       </div>
-      {React.cloneElement(children, { AllData:  AllData })}
+      {React.cloneElement(children, { AllData:  AllData,Reload, })}
     </div>
   )
 }

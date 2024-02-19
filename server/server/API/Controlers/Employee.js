@@ -555,4 +555,5 @@ async function ChangePassword(req,res){
 
 }
 
+
    module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince,ChangePassword}

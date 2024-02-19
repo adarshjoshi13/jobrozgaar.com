@@ -160,6 +160,30 @@ async UpdateLogo(image){
    }
   }
 }
+
+async DeleteAjob(jobid){
+  try {
+     const response = await axios.delete(`${this.url}/delete-job/${jobid}`,{
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    console.log("server response:",response)
+    return response
+  } catch (error) {
+    if(error.response){
+      console.log("server responed:",error.response)
+      return error.response
+
+   }
+   else if(error.request){
+      // console.log("client side error ", error.request);
+      console.log(error)
+      return null
+   }
+  }
+}
   
 }
 

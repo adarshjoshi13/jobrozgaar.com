@@ -2,7 +2,7 @@ import React from 'react'
 import { CandidateComponet } from '../../../Components/export'
 import { Formik } from 'formik'
 
-function Candidate({jobdetails}) {
+function Candidate({jobdetails,Reload}) {
   const initialValues = {
     candidateDetails: {
       MinimumQualification: "",
@@ -20,7 +20,7 @@ function Candidate({jobdetails}) {
   }
  
   return (
-   <CandidateComponet initialValues={initialValues} jobDetails={jobdetails} Redir={'/employer-starter-Dashboard/view-job'}/>
+   <CandidateComponet initialValues={initialValues} jobDetails={jobdetails} Redir={'/employer-starter-Dashboard/view-job'} Reload={Reload}/>
   )
 }
 

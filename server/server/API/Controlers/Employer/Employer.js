@@ -314,7 +314,32 @@ async function ChangeLogo(req,res){
     }
 }
 
+async function DeleteJOb(req,res){
+  const employerId = GetEmployerIdFromCookie(req.cookies.token)
+  console.log(employerId)
+  if(!employerId){
+     return res.status(401).json({message:'Unauthorized request'})
+  }
+  let jobid= req.params.jobId;
+  console.log("Job id is ",jobid)
+  try {
+    const dltJob = await jobDetails.findByIdAndDelete(jobid);
+    if(dltJob !== null){
+      const dltFromArrayOfEmployer = await employerIntialdata.findByIdAndUpdate(employerId,{
+        $pull:{jobs:jobid}
+      },
+      {new:true});
+      return res.status(200).json({message:'Deleted successfully'})
+    }
+    
+  } catch (error) {
+    console.log(error)
+      return res.status(500).json({message:"can't delete, interal server error"})
+    
+  }
+  
+}
 
 
 
-module.exports = {JobDetails,AddcandidateDetails,AddCompanyDetails,GetAllDataOfEmployer,ChangeLogo}
+module.exports = {JobDetails,AddcandidateDetails,AddCompanyDetails,GetAllDataOfEmployer,ChangeLogo,DeleteJOb}

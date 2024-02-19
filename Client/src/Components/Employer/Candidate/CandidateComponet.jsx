@@ -13,7 +13,7 @@ import MultiMenu from '../../Global/UI/MultiMenu/MultiMenu';
 import { useNavigate } from 'react-router-dom';
 import SingleTitleBar from '../../Global/UI/SingleTitleBar/SingleTitleBar';
 
-function CandidateComponet({ initialValues, jobDetails, Redir }) {
+function CandidateComponet({ initialValues, jobDetails, Redir,Reload }) {
   const [loader, Setloader] = useState(false);
   const navigate = useNavigate()
 
@@ -36,6 +36,7 @@ function CandidateComponet({ initialValues, jobDetails, Redir }) {
         Setloader(false);
         toast.success(result.data.message)
         navigate(Redir)
+        Reload();
       }
 
       else {

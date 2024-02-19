@@ -1,8 +1,8 @@
 import React from 'react';
 import './PopUpCard.css';
 import { Link } from 'react-router-dom';
-
-function PopUpCard({ onClose,url,Where ,title,btn1 ,Para }) {
+import { Loader } from '../../../../Components/export';
+function PopUpCard({ onClose,url,Where ,title,btn1 ,Para,onClick,loader }) {
   return (
     <>
     <div className="edit-pop-cover">
@@ -19,7 +19,7 @@ function PopUpCard({ onClose,url,Where ,title,btn1 ,Para }) {
             <p className="message">{Para}</p>
           </div>
           <div className="actions">
-            <button className="history" type="button"><Link to={Where}>{btn1}</Link></button>
+            <button className="history" type="button" onClick={onClick}><Link to={Where}>{loader?<Loader/>:btn1}</Link></button>
             <button onClick={onClose} className="track" type="button">Go Back</button>
           </div>
         </div>
