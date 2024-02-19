@@ -72,7 +72,7 @@ function ViewJob({AllData}) {
     <div className="job-card-post pt-3">
           {
       Jobs.map((i,n)=>{
-       return <JobBoxCard key={n} jobTitle={i.jobTitle} imageUrl={AllData.CompanyDetails?.CompanyVerification.Logo || ""} company={AllData?.CompanyDetails?.CompanyInformation?.companyName || ""} location={i.JobLocation.city + "," + i.JobLocation.state     } salary={i.SalaryRange.minimum + "-" + i.SalaryRange.maximum } btnTitle={'View'} btnTitle1={'Delete'}  btnTitle2={'Edit'} timeAgo={getTimeDifferenceString(new Date(i.createdAt))}/>
+       return <JobBoxCard key={n} jobTitle={i.JobTitle} imageUrl={AllData.CompanyDetails?.CompanyVerification.Logo || ""} company={AllData?.CompanyDetails?.CompanyInformation?.companyName || ""} location={i.JobLocation.city + "," + i.JobLocation.state     } salary={i.SalaryRange.minimum + "-" + i.SalaryRange.maximum } btnTitle={'View'} btnTitle1={'Delete'}  btnTitle2={'Edit'} timeAgo={getTimeDifferenceString(new Date(i.createdAt))}/>
       })
     }
 
