@@ -12,6 +12,7 @@
     text-align: center;
     display: flex;
     height: 98px;
+    border-radius: 10px;
     transition: 0.3s;
     cursor: pointer;
     justify-content: center;

@@ -1,0 +1,102 @@
+
+
+.your-post-view .post-details2 ul {
+	padding-left: 30px
+}
+
+.your-post-view .post-details2 ul li {
+	list-style-type: circle
+}
+
+.your-post-view .post-details4 span {
+	color: #5b5c6e;
+	font-weight: 700;
+	margin-bottom: 10px;
+	display: block;
+	font-size: 18px
+}
+
+.your-post-view .post-details4 p {
+	margin-bottom: 30px;
+	display: block
+}
+
+.your-post-view .post-details4 ul li {
+	color: #5b5c6e;
+	font-weight: 700;
+	font-size: 18px;
+	display: block
+}
+
+.your-post-view .post-details4 ul li span {
+	color: #5b5c6e;
+	font-weight: 400;
+	font-size: 16px;
+	display: inline-block;
+	padding-left: 18px
+}
+
+
+
+
+.your-post-view .job-post-company{
+    padding: 40px 0px;
+}
+
+.your-post-view .job-post-company ul{
+    padding-left: 0px;
+}
+
+
+.your-post-view .post-details1{
+    margin-bottom: 50px;
+}
+
+
+.your-post-view .post-details2 ul {
+    padding-left: 20px;
+}
+
+.your-post-view .post-details2{
+margin-bottom: 50px;
+}
+
+
+
+
+.your-post-view .post-details4{
+    margin-bottom: 50px;
+    
+}
+
+
+.your-post-view .small-section-tittle h4 {
+    color: #28395a;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+
+
+@media (max-width: 767px) {
+	.your-post-view .job-post-company {
+		padding-top: 70px;
+		padding-bottom: 70px
+	}
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+	.your-post-view .job-post-company {
+		padding-top: 70px;
+		padding-bottom: 70px
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.your-post-view .job-post-company {
+		padding-top: 70px;
+		padding-bottom: 70px
+	}
+}
