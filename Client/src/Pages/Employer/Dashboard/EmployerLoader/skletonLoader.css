@@ -1,0 +1,54 @@
+.skeleton-loader {
+    /* width: 500px; */
+    padding: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* border: 2PX solid red; */
+    width: 80vw;
+    margin-left: 150px;
+  }
+  
+  .skeleton-dashboard {
+    height: 200px;
+    width: 100%;
+    background-color: #f0f0f0;
+    margin-bottom: 20px;
+    /* border: 2px solid blue; */
+  }
+  
+  .skeleton-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    
+    /* border: 2px solid red; */
+  }
+  
+  .skeleton-tab {
+    height: 80px;
+    width: 20%;
+    background-color: #f0f0f0;
+  }
+  
+  .skeleton-bottom-box {
+    height: 500px;
+    width: 100%;
+    background-color: #f0f0f0;
+  }
+  
+  /* Animation */
+  @keyframes shimmer {
+    0% {
+      background-position: -300px 0;
+    }
+    100% {
+      background-position: 300px 0;
+    }
+  }
+  
+  .skeleton-dashboard,
+  .skeleton-tab,
+  .skeleton-bottom-box {
+    background: linear-gradient(to right, #f0f0f0 8%, #e0e0e0 18%, #f0f0f0 33%);
+    background-size: 800px 104px; /* Width should be at least 4 times the width of the elements */
+    animation: shimmer 1s infinite linear;
+  }

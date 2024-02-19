@@ -4,7 +4,7 @@ import { ProfileCard,Loader, } from '../../../../Components/export'
 import { ToastContainer, toast } from 'react-toastify';
 import employerData from '../../../../API/Employer/EmployerData'
 import EmployerTabs from '../EmployerTabs/EmployerTabs'
-
+import SkletonLoader from '../EmployerLoader/SkletonLoader';
 function EmployerDashboard({children}) {
   const [loader,Setloader] = useState(false);
 
@@ -40,12 +40,18 @@ function EmployerDashboard({children}) {
   }
   
 
+  // if(loader){
+  //   return <Loader style={{ width: '100%',
+  //   height: '80vh', 
+  //   display: 'flex',
+  //   alignItems: 'center',
+  //   justifyContent: 'center',}}/>
+  // }
+
   if(loader){
-    return <Loader style={{ width: '100%',
-    height: '80vh', 
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',}}/>
+    return(
+      <SkletonLoader/>
+    )
   }
   return (
    <div className="container">
