@@ -6,7 +6,7 @@ const Banner = () => {
 
   const bannerData = {
     background: "linear-gradient(to right, #396778, #87a14c)",
-    title: "Fress <br/> Talent<span style='color:#f8ed32'> +</span> <br/> Top Employers",
+    title: "Fresh <br/> Talent<span style='color:#f8ed32'> +</span> <br/> Top Employers",
     subTitle: "Create a future with us",
     findTalentLink: "#", 
     findJobLink: "#", 
