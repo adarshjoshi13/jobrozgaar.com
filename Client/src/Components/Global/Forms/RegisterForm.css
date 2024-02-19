@@ -298,7 +298,7 @@
 	display: inline-block;
 	outline: none;
 	line-height: 40px;
-	padding-left: 20%;
+	
 	font-size: 1em;
 	text-align: center;
 	text-decoration: none;
@@ -376,10 +376,12 @@
 
 .genric-btn.primary {
     color: #3d6779;
-   
     border: 2px solid #3d6779db;
-    margin-top: 10px;
-    width: 50%;
+    margin-top: 25px;
+    width: 46%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
     text-align: center;
 }

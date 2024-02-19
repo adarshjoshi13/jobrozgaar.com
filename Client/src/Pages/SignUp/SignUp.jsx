@@ -1,11 +1,45 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 // import { FaLongArrowRight, FaFacebook, FaTwitter } from "react-icons/fa";
 
 import './SignUp.css'; // You need to create a CSS file for styling
+import { Loader } from '../../Components/export';
+import { useFormik } from 'formik';
 
 function SignUp() {
+
+    // main login functions
+    const [loader, Setloader] = useState(false);
+    const navigate = useNavigate();
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: async values => {
+      console.log('here is it', values);
+      Setloader(true);
+      const result = await login.login(values);
+      console.log("this is the result", result);
+
+      if (result === null) {
+        Setloader(false);
+        toast.warn("something went wrong please try again");
+      }
+
+      if (result.status === 200) {
+        Setloader(false);
+        navigate(redircet);
+        toast.success(result.data.message);
+      } else {
+        Setloader(false);
+        toast.error(result.data.message);
+      }
+    },
+  });
+
+
     const [showLogin, setShowLogin] = useState(true);
     const [showSignUp, setShowSignUp] = useState(false);
     const [showRecoverPassword, setShowRecoverPassword] = useState(false);
@@ -50,19 +84,41 @@ function SignUp() {
                     </div>
 
                     <div className='d-flex justify-content-center align-items-center gap-1'>
-                       
-                        <Link to="#" className="btn-twitter"><FaGoogle/> Google</Link>
+
+                        <Link to="#" className="btn-twitter"><FaGoogle /> Google</Link>
                     </div>
 
                     <div className="or"><span>OR</span></div>
 
-                    <form action="">
-                        <input type="text" placeholder="Username" />
-                        <input type="password" placeholder="Password" />
+                    <form onSubmit={formik.handleSubmit}>
+                        <input  
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Enter Your Email"
+                            required
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.email}
+                        />
+                        <input
+                            type="password"
+                            className="form-control"
+                            id="password"
+                            name="password"
+                            placeholder="Enter Your Password"
+                            required
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.password}
+
+                        />
                         <div className='d-flex align-items-center justify-content-center flex-wrap'>
                             <input type="checkbox" id="remember" />
                             <label htmlFor="remember">Keep me sign in</label>
-                            <Link to="#" className="btn-signin">Sign In</Link>
+
+                            <Link to="#" type="submit" className="btn-signin"> {loader ? <Loader /> : 'Sign In'}</Link>
                         </div>
 
 
@@ -79,8 +135,8 @@ function SignUp() {
                     </div>
 
                     <div className='d-flex justify-content-center'>
-                      
-                        <Link to="#" className="btn-twitter"><FaGoogle/> Google</Link>
+
+                        <Link to="#" className="btn-twitter"><FaGoogle /> Google</Link>
                     </div>
 
                     <div className="or"><span>OR</span></div>

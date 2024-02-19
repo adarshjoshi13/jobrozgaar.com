@@ -175,6 +175,7 @@ function Jobposting({ initialValues, utlityfnc }) {
   }
 
   const jobTypes = [
+    { value: 'option1', label: 'Enter the job type' },
     { value: 'full_time', label: 'Full-time' },
     { value: 'part_time', label: 'Part-time' },
     { value: 'contract', label: 'Contract' },

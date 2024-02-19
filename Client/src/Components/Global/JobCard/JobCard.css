@@ -10,6 +10,9 @@
 	    border: 1px solid #39677838;
     margin-bottom: 12px;
 }
+.single-job-items .job-tittle{
+	padding-left: 8px;
+}
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.single-job-items {
@@ -24,11 +27,12 @@
 }
 
 .single-job-items .company-img img {
-	overflow: hidden;
-	float: left;
-	margin-right: 13px;
-	z-index: 999;
-	border: 1px solid #5c8164;
+    overflow: hidden;
+    float: left;
+    width: 90px;
+    /* margin-right: 13px; */
+    z-index: 999;
+    border: 1px solid #5c8164;
 }
 
 @media (max-width: 767px) {
@@ -50,6 +54,8 @@
 	color: #8b92dd
 }
 
+
+
 .single-job-items .job-tittle ul li {
 	display: inline-block;
 	margin-right: 25px;
@@ -59,21 +65,18 @@
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-	.single-job-items .job-tittle ul li {
+	/* .single-job-items .job-tittle ul li {
 		margin-right: 18px
-	}
+	} */
 }
 
 @media (max-width: 767px) {
-	.single-job-items .job-tittle ul li {
-		margin-right: 0px;
-		margin-bottom: 7px
-	}
+	
 }
 
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-	.single-job-items .job-tittle ul li {
-		margin-right: 8px
+@media only screen and (max-width: 768px) {
+	.single-job-items .job-tittle{
+		padding-left: 0px;
 	}
 }
 

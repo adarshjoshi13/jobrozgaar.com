@@ -16,7 +16,7 @@ const JobCard = ({ jobTitle, imageUrl, company, location, salary, timeAgo, linkT
           <Link to={linkToDetails}>
             <h4>{jobTitle}</h4>
           </Link>
-          <ul className='p-0'>
+          <ul className='p-0 d-flex gap-1 flex-wrap align-items-center'>
             <li>{company}</li>
             <li>
               <FaMapMarkerAlt />

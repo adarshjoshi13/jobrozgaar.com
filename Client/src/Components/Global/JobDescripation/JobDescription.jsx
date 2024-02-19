@@ -47,7 +47,7 @@ function JobDescription() {
                             companyType="Creative Agency"
                             location="Athens, Greece"
                             salary="$3500 - $4000"
-                            imageSrc="/Utility/job-list1.png"
+                            imageSrc="/Utility/go.jpg"
                             linkTo="#"
                             phone={"8178710398"}// Adjust the link accordingly
                         />
@@ -69,8 +69,9 @@ function JobDescription() {
 
 
                         <CompanyInformation
-                            name="Colorlib"
-                            website="colorlib.com"
+                            name={"Contact Details"}
+                            name1="Vipul Narayan Semwal Pandit"
+                            website="vipulbillioner124@gmail.com"
                             email="Vipulsemwal124@gmail.com"
                         />
                     </div>
