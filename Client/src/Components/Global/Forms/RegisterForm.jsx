@@ -1,6 +1,6 @@
 import React from 'react';
 import "./RegisterForm.css"
-import { FaFacebook, FaGoogle ,FaLock,FaGlobe } from 'react-icons/fa';
+import { FaFacebook, FaGoogle ,FaLock,FaGlobe ,FaPhoneAlt,FaUser } from 'react-icons/fa';
 import { Link,useNavigate } from 'react-router-dom';
 // import { FaFacebook, FaGoogle ,FaLock,FaGlobe,FaMobile } from 'react-icons/fa';
 import GetGoogleUrl from '../../../utlity/GetGoogleUrl';
@@ -68,7 +68,8 @@ const RegisterForm = () => {
         
 
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div className="mt-20">
+            <div className="input-group-icon mt-20">
+            <div className="icon"><FaUser/></div>
               <input
                 type="text"
                 name="CompanyName"
@@ -83,7 +84,8 @@ const RegisterForm = () => {
           </div>
 
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div className=" mt-20">
+            <div className="input-group-icon mt-20">
+            <div className="icon"><FaPhoneAlt/></div>
               <input
                 type="text"
                 name="mobile"

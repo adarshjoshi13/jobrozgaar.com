@@ -40,7 +40,7 @@ const ContactSection = () => {
               </div>
             </form>
           </div>
-          <div className="col-lg-3 offset-lg-1">
+          <div className="col-lg-3 offset-lg-1 d-flex flex-column align-items-start">
             <div className="media contact-info">
               <span className="contact-info__icon"><FaHome/></span>
               <div className="media-body">

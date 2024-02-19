@@ -118,6 +118,7 @@ function Jobposting({ initialValues, utlityfnc }) {
 
 
   const city = [
+    { value: 'option1', label: 'Current City' },
     { value: 'Mumbai', label: 'Mumbai' },
     { value: 'Delhi', label: 'Delhi' },
     { value: 'Bangalore', label: 'Bangalore' },
@@ -127,6 +128,7 @@ function Jobposting({ initialValues, utlityfnc }) {
   ];
 
   const states = [
+    { value: 'option1', label: 'Which State' },
     { value: 'Andhra Pradesh', label: 'Andhra Pradesh' },
     { value: 'Arunachal Pradesh', label: 'Arunachal Pradesh' },
     { value: 'Assam', label: 'Assam' },
