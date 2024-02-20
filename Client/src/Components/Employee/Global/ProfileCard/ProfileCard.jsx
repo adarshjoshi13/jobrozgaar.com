@@ -141,9 +141,9 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
       {Popup && (
         <PopUpCard
           Para={"If you delete this, it cannot be undone. Please think carefully."}
-          title={"Are you sure you really want to logout"}
+          title={"Are really want to log out"}
           btn1={"Log out"}
-          url={"/Utility/del.gif"}
+          url={"/Utility/log.gif"}
           Where={"/"}
           onClose={handleOpen}
         />

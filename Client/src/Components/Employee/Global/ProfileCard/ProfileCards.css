@@ -96,6 +96,7 @@ padding: 18px;
 
   .dash-para p{
     margin: 0px ;
+    font-size: 15px;
   }
 
 
@@ -285,4 +286,36 @@ padding: 18px;
   /* button click effect*/
   .log-out:active {
     transform: translate(2px ,2px);
+  }
+
+
+
+  @media screen and (max-width:1024px) {
+    .dash-para p{
+      font-size: 14px;
+    }
+  }
+
+
+
+  @media screen and (max-width:768px) {
+    .profile-dash h4{
+    font-size: 19px;
+    }
+
+    .progress-bar-dash h4 {
+      color: #3c6678;
+      font-size: 19px;
+  }
+  }
+
+
+  @media screen and (max-width:426px) {
+    .dash-para p{
+      font-size: 13px;
+    }
+
+    .profile-cover-dash{
+      padding: 18px 3px;
+    }
   }
