@@ -2,6 +2,7 @@ const {GetGoogleAuthToken,fetchGoogleUserInfo,Sendemail} = require('../../Servic
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const employerIntialdata = require('../../Models/Employer/EmployerInital')
+const {GetUserIdFromCookie,GetEmployerIdFromCookie} = require('../../Helper/getUserId');
 
 // helper
 async function findUserByEmail(email) {
@@ -130,7 +131,29 @@ async function SignIn(req,res){
   return res.json({message:"succesfuly login",token:accessToken,refershToken,}).status(200)
 }
 
+async function VerifyAuthentication(req,res){
+  console.log("token agay bhai",req.cookies.token);
+  const employerId = GetEmployerIdFromCookie(req.cookies.token)
+  console.log(employerId)
+  if(!employerId){
+     return res.status(401).json({message:'Unauthorized request'})
+  }
+
+  try {
+    const user = await employerIntialdata.findById(employerId);
+    console.log(user.ProfileCompleate)
+    if(user){
+      return res.status(200).json({ProfileCompleateness:user.ProfileCompleate})
+    }
+    else{
+      return res.status(404)
+    }
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({message:"Internal Server Error"});
+  }
+}
 
 
 
-module.exports = {Signup,verifyUser,SignIn}
+module.exports = {Signup,verifyUser,SignIn,VerifyAuthentication}

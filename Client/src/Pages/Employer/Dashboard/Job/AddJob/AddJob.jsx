@@ -7,11 +7,15 @@ function AddJob({Alldata,Reload}) {
   const [Jobdetails, SetJobdetails] = useState({});
   //   console.log('betet',Jobdetails)
   const [zIndex, setZIndex] = useState(56);
+  const [JobcardOPec,SetJobCardOpec] = useState(1)
+  const [candidateOPec,SetCandidateOpec] = useState(0)
 
 
   const handleNextStep = () => {
     setCurrentStep(2);
     setZIndex(54)
+    SetJobCardOpec(0)
+    SetCandidateOpec(1)
   };
 
   function GetJobDetails(data) {
@@ -29,6 +33,8 @@ function AddJob({Alldata,Reload}) {
             <li className={currentStep === 1 ? 'is-active' : ''} onClick={() => {
               setCurrentStep(1);
               setZIndex(56)
+              SetJobCardOpec(1)
+              SetCandidateOpec(0)
             }}>
               Job Detail
               <div className="progress-bar progress-bar--success">
@@ -45,11 +51,11 @@ function AddJob({Alldata,Reload}) {
       </div>
       <div className="main-forms">
         {/* {currentStep === 1 ? <JobPosting /> : <Candidate />} */}
-        <div className="job-posting-cards" style={{ zIndex: zIndex }}>
+        <div className="job-posting-cards" style={{ zIndex: zIndex,opacity:JobcardOPec }}>
           <JobPosting sendJobdetails={GetJobDetails} />
         </div>
 
-        <div className="candidate-cards-si">
+        <div className="candidate-cards-si"  style={{opacity:candidateOPec}} >
           <Candidate jobdetails={Jobdetails} Reload={Reload}/>
         </div>
       </div>
