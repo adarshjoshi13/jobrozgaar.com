@@ -14,7 +14,7 @@ function MyjobsList() {
       btnTitle1: 'Save',
       btnTitle2: 'Apply',
       timeAgo: "3 hours ago",
-      mobile:"*********3469",
+      mobile:"8178710398",
       linkToDetails: '/Dashboard/jobs/job-details',
     },
     {
@@ -27,7 +27,7 @@ function MyjobsList() {
       btnTitle1: 'Save',
       btnTitle2: 'Apply',
       timeAgo: "3 hours ago",
-      mobile:"*********3469",
+      mobile:"8379273947",
       linkToDetails: '/Dashboard/jobs/job-details',
     },
     {
@@ -40,7 +40,7 @@ function MyjobsList() {
       btnTitle1: 'Save',
       btnTitle2: 'Apply',
       timeAgo: "3 hours ago",
-      mobile:"*********3469",
+      mobile:"9873839487",
 
       linkToDetails: '/Dashboard/jobs/job-details',
     },
@@ -54,7 +54,7 @@ function MyjobsList() {
       btnTitle1: 'Save',
       btnTitle2: 'Apply',
       timeAgo: "3 hours ago",
-      mobile:"*********3469",
+      mobile:"6548236548",
       linkToDetails: '/Dashboard/jobs/job-details',
     },
   ];

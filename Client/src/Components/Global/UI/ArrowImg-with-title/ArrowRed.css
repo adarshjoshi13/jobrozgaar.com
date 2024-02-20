@@ -1,3 +1,20 @@
 /* #big-img{
     width: 200px;
 } */
+
+.red-title{
+    color: rgb(207, 54, 54);
+}
+
+
+@media screen and (max-width:768px) {
+    .red-title{
+       font-size: 14px;
+    }
+}
+
+@media screen and (max-width:322px) {
+    .red-title{
+       font-size: 12px;
+    }
+}

@@ -22,7 +22,7 @@ function EmployerTabs() {
             </Link>
             <Link to={'/employer-starter-Dashboard/view-plans'}>
                 <div className="tabItem">
-                    <img className='bige' src="/Utility/plan.png" alt="" />
+                    <img className='big-g' src="/Utility/plan.png" alt="" />
                 </div>
             </Link>
         </div>

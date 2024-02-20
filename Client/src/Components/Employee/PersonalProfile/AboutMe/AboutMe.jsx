@@ -37,13 +37,13 @@ if(loader){
     return (
         <div className="p-2 container d-flex">
             <div className="row w-100">
-                <div className="personal-cover col-md-3 d-flex justify-content-start ">
+                <div className="personal-cover col-md-3 p-0 d-flex justify-content-start ">
                     <div className="image-cover-personal d-flex justify-content-center align-items-center flex-wrap">
                         <img src="/Utility/18.png" alt="" />
                         <h5>About Me</h5>
                     </div>
                 </div>
-                <div className="col-md-7">
+                <div className="col-md-7 p-0">
                     <p className="p-1 pro-para m-0">
                       {AboutMe}
                     </p>

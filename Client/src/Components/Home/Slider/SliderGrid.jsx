@@ -13,12 +13,12 @@ const breakPoints = [
 ];
 
 const carouselData = [
-  { icon: <FaGraduationCap className="fagg" />, title: "Cook Jobs", count: 5555 },
-  { icon: <FaMale className="fagg" />, title: "Sales", count: 5555 },
-  { icon: <FaUserMd className="fagg" />, title: "Medical", count: 5555 },
-  { icon: <FaCar className="fagg" />, title: "Driver", count: 5555 },
-  { icon: <FaGraduationCap className="fagg" />, title: "Cook Jobs", count: 5555 },
-  { icon: <FaMale className="fagg" />, title: "Sales", count: 5555 },
+  { icon: <FaGraduationCap className="fagg" />, title: "Cook Jobs", count: 7593 },
+  { icon: <FaMale className="fagg" />, title: "Sales", count: 4830 },
+  { icon: <FaUserMd className="fagg" />, title: "Medical", count: 2843 },
+  { icon: <FaCar className="fagg" />, title: "Driver", count: 8293 },
+  { icon: <FaGraduationCap className="fagg" />, title: "Cook Jobs", count: 3829 },
+  { icon: <FaMale className="fagg" />, title: "Sales", count: 3859 },
   { icon: <FaUserMd className="fagg" />, title: "Ashutosh", count: 5555 },
   { icon: <FaCar className="fagg" />, title: "Abhi kaam nhi", count: 5555 },
 ];

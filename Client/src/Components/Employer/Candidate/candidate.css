@@ -1,5 +1,5 @@
 .shape {
-  width: 100%;
+  width: 82%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -47,7 +47,9 @@
 }
 
 
-
+.newSize{
+  width: 100px;
+}
 
 
 
@@ -156,13 +158,13 @@
 }
 
 .candidate-btn-div button {
-  padding: 8px 12px;
+  padding: 5px 12px;
 }
 
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 766px) {
   .info-group {
     width: calc(50% - 20px);
     /* 2 boxes per row */

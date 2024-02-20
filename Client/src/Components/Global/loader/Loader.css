@@ -15,6 +15,15 @@
     animation: dash4 1.5s ease-in-out infinite;
    }
    
+
+   .loaderrr{
+    width: 100%;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    height: 100%;
+   }
+
    @keyframes rotate4 {
     100% {
      transform: rotate(360deg);

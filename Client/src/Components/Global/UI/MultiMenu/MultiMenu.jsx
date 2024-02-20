@@ -1,44 +1,27 @@
-import React, { useState } from "react";
-import { FaChevronDown, FaCheck } from "react-icons/fa";
-import "./MultiMenu.css"; // Assuming you have your CSS file imported here
+import React, { useEffect } from 'react';
 
-const MultiMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguages, setSelectedLanguages] = useState([]);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const toggleLanguage = (language) => {
-    const isSelected = selectedLanguages.includes(language);
-    if (isSelected) {
-      setSelectedLanguages(selectedLanguages.filter((lang) => lang !== language));
-    } else {
-      setSelectedLanguages([...selectedLanguages, language]);
-    }
-  };
+const MultiMenu = ({ margin, selectinput, name, value, handleChange, options }) => {
+  useEffect(() => {
+    // Initialize multi-select-tag or use any other provided functionality
+    const multiSelect = new MultiSelectTag('custom-select-is');
+    // Replace '.custom-select' with the appropriate selector for your select element
+  }, []);
 
   return (
-    <div className="multi-bar">
-      <div className={`select-btn ${isOpen ? "open" : ""}`} onClick={toggleDropdown}>
-        <span className="btn-text">{selectedLanguages.length > 0 ? `${selectedLanguages.length} Selected` : "Select Language"}</span>
-        <span className="arrow-dwn">
-          <FaChevronDown />
-        </span>
+    <> 
+      <div className="cover-of-select" style={margin}>
+        {/* <FaAngleDown className='arrow-down-icon' style={{ color: "black" }} />  */}
+        <select className={`form-control`} id='custom-select-is' style={selectinput} name={name} onChange={handleChange} value={value} multiple>
+          {options.map((option, index) => (
+            <option key={index} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
       </div>
-
-      <ul className={`list-items ${isOpen ? "open" : ""}`}>
-        <li className="item" onClick={() => toggleLanguage("HTML & CSS")}>
-          <span className={`checkbox ${selectedLanguages.includes("HTML & CSS") ? "checked" : ""}`}>
-            <FaCheck className="check-icon" />
-          </span>
-          <span className="item-text">HTML & CSS</span>
-        </li>
-        {/* Repeat the same structure for other languages */}
-      </ul>
-    </div>
+    </>
   );
 };
 
-export default MultiMenu;
+export default MultiMenu; 
