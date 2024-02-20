@@ -42,45 +42,53 @@ async function SignUP(req,res){
    }
 }
 
-async function SignIn(req,res){
+async function SignIn(req, res) {
   const { email, password } = req.body;
   const employee = await employeeIntialdata.findOne({ email });
-  console.log(employee, req.body);
 
   if (!employee) {
-    return res.status(404).json({ message: 'user  not found' });
+    return res.status(404).json({ message: 'User not found' });
   }
 
-  if(!employee.isVerified){
-    return res.status(401).json({ message: 'email not verified please verify your email to login'});
+  if (!employee.isVerified) {
+    return res.status(401).json({ message: 'Email not verified. Please verify your email to login' });
   }
-
 
   const validPassword = await bcrypt.compare(password, employee.password);
   if (!validPassword) {
-    return res.status(401).json({ message: 'wrong password' });
+    return res.status(401).json({ message: 'Wrong password' });
   }
 
-  const accessToken = jwt.sign({ employeeId: employee._id }, process.env.ACCESS_TOKEN_SECRET);
-  const refershToken = jwt.sign({refershToken:employee._id},process.env.REFRESH_TOKEN_SECRET)
+  const accessToken = jwt.sign({ employeeId: employee._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d'  });
+  const refershToken = jwt.sign({ refreshToken: employee._id }, process.env.REFRESH_TOKEN_SECRET);
 
- try {
-  const result = await employee.updateOne({ _id: employee._id }, { $set: { refershToken: refershToken } });
- } catch (error) {
-    console.log(error)
-   return res.json({message:"internal server error",}).status(500)
- }
-  
+  try {
+    const updatedEmployee = await employeeIntialdata.findOneAndUpdate(
+      { _id: employee._id },
+      { $set: { refershToken: refershToken } },
+      { new: true }
+    );
+    // Use the updatedEmployee object for any further operations
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+
   res.cookie('token', accessToken, {
     httpOnly: true,
+    // Secure: true, // Uncomment this if using HTTPS
+    // SameSite: 'None', // Uncomment this if using cross-site cookies
   });
 
-  res.cookie('refresh-token',refershToken,{
-    httpOnly:true,
-  })
+  res.cookie('refresh-token', refershToken, {
+    httpOnly: true,
+    // Secure: true, // Uncomment this if using HTTPS
+    // SameSite: 'None', // Uncomment this if using cross-site cookies
+  });
 
-  return res.json({message:"succesfuly login",token:accessToken,refershToken,}).status(200)
+  return res.status(200).json({ message: 'Successfully logged in', token: accessToken, refreshToken: refershToken });
 }
+
 
 function logout(req,res){
     res.send("hello working")
@@ -190,6 +198,8 @@ async function VerifyAuthentication(req,res){
     return res.status(500).json({message:"Internal Server Error"});
   }
 }
+
+
 
 
 module.exports = {SignIn,SignUP,logout,GoogleAUth,verifyUser,VerifyAuthentication}
