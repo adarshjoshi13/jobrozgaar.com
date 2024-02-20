@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header, Footer, FeaturedJobs, ApplyProcessArea, JobDescription } from './Components/export';
-import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali, EmployerDashboard, WorkersCard, ViewCompanyDetails, JOblayout, AddJob ,ViewJob, EmployerViewPost, SignUp } from './Pages/export'
+import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali, EmployerDashboard, WorkersCard, ViewCompanyDetails, JOblayout, AddJob ,ViewJob, EmployerViewPost, SignUp,EmployerProtectedRoute,EmployeeProtectedRoute } from './Pages/export'
 import { MyJob } from './Components/export';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -38,104 +38,185 @@ function App() {
         <Route path='/payroll_outsourcing' element={<Layout><PayRoll /></Layout>} />
         <Route path='/manpower_outsourcing' element={<Layout><ManPower /></Layout>} />
         <Route path='/employee-login' element={<Layout><EmployeeLogin /></Layout>} />
-        <Route path='/employe-profile-compleateness' element={<Layout><EmployeDashBorad /></Layout>} />
+        <Route path='/employe-profile-compleateness' element={
+          <EmployeeProtectedRoute CMP={
+            <Layout><EmployeDashBorad /></Layout>
+          } Dashboard={false}/>
+        } />
 
-        <Route path='/Personal-profile' element={<Layout><PersonalProfile /></Layout>} />
-        <Route path='/work-experience' element={<Layout><WorkExperince /></Layout>} />
-        <Route path='/education' element={<Layout><Education /></Layout>} />
+        <Route path='/Personal-profile' element={
+          <EmployeeProtectedRoute CMP={
+            <Layout><PersonalProfile /></Layout>
+          } Dashboard={false}/>
+        } />
+        <Route path='/work-experience' element={<EmployeeProtectedRoute CMP={
+          <Layout><WorkExperince /></Layout>
+        } Dashboard={false}/>} />
+        
+        <Route path='/education' element={<EmployeeProtectedRoute CMP={
+        <Layout><Education /></Layout>
+        } Dashboard={false}/>} />
 
-        <Route path='/edit-personal-profile' element={<Layout><EditPersonalProfile isShow={true} /></Layout>} />
-        <Route path='/update-working-exprince' element={<Layout><UpdateWorkingExprince /></Layout>} />
-        <Route path='/update-education' element={<Layout><EditEducation /></Layout>} />
+        <Route path='/edit-personal-profile' element={<EmployeeProtectedRoute CMP={
+          <Layout><EditPersonalProfile isShow={true} /></Layout>
+        } Dashboard={false}/>} />
+        <Route path='/update-working-exprince' element={<EmployeeProtectedRoute CMP={
+          <Layout><UpdateWorkingExprince /></Layout>
+        } Dashboard={false}/>} />
+        <Route path='/update-education' element={
+          <EmployeeProtectedRoute CMP={
+            <Layout><EditEducation /></Layout>
+          } Dashboard={false}/>
+        } />
+        
         {/* employer's route */}
-        <Route path='/employer-Job-posting' element={<Layout><JobPosting /></Layout>} />
-        <Route path='/employer-requirement-candidate' element={<Layout><Candidate /></Layout>} />
-        <Route path='/employer-Company-Details' element={<Layout><CompanyDetails /></Layout>} />
+        <Route path='/employer-Company-Details' element={<EmployerProtectedRoute CMP={
+          <Layout><CompanyDetails /></Layout>
+        } Dashboard={false}/>} />
 
-        <Route path='/employer-plans' element={<Layout><PlanPage /></Layout>} />
+        <Route path='/employer-plans' element={
+          <EmployerProtectedRoute CMP={
+            <Layout><PlanPage /></Layout>
+          } Dashboard={false}/>
+        } />
 
         <Route path='/employer-login' element={<Layout><EmployerLogin /></Layout>} />
         {/* Dashboard layout for employee */}
-        <Route path='/Dashboard/personal-profile' element={<Layout><Dashboard navtag={'Personal Profile'}><DashboardPeronalProfile /></Dashboard></Layout>} />
-        <Route path='/Dashboard/work-experience' element={<Layout><Dashboard navtag={'work Experience'}><DasboardWork /></Dashboard></Layout>} />
-        <Route path='/Dashboard/education' element={<Layout><Dashboard navtag={'Education'}><DashboardEducation /></Dashboard></Layout>} />
-        <Route path='/Dashboard/offer-letter' element={<Layout><Dashboard navtag={'Offer Letter'}><OfferLetter /></Dashboard></Layout>} />
-        <Route path='/Dashboard/setting' element={<Layout><Dashboard navtag={'setting'}><PasswordChange /></Dashboard></Layout>} />
-        <Route path='/Dashboard/tips-support' element={<Layout><Dashboard navtag={'Tips & Support'}><TipsSupport /></Dashboard></Layout>} />
+        <Route path='/Dashboard/personal-profile' element={
+          <EmployeeProtectedRoute CMP={
+            <Layout><Dashboard navtag={'Personal Profile'}><DashboardPeronalProfile /></Dashboard></Layout>
+          } Dashboard={true}/>
+        } />
+       
+        <Route path='/Dashboard/work-experience' element={
+          <EmployeeProtectedRoute CMP={
+            <Layout><Dashboard navtag={'work Experience'}><DasboardWork /></Dashboard></Layout>
+          }   Dashboard={true} />
+        } />
+        
+        
+        <Route path='/Dashboard/education' element={
+          <EmployeeProtectedRoute CMP={
+            <Layout><Dashboard navtag={'Education'}><DashboardEducation /></Dashboard></Layout>
+          } Dashboard={true}/>
+        } />
+        
+        
+        <Route path='/Dashboard/offer-letter' element={
+          <EmployeeProtectedRoute CMP={
+            <Layout><Dashboard navtag={'Offer Letter'}><OfferLetter /></Dashboard></Layout>
+          }   Dashboard={true} />
+        } />
+        
+        
+        <Route path='/Dashboard/setting' element={
+          <EmployeeProtectedRoute CMP={
+            <Layout><Dashboard navtag={'setting'}><PasswordChange /></Dashboard></Layout>
+          }  Dashboard={true} />
+        } />
+       
+       
+        <Route path='/Dashboard/tips-support' element={
+          <EmployeeProtectedRoute CMP={
+            <Layout><Dashboard navtag={'Tips & Support'}><TipsSupport /></Dashboard></Layout>
+          } Dashboard={true}/>
+        } />
         {/* for my jobs */}
         <Route
           path='/Dashboard/jobs/my-jobs'
           element={
+           <EmployeeProtectedRoute CMP={
             <Layout>
-              <Dashboard navtag={'My-Jobs'}>
-                <MyJob>
-                  <MyjobsList />
-                </MyJob>
-              </Dashboard>
-            </Layout>
+            <Dashboard navtag={'My-Jobs'}>
+              <MyJob>
+                <MyjobsList />
+              </MyJob>
+            </Dashboard>
+          </Layout>
+           } Dashboard={true}/>
           }
         />
         <Route
           path='/Dashboard/jobs/job-details'
           element={
-            <Layout>
+            <EmployeeProtectedRoute CMP={
+              <Layout>
               <Dashboard navtag={'My-Jobs'}>
                 <MyJob>
                   <JobDetali />
                 </MyJob>
               </Dashboard>
             </Layout>
+            } Dashboard={true}/>
           }
         />
 
         {/*Dashboard of employer */}
-        <Route path='/employer-starter-Dashboard/view-candidates' element={<Layout>
+        <Route path='/employer-starter-Dashboard/view-candidates' element={<EmployerProtectedRoute CMP={
+          <Layout>
           <EmployerDashboard>
 
             <WorkersCard />
           </EmployerDashboard>
-        </Layout>} />
+        </Layout>
+        } Dashboard={true}/>} />
 
-        <Route path='/employer-starter-Dashboard/view-company-details' element={<Layout>
+        <Route path='/employer-starter-Dashboard/view-company-details' element={<EmployerProtectedRoute CMP={
+          <Layout>
           <EmployerDashboard>
             <ViewCompanyDetails />
           </EmployerDashboard>
-        </Layout>} />
+        </Layout>
+        }  Dashboard={true}/>} />
 
-        <Route path='/employer-starter-Dashboard/view-plans' element={<Layout>
+        <Route path='/employer-starter-Dashboard/view-plans' element={<EmployerProtectedRoute CMP={
+          <Layout>
           <EmployerDashboard>
             <PlanPage />
           </EmployerDashboard>
-        </Layout>} />
+        </Layout>
+        } Dashboard={true}/>} />
 
         {/* JOb layout for employer started */}
-        <Route path='/employer-starter-Dashboard/view-job' element={<Layout>
+        <Route path='/employer-starter-Dashboard/view-job' element={
+          <EmployerProtectedRoute CMP={
+            <Layout>
           <EmployerDashboard>
             <JOblayout navtag={'View All Job'}>
               <ViewJob />
             </JOblayout>
           </EmployerDashboard>
-        </Layout>} />
+        </Layout>
+          } Dashboard={true}/>
+        } />
 
 
-        <Route path='/employer-starter-Dashboard/view-job/post' element={<Layout>
+        <Route path='/employer-starter-Dashboard/view-job/post' element={
+          <EmployerProtectedRoute CMP={
+            <Layout>
           <EmployerDashboard>
             <JOblayout navtag={'View All Job'}>
               <JobDescription/>
             </JOblayout>
           </EmployerDashboard>
-        </Layout>} />
+        </Layout>
+          } Dashboard={true}/>
+        } />
 
 
         
 
-        <Route path='/employer-starter-Dashboard/Add-job' element={<Layout>
+        <Route path='/employer-starter-Dashboard/Add-job' element={
+          <EmployerProtectedRoute CMP={
+            <Layout>
           <EmployerDashboard>
             <JOblayout navtag={"Add job"}>
               <AddJob />
             </JOblayout>
           </EmployerDashboard>
-        </Layout>} />
+        </Layout>
+          } Dashboard={true}/>
+        } />
 
 
 

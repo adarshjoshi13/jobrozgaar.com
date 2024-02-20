@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const  employeeIntialdata = require('../Models/Employee.model');
 const { default: mongoose } = require('mongoose');
+const {GetUserIdFromCookie,GetEmployerIdFromCookie} = require('../Helper/getUserId');
 async function SignUP(req,res){
    const {firstName,mobile,email,password} = req.body
    console.log(firstName,mobile,email,password)
@@ -167,6 +168,28 @@ async function verifyUser(req, res) {
    return res.render('signuperorr',  { error: { message: 'Something went wrong! Please Sign Up Again',url:process.env.BACKTOHOME } });
   }
 }
+async function VerifyAuthentication(req,res){
+  console.log("token agay bhai",req.cookies.token);
+  const employeeId = GetUserIdFromCookie(req.cookies.token)
+  console.log(employeeId)
+  if(!employeeId){
+     return res.status(401).json({message:'Unauthorized request'})
+  }
+
+  try {
+    const user = await employeeIntialdata.findById(employeeId);
+    console.log(user.ProfileCompleate)
+    if(user){
+      return res.status(200).json({ProfileCompleateness:user.ProfileCompleate})
+    }
+    else{
+      return res.status(404)
+    }
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({message:"Internal Server Error"});
+  }
+}
 
 
-module.exports = {SignIn,SignUP,logout,GoogleAUth,verifyUser}
+module.exports = {SignIn,SignUP,logout,GoogleAUth,verifyUser,VerifyAuthentication}

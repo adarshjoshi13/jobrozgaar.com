@@ -8,7 +8,7 @@ const upload = require('../API/middleware/multer')
 router.post('/sign-up',Signup)
 router.get('/verify-mail',verifyUser);
 router.post('/sign-in',SignIn);
-router.get('/verfiy-auth',VerifyAuthentication)
+router.get('/verify-auth',VerifyAuthentication);
 
 
 

@@ -53,6 +53,25 @@ class Authentication {
           }
     }
   }
+
+  async VerifyAuth(){
+    try {
+      const result = await axios.get(`${this.url}/verify-auth`,{
+        withCredentials: true
+      })
+      return result
+    } catch (error) {
+      if (error.response) {
+        console.log("data",error.response)
+        return error.response
+        } else if (error.request) {
+          console.error('No response received:', error.request);
+          return null
+        } else {
+         return null 
+        }
+    }
+  }
 }
 
 const EmployerAuth = new Authentication('http://localhost:3000/employer');
