@@ -1,9 +1,12 @@
 /* Base styles */
 .employerTabs {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);/* Adjust minmax() as needed */
-    gap: 20px; /* Adjust the gap between items */
-    grid-auto-flow: row; /* Make items wrap when there's not enough space */
+    grid-template-columns: repeat(4, 1fr);
+    /* Adjust minmax() as needed */
+    gap: 20px;
+    /* Adjust the gap between items */
+    grid-auto-flow: row;
+    /* Make items wrap when there's not enough space */
 }
 
 .tabItem {
@@ -11,7 +14,7 @@
     padding: 10px;
     text-align: center;
     display: flex;
-    height: 98px;
+    height: 89px;
     border-radius: 10px;
     transition: 0.3s;
     cursor: pointer;
@@ -21,33 +24,74 @@
 
 
 .tabItem:hover {
-   
+
     /* box-shadow: #ADB949 0px 8px 24px; */
     box-shadow: #ADB949 0px 2px 8px 0px;
 }
 
 .tabItem img {
-    max-width: 67%;
+    max-width: 55%;
     height: auto;
 }
 
-.bige{
-    width: 50% ;
+.bige {
+    width: 44%;
 }
 
 /* Media query for smaller screens */
+@media screen and (max-width: 1196px) {
+    .employerTabs {
+        grid-template-columns: repeat(4, 1fr);
+        /* Two columns */
+    }
+
+    .tabItem {
+
+        height: 80px;
+
+    }
+}
+
 @media screen and (max-width: 990px) {
     .employerTabs {
-        grid-template-columns: repeat(4, 1fr); /* Two columns */
+        grid-template-columns: repeat(4, 1fr);
+
+        /* Two columns */
+    }
+
+    .tabItem img {
+        max-width: 75%;
+        height: auto;
+    }
+
+    .bige {
+        width: 59%;
+    }
+
+    .tabItem {
+
+        height: 66px;
     }
 }
 
 @media screen and (max-width: 768px) {
     .employerTabs {
         grid-template-columns: repeat(4, 1fr);
-         /* Two columns */
-         
+        /* Two columns */
+
     }
+
+    .tabItem img {
+        max-width: 70%;
+
+    }
+
+    .tabItem {
+        padding: 0px;
+        height: 61px;
+
+    }
+
     /* .tabItem img {
         max-width: 82%;
         height: auto;
@@ -57,21 +101,69 @@
 
 @media screen and (max-width: 450px) {
     .employerTabs {
-        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        grid-template-columns: repeat(2, 1fr);
+        /* Two columns */
     }
 
 
     .tabItem img {
-        max-width: 96%;
+        max-width: 61%;
         height: auto;
     }
 
     .bige {
-        width: 73%;
+        width: 51%;
     }
 
-    .tabItem  {
-        
+    .tabItem {
+
         height: 66px;
+    }
+}
+
+
+@media screen and (max-width: 376px) {
+    .employerTabs {
+        grid-template-columns: repeat(2, 1fr);
+        /* Two columns */
+    }
+
+
+    .tabItem img {
+        max-width: 61%;
+        height: auto;
+    }
+
+    .bige {
+        width: 51%;
+    }
+
+    .tabItem {
+
+        height: 63px;
+    }
+}
+
+
+
+@media screen and (max-width: 320px) {
+    .employerTabs {
+        grid-template-columns: repeat(2, 1fr);
+        /* Two columns */
+    }
+
+
+    .tabItem img {
+        max-width: 69%;
+        height: auto;
+    }
+
+    .bige {
+        width: 57%;
+    }
+
+    .tabItem {
+
+        height: 54px;
     }
 }
