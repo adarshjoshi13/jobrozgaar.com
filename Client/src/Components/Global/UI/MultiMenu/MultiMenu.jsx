@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 const MultiMenu = ({ margin, selectinput, name, value, handleChange, options }) => {
+  const [render,SetRender] = useState(0)
   useEffect(() => {
     // Initialize multi-select-tag or use any other provided functionality
     const multiSelect = new MultiSelectTag('custom-select-is');
     // Replace '.custom-select' with the appropriate selector for your select element
   }, []);
+ 
 
   return (
     <> 

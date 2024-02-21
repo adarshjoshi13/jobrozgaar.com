@@ -4,21 +4,22 @@ const{Signup,verifyUser,SignIn,VerifyAuthentication} = require('../API/Controler
 const { sign } = require('jsonwebtoken');
 const {JobDetails,AddcandidateDetails,AddCompanyDetails,GetAllDataOfEmployer,ChangeLogo,DeleteJOb} = require('../API/Controlers/Employer/Employer');
 const upload = require('../API/middleware/multer')
+const {CheckAuthMiddlewareForEmployer} = require('../API/middleware/CheckAuth')
 
 router.post('/sign-up',Signup)
 router.get('/verify-mail',verifyUser);
 router.post('/sign-in',SignIn);
-router.get('/verify-auth',VerifyAuthentication);
+router.get('/verify-auth',CheckAuthMiddlewareForEmployer,VerifyAuthentication);
 
 
 
 
-router.post('/job-details',JobDetails);
-router.post('/candidate-requirement',AddcandidateDetails);
-router.post('/company-details',upload.any(),AddCompanyDetails);
-router.get('/get-employer-data',GetAllDataOfEmployer);
-router.put('/update-logo',upload.any(),ChangeLogo);
-router.delete('/delete-job/:jobId',DeleteJOb)
+router.post('/job-details',CheckAuthMiddlewareForEmployer,JobDetails);
+router.post('/candidate-requirement',CheckAuthMiddlewareForEmployer,AddcandidateDetails);
+router.post('/company-details',CheckAuthMiddlewareForEmployer,upload.any(),AddCompanyDetails);
+router.get('/get-employer-data',CheckAuthMiddlewareForEmployer,GetAllDataOfEmployer);
+router.put('/update-logo',CheckAuthMiddlewareForEmployer,upload.any(),ChangeLogo);
+router.delete('/delete-job/:jobId',CheckAuthMiddlewareForEmployer,DeleteJOb)
 
 
 module.exports = router;
