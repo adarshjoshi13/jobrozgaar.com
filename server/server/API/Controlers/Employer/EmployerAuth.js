@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const employerIntialdata = require('../../Models/Employer/EmployerInital')
 const {GetUserIdFromCookie,GetEmployerIdFromCookie} = require('../../Helper/getUserId');
-
 // helper
 async function findUserByEmail(email) {
     try {
@@ -110,11 +109,11 @@ async function SignIn(req,res){
     return res.status(401).json({ message: 'wrong password' });
   }
 
-  const accessToken = jwt.sign({ employerId: employer._id }, process.env.ACCESS_TOKEN_SECRET);
+  const accessToken = jwt.sign({ employerId: employer._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d'  });
   const refershToken = jwt.sign({EmployerRefershToken:employer._id},process.env.REFRESH_TOKEN_SECRET)
 
  try {
-  const result = await employer.updateOne({ _id: employer._id }, { $set: { refershToken: refershToken } });
+  const result = await employerIntialdata.updateOne({ _id: employer._id }, { $set: { refershToken: refershToken } });
  } catch (error) {
     console.log(error)
    return res.json({message:"internal server error",}).status(500)

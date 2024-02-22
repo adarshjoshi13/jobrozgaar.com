@@ -7,16 +7,24 @@
   height: auto;
 }
 
-@media screen and (max-width:606px) {
-  .upper-nav img {
-    width: 125px ;
-  }
-}
+
 
 
 
 .bigSizeImg{
-  width: 140px !important ;
+  width: 138px !important ;
+}
+
+
+@media screen and (max-width:606px) {
+  .upper-nav img {
+    width: 125px ;
+  }
+
+  
+.bigSizeImg{
+  width: 116px !important ;
+}
 }
 
 

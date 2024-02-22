@@ -19,7 +19,7 @@
 
 
 .two-inputs img{
-    width: 32px;
+    width: 29px;
      
  }
 
@@ -34,7 +34,10 @@
 
 
 @media screen and (max-width:768px) {
-    
+    .two-inputs h5{
+        font-size: 14px;
+    }
+
 }
 
  @media only screen and (max-width: 540px) {

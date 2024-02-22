@@ -6,7 +6,7 @@ function Candidate({jobdetails,Reload}) {
   const initialValues = {
     candidateDetails: {
       MinimumQualification: "",
-      PreferredSkills: "",
+      PreferredSkills: [],
       LanguageKnown: "",
       AdharCard: false,
       PanCard: false,

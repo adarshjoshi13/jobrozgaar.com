@@ -42,7 +42,7 @@ export default function DashboardEducation() {
       <ArrowNavigate url={'/Utility/education.png'}/>
       {/* <PersonalNav/> */}
       <AboutMe/>
-      <EducationBox initialValues={initialValues} Edit={true} redirect={'/update-education'}/>
+      <EducationBox initialValues={initialValues} Edit={true} redirect={'/Dashboard/education'}/>
     </div>
   </div>
   )

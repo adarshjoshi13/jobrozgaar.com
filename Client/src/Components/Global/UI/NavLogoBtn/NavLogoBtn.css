@@ -1,5 +1,5 @@
 #top-img{
-    width: 200px;
+    width: 183px;
 }
 
 
@@ -9,7 +9,7 @@
 }
 @media screen and (max-width:1001px) {
     #top-img{
-        width: 150px;
+        width: 119px;
     }
     .topImg{
         width: 100px !important;

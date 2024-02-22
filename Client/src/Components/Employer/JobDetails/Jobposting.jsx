@@ -171,7 +171,8 @@ function Jobposting({ initialValues, utlityfnc }) {
   }
 
   const selectinput ={
-    fontSize:"12px"
+    fontSize:"12px",
+    padding : "8px"
   }
 
   const jobTypes = [
@@ -347,7 +348,7 @@ function Jobposting({ initialValues, utlityfnc }) {
 
         </div>
         <div className="job-post-btn d-flex justify-content-center">
-          <Button type={'submit'} title={"save"} onClick={formik.handleSubmit} />
+          <Button type={'submit'} title={"Next"} onClick={formik.handleSubmit} />
 
         </div>
       </div>

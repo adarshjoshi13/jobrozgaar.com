@@ -72,7 +72,7 @@ function EmployeDash_Board() {
 
          
         ) : (
-          <button className='continue-button'> <Link to={'/Dashboard/personal-profile'}>
+          <button className='continue-button'> <Link to={'/Dashboard/jobs/my-jobs'}>
     <span>Go to Dashboard</span>
     <svg width="34" height="34" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="37" cy="37" r="35.5" stroke="black" strokeWidth="3"></circle>
