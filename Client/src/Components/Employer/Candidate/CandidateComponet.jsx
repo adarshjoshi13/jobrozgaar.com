@@ -12,7 +12,7 @@ import NavLogoBtn from '../../Global/UI/NavLogoBtn/NavLogoBtn';
 import MultiMenu from '../../Global/UI/MultiMenu/MultiMenu';
 import { useNavigate } from 'react-router-dom';
 import SingleTitleBar from '../../Global/UI/SingleTitleBar/SingleTitleBar';
-import SingleTitleMulti from '../../Global/UI/SingleTitleMulti/SingleTitleMulti';
+// import SingleTitleMulti from '../../Global/UI/SingleTitleMulti/SingleTitleMulti';
 
 function CandidateComponet({ initialValues, jobDetails, Redir,Reload }) {
   const [loader, Setloader] = useState(false);
@@ -110,9 +110,9 @@ const languages = [
 
           {/* <FormBar title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={formik.handleChange} value={formik.values.candidateDetails.PreferredSkills} /> */}
 
-          <SingleTitleMulti  selectinput={selectinput} title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={(e)=>{
+          {/* <SingleTitleMulti  selectinput={selectinput} title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={(e)=>{
             console.log('multiSlect',e.target)
-          }} value={formik.values.candidateDetails.PreferredSkills} options={preferredSkills} margin={margin}/>
+          }} value={formik.values.candidateDetails.PreferredSkills} options={preferredSkills} margin={margin}/> */}
 
           {/* <FormBar title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} /> */}
 
