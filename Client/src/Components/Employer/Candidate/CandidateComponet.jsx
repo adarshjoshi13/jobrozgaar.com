@@ -114,9 +114,17 @@ function CandidateComponet({ initialValues, jobDetails, Redir, Reload }) {
             console.log('multiSlect', e.target)
           }} value={formik.values.candidateDetails.PreferredSkills} options={preferredSkills} margin={margin} />
 
+
+          <SingleTitleMulti selectinput={selectinput} title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={(e) => {
+            console.log('multiSlect', e.target)
+          }} value={formik.values.candidateDetails.LanguageKnown} options={languages} margin={margin} />
+
+
+
+
           {/* <FormBar title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} /> */}
 
-          <SingleTitleBar selectinput={selectinput} title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} options={languages} margin={margin} />
+          {/* <SingleTitleBar selectinput={selectinput} title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} options={languages} margin={margin} /> */}
 
 
         </div>
