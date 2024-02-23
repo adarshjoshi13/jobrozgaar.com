@@ -3,7 +3,7 @@ import React from 'react';
 import { FaAngleDown } from "react-icons/fa"; // Assuming this is already imported
 import MultiMenu from '../MultiMenu/MultiMenu';
 
-function SingleTitleMulti({ title,  onChange,  value, name,margin, selectinput, options }) {
+function SingleTitleMulti({ title, onChange, value, name, margin, selectinput, options }) {
     return (
         <div className="container SingleTitleBar">
             <div className="row">
@@ -29,12 +29,12 @@ function SingleTitleMulti({ title,  onChange,  value, name,margin, selectinput, 
 
                             /> */}
                             <MultiMenu
-                             name={name}
+                                name={name}
                                 value={value}
                                 handleChange={onChange}
                                 margin={margin}
                                 selectinput={selectinput}
-                                options={options}/>
+                                options={options} />
                         </div>
                     </div>
                 </div>

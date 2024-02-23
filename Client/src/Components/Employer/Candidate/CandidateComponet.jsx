@@ -9,12 +9,12 @@ import { useState, useEffect } from 'react';
 import employeData from '../../../API/Employer/EmployerData'
 import ArrowRed from '../../Global/UI/ArrowImg-with-title/ArrowRed';
 import NavLogoBtn from '../../Global/UI/NavLogoBtn/NavLogoBtn';
-import MultiMenu from '../../Global/UI/MultiMenu/MultiMenu';
+import SingleTitleMulti from '../../Global/UI/SingleTitleMulti/SingleTitleMulti';
 import { useNavigate } from 'react-router-dom';
 import SingleTitleBar from '../../Global/UI/SingleTitleBar/SingleTitleBar';
-// import SingleTitleMulti from '../../Global/UI/SingleTitleMulti/SingleTitleMulti';
 
-function CandidateComponet({ initialValues, jobDetails, Redir,Reload }) {
+
+function CandidateComponet({ initialValues, jobDetails, Redir, Reload }) {
   const [loader, Setloader] = useState(false);
   const navigate = useNavigate()
 
@@ -64,38 +64,38 @@ function CandidateComponet({ initialValues, jobDetails, Redir,Reload }) {
     { value: 'Master', label: 'Master' },
     { value: 'PhD', label: 'PhD' },
     // Add more qualification levels as needed
-];
+  ];
 
-const selectinput ={
-  fontSize: "12px"
-}
+  const selectinput = {
+    fontSize: "12px"
+  }
 
-const margin ={
-  margin: "9px"
-}
+  const margin = {
+    margin: "9px"
+  }
 
 
-const preferredSkills = [
-  { value: 'option1', label: 'Field of Skill' },
-  { value: 'Communication Skills', label: 'Communication Skills' },
-  { value: 'Teamwork', label: 'Teamwork' },
-  { value: 'Problem Solving', label: 'Problem Solving' },
-  { value: 'Adaptability', label: 'Adaptability' },
-  { value: 'Leadership', label: 'Leadership' },
-  { value: 'Time Management', label: 'Time Management' },
-  { value: 'Creativity', label: 'Creativity' },
-  // Add more preferred skills as needed
-];
+  const preferredSkills = [
+    { value: 'option1', label: 'Field of Skill' },
+    { value: 'Communication Skills', label: 'Communication Skills' },
+    { value: 'Teamwork', label: 'Teamwork' },
+    { value: 'Problem Solving', label: 'Problem Solving' },
+    { value: 'Adaptability', label: 'Adaptability' },
+    { value: 'Leadership', label: 'Leadership' },
+    { value: 'Time Management', label: 'Time Management' },
+    { value: 'Creativity', label: 'Creativity' },
+    // Add more preferred skills as needed
+  ];
 
-const languages = [
-  { value: 'Options', label: 'Languages' },
-  { value: 'English', label: 'English' },
-  { value: 'Spanish', label: 'Spanish' },
-  { value: 'French', label: 'French' },
-  { value: 'German', label: 'German' },
-  { value: 'Mandarin', label: 'Mandarin' },
-  // Add more languages as needed
-];
+  const languages = [
+    { value: 'Options', label: 'Languages' },
+    { value: 'English', label: 'English' },
+    { value: 'Spanish', label: 'Spanish' },
+    { value: 'French', label: 'French' },
+    { value: 'German', label: 'German' },
+    { value: 'Mandarin', label: 'Mandarin' },
+    // Add more languages as needed
+  ];
   return (
     <div className="container p-0">
       <NavLogoBtn url={'/Utility/req.png'} />
@@ -104,19 +104,19 @@ const languages = [
         <div className="col-md-12">
           {/* <FormBar title={"Minimum Qualification"} name={'candidateDetails.MinimumQualification'} onChange={formik.handleChange} value={formik.values.candidateDetails.MinimumQualification} /> */}
 
-          <SingleTitleBar selectinput={selectinput} margin={margin} title={"Minimum Qualification"} name={'candidateDetails.MinimumQualification'} onChange={formik.handleChange} value={formik.values.candidateDetails.MinimumQualification} options={qualification}/>
+          <SingleTitleBar selectinput={selectinput} margin={margin} title={"Minimum Qualification"} name={'candidateDetails.MinimumQualification'} onChange={formik.handleChange} value={formik.values.candidateDetails.MinimumQualification} options={qualification} />
 
 
 
           {/* <FormBar title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={formik.handleChange} value={formik.values.candidateDetails.PreferredSkills} /> */}
 
-          {/* <SingleTitleMulti  selectinput={selectinput} title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={(e)=>{
-            console.log('multiSlect',e.target)
-          }} value={formik.values.candidateDetails.PreferredSkills} options={preferredSkills} margin={margin}/> */}
+          <SingleTitleMulti selectinput={selectinput} title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={(e) => {
+            console.log('multiSlect', e.target)
+          }} value={formik.values.candidateDetails.PreferredSkills} options={preferredSkills} margin={margin} />
 
           {/* <FormBar title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} /> */}
 
-          <SingleTitleBar  selectinput={selectinput} title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} options={languages} margin={margin}/>
+          <SingleTitleBar selectinput={selectinput} title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={formik.handleChange} value={formik.values.candidateDetails.LanguageKnown} options={languages} margin={margin} />
 
 
         </div>
