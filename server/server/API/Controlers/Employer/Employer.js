@@ -44,7 +44,7 @@ async function JobDetails(req,res){
               const deleatJob = await jobDetails.findByIdAndDelete(JobDetail._id)
               return res.status(500).json({message:"something went wrong"})
             }
-            return res.status(200).json({message:"details added"})
+            return res.status(200).json({message:"JOb Posted  Successfully!"});
           }
          
         

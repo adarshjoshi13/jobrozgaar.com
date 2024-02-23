@@ -111,12 +111,15 @@ function CandidateComponet({ initialValues, jobDetails, Redir, Reload }) {
           {/* <FormBar title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={formik.handleChange} value={formik.values.candidateDetails.PreferredSkills} /> */}
 
           <SingleTitleMulti selectinput={selectinput} title={'Preferred Skills'} name={'candidateDetails.PreferredSkills'} onChange={(e) => {
-            console.log('multiSlect', e.target)
+            // console.log('multiSlect', formik.values.preferredSkills)
+            formik.setFieldValue('PreferredSkills',e)
           }} value={formik.values.candidateDetails.PreferredSkills} options={preferredSkills} margin={margin} />
 
 
           <SingleTitleMulti selectinput={selectinput} title={'Language Known'} name={'candidateDetails.LanguageKnown'} onChange={(e) => {
-            console.log('multiSlect', e.target)
+            // console.log('multiSlect', formik.values.LanguageKnown)
+            formik.setFieldValue('LanguageKnown',e)
+
           }} value={formik.values.candidateDetails.LanguageKnown} options={languages} margin={margin} />
 
 

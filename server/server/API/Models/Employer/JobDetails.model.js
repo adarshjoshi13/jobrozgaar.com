@@ -60,8 +60,8 @@ JobLocation:{
 },
 candidateDetails:{
   MinimumQualification:String,
-  PreferredSkills:String,
-  LanguageKnown:String,
+  PreferredSkills:Array,
+  LanguageKnown:Array,
   AdharCard:Boolean,
   PanCard: Boolean,
   DrivingLicense:Boolean,
