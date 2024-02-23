@@ -22,8 +22,18 @@ function PersonalDetails() {
   const [Saveloader, SetSaveloader] = useState(false)
   const navigate = useNavigate()
   const [reload, setreload] = useState(false)
-  console.log(Images);
+  // console.log(Images);
   // checking for values
+  function checkValues(obj) {
+    const keysToCheck = Object.keys(obj).slice(0, -3); // Exclude last 3 values
+    for (let key of keysToCheck) {
+      if (obj[key] === "") {
+        toast.warn(`${key} is required`);
+        return false;
+      }
+    }
+    return true; 
+  }
   const [formData, setFormData] = useState({})
   useEffect(() => {
     (async () => {
@@ -61,10 +71,14 @@ function PersonalDetails() {
 
     },
     onSubmit: async values => {
-      console.log(values)
+      // console.log(values)
+      const check = checkValues(values);
+      if(!check){
+        return;
+      }
       SetSaveloader(true)
       const result = await employee.PersonalProfile(Images, values)
-      console.log("this is the result", result)
+      // console.log("this is the result", result)
 
       if (result === null) {
         SetSaveloader(false)
