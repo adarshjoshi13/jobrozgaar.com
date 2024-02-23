@@ -72,6 +72,27 @@ class Authentication {
         }
     }
   }
+
+  async Logout(){
+    try {
+      const result = await axios.get(`${this.url}/logout`,{
+        withCredentials: true
+      })
+      return result
+    } catch (error) {
+      if (error.response) {
+        console.log("data",error.response)
+        return error.response
+        } else if (error.request) {
+          console.error('No response received:', error.request);
+          return null
+        } else {
+         return null 
+        }
+    }
+  }
+
+
 }
 
 const auth = new Authentication('http://localhost:3000');

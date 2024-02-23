@@ -90,9 +90,21 @@ async function SignIn(req, res) {
 }
 
 
-function logout(req,res){
-    res.send("hello working")
+function logout(req, res) {
+  try {
+    res.cookie('token', '', { expires: new Date(0), httpOnly: true });
+    res.cookie('refresh-token', '', { expires: new Date(0), httpOnly: true });
+    res.clearCookie("token");
+    res.clearCookie("refresh-token");
+
+    
+    return res.status(200).json({ message: 'Loged out successfully' });
+  } catch (error) {
+    console.error('Logout error:', error);
+    return res.status(500).json({ message: 'Failed to logout' });
+  }
 }
+
 
 async function GoogleAUth(req,res){
   try {

@@ -6,11 +6,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Button, Loader } from '../../../export';
 import { Link } from 'react-router-dom';
 import { PopUpCard } from '../../../../Pages/export';
+import auth from '../../../../API/Authentiocaion';
+import { useNavigate } from 'react-router-dom';
 
 function ProfileCard({ email, proifePic, number, compleateProfile, name, location, extraData, utlityFunction, UploadImg }) {
   const [Popup, setPopup] = useState(false);
   const [sliderValue, setSliderValue] = useState(10);
   const [loader, setloader] = useState(false);
+  const [LogoutLoader,SetLogoutLoader] = useState(false)
+  const Navigate = useNavigate()
 // Added state for delete confirmation
 
   console.log("chut ka marij", utlityFunction);
@@ -42,16 +46,29 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
     }
   };
 
-  const downloadImage = () => {
-    const link = document.createElement('a');
-    link.href = proifePic; // Assuming profilePic is a URL to the image
-    let ImgDownLink = link.href = proifePic;
-    console.log(ImgDownLink);
-    link.download = `${proifePic}`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  const Logout =  async (values) => {
+    SetLogoutLoader(true)
+    const result = await auth.Logout(values)
+
+
+    if (result === null) {
+        SetLogoutLoader(false)
+        toast.warn("something went wrong please try again")
+    }
+
+    if (result.status === 200) {
+        SetLogoutLoader(false);
+        toast.success(result.data.message)
+        Navigate('/')
+    }
+
+    else {
+        SetLogoutLoader(false);
+        toast.error(result.data.message)
+    }
+
+
+}
 
   const LoderStyle = {
     width: "100%"
@@ -75,7 +92,7 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
                     {loader ? <Loader style={LoderStyle} /> : <img src={proifePic ? proifePic : "/Utility/profile.png"} alt="profile" className='img-fluid  ' id='profile-pic-img' />}
                   </div>
                   <div className="buttons-profile mb-2">
-                    <button className="three-btn" onClick={downloadImage}>
+                    <button className="three-btn" >
                       <FaCloudDownloadAlt />
                     </button>
 
@@ -144,8 +161,9 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
           title={"Are really want to log out"}
           btn1={"Log out"}
           url={"/Utility/log.gif"}
-          Where={"/"}
           onClose={handleOpen}
+          loader={LogoutLoader}
+          onClick={Logout}
         />
       )}
     </div>

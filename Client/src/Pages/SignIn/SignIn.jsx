@@ -3,11 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 // import { FaLongArrowRight, FaFacebook, FaTwitter } from "react-icons/fa";
 
-import './SignUp.css'; // You need to create a CSS file for styling
+import './SignIn.css'; // You need to create a CSS file for styling
 import { Loader } from '../../Components/export';
 import { useFormik } from 'formik';
+import { ToastContainer, toast } from 'react-toastify';
 
-function SignUp() {
+function SignIn({login,redircet,backurl}) {
 
     // main login functions
     const [loader, Setloader] = useState(false);
@@ -118,12 +119,12 @@ function SignUp() {
                             <input type="checkbox" id="remember" />
                             <label htmlFor="remember">Keep me sign in</label>
 
-                            <Link to="#" type="submit" className="btn-signin"> {loader ? <Loader /> : 'Sign In'}</Link>
+                            <Link to="#" type="submit" className="btn-signin" onClick={formik.handleSubmit}> {loader ? <Loader /> : 'Sign In'}</Link>
                         </div>
 
 
                         <Link to="#" onClick={handleShowRecoverPassword} className="btn-reset btn-fade">Recover your password </Link>
-                        <Link to="#" onClick={handleShowSignUp} className="btn-member btn-fade">Not a member yet? </Link>
+                        <Link to={backurl} className="btn-member btn-fade">Not a member yet? </Link>
                     </form>
 
                 </div>
@@ -184,4 +185,4 @@ function SignUp() {
     );
 }
 
-export default SignUp;
+export default SignIn;
