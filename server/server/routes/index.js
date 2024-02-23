@@ -13,5 +13,6 @@ router.get('/logout',logout);
 router.get('/oauth/google',GoogleAUth);
 router.get('/verify',verifyUser);
 router.get('/verify-auth',CheckAuthMiddlewareForEmployee,VerifyAuthentication);
+router.get('/logout',logout)
 
 module.exports = router;
