@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 // import { FaLongArrowRight, FaFacebook, FaTwitter } from "react-icons/fa";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './SignIn.css'; // You need to create a CSS file for styling
 import { Loader } from '../../Components/export';
 import { useFormik } from 'formik';
@@ -75,9 +76,18 @@ function SignIn({login,redircet,backurl}) {
         }
     };
 
+    useEffect(() => {
+        AOS.init({
+            duration: 500,
+            easing: 'ease-out',
+            once: true
+        });
+    }, []);
+    
+
     return (
         <div className="sign-wrapper">
-            <div className="sign-panels">
+            <div className="sign-panels" data-aos="fade-up">
                 <div className={showLogin ? "login" : "login hide"}>
                     <div className="title">
                         <span onClick={handleShowLogin}><img src="/Utility/logo.png" alt="" /></span>
@@ -92,40 +102,43 @@ function SignIn({login,redircet,backurl}) {
                     <div className="or"><span>OR</span></div>
 
                     <form onSubmit={formik.handleSubmit}>
-                        <input  
-                            type="email"
-                            className="form-control"
-                            id="email"
-                            name="email"
-                            placeholder="Enter Your Email"
-                            required
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.email}
-                        />
-                        <input
-                            type="password"
-                            className="form-control"
-                            id="password"
-                            name="password"
-                            placeholder="Enter Your Password"
-                            required
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.password}
+    <input  
+        type="email"
+        className="form-control"
+        id="email"
+        name="email"
+        placeholder="Enter Your Email"
+        required
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.email}
+    />
+    <input
+        type="password"
+        className="form-control"
+        id="password"
+        name="password"
+        placeholder="Enter Your Password"
+        required
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.password}
+    />
+    <div className='d-flex align-items-center justify-content-center flex-wrap'>
+        <input type="checkbox" id="remember" />
+        <label htmlFor="remember">Keep me sign in</label>
 
-                        />
-                        <div className='d-flex align-items-center justify-content-center flex-wrap'>
-                            <input type="checkbox" id="remember" />
-                            <label htmlFor="remember">Keep me sign in</label>
+        {/* Change Link to button type="submit" */}
+        <button type="submit" className="btn-signin">
+            {loader ? <Loader /> : 'Sign In'}
+        </button>
+    </div>
 
-                            <Link to="#" type="submit" className="btn-signin" onClick={formik.handleSubmit}> {loader ? <Loader /> : 'Sign In'}</Link>
-                        </div>
+    {/* Move these links outside the form if they are not part of form submission */}
+    <Link to="#" onClick={handleShowRecoverPassword} className="btn-reset btn-fade">Recover your password </Link>
+    <Link to={backurl} className="btn-member btn-fade">Not a member yet? </Link>
+</form>
 
-
-                        <Link to="#" onClick={handleShowRecoverPassword} className="btn-reset btn-fade">Recover your password </Link>
-                        <Link to={backurl} className="btn-member btn-fade">Not a member yet? </Link>
-                    </form>
 
                 </div>
 

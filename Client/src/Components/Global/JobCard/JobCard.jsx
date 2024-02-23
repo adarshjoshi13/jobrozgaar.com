@@ -1,11 +1,20 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import "./JobCard.css";
 
 const JobCard = ({ jobTitle, imageUrl, company, location, salary, timeAgo, linkToDetails }) => {
+  useEffect(() => {
+    AOS.init({
+        duration: 500,
+        easing: 'ease-out',
+        once: true
+    });
+}, []);
   return (
-    <div className="single-job-items">
+    <div className="single-job-items" data-aos="fade-left">
       <div className="job-items">
         <div className="company-img">
           <Link to={linkToDetails}>
