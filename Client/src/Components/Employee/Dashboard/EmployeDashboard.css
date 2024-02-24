@@ -1,79 +1,79 @@
 /* NavbarComponent.css */
 
-  
-  .employed-dashbaord{
-    height: auto;
-    /* padding: 10px; */
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-  .show-info {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-  }
-  @media screen and (max-width:768px) {
-  
-  .employed-dashbaord{
+
+.employed-dashbaord {
+  height: auto;
+  /* padding: 10px; */
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.show-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width:768px) {
+
+  .employed-dashbaord {
     /* flex-direction: column; */
     flex-wrap: wrap;
     border: 1px;
   }
-  }
-  
-
- .continue-button {
-    cursor: pointer;
-    font-weight: 700;
-    font-family: Helvetica,"sans-serif";
-    transition: all .2s;
-    padding: 10px 20px;
-    border-radius: 100px;
-    color: gray;
-    background: #cfef00;
-    border: 1px solid black !important;
-    border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    transition: 0.4s;
-    font-size: 15px;
-  }
-
-  .continue-button span{
-    color: rgb(45, 43, 43);
-    margin: 4px;
-  }
-  
- .continue-button:hover {
-    background: #c4e201;
-  }
-  
- .continue-button > svg {
-    width: 34px;
-    margin-left: 10px;
-    transition: transform .3s ease-in-out;
-  }
-  
- .continue-button:hover svg {
-    transform: translateX(5px);
-  }
-  
- .continue-button:active {
-    transform: scale(0.95);
-  }
-  
-  
- 
- 
+}
 
 
- 
+.continue-button {
+  cursor: pointer;
+  font-weight: 700;
+  font-family: Helvetica, "sans-serif";
+  transition: all 1s ease-in-out;
+  padding: 10px 20px;
+  border-radius: 18px;
+  color: rgb(238, 233, 233);
+  background: #90AA47;
 
-  /* Fill color based on slider value */
-  
-  
-  
-  /* Center the container content */
 
-  
+  display: flex;
+  align-items: center;
+  transition: 0.4s;
+  font-size: 15px;
+}
+
+.continue-button span {
+  color: rgb(255, 255, 255);
+  margin: 4px;
+}
+
+.continue-button:hover {
+  background: #c4e201;
+}
+
+.continue-button>svg {
+  width: 34px;
+ margin-left: 10px;
+  transition: transform .3s ease-in-out;
+}
+
+.continue-button:hover svg {
+  transform: translateX(5px);
+}
+
+.continue-button:active {
+  transform: scale(0.95);
+}
+
+
+
+
+
+
+
+
+/* Fill color based on slider value */
+
+
+
+/* Center the container content */
