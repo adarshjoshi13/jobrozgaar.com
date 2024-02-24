@@ -16,6 +16,7 @@ async function JobDetails(req,res){
 
     const {wantToHire,NoOfVacancy,JobTitle,JobType,Gender,religion,SalaryRange,WorkingShift,WorkTiming,JobLocation} = req.body.Job;
     const {candidateDetails} = req.body.Candidate
+    // console.log(candidateDetails,"hmmm") 
 
     try {
         const JobDetail = await jobDetails.create({

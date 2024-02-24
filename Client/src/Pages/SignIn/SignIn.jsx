@@ -8,8 +8,10 @@ import './SignIn.css'; // You need to create a CSS file for styling
 import { Loader } from '../../Components/export';
 import { useFormik } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
+import Cookies from 'js-cookie';
 
-function SignIn({login,redircet,backurl}) {
+function SignIn({login,redircet,backurl,cookie}) {
+    
 
     // main login functions
     const [loader, Setloader] = useState(false);
@@ -31,9 +33,11 @@ function SignIn({login,redircet,backurl}) {
       }
 
       if (result.status === 200) {
+        Cookies.set('clientToken', cookie, { expires: new Date('9999-12-31T23:59:59') });
         Setloader(false);
         navigate(redircet);
         toast.success(result.data.message);
+        
       } else {
         Setloader(false);
         toast.error(result.data.message);

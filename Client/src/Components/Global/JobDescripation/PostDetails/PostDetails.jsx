@@ -1,6 +1,7 @@
 import React from 'react'
 import "./PostDetails.css"
 function PostDetails({sections}) {
+    // console.log('sec',sections)
   return (
     <div className="job-post-details p-3">
             {sections.map((section, index) => (

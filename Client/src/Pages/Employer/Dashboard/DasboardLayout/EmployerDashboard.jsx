@@ -6,7 +6,7 @@ import employerData from '../../../../API/Employer/EmployerData'
 import EmployerTabs from '../EmployerTabs/EmployerTabs'
 import SkletonLoader from '../EmployerLoader/SkletonLoader';
 function EmployerDashboard({children}) {
-  const [loader,Setloader] = useState(false);
+  const [loader,Setloader] = useState(true);
 
   const [formData, setFormData] = useState({})
   const [location,Setlocation] = useState('')
@@ -28,7 +28,7 @@ function EmployerDashboard({children}) {
       })()
     },[reload])
 
-    console.log('bullha ki jana',formData)
+    // console.log('bullha ki jana',formData)
 
   function UploadImg(img){
     return employerData.UpdateLogo(img)
@@ -38,6 +38,14 @@ function EmployerDashboard({children}) {
     setReload(!reload)
     // console.log('')
   }
+
+  function formatAddress(address) {
+    // console.log('addd',address)
+    if(!address){
+        return " "
+    }
+    return `${address.FlatNo}, ${address.city}, ${address.State}, ${address.Landmark}`;
+}
   
 
   // if(loader){
@@ -55,7 +63,7 @@ function EmployerDashboard({children}) {
   }
   return (
    <div className="container">
-     <ProfileCard name={formData?.CompanyDetails?.CompanyInformation?.companyName || "" } email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails?.CompanyVerification.Logo || ""} UploadImg={UploadImg} utlityFunction={fncForReload} />
+     <ProfileCard name={formData?.CompanyDetails?.CompanyInformation?.companyName || "" } email={formData.email} compleateProfile={formData.ProfileCompleate} number={formData.mobile} proifePic={formData.CompanyDetails?.CompanyVerification.Logo || ""} UploadImg={UploadImg} utlityFunction={fncForReload} location={formatAddress(formData.CompanyDetails?.CompanyAddress)} />
      <EmployerTabs/>
      {React.cloneElement(children, { AllData:  formData,Reload:fncForReload })}
    </div>

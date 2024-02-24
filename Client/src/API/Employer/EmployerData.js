@@ -17,7 +17,7 @@ Object.entries(data).forEach(([key, value]) => {
 
 formData.append(key, value);
 });
-console.log('formmm',formData)
+console.log('formmm',JSON.stringify(data))
         const response = await axios.post(`${this.url}/job-details`,JSON.stringify(data), {
           withCredentials: true,
           headers: {

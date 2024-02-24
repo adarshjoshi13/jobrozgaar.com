@@ -7,7 +7,7 @@ function Candidate({jobdetails,Reload}) {
     candidateDetails: {
       MinimumQualification: "",
       PreferredSkills: [],
-      LanguageKnown: "",
+      LanguageKnown: [],
       AdharCard: false,
       PanCard: false,
       DrivingLicense: false,
