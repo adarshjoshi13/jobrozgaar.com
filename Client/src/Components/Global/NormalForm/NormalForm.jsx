@@ -181,6 +181,16 @@ function NormalForm() {
                                     <p>By Registering with us you agree to our <Link style={{ color: '#2577bd' }}>Terms and Conditions</Link></p>
                                 </div>
                             </div> */}
+                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-15  d-flex align-items-center">
+                <div className="switch-wrap mt-3 mb-0 d-flex align-items-center justify-content-between">
+                  <label className="container-for-check">
+                    <input  type="checkbox"/>
+                      <div className="checkmark"></div>
+                  </label>
+
+                  <p style={{ marginLeft: "5px", marginBottom: "0px", marginTop: "0px" }}>By Registering with us you agree to our <Link to="#" style={{ color: '#325566' }}>Terms and Conditions</Link></p>
+                </div>
+              </div>
 
                             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-15">
                             <button className="genric-btn primary circle arrow" type="submit" >

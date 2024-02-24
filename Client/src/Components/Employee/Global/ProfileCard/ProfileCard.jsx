@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { FaCloudDownloadAlt, FaCamera, FaShareAlt } from "react-icons/fa";
 import "./ProfileCards.css";
 import employee from '../../../../API/Employee';
@@ -8,17 +8,19 @@ import { Link } from 'react-router-dom';
 import { PopUpCard } from '../../../../Pages/export';
 import auth from '../../../../API/Authentiocaion';
 import { useNavigate } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Cookies from 'js-cookie'
 
 function ProfileCard({ email, proifePic, number, compleateProfile, name, location, extraData, utlityFunction, UploadImg }) {
   const [Popup, setPopup] = useState(false);
   const [sliderValue, setSliderValue] = useState(10);
   const [loader, setloader] = useState(false);
-  const [LogoutLoader,SetLogoutLoader] = useState(false)
+  const [LogoutLoader, SetLogoutLoader] = useState(false)
   const Navigate = useNavigate()
-// Added state for delete confirmation
+  // Added state for delete confirmation
 
-  console.log("chut ka marij", utlityFunction);
+  console.log("chuti haii sir", utlityFunction);
 
   const handleSliderChange = (event) => {
     setSliderValue(event.target.value);
@@ -47,30 +49,30 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
     }
   };
 
-  const Logout =  async (values) => {
+  const Logout = async (values) => {
     SetLogoutLoader(true)
     const result = await auth.Logout(values)
 
 
     if (result === null) {
-        SetLogoutLoader(false)
-        toast.warn("something went wrong please try again")
+      SetLogoutLoader(false)
+      toast.warn("something went wrong please try again")
     }
 
     if (result.status === 200) {
       Cookies.remove('clientToken');
-        SetLogoutLoader(false);
-        toast.success(result.data.message)
-        Navigate('/')
+      SetLogoutLoader(false);
+      toast.success(result.data.message)
+      Navigate('/')
     }
 
     else {
-        SetLogoutLoader(false);
-        toast.error(result.data.message)
+      SetLogoutLoader(false);
+      toast.error(result.data.message)
     }
 
 
-}
+  }
 
   const LoderStyle = {
     width: "100%"
@@ -79,6 +81,14 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
   const handleOpen = () => {
     setPopup(!Popup);
   };
+
+  useEffect(() => {
+    AOS.init({
+        duration: 500,
+        easing: 'ease-out',
+        once: true
+    });
+}, []);
 
 
   // console.log("yah se calcuation",extraData)
@@ -115,13 +125,13 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
               </div>
             </div>
             <div className="dash-para flex-column w-100 d-flex justify-content-center align-items-center">
-              <div className="upper-text w-100 d-flex justify-content-between align-items-center">
+              <div className="upper-text w-100 d-flex justify-content-between align-items-center" data-aos="fade-right">
                 <p>Email ID: {email}</p>
               </div>
-              <div className="upper-text w-100 d-flex justify-content-between align-items-center">
+              <div className="upper-text w-100 d-flex justify-content-between align-items-center" data-aos="fade-right">
                 <p>Phone:{number}</p>
               </div>
-              <div className="upper-text w-100 d-flex justify-content-between align-items-center">
+              <div className="upper-text w-100 d-flex justify-content-between align-items-center" data-aos="fade-right">
                 <p>Location:{location}</p>
               </div>
             </div>

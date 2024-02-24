@@ -37,6 +37,7 @@ function App() {
         <Route path='/payroll_outsourcing' element={<Layout><PayRoll /></Layout>} />
         <Route path='/manpower_outsourcing' element={<Layout><ManPower /></Layout>} />
         <Route path='/employee-login' element={<Layout><EmployeeLogin /></Layout>} />
+        
         <Route path='/employe-profile-compleateness' element={
           <EmployeeProtectedRoute CMP={
             <Layout><EmployeDashBorad /></Layout>

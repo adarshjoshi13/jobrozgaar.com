@@ -1,12 +1,19 @@
-import React from 'react';
-// Import the SelectInput component
-import { FaAngleDown } from "react-icons/fa"; // Assuming this is already imported
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import MultiMenu from '../MultiMenu/MultiMenu';
 
 function SingleTitleMulti({ title, onChange, value, name, margin, selectinput, options }) {
+    useEffect(() => {
+        AOS.init({
+            duration: 500,
+            easing: 'ease-out',
+            once: true
+        });
+    }, []);
     return (
-        <div className="container SingleTitleBar">
-            <div className="row">
+        <div className="container SingleTitleBar" >
+            <div className="row" data-aos="fade-left">
                 <div className="col-md-2 p-0 d-flex align-items-center">
                     <h5>{title}</h5>
                 </div>

@@ -65,6 +65,10 @@
     object-fit: cover;
 }
 
+.pro-icon .profile .img-box {
+   color: #3C6679;
+}
+
 /* menu (the right one) */
 
 .pro-icon .menu {
@@ -75,6 +79,7 @@
     width: 200px;
     min-height: 100px;
     background: #fff;
+    z-index: 99;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
     opacity: 0;
     transform: translateY(-10px);

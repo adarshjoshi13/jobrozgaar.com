@@ -1,6 +1,8 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import "./SelectTwo.css";
 import SelectInput from '../Select Input/SelectInput'; // Import the SelectInput component
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function SelectTwo({ label1, label2, onchange, value1, name1, name2, value2, hideLable, hidfeild ,options1,options2}) {
   const selectinput ={
@@ -10,8 +12,16 @@ function SelectTwo({ label1, label2, onchange, value1, name1, name2, value2, hid
   const margin ={
     margin:"9px"
   }
+
+  useEffect(() => {
+    AOS.init({
+        duration: 500,
+        easing: 'ease-out',
+        once: true
+    });
+}, []);
   return (
-    <div className="container two-inputs">
+    <div className="container two-inputs" data-aos="fade-left">
       <div className="row">
         <div className="col-md-2 p-0 d-flex align-items-center">
           <h5 className={`lable ${hideLable ? "hide" : ''}`}>{label1}</h5>
