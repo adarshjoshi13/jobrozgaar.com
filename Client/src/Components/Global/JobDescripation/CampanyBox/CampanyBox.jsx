@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaMapMarkerAlt,FaPhoneAlt } from 'react-icons/fa';
 import "./CampanyBox.css";
+import { useParams } from 'react-router-dom';
 
 function CampanyBox({ jobTitle, companyType, location, salary, imageSrc, linkTo ,phone }) {
+
   return (
     <div className="single-job-items mb-50">
       <div className="job-items">

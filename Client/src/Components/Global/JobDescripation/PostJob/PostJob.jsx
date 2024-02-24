@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./PostJob.css"
 
-function PostJob({ postedDate, location, vacancy, jobNature, salary, applicationDate, applyLink, btn1 = "Apply Now" }) {
+function PostJob({ postedDate, location, vacancy, jobNature, salary, applicationDate, applyLink, btn1 = "Apply Now",EmployerShow }) {
   return (
     <div className="post-details3 mb-50">
       <div className="small-section-tittle">
@@ -17,9 +17,11 @@ function PostJob({ postedDate, location, vacancy, jobNature, salary, application
         <li>Application date : <span>{applicationDate}</span></li>
       </ul>
       <div className="apply-btn2">
-        <Link to={applyLink} ><button className="button-apply-now ">
+      {EmployerShow?'':(
+          <Link to={applyLink} ><button className="button-apply-now ">
           {btn1}
         </button></Link>
+      )}
 
       </div>
     </div>

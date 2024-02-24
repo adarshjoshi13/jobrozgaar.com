@@ -190,7 +190,7 @@ function App() {
         } />
 
 
-        <Route path='/employer-starter-Dashboard/view-job/post' element={
+        <Route path='/employer-starter-Dashboard/view-job/post/:id' element={
           <EmployerProtectedRoute CMP={
             <Layout>
           <EmployerDashboard>
