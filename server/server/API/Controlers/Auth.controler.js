@@ -6,7 +6,7 @@ const { default: mongoose } = require('mongoose');
 const {GetUserIdFromCookie,GetEmployerIdFromCookie} = require('../Helper/getUserId');
 async function SignUP(req,res){
    const {firstName,mobile,email,password} = req.body
-   console.log(firstName,mobile,email,password)
+   console.log(firstName,mobile,email,password,ReferralCode)
    try {
     const employeeCehck = await findUserByEmail(email);
      if(employeeCehck){
@@ -18,6 +18,7 @@ async function SignUP(req,res){
       email,
       mobile,
       password,
+      ReferralCode,
       provider:'local'
      })
    const mail = await Sendemail(firstName,email,NewEmployee._id,'verify');
