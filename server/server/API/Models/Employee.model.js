@@ -56,6 +56,9 @@ const employeeIntialData = new mongooseConnect.Schema({
       },
 
 
+  },
+  ReferralCode:{
+    type: String,
   }
 });
 employeeIntialData.pre('save', async function (next) {

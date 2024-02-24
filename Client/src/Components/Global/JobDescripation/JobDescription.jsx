@@ -78,7 +78,6 @@ function JobDescription({AllData}) {
         }
 
     function requieThings(data){
-        console.log(data,"bhuu bhuu")
         if(!data){
             return []
         }

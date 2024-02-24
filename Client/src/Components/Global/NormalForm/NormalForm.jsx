@@ -16,6 +16,7 @@ function NormalForm() {
             mobile:"",
             email:"",
             password:"",
+            ReferralCode:''
 
         },
         onSubmit: async values => {
@@ -131,11 +132,11 @@ function NormalForm() {
                                 <div className="icon"><FaUserFriends/></div>
                                     <input
                                       type="tel"
-                                        name="mobile"
+                                        name="ReferralCode"
                                         placeholder="Referral Code"
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
-                                        value={formik.values.mobile}
+                                        value={formik.values.ReferralCode}
                                         required
                                         className="single-input"
                                     />
