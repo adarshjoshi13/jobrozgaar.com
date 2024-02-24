@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser, FaEnvelope, FaCog, FaQuestion, FaSignOutAlt } from 'react-icons/fa';
 import './Header.css';
 import Logo from '../Logo/Logo';
 import ProfileIcon from './ProfileIcon/ProfileIcon';
+import Cookies from 'js-cookie';
 
 function Header() {
   const [showSubmenu, setShowSubmenu] = useState(false);
+  const employee = {
+    dashboard:"/Dashboard/jobs/my-jobs",
+    setting:'/Dashboard/setting'
+  }
+  const employer = {
+    dashboard:"/employer-starter-Dashboard/view-candidates",
+    setting:'#'
+  }
+ 
+  const [token,SetToken] = useState('')
+  const [userType, SetUserType] = useState(null)
 
   const navLinks = [
     {
@@ -52,6 +64,20 @@ function Header() {
       link: "/contact",
     },
   ];
+  useEffect(() => {
+    if( Cookies.get('clientToken')){
+      console.log('cookie',Cookies.get('clientToken'))
+      SetToken( Cookies.get('clientToken'))
+      if(Cookies.get('clientToken') === 'employer'){
+        SetUserType(employer)
+      }
+      else{
+        SetUserType(employee);
+      }
+      
+    }
+    
+}, []);
 
   return (
     <header>
@@ -119,7 +145,7 @@ function Header() {
                 ))}
 
                 <div className='icons-cover-fa'>
-                  <ProfileIcon />
+                 {token !== ""?( <ProfileIcon dashboard={userType.dashboard} setting={userType.setting}/>):null }
                 </div>
               </ul>
             </div>

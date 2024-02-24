@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { PopUpCard } from '../../../../Pages/export';
 import auth from '../../../../API/Authentiocaion';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie'
 
 function ProfileCard({ email, proifePic, number, compleateProfile, name, location, extraData, utlityFunction, UploadImg }) {
   const [Popup, setPopup] = useState(false);
@@ -57,6 +58,7 @@ function ProfileCard({ email, proifePic, number, compleateProfile, name, locatio
     }
 
     if (result.status === 200) {
+      Cookies.remove('clientToken');
         SetLogoutLoader(false);
         toast.success(result.data.message)
         Navigate('/')

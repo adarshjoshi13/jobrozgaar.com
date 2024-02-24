@@ -4,10 +4,10 @@ import SignIn from '../../SignIn/SignIn'
 import EmployerAuth from '../../../API/Employer/Employer.auth'
 
 function EmployerLogin() {
-    console.log('lalal')
+    // console.log('lalal')
   return (
   //  <Login login={EmployerAuth} redircet={'/employer-Company-Details'}/>
-  <SignIn login={EmployerAuth} redircet={'/employer-Company-Details'} backurl={'/find-a-talent'}/>
+  <SignIn login={EmployerAuth} redircet={'/employer-Company-Details'} backurl={'/find-a-talent'} cookie={'employer'}/>
   )
 }
 

@@ -8,7 +8,7 @@ function EmployeeLogin() {
  
   return (
   //  <Login login={auth} redircet={'/employe-profile-compleateness'}/>
-  <SignIn login={auth} redircet={'/employe-profile-compleateness'} backurl={'/find-a-job'}/>
+  <SignIn login={auth} redircet={'/employe-profile-compleateness'} backurl={'/find-a-job'} cookie={'employee'}/>
   )
 }
 

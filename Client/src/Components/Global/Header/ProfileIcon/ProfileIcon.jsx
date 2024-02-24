@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { FaUser, FaEnvelope, FaCog, FaQuestion, FaSignOutAlt } from 'react-icons/fa'; // Import icons from React Icons
-import './ProfileIcon.css'; // Import your CSS file here
+import { FaUser, FaEnvelope, FaCog, FaQuestion, FaSignOutAlt, FaTachometerAlt } from 'react-icons/fa'; // Import icons from React Icons
+import './ProfileIcon.css'; 
+import { Link } from 'react-router-dom';
 
-const ProfileIcon = () => {
+const ProfileIcon = ({dashboard,setting}) => {
     const [menuActive, setMenuActive] = useState(false);
 
     const toggleMenu = () => {
@@ -21,16 +22,15 @@ const ProfileIcon = () => {
         <div className="pro-icon" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <div className="profile">
                 <div className="img-box">
-                    <img src="/Utility/no1.gif" alt="some user image" />
+                    <FaUser/>
                 </div>
             </div>
             <div className={`menu ${menuActive ? 'active' : ''}`}>
                 <ul>
-                    <li><a href="#"><FaUser />&nbsp;Profile</a></li>
-                    <li><a href="#"><FaEnvelope />&nbsp;Inbox</a></li>
-                    <li><a href="#"><FaCog />&nbsp;Settings</a></li>
-                    <li><a href="#"><FaQuestion />&nbsp;Help</a></li>
-                    <li><a href="#"><FaSignOutAlt />&nbsp;Sign Out</a></li>
+                <li><Link to={dashboard}><FaTachometerAlt />&nbsp;Dashboard</Link></li>
+            <li><Link to={'#'}><FaEnvelope />&nbsp;Inbox</Link></li>
+            <li><Link to={setting}><FaCog />&nbsp;Settings</Link></li>
+            <li><Link to={"#"}><FaQuestion />&nbsp;Help</Link></li>
                 </ul>
             </div>
         </div>

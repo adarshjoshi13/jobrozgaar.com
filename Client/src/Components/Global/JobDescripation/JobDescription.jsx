@@ -7,15 +7,21 @@ import "./JobDescripation.css"
 import PostDetails from './PostDetails/PostDetails';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Loader from '../loader/Loader';
+import { Candidate } from '../../../Pages/export';
 
 function JobDescription({AllData}) {
     console.log('getting in',AllData)
     let { id } = useParams();
     const [jobDetail, setJobDetail] = useState({});
+    const [section, setSection] = useState([]);
+    const [loader, setLoader] = useState(false);
     console.log('chik chik',jobDetail)
 
     useEffect(() => {
+        setLoader(true);
         if(AllData.jobs){
+            setLoader(false)
             const job = AllData?.jobs?.filter((i) => {
                 return i._id === id;
             });
@@ -58,38 +64,59 @@ function JobDescription({AllData}) {
     
         return `${day} ${month}-${year}`;
     }
-    // if (!AllData || Object.keys(jobDetail).length === 0) {
-    //     return <div>Loading...</div>; // Or any other loading indicator
-    // }
+    function MakeitRight(arr){
+        // console.log("hii",arr)
+        if(!arr){
+            return []
+        }
+        const newArr = [];
+          arr.forEach(element => {
+            newArr.push(element.value)
+          });
+    
+          return  newArr;
+        }
+
+    function requieThings(data){
+        console.log(data,"bhuu bhuu")
+        if(!data){
+            return []
+        }
+        let require = []
+    for( let key in data){
+         if(jobDetail?.candidateDetails[key] === true){
+            require.push(key)
+         }
+       }
+
+       return require
+    }
+
+      
     const sections = [
         {
-            title: "Job Description",
-            content: [
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-                "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, Content here content here making it look like readable."
-            ]
+            title: "LanguageKnown",
+            content: MakeitRight(jobDetail?.candidateDetails?.LanguageKnown)
         },
         {
-            title: "Required Knowledge, Skills, and Abilities",
-            content: [
-                "System Software Development",
-                "Mobile Application in iOS/Android/Tizen or other platform",
-                "Research and code, libraries, APIs and frameworks",
-                "Strong knowledge on software development life cycle",
-                "Strong problem solving and debugging skills"
-            ]
+            title: "PreferredSkills",
+            content: MakeitRight(jobDetail?.candidateDetails?.PreferredSkills)
         },
         {
-            title: "Education + Experience",
-            content: [
-                "3 or more years of professional design experience",
-                "Direct response email experience",
-                "Ecommerce website design experience",
-                "Familiarity with mobile and web apps preferred",
-                "Experience using Invision a plus"
-            ]
+            title: "Things Require for job",
+            content: requieThings(jobDetail?.candidateDetails),
         }
     ];
+
+
+
+     if(loader){
+    return <Loader style={{ width: '100%',
+    height: '80vh', 
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',}}/>
+  }
     return (
         <div className="job-post-company pt-120 pb-120">
             <div className="container">
