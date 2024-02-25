@@ -78,7 +78,7 @@ function WorkersCard() {
             <div className="row">
                 <div className="col-lg-12">
                     <div className="browse-btn2 text-center mt-50">
-                        <Link to="/get-job" className="border-btn2">
+                        <Link to="/fliter-jobs" className="border-btn2">
                             Browse All Sectors
                         </Link>
                     </div>

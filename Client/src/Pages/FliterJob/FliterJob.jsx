@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./Fliterjob.css"
 import Select from 'react-select';
+import { JobBoxCard } from '../export';
 // const [selectedValue, setSelectedValue] = useState(null);
 
 
@@ -30,6 +31,102 @@ const lists = [
     { value: 'option5', label: 'Category 4' },
 ];
 
+
+
+const jobsData = [
+    {
+        jobTitle: 'Digital Marketer',
+        imageUrl: '/Utility/job-list1.png',
+        company: 'Creative Agency',
+        location: 'Athens, Greece',
+        salary: '$3500 - $4000',
+        btnTitle: 'View',
+        btnTitle1: 'Save',
+        btnTitle2: 'Apply',
+        timeAgo: "3 hours ago",
+        mobile: "8178710398",
+        linkToDetails: '/Dashboard/jobs/job-details',
+    },
+    {
+        jobTitle: 'Digital Marketer',
+        imageUrl: '/Utility/job-list2.png',
+        company: 'Creative Agency',
+        location: 'Athens, Greece',
+        salary: '$3500 - $4000',
+        btnTitle: 'View',
+        btnTitle1: 'Save',
+        btnTitle2: 'Apply',
+        timeAgo: "3 hours ago",
+        mobile: "8379273947",
+        linkToDetails: '/Dashboard/jobs/job-details',
+    },
+    {
+        jobTitle: 'Digital Marketer',
+        imageUrl: '/Utility/job-list3.png',
+        company: 'Creative Agency',
+        location: 'Athens, Greece',
+        salary: '$3500 - $4000',
+        btnTitle: 'View',
+        btnTitle1: 'Save',
+        btnTitle2: 'Apply',
+        timeAgo: "3 hours ago",
+        mobile: "9873839487",
+
+        linkToDetails: '/Dashboard/jobs/job-details',
+    },
+    {
+        jobTitle: 'Digital Marketer',
+        imageUrl: '/Utility/job-list4.png',
+        company: 'Creative Agency',
+        location: 'Athens, Greece',
+        salary: '$3500 - $4000',
+        btnTitle: 'View',
+        btnTitle1: 'Save',
+        btnTitle2: 'Apply',
+        timeAgo: "3 hours ago",
+        mobile: "6548236548",
+        linkToDetails: '/Dashboard/jobs/job-details',
+    },
+    {
+        jobTitle: 'Digital Marketer',
+        imageUrl: '/Utility/job-list4.png',
+        company: 'Creative Agency',
+        location: 'Athens, Greece',
+        salary: '$3500 - $4000',
+        btnTitle: 'View',
+        btnTitle1: 'Save',
+        btnTitle2: 'Apply',
+        timeAgo: "3 hours ago",
+        mobile: "6548236548",
+        linkToDetails: '/Dashboard/jobs/job-details',
+    },
+    {
+        jobTitle: 'Digital Marketer',
+        imageUrl: '/Utility/job-list4.png',
+        company: 'Creative Agency',
+        location: 'Athens, Greece',
+        salary: '$3500 - $4000',
+        btnTitle: 'View',
+        btnTitle1: 'Save',
+        btnTitle2: 'Apply',
+        timeAgo: "3 hours ago",
+        mobile: "6548236548",
+        linkToDetails: '/Dashboard/jobs/job-details',
+    },
+    {
+        jobTitle: 'Digital Marketer',
+        imageUrl: '/Utility/job-list4.png',
+        company: 'Creative Agency',
+        location: 'Athens, Greece',
+        salary: '$3500 - $4000',
+        btnTitle: 'View',
+        btnTitle1: 'Save',
+        btnTitle2: 'Apply',
+        timeAgo: "3 hours ago",
+        mobile: "6548236548",
+        linkToDetails: '/Dashboard/jobs/job-details',
+    },
+];
 
 
 
@@ -75,7 +172,7 @@ const FliterJob = () => {
                                         onChange={handleChange}
                                         placeholder="Select an option"
                                     />
-                                    
+
                                 </div>
                                 <div className="select-Categories mt-80 mb-5">
                                     <div className="small-section-tittle2">
@@ -115,7 +212,7 @@ const FliterJob = () => {
                                         onChange={handleChange}
                                         placeholder="Select an option"
                                     />
-                                    
+
                                 </div>
                                 <div className="select-Categories mt-8 mb-5">
                                     <div className="small-section-tittle2">
@@ -224,7 +321,7 @@ const FliterJob = () => {
                                         <div className="count-job mb-35">
                                             <span>39, 782 Jobs found</span>
                                             <div className="select-job-items">
-                                                <span>Sort by</span>
+                                                <span className='p-1'>Sort by</span>
                                                 <Select
                                                     options={options}
                                                     value={selectedValue}
@@ -237,8 +334,15 @@ const FliterJob = () => {
                                     </div>
                                 </div>
                                 {/* Rest of the code for featured job items */}
+                                <div className="job-card-covers-fill ">
+                                      {
+                                    jobsData.map((i, n) => {
+                                        return <JobBoxCard key={n} {...i} />
+                                    })
+                                }
+                                </div>
+                              
 
-                                
                             </div>
                         </section>
                     </div>

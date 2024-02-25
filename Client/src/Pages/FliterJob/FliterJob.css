@@ -21,8 +21,9 @@
 }
 
 .job-listing-area .count-job span {
-	padding-right: 15px;
+	/* padding-right: 15px; */
 	color: #1e2147;
+    padding: 0px;
 	font-size: 16px
 }
 
@@ -82,10 +83,39 @@
 	right: 17px
 }
 
+/* scroll filter start */
+
 .job-category-listing {
-	border: 1px solid #ededed;
-	padding: 30px 19px 30px 30px
+    border: 1px solid #ededed;
+    padding: 30px 19px 30px 30px;
+    /* width: 318px; */
+    height: 54rem;
+    overflow-y: auto;
 }
+
+.job-category-listing::-webkit-scrollbar {
+    width: 7px; /* Width of the scrollbar */
+  }
+  
+  /* Track */
+  .job-category-listing::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track */
+  }
+  
+  /* Handle */
+  .job-category-listing::-webkit-scrollbar-thumb {
+    background: #cfcfcf; /* Color of the scrollbar handle */
+    border-radius: 6px; /* Rounded corners of the scrollbar handle */
+  }
+  
+  /* Handle on hover */
+  
+
+
+
+
+
+
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 	.job-category-listing {
@@ -325,4 +355,9 @@
 .range-input-of[type=range] {
     background-color: #fe1a1a !important;
     /* Other styles */
+}
+
+
+.job-card-covers-fill {
+    margin-top: 33px;
 }

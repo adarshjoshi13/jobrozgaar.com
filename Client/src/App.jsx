@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header, Footer, FeaturedJobs, ApplyProcessArea, JobDescription } from './Components/export';
-import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali, EmployerDashboard, WorkersCard, ViewCompanyDetails, JOblayout, AddJob ,ViewJob, EmployerViewPost,EmployerProtectedRoute,EmployeeProtectedRoute, FliterJob } from './Pages/export'
+import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali, EmployerDashboard, WorkersCard, ViewCompanyDetails, JOblayout, AddJob ,ViewJob, EmployerViewPost,EmployerProtectedRoute,EmployeeProtectedRoute, FliterJob } from './Pages/export'
 import { MyJob } from './Components/export';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -32,7 +32,7 @@ function App() {
         <Route path='/about' element={<Layout><About /></Layout>} />
         <Route path='/contact' element={<Layout><Contact /></Layout>} />
         <Route path='/skill-development' element={<Layout><SkillDevelopment /></Layout>} />
-        <Route path='/get-job' element={<Layout><GetJob /></Layout>} />
+    
         <Route path='/job-details' element={<Layout><JobDetails /></Layout>} />
         <Route path='/staff-placement' element={<Layout><StaffPlacement /></Layout>} />
         <Route path='/payroll_outsourcing' element={<Layout><PayRoll /></Layout>} />

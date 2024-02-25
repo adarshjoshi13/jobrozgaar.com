@@ -4,11 +4,15 @@
     animation: rotate4 2s linear infinite;
     height: 50px;
    }
+
+
+   
    
    .circle {
     fill: none;
-    stroke: hsl(214, 97%, 59%);
+    stroke:#74884B;
     stroke-width: 2;
+    background-color: white;
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
     stroke-linecap: round;

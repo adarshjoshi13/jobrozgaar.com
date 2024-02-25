@@ -1,12 +1,21 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './PopUpCard.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import { Loader } from '../../../../Components/export';
 function PopUpCard({ onClose,url,Where ,title,btn1 ,Para,onClick,loader }) {
+  useEffect(() => {
+    AOS.init({
+        duration: 500,
+        easing: 'ease-out',
+        once: true
+    });
+}, []);
   return (
     <>
-    <div className="edit-pop-cover">
-      <div className="popup-edit-card">
+    <div className="edit-pop-cover" >
+      <div className="popup-edit-card" data-aos="fade-up">
         <button className="dismiss" type="button" onClick={onClose}>
           ×
         </button>

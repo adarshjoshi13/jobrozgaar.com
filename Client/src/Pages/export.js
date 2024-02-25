@@ -5,7 +5,7 @@ import About from "./About";
 import Contact from "./Contact";
 import SkillDevelopment from "./SkillDevelopment";
 // Fliter wali page hai ⬇️
-import GetJob from "./GetJob";  
+ 
 import JobDetails from "./JobDetails";
 import StaffPlacement from "./StaffPlacement";
 import PayRoll from "./PayRoll";
@@ -55,4 +55,4 @@ import FliterJob from "./FliterJob/FliterJob";
 
 
 
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,GetJob,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali,EmployerDashboard,WorkersCard,ViewCompanyDetails,PopUpCard,JOblayout,AddJob,JobBoxCard,ViewJob ,EmployerViewPost,EmployerProtectedRoute,EmployeeProtectedRoute,FliterJob};
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali,EmployerDashboard,WorkersCard,ViewCompanyDetails,PopUpCard,JOblayout,AddJob,JobBoxCard,ViewJob ,EmployerViewPost,EmployerProtectedRoute,EmployeeProtectedRoute,FliterJob};
