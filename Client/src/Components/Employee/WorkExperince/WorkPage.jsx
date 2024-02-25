@@ -380,7 +380,10 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                                     </label>
 
                                 </div> */}
-                                            <MultiMenu onChange={formik.handleChange} value={formik.values.Skills}
+                                            <MultiMenu onChange={(e)=>{
+                                            console.log('skills',e)
+                                            formik.setFieldValue('Skills',e)
+                                            }} value={formik.values.Skills}
                                                 name={'Skills'} options={Skill}/>
                                             {/* <input type="text" className='form-control' placeholder='Skills' onChange={formik.handleChange} value={formik.values.Skills}
                                                 name={'Skills'} /> */}

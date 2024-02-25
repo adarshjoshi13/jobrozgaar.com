@@ -21,7 +21,7 @@ function WorkExperince() {
           JobTitle: "",
           JobType: ""
         },
-        Skills:""
+        Skills:[]
       };
       const [loader,Setloader] = useState(false)
       const navigate = useNavigate()

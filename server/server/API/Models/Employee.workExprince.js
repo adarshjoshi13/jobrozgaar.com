@@ -71,7 +71,7 @@ const WorkExperience = new mongoose.Schema({
     }
   },
   Skills:{
-    type:String,
+    type:[],
     required:[true,"fill atleast one skill"]
   }
 });
