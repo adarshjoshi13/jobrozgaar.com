@@ -1,7 +1,8 @@
 import React from 'react'
 import "./InputButton.css"
 import ButtonEdit from '../ButtonEdit/ButtonEdit.jsx'
-function InputButton({title,placeholder,onchange,onblur,value1,value2,name1,name2,uploadfile}) {
+import Errofeild from '../../../Global/UI/Erorrspan/Errofeild.jsx'
+function InputButton({title,type,placeholder,onchange,onblur,value1,value2,name1,name2,uploadfile,maxl,minl,error}) {
   return (
     <div className="container file-input ">
                 <div className="row">
@@ -15,13 +16,14 @@ function InputButton({title,placeholder,onchange,onblur,value1,value2,name1,name
                             <div>
                                 <img className='check' src="/Utility/check.png" alt="" />
                             </div>
-                            <input style={{ width: "100%" }} type="number" placeholder={placeholder} onChange={onchange} onBlur={onblur} value={value1} name={name1} />
+                            <input style={{ width: "100%" }} type={type} placeholder={placeholder} onChange={onchange} onBlur={onblur} value={value1} name={name1} maxLength={maxl} minLength={minl}/>
                             <input style={{ border: "none" }} type="file" placeholder={placeholder} name={name2}
                             onChange={uploadfile}/>
 
                         </div>
 
                     </div>
+                    <Errofeild error={error}/>
 
                 </div>
             </div>

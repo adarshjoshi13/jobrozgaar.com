@@ -1,7 +1,8 @@
 import React from 'react'
 import "./FormBar.css"
+import Errofeild from '../../../Global/UI/Erorrspan/Errofeild'
 
-function FormBar({ title, type, placeholder,onChange,onblur,value,name,style }) {
+function FormBar({ title, type, placeholder,onChange,onblur,value,name,style,error }) {
     return (
         <div className="container all-input">
             <div className="row">
@@ -21,7 +22,9 @@ function FormBar({ title, type, placeholder,onChange,onblur,value,name,style }) 
                                         name={name}
                                         style={{...style}}
                                         />
+                             
                         </div>
+                        <Errofeild error={error}/>
                     </div>
                 </div>
             </div>

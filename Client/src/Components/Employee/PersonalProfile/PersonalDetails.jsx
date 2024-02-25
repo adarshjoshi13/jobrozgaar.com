@@ -15,6 +15,7 @@ import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 import Employeetab from '../Global/Employee-tab/Employee-tab';
+import Errofeild from '../../Global/UI/Erorrspan/Errofeild';
 
 function PersonalDetails() {
   const [Images, SetImages] = useState([]);
@@ -72,10 +73,6 @@ function PersonalDetails() {
     },
     onSubmit: async values => {
       // console.log(values)
-      const check = checkValues(values);
-      if(!check){
-        return;
-      }
       SetSaveloader(true)
       const result = await employee.PersonalProfile(Images, values)
       // console.log("this is the result", result)
@@ -98,8 +95,58 @@ function PersonalDetails() {
 
       SetSaveloader(false)
     },
+    validate: values => {
+      const errors = {};
+      if (!values.AdharNumber) {
+        errors.AdharNumber = ' AdharNumber Required';
+      } else if (!/^\d{12}$/.test(values.AdharNumber)) {
+        errors.AdharNumber = 'Adhar Number must be 12 digits';
+      }
+
+      if (!values.PanNumber) {
+    errors.PanNumber = 'PanNumber Required';
+  } else if (!/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(values.PanNumber.toUpperCase())) {
+    errors.PanNumber = 'Pan Number must be 10 characters';
+  }
+
+  if(!values.fatherName){
+    errors.fatherName="Father's name is required"
+  }
+
+  if(!values.DOB){
+    errors.DOB = 'Date of Birth is Required'
+  }
+
+  if(!values.Gender){
+    errors.Gender = 'Gender  is Required'
+  }
+
+  if(!values.CurrentAddress){
+    errors.CurrentAddress = 'CurrentAddress is Required'
+  }
+  if(!values.CurrentCity){
+    errors.CurrentCity = ' CurrentCity is Required'
+  }
+  if(!values.CurrentState){
+    errors.CurrentState = 'CurrentState is Required'
+  }
+
+  if(!values.PermanentAddress){
+    errors.PermanentAddress = 'PermanentAddress is Required'
+  }
+  
+
+  if(!values.AboutMe){
+    errors.AboutMe = 'write something about yourself.'
+  }
+      return errors;
+    }
+   
+    
 
   });
+
+  console.log(formik)
   const GetImageData = (e) => {
 
     const index = Images.findIndex(obj => obj.name === e.target.name);
@@ -231,7 +278,8 @@ function PersonalDetails() {
           {/* <FormBar title={"Name"} type={"text"} placeholder={"Enter your name"} /> */}
           <FormBar
             title={"Father’s /Husband "} type={"text"} placeholder={"Enter your father/husband name"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.fatherName}
-            name={'fatherName'} />
+            name={'fatherName'} error={formik.errors.fatherName?formik.errors.fatherName:""} />
+            
           <DateInput
             label1="Date of Birth"
           
@@ -245,6 +293,7 @@ function PersonalDetails() {
             value2={formik.values.MaritalStatus}
             name1={'DOB'}
             value1={formik.values.DOB}
+            err1={formik.errors.DOB?formik.errors.DOB:""}
           />
 
           <SelectTwo label1="Gender"
@@ -254,13 +303,17 @@ function PersonalDetails() {
             selectinput={"selectinput1"}
             selectinput1={"selectinput2"}
             onchange={formik.handleChange}
+      
 
             name2={'religion'}
             value2={formik.values.religion}
             name1={'Gender'}
             options1={gender}
             options2={religion}
-            value1={formik.values.Gender} />
+            value1={formik.values.Gender} 
+            err1={formik.errors.Gender?formik.errors.Gender:""}
+        
+            />
 
           {/* <DateInput
             label1="Gender"
@@ -284,6 +337,7 @@ function PersonalDetails() {
             placeholder={"Enter your Address"}
             onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.CurrentAddress}
             name={'CurrentAddress'}
+            error={formik.errors.CurrentAddress?formik.errors.CurrentAddress:""}
           />
 
 
@@ -312,7 +366,10 @@ function PersonalDetails() {
               name1={'CurrentCity'}
               options1={city}
               options2={states}
-              value1={formik.values.CurrentCity}/>
+              value1={formik.values.CurrentCity}
+              err1={formik.errors.CurrentCity?formik.errors.CurrentCity:""}
+              err2={formik.errors.CurrentState?formik.errors.CurrentState:""}
+              />
 
 
 
@@ -343,6 +400,7 @@ function PersonalDetails() {
             placeholder={"Enter your Address"}
             onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.PermanentAddress}
             name={'PermanentAddress'}
+            error={formik.errors.PermanentAddress?formik.errors.PermanentAddress:""}
           />
           {/* <FormBar
                     title={"Mobile Number"}
@@ -358,11 +416,11 @@ function PersonalDetails() {
                 /> */}
 
           <InputButton title={"Aadhar Number"} placeholder={"Aadhar Number"} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.values.AdharNumber}
-            name1={'AdharNumber'} name2={'Adharcard'} uploadfile={GetImageData} />
+            name1={'AdharNumber'} name2={'Adharcard'} uploadfile={GetImageData} minl={'12'} maxl={'12'}  error={formik.errors.AdharNumber?formik.errors.AdharNumber:""} type={'number'} />
           <InputButton title={"Pan Card Number"} placeholder={"Pan Card Number"} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.values.PanNumber}
-            name1={'PanNumber'} name2={'PanCard'} uploadfile={GetImageData} />
+            name1={'PanNumber'} name2={'PanCard'} uploadfile={GetImageData} minl={'10'} maxl={'10'}  error={formik.errors.PanNumber?formik.errors.PanNumber:""} type={'text'} />
           <InputButton title={"Driving Licence No"} placeholder={"Driving Licence No."} onchange={formik.handleChange} onblur={formik.handleBlur} value1={formik.values.DrivingLicenceNumber}
-            name1={'DrivingLicenceNumber'} name2={'DrivingLicence'} uploadfile={GetImageData} />
+            name1={'DrivingLicenceNumber'} name2={'DrivingLicence'} uploadfile={GetImageData} minl={'16'} maxl={'16'} type={'number'} />
 
           <div className="container all-input">
             <div className="row">
@@ -379,6 +437,7 @@ function PersonalDetails() {
                     <textarea cols="30" rows="10" title={"About me"} type={"text-area"} placeholder={"Write something about yourself"} onChange={formik.handleChange} onblur={formik.handleBlur} value={formik.values.AboutMe}
                       name={'AboutMe'} style={textareaStyle}></textarea>
                   </div>
+                 <Errofeild error={formik.errors.AboutMe?formik.errors.AboutMe:""}/>
                 </div>
               </div>
             </div>

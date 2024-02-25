@@ -72,7 +72,7 @@ const personalProfileSchema = new mongoose.Schema({
   },
   DrivingLicenceNumber:{
     type:String,
-    required:[true,'DrivingLicenceNumbe is required']
+    // required:[true,'DrivingLicenceNumbe is required']
   },
   update:{
     type:Boolean,

@@ -1,8 +1,9 @@
 import React from 'react';
 import "./DateInput.css";
 import { SelectInput } from '../../../export';
+import Errofeild from '../../../Global/UI/Erorrspan/Errofeild';
 
-function DateInput({ label1, label2, placeholder1,type,onchange,onblur,value1,name1,name2,value2,hideLable,hidfeild }) {
+function DateInput({ label1, label2, placeholder1,type,onchange,onblur,value1,name1,name2,value2,hideLable,hidfeild,err1,err2 }) {
   const States = [
     { value: 'option1', label: 'Marital Status' },
     { value: 'Married', label: 'Married' },
@@ -34,6 +35,7 @@ const selectinput ={
                 <img src="/Utility/check.png" alt="" />
               </div>
               <input style={{width:"100%"}} type={type} placeholder={placeholder1} onChange={onchange} onBlur={onblur} value={value1} name={name1} />
+
             </div>
             <div className={`col-md-6 d-flex p-0 justify-content-start align-items-center input2 ${hidfeild?"hide":""}`}>
               <div  className="h5-cover">
@@ -49,6 +51,8 @@ const selectinput ={
               
              
             </div>
+            <Errofeild error={err1}/>
+            <Errofeild error={err2} />
           </div>
         </div>
       </div>
