@@ -1,23 +1,25 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser, FaEnvelope, FaCog, FaQuestion, FaSignOutAlt } from 'react-icons/fa';
 import './Header.css';
 import Logo from '../Logo/Logo';
 import ProfileIcon from './ProfileIcon/ProfileIcon';
+import { FaFacebookF, FaGoogle, FaTwitter } from 'react-icons/fa';
+
 import Cookies from 'js-cookie';
 
 function Header() {
   const [showSubmenu, setShowSubmenu] = useState(false);
   const employee = {
-    dashboard:"/Dashboard/jobs/my-jobs",
-    setting:'/Dashboard/setting'
+    dashboard: "/Dashboard/jobs/my-jobs",
+    setting: '/Dashboard/setting'
   }
   const employer = {
-    dashboard:"/employer-starter-Dashboard/view-candidates",
-    setting:'#'
+    dashboard: "/employer-starter-Dashboard/view-candidates",
+    setting: '#'
   }
- 
-  const [token,SetToken] = useState('')
+
+  const [token, SetToken] = useState('')
   const [userType, SetUserType] = useState(null)
 
   const navLinks = [
@@ -65,19 +67,19 @@ function Header() {
     },
   ];
   useEffect(() => {
-    if( Cookies.get('clientToken')){
-      console.log('cookie',Cookies.get('clientToken'))
-      SetToken( Cookies.get('clientToken'))
-      if(Cookies.get('clientToken') === 'employer'){
+    if (Cookies.get('clientToken')) {
+      console.log('cookie', Cookies.get('clientToken'))
+      SetToken(Cookies.get('clientToken'))
+      if (Cookies.get('clientToken') === 'employer') {
         SetUserType(employer)
       }
-      else{
+      else {
         SetUserType(employee);
       }
-      
+
     }
-    
-}, []);
+
+  }, []);
 
   return (
     <header>
@@ -145,8 +147,17 @@ function Header() {
                 ))}
 
                 <div className='icons-cover-fa'>
-                 {token !== ""?( <ProfileIcon dashboard={userType.dashboard} setting={userType.setting}/>):null }
-                </div>
+  {token !== "" ? (
+    <ProfileIcon dashboard={userType.dashboard} setting={userType.setting} />
+  ) : (
+    <>
+      <li><a href="#"><span><FaFacebookF /></span></a></li>
+      <li><a href="#"><span><FaGoogle /></span></a></li>
+      <li><a href="#"><span><FaTwitter /></span></a></li>
+    </>
+  )}
+</div>
+
               </ul>
             </div>
           </div>

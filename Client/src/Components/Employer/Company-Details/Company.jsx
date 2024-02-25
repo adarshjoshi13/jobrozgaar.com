@@ -8,9 +8,12 @@ import { Formik, Form, Field, ErrorMessage, useFormik, useFormikContext } from '
 import { Loader } from '../../export';
 import { ToastContainer, toast } from 'react-toastify';
 import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import employeData from '../../../API/Employer/EmployerData'
 import ArrowRed from '../../Global/UI/ArrowImg-with-title/ArrowRed'
 import NavLogoBtn from '../../Global/UI/NavLogoBtn/NavLogoBtn'
+
 import { redirect, useNavigate } from 'react-router-dom'
 import { PopUpCard } from '../../../Pages/export'
 function Company({ initialValues, redirect, Edit }) {
@@ -150,6 +153,14 @@ function Company({ initialValues, redirect, Edit }) {
     color : "rgb(107 104 104)",
     border: "2px solid rgb(182, 175, 175)"
   }
+
+  useEffect(() => {
+    AOS.init({
+        duration: 500,
+        easing: 'ease-out',
+        once: true
+    });
+}, []);
   return (
     <div className="container mb-5 campany-page">
       <NavLogoBtn topImg={'topImg'} url={'/Utility/company.png'} />
@@ -165,7 +176,7 @@ function Company({ initialValues, redirect, Edit }) {
 
 
  
-      <div className="row">
+      <div className="row" data-aos="fade-up">
 
         <div className="col-md-4 d-flex flex-column">
           <div className="title d-flex align-items-center mt-5">

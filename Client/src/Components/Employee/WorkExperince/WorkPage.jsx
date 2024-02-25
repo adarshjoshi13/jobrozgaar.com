@@ -7,9 +7,13 @@ import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Link, useNavigate } from 'react-router-dom';
 import SmallBanner from '../PersonalProfile/SmallBanner/SmallBanner';
-import {SelectInput} from '../../export';
+import { SelectInput } from '../../export';
+import SingleBarImage from '../PersonalProfile/singleWorkImg/SingleBarImage';
+import MultiMenu from '../../Global/UI/MultiMenu/MultiMenu';
 function WorkPage({ initialValues, senrequest, redirect, Edit }) {
 
     const [isChecked, setIsChecked] = useState(true);
@@ -104,7 +108,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
         // Add more job types as needed
     ];
 
-    const  City = [
+    const City = [
         { value: 'option1', label: 'City' },
         { value: 'Mumbai', label: 'Mumbai' },
         { value: 'Delhi', label: 'Delhi' },
@@ -114,6 +118,23 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
         // Add more cities as needed
     ];
 
+    const Skill = [
+        { value: 'option1', label: 'Skill' },
+        { value: 'Programming', label: 'Programming' },
+        { value: 'Design', label: 'Design' },
+        { value: 'Data Analysis', label: 'Data Analysis' },
+        { value: 'Project Management', label: 'Project Management' },
+        { value: 'Marketing', label: 'Marketing' },
+        // Add more skills as needed
+    ];
+
+    useEffect(() => {
+        AOS.init({
+            duration: 500,
+            easing: 'ease-out',
+            once: true
+        });
+    }, []);
     return (
         <>
             <div className="container ">
@@ -124,10 +145,10 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                     <div className=" col-md-12  lower-job-wraper">
                         <div className="container work-exa p-3">
                             <div className="row">
-                                <div className="col-md-12">
+                                <div className="col-md-12" data-aos="fade-right">
 
                                     {
-                                        Edit ? (<h4 className='mt-0 text-center' style={{ color: "#8faa46" }}>Work Experience</h4>) : (<SmallBanner personalImage={"/Utility/ex.png"} eduImage={"/Utility/edu.png"} />)
+                                        Edit ? (<h4 className='mt-0 text-center' style={{ color: "#8faa46" }}>Work Experience</h4>) : (<SingleBarImage personalImage={"/Utility/ex.png"} eduImage={"/Utility/edu.png"} />)
 
 
                                     }
@@ -136,9 +157,9 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
 
                             </div>
                         </div>
-                        <div className="container title-work mt-4">
+                        <div className="container title-work mt-4" data-aos="fade-up">
                             <div className="d-flex justify-content-center align-items-center">
-                                <div className="col-md-3 d-flex justify-content-center align-items-center">
+                                <div className="col-md-3 d-flex justify-content-center align-items-center" >
                                     <div className="container  d-flex justify-content-center gap-0 align-items-center  text-center">
                                         <div className="m-1 checkbox-wrapper-31">
                                             <input type="checkbox" onChange={(e) => {
@@ -192,7 +213,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                             </div>
 
                         </div>
-                        <div className="container p-0 title-work mt-5">
+                        <div className="container p-0 title-work mt-5" data-aos="fade-up">
                             {formik.values.Position === "Fresher" ? null : <div className="row">
                                 <div className="col-md-12 d-flex justify-content-start align-items-center">
                                     <img src="/Utility/check.png" alt="" />
@@ -208,7 +229,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                                                     <img src="/Utility/check.png" alt="" />
                                                     <h5>Company {index + 1}</h5>
                                                     <div className="DLT-BTN mb-5">
-                                                         {formik.values.Experience.length > 1 || Edit === true ? (<button className="tooltips" onClick={() => {
+                                                        {formik.values.Experience.length > 1 || Edit === true ? (<button className="tooltips" onClick={() => {
                                                             deleateCompany(index)
                                                         }}>
                                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" height="25" width="25">
@@ -250,7 +271,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                                                                     <SelectInput handleChange={(e) => {
                                                                         TakeCompanyName(index, e.target.value, 'Designation')
                                                                     }} value={formik.values.Experience[index].Designation} name={`Experience[${index}].Designation`}
-                                                                    options={City}/>
+                                                                        options={City} />
 
 
 
@@ -315,7 +336,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
 
                         </div>
 
-                        <div className="container title-work mt-5">
+                        <div className="container title-work mt-5" data-aos="fade-up">
                             <div className="row">
                                 <div className="col-md-12 d-flex justify-content-start align-items-center">
                                     <img src="/Utility/check.png" alt="" />
@@ -336,7 +357,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
 
 
 
-                                            <SelectInput  name={'LookingForJobs.JobTitle'} value={formik.values.LookingForJobs.JobTitle} options={jobTitleOptions} handleChange={formik.handleChange}/>
+                                            <SelectInput name={'LookingForJobs.JobTitle'} value={formik.values.LookingForJobs.JobTitle} options={jobTitleOptions} handleChange={formik.handleChange} />
 
                                         </div>
                                         <div className="col-md-4 pt-2">
@@ -347,7 +368,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                                                 <option value="option3">Option 3</option>
 
                                             </select> */}
-                                            <SelectInput  name={'LookingForJobs.JobType'} value={formik.values.LookingForJobs.JobType} options={jobTypeOptions} handleChange={formik.handleChange}/>
+                                            <SelectInput name={'LookingForJobs.JobType'} value={formik.values.LookingForJobs.JobType} options={jobTypeOptions} handleChange={formik.handleChange} />
                                         </div>
 
                                         <div className="col-md-4 pt-2">
@@ -359,8 +380,10 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                                     </label>
 
                                 </div> */}
-                                            <input type="text" className='form-control' placeholder='Skills' onChange={formik.handleChange} value={formik.values.Skills}
-                                                name={'Skills'} />
+                                            <MultiMenu onChange={formik.handleChange} value={formik.values.Skills}
+                                                name={'Skills'} options={Skill}/>
+                                            {/* <input type="text" className='form-control' placeholder='Skills' onChange={formik.handleChange} value={formik.values.Skills}
+                                                name={'Skills'} /> */}
                                         </div>
 
 
@@ -376,7 +399,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                     </div>
                 </div>
                 <div className="workingExprincebtn">
-                    <Button type={"submit"} onClick={formik.handleSubmit} title={"save"} loader={loader} />
+                    <Button type={"submit"} onClick={formik.handleSubmit} title={"Save"} loader={loader} />
 
                 </div>
             </div>

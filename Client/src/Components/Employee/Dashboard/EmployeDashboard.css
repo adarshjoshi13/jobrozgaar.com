@@ -24,56 +24,76 @@
   }
 }
 
-
-.continue-button {
-  cursor: pointer;
-  font-weight: 700;
-  font-family: Helvetica, "sans-serif";
-  transition: all 1s ease-in-out;
-  padding: 10px 20px;
-  border-radius: 18px;
-  color: rgb(238, 233, 233);
-  background: #90AA47;
-
-
+.continue-button  {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  padding-block: 0.5rem;
+  padding-inline: 1.25rem;
+  background-color: #90aa47;
+  border-radius: 9999px;
   display: flex;
   align-items: center;
-  transition: 0.4s;
+  justify-content: center;
+  color: #ffff;
+  gap: 10px;
+  font-weight: bold;
+  border: 3px solid #ffffff4d;
+  outline: none;
+  overflow: hidden;
   font-size: 15px;
 }
 
-.continue-button span {
-  color: rgb(255, 255, 255);
-  margin: 4px;
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease-in-out;
 }
 
-.continue-button:hover {
-  background: #c4e201;
-}
-
-.continue-button>svg {
-  width: 34px;
- margin-left: 10px;
-  transition: transform .3s ease-in-out;
-}
-
-.continue-button:hover svg {
-  transform: translateX(5px);
-}
-
-.continue-button:active {
-  transform: scale(0.95);
+.continue-button :hover {
+  transform: scale(1.05);
+  border-color: #fff9;
 }
 
 
+.continue-button a {
+ color: white;
+}
 
+.continue-button :hover .icon {
+  transform: translate(4px);
+}
 
+.button:hover::before {
+  animation: shine 1.5s ease-out infinite;
+}
 
+.button::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: 0;
+  left: -100px;
+  opacity: 0.6;
+}
 
+@keyframes shine {
+  0% {
+    left: -100px;
+  }
 
+  60% {
+    left: 100%;
+  }
 
-/* Fill color based on slider value */
-
-
-
-/* Center the container content */
+  to {
+    left: 100%;
+  }
+}

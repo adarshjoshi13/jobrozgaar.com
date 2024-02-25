@@ -435,7 +435,7 @@ select {
   
   /* Create a custom checkbox */
   .checkmark {
-	--clr: #0B6E4F;
+	--clr: #90AA47;
 	position: relative;
 	top: 0;
 	left: 0;

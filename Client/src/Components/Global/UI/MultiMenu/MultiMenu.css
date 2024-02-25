@@ -1,0 +1,5 @@
+.select__menu{
+    font-size: 13px;
+    position: absolute !important;
+    z-index: 999 !important;
+}

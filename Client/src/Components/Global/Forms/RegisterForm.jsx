@@ -7,7 +7,9 @@ import GetGoogleUrl from '../../../utlity/GetGoogleUrl';
 import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
 import Loader from '../loader/Loader';
 import { ToastContainer, toast } from 'react-toastify';
-import { useState } from 'react';
+import { useState ,useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import EmployerAuth from '../../../API/Employer/Employer.auth';
 
 const RegisterForm = () => {
@@ -48,6 +50,17 @@ const RegisterForm = () => {
 
   });
   console.log(formik)
+
+
+  useEffect(() => {
+    AOS.init({
+        duration: 500,
+        easing: 'ease-out',
+        once: true
+    });
+}, []);
+
+
   return (
     <>
       <div className="container">
@@ -64,7 +77,7 @@ const RegisterForm = () => {
           </div>
 
           <form onSubmit={formik.handleSubmit}>
-            <div className="row">
+            <div className="row" data-aos="fade-up">
 
 
               <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">

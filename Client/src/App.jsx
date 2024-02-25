@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header, Footer, FeaturedJobs, ApplyProcessArea, JobDescription } from './Components/export';
-import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali, EmployerDashboard, WorkersCard, ViewCompanyDetails, JOblayout, AddJob ,ViewJob, EmployerViewPost,EmployerProtectedRoute,EmployeeProtectedRoute } from './Pages/export'
+import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, GetJob, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali, EmployerDashboard, WorkersCard, ViewCompanyDetails, JOblayout, AddJob ,ViewJob, EmployerViewPost,EmployerProtectedRoute,EmployeeProtectedRoute, FliterJob } from './Pages/export'
 import { MyJob } from './Components/export';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -26,6 +26,7 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path='/' element={<Layout><Home /></Layout>} />
+        <Route path='/fliter-jobs' element={<Layout><FliterJob /></Layout>} />
         <Route path='/find-a-talent' element={<Layout><FindATalent /></Layout>} />
         <Route path='/find-a-job' element={<Layout><FindAJob /></Layout>} />
         <Route path='/about' element={<Layout><About /></Layout>} />
@@ -37,7 +38,7 @@ function App() {
         <Route path='/payroll_outsourcing' element={<Layout><PayRoll /></Layout>} />
         <Route path='/manpower_outsourcing' element={<Layout><ManPower /></Layout>} />
         <Route path='/employee-login' element={<Layout><EmployeeLogin /></Layout>} />
-        
+
         <Route path='/employe-profile-compleateness' element={
           <EmployeeProtectedRoute CMP={
             <Layout><EmployeDashBorad /></Layout>

@@ -5,7 +5,7 @@ import ButtonEdit from '../ButtonEdit/ButtonEdit'
 
 function PersonalNav({link,hideOrShow,img,id,bigSizeImg ,onClick}) {
   return (
-    <nav className="dash-nav navbar navbar-expand-lg ">
+    
     <div className="container p-0">
         <Link className="navbar-brand upper-nav">
           {hideOrShow?null:  <img className={bigSizeImg} id={id} src={img}  />}
@@ -16,7 +16,7 @@ function PersonalNav({link,hideOrShow,img,id,bigSizeImg ,onClick}) {
   </Link>):null
      }
     </div>
-</nav>
+
   )
 }
 

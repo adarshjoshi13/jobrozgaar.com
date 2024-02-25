@@ -50,7 +50,7 @@ function WorkExperince() {
       },[])
       // console.log('seee',AddWorkingEXprince)
       if(loader){
-        return <Loader style={{ width: '100vw',
+        return <Loader style={{ width: '100%',
         height: '60vh', 
         display: 'flex',
         alignItems: 'center',

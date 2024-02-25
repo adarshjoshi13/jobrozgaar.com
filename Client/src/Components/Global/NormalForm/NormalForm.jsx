@@ -1,59 +1,70 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./NormalForm.css"
-import { Link,useNavigate } from 'react-router-dom';
-import { FaFacebook, FaGoogle ,FaLock,FaGlobe,FaMobile,FaUserFriends ,FaUser } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaFacebook, FaGoogle, FaLock, FaGlobe, FaMobile, FaUserFriends, FaUser } from 'react-icons/fa';
 import GetGoogleUrl from '../../../utlity/GetGoogleUrl';
-import { Formik, Form, Field, ErrorMessage,useFormik } from 'formik';
+import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
 import Loader from '../loader/Loader';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import auth from '../../../API/Authentiocaion'
 import { ToastContainer, toast } from 'react-toastify';
 function NormalForm() {
-    const [loader,Setloader] = useState(false);
+    const [loader, Setloader] = useState(false);
     const navigate = useNavigate()
     const formik = useFormik({
         initialValues: {
-            firstName:"",
-            mobile:"",
-            email:"",
-            password:"",
-            ReferralCode:''
+            firstName: "",
+            mobile: "",
+            email: "",
+            password: "",
+            ReferralCode: ''
 
         },
         onSubmit: async values => {
             console.log(values)
-          Setloader(true)
-          const result = await auth.signup(values)
-          console.log("this is the result",result)
-           
-          if(result === null){
-            Setloader(false)
-            toast.warn("something went wrong please try again")
-          }
-    
-          if(result.status === 200){
-            Setloader(false);
-            navigate('/')
-            toast.success(result.data.message)
-          }
-           
-          else{
-            Setloader(false);
-                    toast.error(result.data.message)
-          }
-        
-         
+            Setloader(true)
+            const result = await auth.signup(values)
+            console.log("this is the result", result)
+
+            if (result === null) {
+                Setloader(false)
+                toast.warn("something went wrong please try again")
+            }
+
+            if (result.status === 200) {
+                Setloader(false);
+                navigate('/')
+                toast.success(result.data.message)
+            }
+
+            else {
+                Setloader(false);
+                toast.error(result.data.message)
+            }
+
+
         },
-      
-      });
-      console.log(formik)
+
+    });
+    console.log(formik)
+
+
+    useEffect(() => {
+        AOS.init({
+            duration: 500,
+            easing: 'ease-out',
+            once: true
+        });
+    }, []);
     return (
         <>
-            <div className="container">
+            <div className="container" >
                 <div className="col-lg-12 col-md-12">
-                    <div className="row">
+                    <div className="row" >
                         <div className="col-lg-6 col-md-6">
                             <h5 className="mb-30 fleft">Register With Us </h5>
-                           
+
                             <span className="iconbutton"><a href={GetGoogleUrl()}><FaGoogle /></a></span>
                         </div>
                         <div className="col-lg-6 col-md-6">
@@ -63,10 +74,10 @@ function NormalForm() {
                     </div>
 
                     <form onSubmit={formik.handleSubmit}>
-                        <div className="row">
-                            {/*  */}  <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div className="row" data-aos="fade-up" >
+                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
                                 <div className="input-group-icon  mt-20">
-                                <div className="icon"><FaUser/></div>
+                                    <div className="icon"><FaUser /></div>
                                     <input
                                         type="text"
                                         name="firstName"
@@ -78,12 +89,12 @@ function NormalForm() {
                                         className="single-input"
                                     />
                                 </div>
-                            </div> 
-                          
+                            </div>
+
 
                             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div className="input-group-icon mt-20">
-                                <div className="icon"><FaGlobe/></div>
+                                    <div className="icon"><FaGlobe /></div>
                                     <input
                                         type="email"
                                         name="email"
@@ -96,10 +107,10 @@ function NormalForm() {
                                     />
                                 </div>
                             </div>
-{/*  */}
-                             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            {/*  */}
+                            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div className="input-group-icon mt-20">
-                                <div className="icon"><FaLock/></div>
+                                    <div className="icon"><FaLock /></div>
                                     <input
                                         type="password"
                                         name="password"
@@ -114,9 +125,9 @@ function NormalForm() {
                             </div>
                             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div className="input-group-icon mt-20">
-                                <div className="icon"><FaMobile/></div>
+                                    <div className="icon"><FaMobile /></div>
                                     <input
-                                      type="tel"
+                                        type="tel"
                                         name="mobile"
                                         placeholder="phone"
                                         onChange={formik.handleChange}
@@ -129,9 +140,9 @@ function NormalForm() {
                             </div>
                             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div className="input-group-icon mt-20">
-                                <div className="icon"><FaUserFriends/></div>
+                                    <div className="icon"><FaUserFriends /></div>
                                     <input
-                                      type="tel"
+                                        type="tel"
                                         name="ReferralCode"
                                         placeholder="Referral Code"
                                         onChange={formik.handleChange}
@@ -183,20 +194,20 @@ function NormalForm() {
                                 </div>
                             </div> */}
                             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-15  d-flex align-items-center">
-                <div className="switch-wrap mt-3 mb-0 d-flex align-items-center justify-content-between">
-                  <label className="container-for-check">
-                    <input  type="checkbox"/>
-                      <div className="checkmark"></div>
-                  </label>
+                                <div className="switch-wrap mt-3 mb-0 d-flex align-items-center justify-content-between">
+                                    <label className="container-for-check">
+                                        <input type="checkbox" />
+                                        <div className="checkmark"></div>
+                                    </label>
 
-                  <p style={{ marginLeft: "5px", marginBottom: "0px", marginTop: "0px" }}>By Registering with us you agree to our <Link to="#" style={{ color: '#325566' }}>Terms and Conditions</Link></p>
-                </div>
-              </div>
+                                    <p style={{ marginLeft: "5px", marginBottom: "0px", marginTop: "0px" }}>By Registering with us you agree to our <Link to="#" style={{ color: '#325566' }}>Terms and Conditions</Link></p>
+                                </div>
+                            </div>
 
                             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-15">
-                            <button className="genric-btn primary circle arrow" type="submit" >
-                                   {loader ? <Loader /> : "Submit"}
-                             </button>
+                                <button className="genric-btn primary circle arrow" type="submit" >
+                                    {loader ? <Loader /> : "Submit"}
+                                </button>
 
                             </div>
                         </div>
