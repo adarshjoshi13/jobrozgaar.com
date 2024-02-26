@@ -1,0 +1,69 @@
+.pagination-area {
+    margin-top: 50px;
+}
+
+
+
+
+
+.pagination-area .page-link {
+    border: 0;
+	font-size: 15px;
+	text-align: center;
+	background: none;
+	box-shadow: none;
+	outline: 0;
+	color: #fafafa;
+	padding: 11px 12px;
+	background: #c8c8c8;
+	margin: 0 5px;
+	border-radius: 5px;
+	border: 1px solid #f0f0f0
+}
+
+.pagination-area .page-link:hover {
+    color: #ffff;
+    font-size: 15px;
+}
+
+.pagination-area .page-item.active .page-link {
+    z-index: 1;
+	border: 0;
+	position: relative;
+	box-shadow: none;
+	outline: 0;
+	background: #87b724;
+	color: #fff
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .pagination-area {
+        padding-bottom: 50px
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .pagination-area {
+        padding-bottom: 50px
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .pagination-area {
+        padding-bottom: 50px
+    }
+}
+
+@media (max-width: 767px) {
+    .pagination-area {
+        padding-bottom: 50px
+    }
+}
+
+.pagination-area .page-item {
+    margin: 0
+}
+
+.pagination-area .page-item:first-child {
+    margin: 0
+}

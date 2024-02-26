@@ -21,6 +21,22 @@ function Header() {
 
   const [token, SetToken] = useState('')
   const [userType, SetUserType] = useState(null)
+  const [fix, setFix] = useState(false);
+
+function fixed() {
+  if (window.scrollY > 200) { // Removed quotes around 200px
+    setFix(true);
+  } else {
+    setFix(false);
+  }
+}
+
+useEffect(() => {
+  window.addEventListener("scroll", fixed); // Pass reference to fixed without invoking it
+  return () => {
+    window.removeEventListener("scroll", fixed); // Cleanup on component unmount
+  };
+}, []);
 
   const navLinks = [
     {
@@ -83,7 +99,7 @@ function Header() {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-md bg-light bsb-navbar bsb-navbar-hover bsb-navbar-caret">
+      <nav className={fix ? "navbar fixed navbar-expand-md bg-light bsb-navbar bsb-navbar-hover bsb-navbar-caret" : "navbar navbar-expand-md bg-light bsb-navbar bsb-navbar-hover bsb-navbar-caret"}>
         <div className="container">
           <Link className="navbar-brand" to="/">
             <Logo />

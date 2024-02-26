@@ -1,8 +1,17 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import "./Banner.css"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 
 const Banner = () => {
+  useEffect(() => {
+    AOS.init({
+        duration: 500,
+        easing: 'ease-out',
+        once: true
+    });
+}, []);
 
   const bannerData = {
     background: "linear-gradient(to right, #396778, #87a14c)",
@@ -18,7 +27,7 @@ const Banner = () => {
         <div className="container">
           <div className="row">
             <div className="col-xl-6 col-lg-9 col-md-10">
-              <div className="hero__caption">
+              <div className="hero__caption" data-aos="fade-right">
                 <h1 dangerouslySetInnerHTML={{ __html: bannerData.title }} />
                 <h4>{bannerData.subTitle}</h4>
               </div>
