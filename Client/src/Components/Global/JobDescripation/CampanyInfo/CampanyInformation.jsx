@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "./CampanyInformation.css"
-function CompanyInformation({ name, website, email,para ,name1 }) {
+function CompanyInformation({ name, website, email,para ,name1,fullAddress, }) {
   return (
     <div className="post-details4 mb-50">
       <div className="small-section-tittle">
@@ -13,6 +13,7 @@ function CompanyInformation({ name, website, email,para ,name1 }) {
         <li>Name: <span>{name1}</span></li>
         <li>Web  : <span>{website}</span></li>
         <li>Email: <span><Link to="#" className="">{email}</Link></span></li>
+        <li>Full Address  : <span>{fullAddress}</span></li>
       </ul>
     </div>
   );

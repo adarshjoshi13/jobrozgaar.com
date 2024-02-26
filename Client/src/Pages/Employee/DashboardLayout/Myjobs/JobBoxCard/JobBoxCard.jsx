@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import { FaMapMarkerAlt ,FaPhoneAlt  } from 'react-icons/fa';
+import { FaMapMarkerAlt ,FaPhoneAlt ,FaRupeeSign } from 'react-icons/fa';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "./JobBoxCard.css";
@@ -31,7 +32,7 @@ const JobBoxCard = ({ onClick1, onClick,jobTitle, imageUrl, company, location, s
                             <FaMapMarkerAlt />
                             {location}
                         </li>
-                        <li>{salary}</li>
+                        <li><FaRupeeSign/>{salary}</li>
                         <li> <FaPhoneAlt/>
                         {mobile}</li>
                     </ul>

@@ -60,9 +60,9 @@ function Jobposting({ initialValues, utlityfnc }) {
 
   const gender = [
     { value: 'option1', label: 'Gender' },
-    { value: 'male', label: 'Male' },
-    { value: 'female', label: 'Female' },
-    { value: 'other', label: 'Other' }
+    { value: 'Male', label: 'Male' },
+    { value: 'Female', label: 'Female' },
+    { value: 'Other', label: 'Other' }
   ];
 
 
@@ -81,10 +81,10 @@ function Jobposting({ initialValues, utlityfnc }) {
 
   const minSalary = [
     { value: 'option1', label: 'Minium Salary Per Month' },
-    { value: '15k-20k ', label: '15k-20k' },
-    { value: '20k-25k ', label: '20k-25k' },
-    { value: '30k-40k ', label: '30k-40k' },
-    { value: '60k-65k ', label: '60k-65k' },
+    { value: '15k', label: '15k' },
+    { value: '20k', label: '20k' },
+    { value: '30k', label: '30k' },
+    { value: '60k', label: '60k' },
 
   ];
 
@@ -92,27 +92,27 @@ function Jobposting({ initialValues, utlityfnc }) {
 
   const maxSalary = [
     { value: 'option1', label: 'Minium Salary Per Month' },
-    { value: '1.5lakh-2lakh', label: '1.5lakh-2lakh' },
-    { value: '2.5lakh-3lakh', label: '2.5lakh-3lakh' },
-    { value: '3.5lakh-4lakh', label: '3.5lakh-4lakh' },
-    { value: '4.5lakh-6lakh', label: '4.5lakh-6lakh' },
+    { value: '1.5lakh', label: '1.5lakh' },
+    { value: '2.5lakh', label: '2.5lakh' },
+    { value: '3.5lakh', label: '3.5lakh' },
+    { value: '4.5lakh', label: '4.5lakh' },
 
   ];
 
   const shift = [
     { value: 'option1', label: 'Working Shift' },
-    { value: 'day', label: 'Day' },
-    { value: 'night', label: 'Night' },
-    { value: 'rotational', label: 'Rotational' },
-    { value: 'Flexible-Hours', label: 'Flexible Hours' },
+    { value: 'Day', label: 'Day' },
+    { value: 'Night', label: 'Night' },
+    { value: 'Rotational', label: 'Rotational' },
+    { value: 'Flexible Hours', label: 'Flexible Hours' },
     // Add more shift options as needed
   ];
 
   const timings = [
     { value: 'option1', label: 'Working Timings' },
-    { value: '9am-5pm', label: '9:00 AM - 5:00 PM' },
-    { value: '8am-4pm', label: '8:00 AM - 4:00 PM' },
-    { value: '10am-6pm', label: '10:00 AM - 6:00 PM' },
+    { value: '9:00 AM - 5:00 PM', label: '9:00 AM - 5:00 PM' },
+    { value: '8:00 AM - 4:00 PM', label: '8:00 AM - 4:00 PM' },
+    { value: '10:00 AM - 6:00 PM', label: '10:00 AM - 6:00 PM' },
     // Add more working timing options as needed
   ];
 
@@ -177,11 +177,11 @@ function Jobposting({ initialValues, utlityfnc }) {
 
   const jobTypes = [
     { value: 'option1', label: 'Enter the job type' },
-    { value: 'full_time', label: 'Full-time' },
-    { value: 'part_time', label: 'Part-time' },
-    { value: 'contract', label: 'Contract' },
-    { value: 'temporary', label: 'Temporary' },
-    { value: 'internship', label: 'Internship' },
+    { value: 'Full-Time', label: 'Full-time' },
+    { value: 'Part-Time', label: 'Part-time' },
+    { value: 'Contract', label: 'Contract' },
+    { value: 'Temporary', label: 'Temporary' },
+    { value: 'Internship', label: 'Internship' },
     // Add more job types as needed
 ];
   return (
