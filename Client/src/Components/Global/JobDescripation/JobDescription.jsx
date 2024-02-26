@@ -145,7 +145,8 @@ function JobDescription({AllData}) {
                             salary={formatSalaryRange(jobDetail?.SalaryRange)}
                             applicationDate="12 Sep 2020"
                             applyLink="#"  // Adjust the link accordingly
-                            EmployerShow={true}
+                            EmployerShow={false}
+                            btn1='Delete'
                         />
 
 
