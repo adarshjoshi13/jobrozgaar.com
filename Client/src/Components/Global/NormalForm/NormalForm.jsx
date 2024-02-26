@@ -148,7 +148,6 @@ function NormalForm() {
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         value={formik.values.ReferralCode}
-                                        required
                                         className="single-input"
                                     />
                                 </div>

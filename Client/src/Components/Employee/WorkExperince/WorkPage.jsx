@@ -56,7 +56,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
     //   console.log(formik.setFieldValue(Experience[0].year,'beta'))
 
     const [companyArr, SetCompanyArr] = useState([1]);
-    console.log('formik', formik.values)
+    console.log('formik', formik.values.Skills)
 
     const TakeCompanyName = (index, newName, name) => {
         console.log(name, `Experience[${index}].${name}`)
@@ -380,9 +380,9 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                                     </label>
 
                                 </div> */}
-                                            <MultiMenu onChange={(e)=>{
-                                            console.log('skills',e)
-                                            formik.setFieldValue('Skills',e)
+                                            <MultiMenu handleChange={(e)=>{
+                                                console.log('skills',e)
+                                                formik.setFieldValue('Skills',e)
                                             }} value={formik.values.Skills}
                                                 name={'Skills'} options={Skill}/>
                                             {/* <input type="text" className='form-control' placeholder='Skills' onChange={formik.handleChange} value={formik.values.Skills}
