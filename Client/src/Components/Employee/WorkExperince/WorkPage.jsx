@@ -56,7 +56,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
     //   console.log(formik.setFieldValue(Experience[0].year,'beta'))
 
     const [companyArr, SetCompanyArr] = useState([1]);
-    console.log('formik', formik.values)
+    console.log('formik', formik.values.Skills)
 
     const TakeCompanyName = (index, newName, name) => {
         console.log(name, `Experience[${index}].${name}`)

@@ -15,7 +15,7 @@ function Dashboard({ children, navtag }) {
       Setloader(true)
       const result = await employee.getintialdata();
       if (result.status === 200) {
-        // console.log('yel bhai',result.data)
+        console.log('yel bhai',result.data)
         setFormData({ ...result.data })
         Setloader(false)
       }

@@ -20,7 +20,7 @@ function DasboardWork() {
           JobTitle: "",
           JobType: ""
         },
-        Skills:""
+        Skills:[]
       })
       // console.log('tata bye bye',initialValues)
       const  AddWorkingEXprince = function(data){
