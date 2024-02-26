@@ -54,9 +54,17 @@ const employeeIntialData = new mongooseConnect.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref:"WorkingExperience"
       },
-
-
   },
+  AppliedJobs:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"JobDetail"
+  }],
+  SavedJObs:[
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref:"JobDetail"
+    }
+  ],
   ReferralCode:{
     type: String,
   }

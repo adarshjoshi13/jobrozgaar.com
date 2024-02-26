@@ -6,6 +6,7 @@ const { json } = require('express')
 const WorkingExprince = require('../Models/Employee.workExprince')
 const employeeIntialdata = require('../Models/Employee.model')
 const bcrypt = require('bcrypt')
+const JobDetail = require('../Models/Employer/JobDetails.model')
 
 // controlers
 async function AddPersonalProfile(req, res,) {
@@ -555,5 +556,28 @@ async function ChangePassword(req,res){
 
 }
 
+// job filtrations
+async function GetRecommandJobs(req,res){
+  const {jobTitle} = req.query
 
-   module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince,ChangePassword}
+  console.log(jobTitle,req.query)
+
+
+  try {
+    const recommandedJobs = await  JobDetail.aggregate([
+      {
+        $match: {
+          JobTitle:jobTitle
+        }
+      },
+    ])
+    return res.status(200).json({data:recommandedJobs})
+
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({message:"Internal Server Error"});
+  }
+
+}
+
+   module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince,ChangePassword,GetRecommandJobs}
