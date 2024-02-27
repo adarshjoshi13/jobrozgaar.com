@@ -168,8 +168,7 @@ function PersonalDetails() {
   // console.log(formik);
   const textareaStyle = {
     width: '100%',
-
-    maxHeight: '130px',
+    maxHeight: '180px',
     padding: '8px',
     margin: "9px",
     boxSizing: 'border-box',

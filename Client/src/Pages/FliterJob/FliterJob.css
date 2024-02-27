@@ -1,17 +1,5 @@
 
-@media (max-width: 767px) {
-	.job-listing-area {
-		padding-top: 70px;
-		padding-bottom: 70px
-	}
-}
 
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-	.job-listing-area {
-		padding-top: 70px;
-		padding-bottom: 70px
-	}
-}
 
 .job-listing-area .count-job {
     display: flex;
@@ -366,28 +354,6 @@
 	border-radius: 0
 }
 
-@media (max-width: 991px) {
-	.product_bar_item {
-		width: 100% !important
-	}
-}
-
-@media (max-width: 991px) {
-	.product_top_bar {
-		margin-top: 70px
-	}
-	.product_top_bar h2 {
-		font-size: 25px
-	}
-	.product_bar_single {
-		margin-left: 0;
-		margin-right: 5px
-	}
-	.product_bar_single .nice-select {
-		padding-left: 15px;
-		padding-right: 35px
-	}
-}
 
 
 .small-section-tittle2 h4 {
@@ -432,4 +398,47 @@
 
 .job-card-covers-fill {
     margin-top: 33px;
+}
+
+
+
+
+
+@media (max-width: 991px) {
+	.product_bar_item {
+		width: 100% !important
+	}
+}
+
+@media (max-width: 991px) {
+	.product_top_bar {
+		margin-top: 70px
+	}
+	.product_top_bar h2 {
+		font-size: 25px
+	}
+	.product_bar_single {
+		margin-left: 0;
+		margin-right: 5px
+	}
+	.product_bar_single .nice-select {
+		padding-left: 15px;
+		padding-right: 35px
+	}
+}
+
+
+
+@media (max-width: 767px) {
+	.job-listing-area {
+		padding-top: 70px;
+		padding-bottom: 70px
+	}
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+	.job-listing-area {
+		padding-top: 70px;
+		padding-bottom: 70px
+	}
 }

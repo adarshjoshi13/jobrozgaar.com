@@ -46,10 +46,10 @@ function SelectTwo({ label1, label2, onchange, value1, name1, name2, value2, hid
                 <img style={{ width: "30px", height: "30px" }} src="/Utility/check.png" alt="" />
                 {/* Replace input with SelectInput */}
                 <SelectInput selectinput={selectinput} margin={margin} name={name2} value={value2} handleChange={onchange} options={options2} />
-                <ErrorFeild error={err2} />
               </div>
              
             </div>
+                <ErrorFeild error={err2} />
            
     
             <ErrorFeild error={err1}/>

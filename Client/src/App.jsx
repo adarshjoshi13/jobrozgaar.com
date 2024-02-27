@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PlanPage from './Pages/Employer/PlanPage/PlanPage';
+import GoToTop from './Components/Global/UI/GoToTop/GoToTop';
 
 
 
@@ -15,6 +16,7 @@ const Layout = ({ children }) => (
   <>
     <Header />
     {children}
+    <GoToTop/>
     <ApplyProcessArea/>
     <Footer />
   </>

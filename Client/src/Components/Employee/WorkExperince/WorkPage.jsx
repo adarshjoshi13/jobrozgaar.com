@@ -7,8 +7,7 @@ import employee from '../../../API/Employee';
 import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 import { Link, useNavigate } from 'react-router-dom';
 import SmallBanner from '../PersonalProfile/SmallBanner/SmallBanner';
 import { SelectInput } from '../../export';
@@ -128,13 +127,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
         // Add more skills as needed
     ];
 
-    useEffect(() => {
-        AOS.init({
-            duration: 500,
-            easing: 'ease-out',
-            once: true
-        });
-    }, []);
+  
     return (
         <>
             <div className="container ">
@@ -157,7 +150,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
 
                             </div>
                         </div>
-                        <div className="container title-work mt-4" data-aos="fade-up">
+                        <div className="container title-work mt-4" >
                             <div className="d-flex justify-content-center align-items-center">
                                 <div className="col-md-3 d-flex justify-content-center align-items-center" >
                                     <div className="container  d-flex justify-content-center gap-0 align-items-center  text-center">
@@ -213,7 +206,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
                             </div>
 
                         </div>
-                        <div className="container p-0 title-work mt-5" data-aos="fade-up">
+                        <div className="container p-0 title-work mt-5" >
                             {formik.values.Position === "Fresher" ? null : <div className="row">
                                 <div className="col-md-12 d-flex justify-content-start align-items-center">
                                     <img src="/Utility/check.png" alt="" />
@@ -336,7 +329,7 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
 
                         </div>
 
-                        <div className="container title-work mt-5" data-aos="fade-up">
+                        <div className="container title-work mt-5" >
                             <div className="row">
                                 <div className="col-md-12 d-flex justify-content-start align-items-center">
                                     <img src="/Utility/check.png" alt="" />
