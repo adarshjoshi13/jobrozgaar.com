@@ -262,9 +262,10 @@ console.log('formmm',formData)
     }
   }
   
-  async   GetRecommandJobs(data){
+  async   GetRecommandJobs(query){
+    console.log('dekhoserchquery',query)
     try {
-      const data = await axios.get(`${this.url}/recommanded-jobs${data}`,{
+      const data = await axios.get(`${this.url}/recommanded-jobs?${query}`,{
         withCredentials:true
       });
       console.log("data",data)
@@ -277,6 +278,7 @@ console.log('formmm',formData)
      return null;
     }
   }
+  
 
 }
 

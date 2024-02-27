@@ -1,3 +1,9 @@
+import queryString from 'query-string'
+
+function MakeSerchparams(obj){
+  return queryString.stringify(obj)
+}
+
 function isEmptyObject(obj) {
     for (let key in obj) {
       if (obj.hasOwnProperty(key)) {
@@ -7,7 +13,7 @@ function isEmptyObject(obj) {
     return true;
   }
 
-  function getTimeDifferenceString(date) {
+function getTimeDifferenceString(date) {
     const now = new Date();
     const diff = now - date;
   
@@ -29,8 +35,10 @@ function isEmptyObject(obj) {
   
     return 'Just now';
   }
+
+
   
  
   
 
-  export  {isEmptyObject,getTimeDifferenceString}
+  export  {isEmptyObject,getTimeDifferenceString,MakeSerchparams}

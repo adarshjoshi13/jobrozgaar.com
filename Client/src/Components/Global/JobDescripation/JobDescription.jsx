@@ -5,18 +5,22 @@ import PostJob from './PostJob/PostJob';
 import CompanyInformation from './CampanyInfo/CampanyInformation';
 import "./JobDescripation.css"
 import PostDetails from './PostDetails/PostDetails';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Loader from '../loader/Loader';
 import { Candidate } from '../../../Pages/export';
+import employerData from '../../../API/Employer/EmployerData';
+import { ToastContainer, toast } from 'react-toastify';
 
-function JobDescription({AllData}) {
+function JobDescription({AllData,Reload}) {
     console.log('getting in',AllData)
     let { id } = useParams();
     const [jobDetail, setJobDetail] = useState({});
     const [section, setSection] = useState([]);
     const [loader, setLoader] = useState(false);
-    console.log('chik chik',jobDetail)
+    // console.log('chik chik',jobDetail)
+    const [Dltloader, SetDltloader] = useState(false);
+    const navigate = useNavigate()
 
     useEffect(() => {
         setLoader(true);
@@ -107,6 +111,33 @@ function JobDescription({AllData}) {
         }
     ];
 
+    const DltHandler =  async (i) => {
+        // console.log(id)
+        SetDltloader(true)
+        const result = await employerData.DeleteAjob(i)
+        // console.log("this is the result", result)
+    
+        if (result === null) {
+          SetDltloader(false)
+
+          toast.warn("something went wrong please try again")
+        }
+    
+        if (result.status === 200) {
+          SetDltloader(false);
+          toast.success(result.data.message)
+          Reload()
+          navigate('/employer-starter-Dashboard/view-job')
+        }
+    
+        else {
+          SetDltloader(false);
+          toast.error(result.data.message)
+        }
+    
+    
+      }
+
 
 
      if(loader){
@@ -125,7 +156,7 @@ function JobDescription({AllData}) {
                         <CampanyBox
                            jobTitle={jobDetail?.JobTitle}
                             companyType={AllData?.CompanyName}
-                            location={formatAddress(AllData?.CompanyDetails?.CompanyAddress)}
+                            location={jobDetail?.JobLocation?.city}
                             salary={formatSalaryRange(jobDetail?.SalaryRange)}
                             imageSrc={AllData?.CompanyDetails?.CompanyVerification?.Logo} 
                             linkTo="#"
@@ -147,6 +178,10 @@ function JobDescription({AllData}) {
                             applyLink="#"  // Adjust the link accordingly
                             EmployerShow={false}
                             btn1='Delete'
+                            loader={Dltloader}
+                            onClick={()=>{
+                             DltHandler(id)
+                            }}
                         />
 
 
@@ -155,6 +190,7 @@ function JobDescription({AllData}) {
                             name1={AllData?.CompanyName}
                             website={AllData?.web}
                             email={AllData?.email}
+                            fullAddress={formatAddress(AllData?.CompanyDetails?.CompanyAddress)}
                         />
                     </div>
                 </div>

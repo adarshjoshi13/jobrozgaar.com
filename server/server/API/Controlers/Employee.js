@@ -564,13 +564,48 @@ async function GetRecommandJobs(req,res){
 
 
   try {
-    const recommandedJobs = await  JobDetail.aggregate([
-      {
-        $match: {
-          JobTitle:jobTitle
-        }
-      },
-    ])
+   const recommandedJobs = await JobDetail.aggregate([
+  {
+    $match: {
+      JobTitle: jobTitle
+    }
+  },
+  {
+    $lookup: {
+      from: 'employerintialdatas',
+      localField: 'user',
+      foreignField: '_id',
+      as: 'CompanyDetails'
+    }
+  },
+  {
+    $addFields: {
+      CompanyDetails: {
+        $arrayElemAt: ["$CompanyDetails", 0]
+      }
+    }
+  },
+  {
+    $lookup: {
+      from: 'companydetails',
+      localField: 'CompanyDetails.CompanyDetails',
+      foreignField: '_id',
+      as: 'CompanyDetails.CompanyDetails'
+    }
+  },
+  {
+    $addFields: {
+      "CompanyDetails.CompanyData": {
+        $arrayElemAt: ["$CompanyDetails.CompanyDetails", 0]
+      }
+    }
+  },
+  {
+    $project: {
+      "CompanyDetails.CompanyDetails": 0 // Remove the duplicate CompanyDetails field
+    }
+  }
+]);
     return res.status(200).json({data:recommandedJobs})
 
   } catch (error) {

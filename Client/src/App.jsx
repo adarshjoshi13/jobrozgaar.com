@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header, Footer, FeaturedJobs, ApplyProcessArea, JobDescription } from './Components/export';
-import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali, EmployerDashboard, WorkersCard, ViewCompanyDetails, JOblayout, AddJob ,ViewJob, EmployerViewPost,EmployerProtectedRoute,EmployeeProtectedRoute, FliterJob } from './Pages/export'
+import { Home, FindATalent, FindAJob, About, Contact, SkillDevelopment, JobDetails, StaffPlacement, PayRoll, ManPower, EmployeDashBorad, PersonalProfile, WorkExperince, Education, OfferLetter, EditPersonalProfile, JobPosting, Candidate, CompanyDetails, EmployeeLogin, EmployerLogin, UpdateWorkingExprince, EditEducation, Dashboard, DasboardWork, DashboardEducation, DashboardPeronalProfile, PasswordChange, MyjobsList, TipsSupport, JobDetali, EmployerDashboard, WorkersCard, ViewCompanyDetails, JOblayout, AddJob ,ViewJob, EmployerViewPost,EmployerProtectedRoute,EmployeeProtectedRoute, FliterJob,RecommandJobs } from './Pages/export'
 import { MyJob } from './Components/export';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -131,6 +131,20 @@ function App() {
             <Dashboard navtag={'My-Jobs'}>
               <MyJob>
                 <MyjobsList />
+              </MyJob>
+            </Dashboard>
+          </Layout>
+           } Dashboard={true}/>
+          }
+        />
+         <Route
+          path='/Dashboard/jobs/recommand-jobs'
+          element={
+           <EmployeeProtectedRoute CMP={
+            <Layout>
+            <Dashboard navtag={'My-Jobs'}>
+              <MyJob>
+                <RecommandJobs/>
               </MyJob>
             </Dashboard>
           </Layout>

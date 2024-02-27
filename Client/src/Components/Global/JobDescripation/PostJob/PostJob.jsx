@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import "./PostJob.css"
 import { PopUpCard } from '../../../../Pages/export';
 
-function PostJob({ postedDate, location, vacancy, jobNature, salary, applicationDate, applyLink, btn1, EmployerShow }) {
+function PostJob({ postedDate, location, vacancy, jobNature, salary, applicationDate, applyLink, btn1, EmployerShow,onClick,loader }) {
   const [popup,setPopup] = useState(false);
 
  function handleChange () {
@@ -32,7 +32,7 @@ function PostJob({ postedDate, location, vacancy, jobNature, salary, application
 
       </div>
     {
-     popup ?  (<PopUpCard title={"Are you really want to Delete !"} Para={"if delete this its means there no way are gonna back this commond sir so please think and do."} url={"/Utility/del.gif"} btn1={"Delete Now"}  onClose={handleChange}/>) : null 
+     popup ?  (<PopUpCard title={"Are you really want to Delete !"} Para={"if delete this its means there no way are gonna back this commond sir so please think and do."} url={"/Utility/del.gif"} btn1={"Delete Now"}  onClose={handleChange} onClick={onClick} loader={loader}/>) : null 
     } 
     </div>
   );

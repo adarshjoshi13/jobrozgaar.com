@@ -2,6 +2,7 @@ import React from 'react'
 import JobBoxCard from '../JobBoxCard/JobBoxCard';
 import "./MyjobsList.css"
 import { Link } from 'react-router-dom';
+import { Loader } from '../../../../../Components/export';
 function MyjobsList() {
   const jobsData = [
     {
