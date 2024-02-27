@@ -54,7 +54,7 @@ function Dashboard({ children, navtag }) {
         } number={formData.mobile || ""} name={formData.firstName
         } location={currentAddress || ""} compleateProfile={profileCompleate} utlityFunction={fncForReload} UploadImg={UploadImg} />
         <Employeetab active={navtag} />
-        {children}
+        {React.cloneElement(children, { AllData:  formData,Reload:fncForReload })}
       </div>
 
     </>

@@ -5,7 +5,8 @@ import employee from '../../../../API/Employee';
 import { useState,useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
-function DasboardWork() {
+function DasboardWork({AllData,Reload}) {
+  console.log('update',Reload)
     const [initialValues,SetinitialValues] = useState({
         Position: "",
         Experience:[ {
@@ -49,7 +50,7 @@ function DasboardWork() {
       {/* <PersonalNav/> */}
       <ArrowNavigate url={'/Utility/ex.png'}/>
       <AboutMe/>
-      <WorkPage initialValues={initialValues} senrequest={AddWorkingEXprince} redirect={'/Dashboard/work-experience'} Edit={true}/>
+      <WorkPage initialValues={initialValues} senrequest={AddWorkingEXprince} redirect={'/Dashboard/work-experience'} Edit={true} utlityfnc={Reload}/>
     </div>
   </div>
   )

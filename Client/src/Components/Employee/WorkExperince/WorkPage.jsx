@@ -13,7 +13,7 @@ import SmallBanner from '../PersonalProfile/SmallBanner/SmallBanner';
 import { SelectInput } from '../../export';
 import SingleBarImage from '../PersonalProfile/singleWorkImg/SingleBarImage';
 import MultiMenu from '../../Global/UI/MultiMenu/MultiMenu';
-function WorkPage({ initialValues, senrequest, redirect, Edit }) {
+function WorkPage({ initialValues, senrequest, redirect, Edit,utlityfnc }) {
 
     const [isChecked, setIsChecked] = useState(true);
     const [loader, Setloader] = useState(false);
@@ -39,6 +39,9 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
             if (result.status === 200) {
                 Setloader(false);
                 toast.success(result.data.message)
+                if(utlityfnc){
+                    utlityfnc()
+                }
                 navigate(redirect)
             }
 
@@ -91,16 +94,17 @@ function WorkPage({ initialValues, senrequest, redirect, Edit }) {
 
     const jobTitleOptions = [
         { value: 'option1', label: 'Job Title' },
-        { value: 'software_engineer', label: 'Software Engineer' },
-        { value: 'data_analyst', label: 'Data Analyst' },
-        { value: 'graphic_designer', label: 'Graphic Designer' },
-        { value: 'marketing_manager', label: 'Marketing Manager' },
-        { value: 'sales_associate', label: 'Sales Associate' },
+        { value: 'software engineer', label: 'Software Engineer' },
+        { value: 'data analyst', label: 'Data Analyst' },
+        { value: 'graphic designer', label: 'Graphic Designer' },
+        { value: 'marketing manager', label: 'Marketing Manager' },
+        { value: 'sales associate', label: 'Sales Associate' },
+        {value:"Manager",label:"Manager"}
     ];
 
     const jobTypeOptions = [
-        { value: 'full_time', label: 'Full Time' },
-        { value: 'part_time', label: 'Part Time' },
+        { value: 'full time', label: 'Full Time' },
+        { value: 'part time', label: 'Part Time' },
         { value: 'contract', label: 'Contract' },
         { value: 'freelance', label: 'Freelance' },
         { value: 'internship', label: 'Internship' },

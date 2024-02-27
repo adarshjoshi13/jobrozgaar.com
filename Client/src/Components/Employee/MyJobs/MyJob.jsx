@@ -10,39 +10,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useState,useEffect } from 'react';
 import { Outlet,Link } from 'react-router-dom';
 
-function MyJob({children}) {
-  console.log(children)
-//   const [loader,Setloader] = useState(false);
-//     const [formData, setFormData] = useState({})
-//     useEffect(()=>{
-//         (async ()=>{
-//           const result = await employee.getintialdata();
-//           if(result.status === 200){
-//             // console.log('yel bhai',result.data)
-//             setFormData({...result.data})
-//           }
-//          else{
-//            toast.error("erro fetching data")
-//          }
-//         })()
-//       },[])
-//  const currentAddress = (
-//   (formData?.AdditionalUserinfo?.PersonalDetails ?? {}).CurrentAddress ?? null
-// )
-// const profileCompleate = formData?.ProfileCompleate
-// console.log("formdata",profileCompleate)
-   
-//     if(loader){
-//       return(
-//         <div className="contaienr">
-//           <div className="row">
-//               <div className="col-md-12">
-//               <Loader/>
-//               </div>
-//           </div>
-//         </div>
-//       )
-//     }
+function MyJob({children,AllData,Reload}) {
+ 
   return (
     <div className="container my-job-container p-0">
       {/* <Employeetab active={'My-Jobs'} /> */}
@@ -56,7 +25,7 @@ function MyJob({children}) {
            <Link to={'/Dashboard/jobs/my-jobs'}> <img src="/Utility/myjob.png" alt="" /></Link>
           </div>
           <div className="col-md-2 myjob-img-btn">
-            <img src="/Utility/myjob1.png" alt="" />
+            <Link to={'/Dashboard/jobs/recommand-jobs'}> <img src="/Utility/myjob1.png" alt="" /> </Link>
           </div>
           <div className="col-md-2 myjob-img-btn">
             <img src="/Utility/myjob2.png" alt="" />
@@ -71,7 +40,7 @@ function MyJob({children}) {
           </div>
         
        <div className="container p-0">
-        {children}
+       {React.cloneElement(children, { AllData,Reload})}
        </div>
         
 

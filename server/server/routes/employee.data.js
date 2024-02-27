@@ -3,7 +3,7 @@ var router = express.Router();
 const upload = require('../API/middleware/multer');
 const PersonalProfile = require('../API/Models/employeePersonalProf.model')
 const GetUserIdFromCookie = require('../API/Helper/getUserId');
-const {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince,ChangePassword} = require('../API/Controlers/Employee')
+const {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince,ChangePassword,GetRecommandJobs} = require('../API/Controlers/Employee')
 const {CheckAuthMiddlewareForEmployee} = require('../API/middleware/CheckAuth')
 
 router.post('/personal-profile',CheckAuthMiddlewareForEmployee,upload.any(),AddPersonalProfile );
@@ -15,6 +15,7 @@ router.post('/work-experience',CheckAuthMiddlewareForEmployee,WorkExprince);
 router.post('/education-details',CheckAuthMiddlewareForEmployee,AddEducationDetails)
 router.put('/work-experience-update',CheckAuthMiddlewareForEmployee,UpdateWorkExprince);
 router.put('/change-password',CheckAuthMiddlewareForEmployee,ChangePassword);
+router.get('/recommanded-jobs',CheckAuthMiddlewareForEmployee,GetRecommandJobs);
 
 
 

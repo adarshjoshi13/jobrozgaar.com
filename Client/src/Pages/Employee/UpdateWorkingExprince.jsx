@@ -4,7 +4,7 @@ import employee from '../../API/Employee';
 import { useState,useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
-function UpdateWorkingExprince() {
+function UpdateWorkingExprince({AllData}) {
   const [loader,Setloader] = useState(false)
     // const initialValues = {
     //     Position: "",

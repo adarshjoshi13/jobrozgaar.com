@@ -1,4 +1,5 @@
 import axios from "axios";
+import { data } from "jquery";
 
 class Employee {
   constructor(url) {
@@ -260,7 +261,24 @@ console.log('formmm',formData)
      }
     }
   }
-
+  
+  async   GetRecommandJobs(query){
+    console.log('dekhoserchquery',query)
+    try {
+      const data = await axios.get(`${this.url}/recommanded-jobs?${query}`,{
+        withCredentials:true
+      });
+      console.log("data",data)
+      return data;
+    } catch (error) {
+      if(error.response){
+        console.log("server side error",error.response)
+      }
+      console.log("error while fectching destination",error);
+     return null;
+    }
+  }
+  
 
 }
 

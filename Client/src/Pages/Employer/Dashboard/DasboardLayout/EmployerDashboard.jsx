@@ -6,6 +6,7 @@ import employerData from '../../../../API/Employer/EmployerData'
 import EmployerTabs from '../EmployerTabs/EmployerTabs'
 import SkletonLoader from '../EmployerLoader/SkletonLoader';
 function EmployerDashboard({children}) {
+  // console.log('update',AllData)
   const [loader,Setloader] = useState(true);
 
   const [formData, setFormData] = useState({})
