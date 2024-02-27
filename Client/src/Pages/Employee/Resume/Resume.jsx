@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Resume.css"
 import { FaPhone, FaEnvelope, FaGlobe, FaLinkedin, FaMapMarker, FaBook, FaGamepad, FaUtensils, FaMicrophone } from 'react-icons/fa';
 
 function Resume() {
+    const [loader, setLoder] = useState(false);
+
+
     return (
         <div className="resume">
+        <div className="col-md-12 text-center mt-4">
+        <button class="buttonDownload">Download</button>
+        </div>
               <div className="container-resume">
             <div className="left_Side">
                 <div className="profileText">
