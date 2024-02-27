@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PlanPage from './Pages/Employer/PlanPage/PlanPage';
 import GoToTop from './Components/Global/UI/GoToTop/GoToTop';
+import Resume from './Pages/Employee/Resume/Resume';
 
 
 
@@ -28,6 +29,7 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path='/' element={<Layout><Home /></Layout>} />
+        <Route path='/resume' element={<Layout><Resume /></Layout>} />
         <Route path='/fliter-jobs' element={<Layout><FliterJob /></Layout>} />
         <Route path='/find-a-talent' element={<Layout><FindATalent /></Layout>} />
         <Route path='/find-a-job' element={<Layout><FindAJob /></Layout>} />

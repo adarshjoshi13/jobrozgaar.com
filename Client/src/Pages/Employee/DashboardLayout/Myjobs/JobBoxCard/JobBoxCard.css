@@ -27,12 +27,14 @@
 
 
 .Job-Box-single .company-img img {
-	overflow: hidden;
-	float: left;
-	width: 82px;
-	/* margin-right: 32px; */
-	z-index: 9;
-	border: 1px solid #5c8164;
+    overflow: hidden;
+    float: left;
+    /* aspect-ratio: 1/1; */
+    width: 70px;
+    height: 70px;
+    /* margin-right: 32px; */
+    z-index: 9;
+    border: 1px solid #5c8164;
 }
 
 @media (max-width: 767px) {
