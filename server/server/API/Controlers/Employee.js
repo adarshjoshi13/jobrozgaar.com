@@ -638,5 +638,12 @@ async function GetJobByID (req,res){
   }
 }
 
+async function SaveJOb(req,res){
+  const employeeId = GetUserIdFromCookie(req.cookies.token)
+  console.log(employeeId)
+  if(!employeeId){
+     return res.status(401).json({message:'Unauthorized request'})
+  }
+}
 
-   module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince,ChangePassword,GetRecommandJobs,GetJobByID}
+   module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince,ChangePassword,GetRecommandJobs,GetJobByID,SaveJOb}
