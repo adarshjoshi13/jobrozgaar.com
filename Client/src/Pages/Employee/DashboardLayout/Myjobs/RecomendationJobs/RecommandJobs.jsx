@@ -10,63 +10,8 @@ import { ToastContainer, toast } from 'react-toastify';
 
 function RecommandJobs({ AllData,Reload}) {
     // console.log('my',MakeSerchparams({jobTitle:AllData?.AdditionalUserinfo?.WorkingExperiences?.LookingForJobs?.JobTitle}));
-    const [loader,Setloader] = useState(false);
+    const [loader,Setloader] = useState(true);
     const [formData, setFormData] = useState([])
-    const jobsData = [
-        {
-          jobTitle: 'Digital Marketer',
-          imageUrl: '/Utility/job-list1.png',
-          company: 'Creative Agency',
-          location: 'Athens, Greece',
-          salary: '$3500 - $4000',
-          btnTitle: 'View',
-          btnTitle1: 'Save',
-          btnTitle2: 'Apply',
-          timeAgo: "3 hours ago",
-          mobile:"8178710398",
-          linkToDetails: '/Dashboard/jobs/job-details',
-        },
-        {
-          jobTitle: 'Digital Marketer',
-          imageUrl: '/Utility/job-list2.png',
-          company: 'Creative Agency',
-          location: 'Athens, Greece',
-          salary: '$3500 - $4000',
-          btnTitle: 'View',
-          btnTitle1: 'Save',
-          btnTitle2: 'Apply',
-          timeAgo: "3 hours ago",
-          mobile:"8379273947",
-          linkToDetails: '/Dashboard/jobs/job-details',
-        },
-        {
-          jobTitle: 'Digital Marketer',
-          imageUrl: '/Utility/job-list3.png',
-          company: 'Creative Agency',
-          location: 'Athens, Greece',
-          salary: '$3500 - $4000',
-          btnTitle: 'View',
-          btnTitle1: 'Save',
-          btnTitle2: 'Apply',
-          timeAgo: "3 hours ago",
-          mobile:"9873839487",
-    
-          linkToDetails: '/Dashboard/jobs/job-details',
-        },
-        {
-          jobTitle: 'Digital Marketer',
-          imageUrl: '/Utility/job-list4.png',
-          company: 'Creative Agency',
-          location: 'Athens, Greece',
-          salary: '$3500 - $4000',
-          btnTitle: 'View',
-          btnTitle1: 'Save',
-          btnTitle2: 'Apply',
-          timeAgo: "3 hours ago",
-          mobile:"6548236548",
-          linkToDetails: '/Dashboard/jobs/job-details',
-        },
-      ];
 
       const [JobList,SetJobList] = useState([])
 
@@ -90,9 +35,9 @@ function RecommandJobs({ AllData,Reload}) {
             btnTitle: 'View',
             btnTitle1: 'Save',
             btnTitle2: 'Apply',
-            timeAgo: getTimeDifferenceString(i.createdAt),
+            timeAgo: getTimeDifferenceString(new Date(i.createdAt)),
             mobile: i.CompanyDetails.mobile,
-            linkToDetails: '/Dashboard/jobs/job-details'
+            linkToDetails1: `/Dashboard/jobs/job-details/${i._id}`
           }
           SetJobList(prev =>[...prev,newjob]);
         })

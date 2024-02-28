@@ -343,4 +343,6 @@ async function DeleteJOb(req,res){
 
 
 
+
+
 module.exports = {JobDetails,AddcandidateDetails,AddCompanyDetails,GetAllDataOfEmployer,ChangeLogo,DeleteJOb}

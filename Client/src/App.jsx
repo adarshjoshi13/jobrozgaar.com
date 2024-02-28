@@ -154,7 +154,7 @@ function App() {
           }
         />
         <Route
-          path='/Dashboard/jobs/job-details'
+          path='/Dashboard/jobs/job-details/:id'
           element={
             <EmployeeProtectedRoute CMP={
               <Layout>

@@ -1,8 +1,8 @@
 import React from 'react'
-import { JobDescription } from '../../../../../Components/export'
+import { EmployeJobDetail } from '../../../../../Components/export'
 function JobDetali() {
   return (
-    <JobDescription/>
+   <EmployeJobDetail/>
   )
 }
 

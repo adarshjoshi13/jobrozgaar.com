@@ -7,6 +7,7 @@ const WorkingExprince = require('../Models/Employee.workExprince')
 const employeeIntialdata = require('../Models/Employee.model')
 const bcrypt = require('bcrypt')
 const JobDetail = require('../Models/Employer/JobDetails.model')
+const jobDetails = require('../Models/Employer/JobDetails.model')
 
 // controlers
 async function AddPersonalProfile(req, res,) {
@@ -615,4 +616,27 @@ async function GetRecommandJobs(req,res){
 
 }
 
-   module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince,ChangePassword,GetRecommandJobs}
+
+async function GetJobByID (req,res){
+  try {
+    const{ id} = req.params;
+    console.log('here is the id',id)
+
+    const jobdetails = await jobDetails.findById(id).populate({
+      path: 'user',
+      populate: [
+        { path: 'CompanyDetails' },
+        { path: 'jobs' }
+      ]
+    });
+    if(!jobdetails) return res.status(404).json({message:'No  Job Found with this ID'});
+    return res.status(200).json({data:jobdetails});
+    
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({message:"Internal Server Error"});
+  }
+}
+
+
+   module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince,ChangePassword,GetRecommandJobs,GetJobByID}

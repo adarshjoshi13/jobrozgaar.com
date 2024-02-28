@@ -5,6 +5,7 @@ const JobDetails = new mongooseConnect.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
+    ref:'EmployerIntialData'
   },
   
   wantToHire: {

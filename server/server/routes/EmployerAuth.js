@@ -22,4 +22,5 @@ router.put('/update-logo',CheckAuthMiddlewareForEmployer,upload.any(),ChangeLogo
 router.delete('/delete-job/:jobId',CheckAuthMiddlewareForEmployer,DeleteJOb)
 
 
+
 module.exports = router;

@@ -6,7 +6,7 @@ import { useState,useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
 function DasboardWork({AllData,Reload}) {
-  console.log('update',Reload)
+  // console.log('update',AllData?.AdditionalUserinfo?.WorkingExperiences)
     const [initialValues,SetinitialValues] = useState({
         Position: "",
         Experience:[ {
@@ -29,17 +29,9 @@ function DasboardWork({AllData,Reload}) {
       }
       // const [formData, setFormData] =  useState({})
       useEffect(()=>{
-          (async ()=>{
-            const result = await employee.getintialdata();
-            if(result.status === 200){
-            //   console.log('yel bhai',result.data.AdditionalUserinfo.
-            //   WorkingExperiences ?? {})
-              SetinitialValues({...result.data.AdditionalUserinfo.WorkingExperiences ?? {...initialValues} })
-            }
-           else{
-             toast.error("erro fetching data")
-           }
-          })()
+         if(AllData){
+          SetinitialValues({...AllData?.AdditionalUserinfo?.WorkingExperiences ?? {...initialValues} })
+         }
         },[])
   return (
     <div className="container d-flex p-0 flex-wrap flex-lg-nowrap flex-md-nowrap">

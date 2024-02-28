@@ -278,6 +278,23 @@ console.log('formmm',formData)
      return null;
     }
   }
+
+  async  JobDetails(id){
+    console.log('dekhoserchquery',id)
+    try {
+      const data = await axios.get(`${this.url}/get-job-details/${id}`,{
+        withCredentials:true
+      });
+      console.log("data",data)
+      return data;
+    } catch (error) {
+      if(error.response){
+        console.log("server side error",error.response)
+      }
+      console.log("error while fectching jobs dtails",error);
+     return null;
+    }
+  }
   
 
 }

@@ -11,7 +11,6 @@ import { useState,useEffect } from 'react';
 import { Outlet,Link } from 'react-router-dom';
 
 function MyJob({children,AllData,Reload}) {
- 
   return (
     <div className="container my-job-container p-0">
       {/* <Employeetab active={'My-Jobs'} /> */}
