@@ -30,7 +30,7 @@ function MyJob({children,AllData,Reload}) {
             <img src="/Utility/myjob2.png" alt="" />
           </div>
           <div className="col-md-2 myjob-img-btn">
-            <img src="/Utility/myjob3.png" alt="" />
+            <Link to={'/Dashboard/jobs/saved-job'}><img src="/Utility/myjob3.png" alt="" /> </Link>
           </div>
           <div className="col-md-2 myjob-img-btn ">
             <img src="/Utility/myjob4.png" alt="" />

@@ -54,7 +54,7 @@ import EmployeeProtectedRoute from './Employee/ProtectedRoute/EmployeeProtectedR
 // protected route end
 import FliterJob from "./FliterJob/FliterJob";
 import RecommandJobs from "./Employee/DashboardLayout/Myjobs/RecomendationJobs/RecommandJobs";
+import SavedJobs from "./Employee/DashboardLayout/Myjobs/SavedJobs/SavedJobs";
 
 
-
-export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali,EmployerDashboard,WorkersCard,ViewCompanyDetails,PopUpCard,JOblayout,AddJob,JobBoxCard,ViewJob ,EmployerViewPost,EmployerProtectedRoute,EmployeeProtectedRoute,FliterJob,RecommandJobs};
+export {Home,FindATalent,FindAJob,About,Contact,SkillDevelopment,JobDetails,StaffPlacement,PayRoll,ManPower,EmployeDashBorad,PersonalProfile,WorkExperince,Education,EditPersonalProfile,JobPosting,Candidate,CompanyDetails,EmployeeLogin,EmployerLogin,UpdateWorkingExprince,EditEducation,Dashboard,DasboardWork,OfferLetter,PasswordChange,DashboardEducation,DashboardPeronalProfile,MyjobsList,TipsSupport,JobDetali,EmployerDashboard,WorkersCard,ViewCompanyDetails,PopUpCard,JOblayout,AddJob,JobBoxCard,ViewJob ,EmployerViewPost,EmployerProtectedRoute,EmployeeProtectedRoute,FliterJob,RecommandJobs,SavedJobs};

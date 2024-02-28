@@ -12,15 +12,27 @@ function RecommandJobs({ AllData,Reload}) {
     // console.log('my',MakeSerchparams({jobTitle:AllData?.AdditionalUserinfo?.WorkingExperiences?.LookingForJobs?.JobTitle}));
     const [loader,Setloader] = useState(true);
     const [formData, setFormData] = useState([])
+    const [SaveLoader,SetSaveLoader] = useState(false)
+    const [JobList,SetJobList] = useState([])
+    const [Foreach,setForeach] = useState(false)
+  
+    // Handle save
+    const handleSave = async (id)=>{
+      SetSaveLoader(true)
+      const result = await employee.saveJob(id);
+      if (result.status === 200) {
+        Reload()
+        toast.success(result.data.message)
+        SetSaveLoader(false)
+      }
+      else {
+        SetSaveLoader(false)
+        toast.error(result.data.message)
+      }
+    }
+      
 
-      const [JobList,SetJobList] = useState([])
-
-      // console.log('form',formData)
-      console.log('joblist',JobList)
-      const [Foreach,setForeach] = useState(false)
-      // console.log('mount',foreach)
-
-  useEffect(()=>{
+      useEffect(()=>{
     
    if(formData.length !== 0){
       if(Foreach === false){
@@ -37,7 +49,12 @@ function RecommandJobs({ AllData,Reload}) {
             btnTitle2: 'Apply',
             timeAgo: getTimeDifferenceString(new Date(i.createdAt)),
             mobile: i.CompanyDetails.mobile,
-            linkToDetails1: `/Dashboard/jobs/job-details/${i._id}`
+            linkToDetails1: `/Dashboard/jobs/job-details/${i._id}`,
+            id:i._id,
+            onClick:(e)=>{
+              console.log('saved job',e.target.id)
+              handleSave(e.target.id)
+            }
           }
           SetJobList(prev =>[...prev,newjob]);
         })
@@ -45,7 +62,7 @@ function RecommandJobs({ AllData,Reload}) {
       setForeach(true)
        
    }
-  },[formData])
+      },[formData])
       
       useEffect(() => {
       if(AllData?.AdditionalUserinfo?.WorkingExperiences?.LookingForJobs?.JobTitle){
@@ -65,6 +82,8 @@ function RecommandJobs({ AllData,Reload}) {
       }
       }, [AllData])
 
+
+
       if (loader) {
         return <Loader style={{
           width: '100%',
@@ -78,11 +97,17 @@ function RecommandJobs({ AllData,Reload}) {
     <>
 <>
   <div>
-    {
-     JobBoxCard.length > 0 ?( JobList.map((i,n)=>{
-      return <JobBoxCard key={n} {...i}/>
-     })) : <h1>NO Jobs to recommand</h1>
-    }
+  {
+  JobList.length > 0 ? (
+    JobList.map((i, n) => {
+      return <JobBoxCard key={n} {...i} />;
+    })
+  ) : (
+    <div className="nosave text-center mb-5 mt-5">
+            <h5>no jobs to Recommand right now</h5>
+        </div>
+  )
+}
     <div className="row">
           <div className="col-lg-12">
             <div className="browse-btn2 text-center mt-50">

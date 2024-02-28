@@ -17,7 +17,7 @@ router.put('/work-experience-update',CheckAuthMiddlewareForEmployee,UpdateWorkEx
 router.put('/change-password',CheckAuthMiddlewareForEmployee,ChangePassword);
 router.get('/recommanded-jobs',CheckAuthMiddlewareForEmployee,GetRecommandJobs);
 router.get('/get-job-details/:id',GetJobByID)
-router.put('/save-job',SaveJOb)
+router.post('/save-job/:id',CheckAuthMiddlewareForEmployee,SaveJOb)
 
 
 

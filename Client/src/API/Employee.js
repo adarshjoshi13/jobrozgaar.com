@@ -295,6 +295,28 @@ console.log('formmm',formData)
      return null;
     }
   }
+
+  async  saveJob(id){
+    console.log('dekhoserchquery',id)
+    try {
+      const data = await axios.post(`${this.url}/save-job/${id}`,{},{
+        withCredentials:true,
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      console.log("data",data)
+      return data;
+    } catch (error) {
+      if(error.response){
+        console.log("server side error",error.response)
+        return error.response
+      }
+      console.log("error while saving jobs",error);
+     return null;
+    }
+  }
   
 
 }

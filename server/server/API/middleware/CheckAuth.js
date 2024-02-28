@@ -15,6 +15,7 @@ function decodeExpiredJWTEmployer(token) {
 }
 
 async function CheckAuthMiddlewareForEmployee(req, res, next) {
+  console.log('cookie middle',req.cookies)
     if (!req.cookies.token) {
       return res.status(401).json({ message: "You are not logged in to perform this action" });
     }

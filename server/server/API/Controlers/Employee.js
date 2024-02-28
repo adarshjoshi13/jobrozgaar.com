@@ -214,7 +214,18 @@ async function AddPersonalProfile(req, res,) {
 
     try {
       const allData = await employePersonalDetails.findOne({_id:employeeId}) .populate('AdditionalUserinfo.PersonalDetails')
-      .populate('AdditionalUserinfo.WorkingExperiences');;
+      .populate('AdditionalUserinfo.WorkingExperiences')
+      .populate({
+        path: 'SavedJObs',
+        populate: {
+          path: 'user',
+          model: 'EmployerIntialData',
+          populate: {
+            path: 'CompanyDetails',
+            model: 'CompanyDetails',
+          },
+        },
+      })
       res.status(200).json(allData);
     } catch (error) {
       console.error('Error fetching data:', error.message);
@@ -638,12 +649,56 @@ async function GetJobByID (req,res){
   }
 }
 
-async function SaveJOb(req,res){
-  const employeeId = GetUserIdFromCookie(req.cookies.token)
-  console.log(employeeId)
-  if(!employeeId){
-     return res.status(401).json({message:'Unauthorized request'})
+async function SaveJOb(req, res) {
+  const { id } = req.params;
+  console.log('here is the id',req.cookies.token);
+  const employeeId = GetUserIdFromCookie(req.cookies.token);
+  console.log('cookie',employeeId);
+  if (!employeeId) {
+    return res.status(401).json({ message: 'Unauthorized request' });
+  }
+
+  try {
+
+    const CheckJob =  await employeeIntialdata.findOne({
+      _id: employeeId,
+      SavedJObs: { $in: [id] }
+    });
+
+    if(!CheckJob){
+      const result = await employeeIntialdata.findByIdAndUpdate(
+        employeeId,
+        { $push: {SavedJObs: id } },
+        { new: true } 
+      );
+  
+      if (!result) {
+        return res.status(404).json({ message: 'Employee not found' });
+      }
+  
+      console.log('this is the result of save job',result);
+      return res.status(200).json({ message: 'Job saved successfully', data: result });
+    }
+  else{
+    const result = await employeeIntialdata.findByIdAndUpdate(
+      employeeId,
+      { $pull: {SavedJObs: id } },
+      { new: true }
+    );
+    if (!result) {
+      return res.status(404).json({ message: 'Employee not found' });
+    }
+
+    console.log('this is the result of unsave job',result);
+    return res.status(200).json({ message: 'Job Unsaved', data: result });
+  }
+
+   
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
   }
 }
+
 
    module.exports = {AddPersonalProfile,EditPersonalProfile,getPersonalProfile,getInitailData,updateUserProiflePicture,WorkExprince,AddEducationDetails,UpdateWorkExprince,ChangePassword,GetRecommandJobs,GetJobByID,SaveJOb}
