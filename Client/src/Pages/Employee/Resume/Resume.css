@@ -1,0 +1,419 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+
+.resume{
+    width: 100%;
+    display : flex;
+    justify-content : center;
+    flex-direction: column;
+    
+    align-items : center;
+    background: #8FAA4680;
+}
+
+
+.container-resume {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 1000px;
+    background-color: #fff;
+    font-family: "Poppins", SansSerif;
+    margin: 40px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    box-shadow: 0 35px 55px rgba(0, 0, 0, 0.1);
+}
+
+.container-resume .left_Side {
+    position: relative;
+    background-color: #254857;
+    padding: 30px;
+}
+
+.container-resume .profileText {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.container-resume .profileText .imgBx {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.container-resume .profileText .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container-resume .photo {
+    width: 100%;
+    height: auto;
+}
+
+.container-resume .profileText h2 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.4em;
+}
+
+.container-resume .profileText h2 span {
+    font-size: 0.8em;
+    font-weight: 300;
+}
+
+.container-resume .contactInfo {
+    padding-top: 40px;
+}
+
+.container-resume .title {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+
+.container-resume h6{
+    color: white;
+}
+
+.container-resume .contactInfo ul {
+    position: relative;
+}
+
+.container-resume .contactInfo ul li {
+    list-style: none;
+    position: relative;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.container-resume .contactInfo ul li .icon {
+    display: inline-block;
+    width: 30px;
+    font-size: 18px;
+    color: #8FAA46;
+}
+
+.container-resume .contactInfo ul li span {
+    color: #fff;
+    font-weight: 300;
+}
+
+.container-resume .contactInfo.education li {
+    margin-bottom: 15px;
+}
+
+.container-resume .contactInfo.education h5 {
+    color: #8FAA46;
+    font-weight: 500;
+}
+
+.container-resume .contactInfo.education h4:nth-child(2) {
+    color: #fff;
+    font-weight: 500;
+}
+
+.container-resume .contactInfo.education h4 {
+    color: #fff;
+    font-weight: 300;
+}
+
+.container-resume .contactInfo.language .percent {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background-color: #081921;
+    display: block;
+    margin-top: 5px;
+}
+
+.container-resume .contactInfo.language .percent div {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #8FAA46;
+}
+
+.container-resume .right_Side {
+    position: relative;
+    background-color: #fff;
+    padding: 40px;
+}
+
+.container-resume .about {
+    margin-bottom: 50px;
+}
+
+.container-resume .about:last-child {
+    margin-bottom: 0;
+}
+
+.container-resume .title2 {
+    color: #003147;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.container-resume p {
+    color: #081921;
+}
+
+.container-resume .about .box {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+}
+
+.container-resume .about .box .year_company {
+    min-width: 150px;
+}
+
+.container-resume .about .box .year_company h5 {
+    text-transform: uppercase;
+    color: #848c90;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.container-resume .about .box .text h4 {
+    text-transform: uppercase;
+    color: rgb(143, 170, 70);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.container-resume .skills .box {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-resume .skills .box h5 {
+    text-transform: uppercase;
+    color: #848c90;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.container-resume .skills .box .percent {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: #f0f0f0;
+}
+
+.container-resume .skills .box .percent div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #8FAA46;
+}
+
+.container-resume .interest ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.container-resume .interest ul li {
+    list-style: none;
+    color: black;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.container-resume .interest ul li .fa {
+    color: #8FAA46;
+    font-size: 18px;
+    width: 20px;
+}
+
+
+.interest svg path{
+    fill: #8FAA46;
+}
+
+
+
+/* btn */
+.buttonDownload {
+    display: inline-block;
+    position: relative;
+    padding: 10px 25px;
+    background-color: #4CC713;
+    color: white;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 0.9em;
+    text-align: center;
+    text-indent: 15px;
+    border: none;
+   }
+   
+   .buttonDownload:hover {
+    background-color: #45a21a;
+    color: white;
+   }
+   
+   .buttonDownload:before, .buttonDownload:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 52%;
+   }
+   
+   .buttonDownload:before {
+    width: 10px;
+    height: 2px;
+    border-style: solid;
+    border-width: 0 2px 2px;
+   }
+   
+   .buttonDownload:after {
+    width: 0;
+    height: 0;
+    margin-left: 3px;
+    margin-top: -7px;
+    border-style: solid;
+    border-width: 4px 4px 0 4px;
+    border-color: transparent;
+    border-top-color: inherit;
+    animation: downloadArrow 1s linear infinite;
+    animation-play-state: paused;
+   }
+   
+   .buttonDownload:hover:before {
+    border-color: #cdefbd;
+   }
+   
+   .buttonDownload:hover:after {
+    border-top-color: #cdefbd;
+    animation-play-state: running;
+   }
+   
+   @keyframes downloadArrow {
+    0% {
+     margin-top: -7px;
+     opacity: 1;
+    }
+   
+    0.001% {
+     margin-top: -15px;
+     opacity: 0.4;
+    }
+   
+    50% {
+     opacity: 1;
+    }
+   
+    100% {
+     margin-top: 0;
+     opacity: 0.4;
+    }
+   }
+
+/* end */
+
+@media (max-width: 1000px) {
+    .container-resume {
+        margin: 10px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .container-resume .interest ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .container-resume .about .box {
+        flex-direction: column;
+    }
+
+    .container-resume .about .box .year_company {
+        margin-bottom: 5px;
+    }
+
+    .container-resume .interest ul {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .container-resume .skills .box {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+@media screen and (max-width:364px) {
+    .container-resume .left_Side {
+        
+        padding: 13px;
+    }
+
+    .container-resume .right_Side {
+      
+        padding: 15px;
+    }
+}
+
+.container-resume .englishw50 {
+    width: 60%;
+}
+
+.container-resume .russianw90 {
+    width: 90%;
+}
+
+.container-resume .frenchw30 {
+    width: 30%;
+}
+
+.container-resume .htmlws30 {
+    width: 50%;
+}
+
+.container-resume .cssws45 {
+    width: 45%;
+}
+
+.container-resume .jsws70 {
+    width: 70%;
+}
+
+.container-resume .phws40 {
+    width: 40%;
+}
+
+.container-resume .ilws60 {
+    width: 60%;
+}
+
+.container-resume .adw70 {
+    width: 70%;
+}
