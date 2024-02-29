@@ -36,9 +36,22 @@ function getTimeDifferenceString(date) {
     return 'Just now';
   }
 
+function checkIfsaved (currentJob, savedJobs) {
+  console.log('function running',currentJob, savedJobs)
+   let whatis = 'save'
+    savedJobs.forEach(element => {
+      if(currentJob === element._id){
+        // console.log('idesss',element._id ===  currentJob )
+        return  whatis =  "Unsave"
+      }
+    });
+
+    return whatis;
+}
+
 
   
  
   
 
-  export  {isEmptyObject,getTimeDifferenceString,MakeSerchparams}
+  export  {isEmptyObject,getTimeDifferenceString,MakeSerchparams,checkIfsaved};

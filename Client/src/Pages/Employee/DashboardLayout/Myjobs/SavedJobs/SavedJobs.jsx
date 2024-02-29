@@ -5,26 +5,26 @@ import { useState,useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { Loader } from '../../../../../Components/export';
 import { Link } from 'react-router-dom';
-import {getTimeDifferenceString} from '../../../../../utlity/utlityfnc'
+import {getTimeDifferenceString,checkIfsaved} from '../../../../../utlity/utlityfnc'
 
 
-function SavedJobs({AllData,Reload}) {
-    console.log('jobs',AllData.SavedJObs)
+function SavedJobs() {
+    // console.log('jobs',AllData.SavedJObs)
+    const [AllData,SetAllData] =  useState([])
     const [loader,Setloader] = useState(false);
-    const [formData, setFormData] = useState(AllData?.SavedJObs || [])
     const [SaveLoader,SetSaveLoader] = useState(false)
     const [JobList,SetJobList] = useState([])
     const [Foreach,setForeach] = useState(false)
-    const [run,setrun] = useState(0)
-    console.log('saved',JobList)
-    console.log('form',run)
+    const [run,Setrun] = useState(false)
+    console.log('saved',AllData)
+    console.log('form',JobList)
   
     // Handle save
     const handleSave = async (id)=>{
       SetSaveLoader(true)
       const result = await employee.saveJob(id);
       if (result.status === 200) {
-        Reload()
+        Setrun(!run)
         toast.success(result.data.message)
         SetSaveLoader(false)
       }
@@ -34,14 +34,26 @@ function SavedJobs({AllData,Reload}) {
       }
     }
       
+    useEffect(() => {
+        (async () => {
+          Setloader(true)
+          const result = await employee.getintialdata();
+          if (result.status === 200) {
+            console.log('alien bhai',result.data)
+            SetAllData([ ...result.data.SavedJObs ])
+            Setloader(false)
+          }
+          else {
+            Setloader(false)
+            toast.error("erro fetching data")
+          }
+        })()
+      }, [run])
 
 useEffect(()=>{
-        setrun(run+1)
-   if(formData.length > 0){
-
-      if(Foreach === false){
+   if(AllData.length > 0){
         const arr = []
-        formData.map((i,index)=>{
+        AllData.map((i,index)=>{
           console.log('i',i)
           const newjob = {
             jobTitle: i.JobTitle,
@@ -50,10 +62,10 @@ useEffect(()=>{
             location: i.JobLocation.city,
             salary: i.SalaryRange.minimum + "-" + i.SalaryRange.maximum ,
             btnTitle: 'View',
-            btnTitle1: 'Save',
+            btnTitle1: checkIfsaved(i._id,AllData),
             btnTitle2: 'Apply',
             timeAgo: getTimeDifferenceString(new Date(i.createdAt)),
-            mobile: i.user.CompanyDetails.mobile,
+            mobile: i.user.mobile,
             linkToDetails1: `/Dashboard/jobs/job-details/${i._id}`,
             id:i._id,
             onClick:(e)=>{
@@ -67,9 +79,9 @@ useEffect(()=>{
         })
         SetJobList([...arr]);
        
-      }
+      
 
-    setForeach(true)
+    
      
        
    }

@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <ToastContainer />
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
       <Routes>
         <Route path='/' element={<Layout><Home /></Layout>} />
         <Route path='/resume' element={<Layout><Resume /></Layout>} />
