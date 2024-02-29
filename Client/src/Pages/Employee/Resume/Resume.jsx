@@ -1,23 +1,59 @@
-import React, { useState } from 'react';
-import "./Resume.css"
+import React, { useState, useEffect } from 'react';
 import { FaPhone, FaEnvelope, FaGlobe, FaLinkedin, FaMapMarker, FaBook, FaGamepad, FaUtensils, FaMicrophone } from 'react-icons/fa';
+import html2canvas from 'html2canvas';
+import "./Resume.css"
+import jsPDF from 'jspdf';
+
+const imageUrl = "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg";
 
 function Resume() {
-    const [loader, setLoder] = useState(false);
+    const [loader, setLoader] = useState(false);
+    const [imageDataUrl, setImageDataUrl] = useState("");
 
+    useEffect(() => {
+        // Fetch the image data and convert it to a data URL
+        fetch(imageUrl)
+            .then(response => response.blob())
+            .then(blob => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    setImageDataUrl(reader.result);
+                };
+                reader.readAsDataURL(blob);
+            })
+            .catch(error => {
+                console.error("Error fetching image:", error);
+            });
+    }, []);
+
+    function downloadPdf() {
+        setLoader(true);
+        const capture = document.querySelector(".container-resume");
+        html2canvas(capture).then((canvas) => {
+            const pdf = new jsPDF("p", "mm", "a4");
+            const width = pdf.internal.pageSize.getWidth();
+            const height = pdf.internal.pageSize.getHeight();
+            pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, width, height);
+            pdf.save("Resume.pdf");
+            setLoader(false);
+        });
+    }
 
     return (
         <div className="resume">
-        <div className="col-md-12 text-center mt-4">
-        <button class="buttonDownload">Download</button>
-        </div>
-              <div className="container-resume">
-            <div className="left_Side">
-                <div className="profileText">
-                    <div className="imgBx">
-                        <img className="photo" src="https://scontent-del1-2.xx.fbcdn.net/v/t39.30808-6/399801825_1527714274695982_5999409967213285464_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=2TPyofeQNL8AX9UsyOi&_nc_ht=scontent-del1-2.xx&oh=00_AfAoUgpJipcoaYhPIZ-1BH_cp3tJvxnRPCX5e4vOUHIOqA&oe=65E20AD1" alt="profile" />
-                    </div>
-                    <br />
+            <div className="col-md-12 text-center mt-4">
+                <button onClick={downloadPdf} className="buttonDownload">
+                    {loader ? "Downloading" : "Download Now"}
+                </button>
+            </div>
+            <div className="container-resume">
+                <div className="left_Side">
+                    <div className="profileText">
+                        <div className="imgBx">
+                            {/* Render the image using the data URL */}
+                            {imageDataUrl && <img className="photo" src={imageDataUrl} alt="profile" />}
+                        </div>
+                        <br />
                     <h4 className='text-center text-white'>Ashutosh Yadav<br /><span style={{color:"#8faa46"}}>Web Developer</span> </h4>
                 </div>
 
