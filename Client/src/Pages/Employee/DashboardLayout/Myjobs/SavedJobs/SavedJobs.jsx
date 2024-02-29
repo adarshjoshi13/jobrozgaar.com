@@ -51,7 +51,7 @@ function SavedJobs() {
       }, [run])
 
 useEffect(()=>{
-   if(AllData.length > 0){
+    console.log('running...', Date.now())
         const arr = []
         AllData.map((i,index)=>{
           console.log('i',i)
@@ -84,7 +84,7 @@ useEffect(()=>{
     
      
        
-   }
+   
       },[AllData])
       
 
