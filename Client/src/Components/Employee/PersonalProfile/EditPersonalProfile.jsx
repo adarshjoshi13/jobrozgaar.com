@@ -1,7 +1,7 @@
 import React from 'react';
 import './PersonalDetails.css'; // Assuming you have a corresponding CSS file
 import { Link, useNavigate } from 'react-router-dom';
-import PersonalNav from './personalNav/personalNav';
+// import PersonalNav from './personalNav/personalNav';
 import FormBar from './formbar/FormBar';
 import DateInput from './dateInput/DateInput';
 import ButtonEdit from './ButtonEdit/ButtonEdit';

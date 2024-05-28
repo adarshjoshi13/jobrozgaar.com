@@ -1,6 +1,6 @@
 import React from 'react'
 import './candidate.css'
-import PersonalNav from '../../Employee/PersonalProfile/personalNav/personalNav'
+// import PersonalNav from '../../Employee/PersonalProfile/personalNav/personalNav'
 import FormBar from '../../Employee/PersonalProfile/formbar/FormBar'
 import { Formik, Form, Field, ErrorMessage, useFormik, useFormikContext } from 'formik';
 import { Button, Loader } from '../../export';
