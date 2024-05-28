@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, PersonalNav, SelectInput } from '../../export'
 import FormBar from '../../Employee/PersonalProfile/formbar/FormBar'
 import DateInput from '../../Employee/PersonalProfile/dateInput/DateInput'
-import './jobdetails.css'
+// import './jobdetails.css'
 import { Formik, Form, Field, ErrorMessage, useFormik, useFormikContext } from 'formik';
 import { Loader } from '../../export';
 import { ToastContainer, toast } from 'react-toastify';
