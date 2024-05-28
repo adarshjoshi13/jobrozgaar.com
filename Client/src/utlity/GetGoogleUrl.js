@@ -3,7 +3,7 @@ function GetGoogleUrl() {
     const rootUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
   
     const options = {
-      redirect_uri: 'http://localhost:3000/oauth/google',
+      redirect_uri: 'https://jobrozgaar-com-server.onrender.com/oauth/google',
       client_id: '653939059864-69sp52o11p4dmjv31p7m4tniapr2maji.apps.googleusercontent.com',
       access_type: 'offline',
       response_type: 'code',

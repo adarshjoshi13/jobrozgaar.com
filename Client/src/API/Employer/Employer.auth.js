@@ -74,6 +74,6 @@ class Authentication {
   }
 }
 
-const EmployerAuth = new Authentication('http://localhost:3000/employer');
+const EmployerAuth = new Authentication('https://jobrozgaar-com-server.onrender.com/employer');
 
 export default EmployerAuth;

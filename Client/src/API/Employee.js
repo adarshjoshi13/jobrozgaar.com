@@ -321,6 +321,6 @@ console.log('formmm',formData)
 
 }
 
-const employee = new Employee('http://localhost:3000/employee');
+const employee = new Employee('https://jobrozgaar-com-server.onrender.com/employee');
 
 export default employee;

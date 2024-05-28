@@ -25,10 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 dotenv.config()
 
 const corsOptions = {
-  origin: process.env.BACKTOHOME, 
+  origin: "*", 
   credentials: true,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  optionsSuccessStatus: 204,
+  optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions))

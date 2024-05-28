@@ -187,6 +187,6 @@ async DeleteAjob(jobid){
   
 }
 
-const employerData = new EmployerData('http://localhost:3000/employer');
+const employerData = new EmployerData('https://jobrozgaar-com-server.onrender.com/employer');
 
 export default employerData;

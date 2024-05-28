@@ -95,6 +95,6 @@ class Authentication {
 
 }
 
-const auth = new Authentication('http://localhost:3000');
+const auth = new Authentication('https://jobrozgaar-com-server.onrender.com/');
 
 export default auth;
