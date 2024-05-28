@@ -1,5 +1,5 @@
 import React from 'react'
-import './company.css'
+// import './company.css'
 import  employerData from '../../../API/Employer/EmployerData'
 import { Company } from '../../../Components/export'
 import  { useState,useEffect} from "react"

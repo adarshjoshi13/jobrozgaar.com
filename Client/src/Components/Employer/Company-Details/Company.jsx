@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './company.css'
+// import './company.css'
 import { Button, PersonalNav, SelectInput } from '../../export'
 
 import DateInput from '../../Employee/PersonalProfile/dateInput/DateInput'
