@@ -18,7 +18,7 @@ import ProfileCard from "./Employee/Global/ProfileCard/ProfileCard";
 import Buttons from "./Employee/Global/Buttons/Buttons";
 import EmployeNav from "./Employee/Global/EmployeNav/EmployeNav";
 import PersonalDetails from "./Employee/PersonalProfile/PersonalDetails";
-import PersonalNav  from "./Employee/PersonalProfile/personalNav/personalNav";
+import PersonalNav  from "./Employee/PersonalProfile/personalNav/PersonalNav.jsx";
 import AboutMe from "./Employee/PersonalProfile/AboutMe/AboutMe";
 import SmallBanner from "./Employee/PersonalProfile/SmallBanner/SmallBanner";
 import WorkPage from "./Employee/WorkExperince/WorkPage";
