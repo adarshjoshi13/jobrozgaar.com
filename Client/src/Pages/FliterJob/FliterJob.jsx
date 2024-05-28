@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Fliterjob.css"
+// import "./Fliterjob.css"
 import Select from 'react-select';
 import { JobBoxCard } from '../export';
 import { Banner, UseBanner } from '../../Components/export';
