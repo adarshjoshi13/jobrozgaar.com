@@ -18,7 +18,7 @@ import ProfileCard from "./Employee/Global/ProfileCard/ProfileCard";
 import Buttons from "./Employee/Global/Buttons/Buttons";
 import EmployeNav from "./Employee/Global/EmployeNav/EmployeNav";
 import PersonalDetails from "./Employee/PersonalProfile/PersonalDetails";
-// import PersonalNav  from "./Employee/PersonalProfile/personalNav/personalNav";
+import PersonalNav  from "./Employee/PersonalProfile/personalNav/personalNav";
 import AboutMe from "./Employee/PersonalProfile/AboutMe/AboutMe";
 import SmallBanner from "./Employee/PersonalProfile/SmallBanner/SmallBanner";
 import WorkPage from "./Employee/WorkExperince/WorkPage";
@@ -37,4 +37,4 @@ import SelectInput from "./Global/UI/Select Input/SelectInput";
 import ArrowNavigate from "./Global/UI/ArrowNavigate/ArrowNavigate";
 import FormBar from "./Employee/PersonalProfile/formbar/FormBar";
 
-export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,RegisterForm,ContactSection,JobDescription,NormalForm,EmployeDash_Board,MyJob,ProfileCard,Buttons,EmployeNav,PersonalDetails,AboutMe,SmallBanner,WorkPage,Loader,EducationBox,OfferBox,EditPersonalprofile,Jobposting,CandidateComponet,Company,Employeetab,Button,SelectInput,ArrowNavigate,FormBar,EmployeJobDetail}
+export {Header,Footer,Banner,SliderGrid,JobCard,FeaturedJobs,ApplyProcessArea,UseBanner,EmployerBox,PersonalNav,RegisterForm,ContactSection,JobDescription,NormalForm,EmployeDash_Board,MyJob,ProfileCard,Buttons,EmployeNav,PersonalDetails,AboutMe,SmallBanner,WorkPage,Loader,EducationBox,OfferBox,EditPersonalprofile,Jobposting,CandidateComponet,Company,Employeetab,Button,SelectInput,ArrowNavigate,FormBar,EmployeJobDetail}
