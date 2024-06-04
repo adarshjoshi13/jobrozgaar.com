@@ -96,6 +96,6 @@ class Authentication {
 
 }
 
-const auth = new Authentication('https://jobrozgaar-com-server.onrender.com');
+const auth = new Authentication('https://jobrozgaar-com-server.onrender.com/');
 
 export default auth;
