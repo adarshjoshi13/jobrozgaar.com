@@ -5,6 +5,8 @@ const  employeeIntialdata = require('../Models/Employee.model');
 const { default: mongoose } = require('mongoose');
 const {GetUserIdFromCookie,GetEmployerIdFromCookie} = require('../Helper/getUserId');
 async function SignUP(req,res){
+  res.send("hello")
+  return
    const {firstName,mobile,email,password,ReferralCode} = req.body
    console.log(firstName,mobile,email,password,ReferralCode)
    try {
