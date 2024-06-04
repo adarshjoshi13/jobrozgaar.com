@@ -7,7 +7,8 @@ class Authentication {
 
   async login(data) {
     try {
-      const result = await axios.post(`${this.url}/sign-in`, data, {
+      console.log(this.url, "this.url")
+      const result = await axios.post(`${this.url}sign-in`, data, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json', 
@@ -32,7 +33,7 @@ class Authentication {
 
   async signup(data) {
     try {
-      const result = await axios.post(`${this.url}/sign-up`, data, {
+      const result = await axios.post(`${this.url}sign-up`, data, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -56,7 +57,7 @@ class Authentication {
 
   async VerifyAuth(){
     try {
-      const result = await axios.get(`${this.url}/verify-auth`,{
+      const result = await axios.get(`${this.url}verify-auth`,{
         withCredentials: true
       })
       return result
@@ -75,7 +76,7 @@ class Authentication {
 
   async Logout(){
     try {
-      const result = await axios.get(`${this.url}/logout`,{
+      const result = await axios.get(`${this.url}logout`,{
         withCredentials: true
       })
       return result
@@ -95,6 +96,6 @@ class Authentication {
 
 }
 
-const auth = new Authentication('https://jobrozgaar-com-server.onrender.com/');
+const auth = new Authentication('https://jobrozgaar-com-server.onrender.com');
 
 export default auth;
